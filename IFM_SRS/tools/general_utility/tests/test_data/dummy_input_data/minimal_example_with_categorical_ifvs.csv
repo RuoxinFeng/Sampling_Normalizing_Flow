@@ -1,0 +1,11 @@
+This is a header line.
+Some more information
+Export timestamp: 03/07/2023 09:39:55 UTC+0
+Metadata: a
+
+session_id,Column_1 1234567,Column_2 23456789,another_column
+invalid1,a,b,c
+invalid2,d,e,f
+invalid3,d,b,c
+invalid4,a,b,c
+s_id,a,b,c

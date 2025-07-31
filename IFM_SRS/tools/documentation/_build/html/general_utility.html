@@ -1,0 +1,806 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>general_utility package &#8212; Model Fits Tools  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'general_utility';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Model Fits Tools  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/general_utility.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>general_utility package</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-general_utility">Module contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general_utility.custom_eval.evaluate_formula"><code class="docutils literal notranslate"><span class="pre">evaluate_formula()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general_utility.extract_columns.get_columns_with_IFVs"><code class="docutils literal notranslate"><span class="pre">get_columns_with_IFVs()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general_utility.extract_columns.get_columns_with_SPVs"><code class="docutils literal notranslate"><span class="pre">get_columns_with_SPVs()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general_utility.helpers.InputData"><code class="docutils literal notranslate"><span class="pre">InputData</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#general_utility.helpers.InputData.df"><code class="docutils literal notranslate"><span class="pre">InputData.df</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#general_utility.helpers.InputData.timestamp_export"><code class="docutils literal notranslate"><span class="pre">InputData.timestamp_export</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#general_utility.helpers.InputData.timestamp_input_data"><code class="docutils literal notranslate"><span class="pre">InputData.timestamp_input_data</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#general_utility.helpers.InputData.total_failure_info"><code class="docutils literal notranslate"><span class="pre">InputData.total_failure_info</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general_utility.helpers._detect_marginal_categorical_ifv_occurrences"><code class="docutils literal notranslate"><span class="pre">_detect_marginal_categorical_ifv_occurrences()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general_utility.helpers.display_dataframe"><code class="docutils literal notranslate"><span class="pre">display_dataframe()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general_utility.helpers.display_markdown"><code class="docutils literal notranslate"><span class="pre">display_markdown()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general_utility.helpers.format_data"><code class="docutils literal notranslate"><span class="pre">format_data()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general_utility.helpers.get_now_string"><code class="docutils literal notranslate"><span class="pre">get_now_string()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general_utility.helpers.print_and_align"><code class="docutils literal notranslate"><span class="pre">print_and_align()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general_utility.helpers.provide_formula_with_all_entries"><code class="docutils literal notranslate"><span class="pre">provide_formula_with_all_entries()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general_utility.helpers.read_and_verify_csv_data"><code class="docutils literal notranslate"><span class="pre">read_and_verify_csv_data()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general_utility.helpers.round_output"><code class="docutils literal notranslate"><span class="pre">round_output()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general_utility.helpers.translate_categorical_intervals"><code class="docutils literal notranslate"><span class="pre">translate_categorical_intervals()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general_utility.helpers.validate_timestamp_format"><code class="docutils literal notranslate"><span class="pre">validate_timestamp_format()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general_utility.srs_dependent_formatting_schema.FormattingModel"><code class="docutils literal notranslate"><span class="pre">FormattingModel</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#general_utility.srs_dependent_formatting_schema.FormattingModel.Config"><code class="docutils literal notranslate"><span class="pre">FormattingModel.Config</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#general_utility.srs_dependent_formatting_schema.FormattingModel.Config.extra"><code class="docutils literal notranslate"><span class="pre">FormattingModel.Config.extra</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#general_utility.srs_dependent_formatting_schema.FormattingModel.validate_json_structure"><code class="docutils literal notranslate"><span class="pre">FormattingModel.validate_json_structure()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#general_utility.srs_dependent_formatting_schema.FormattingModel.validate_srs_names"><code class="docutils literal notranslate"><span class="pre">FormattingModel.validate_srs_names()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="general-utility-package">
+<h1>general_utility package<a class="headerlink" href="#general-utility-package" title="Permalink to this heading">#</a></h1>
+<section id="module-general_utility">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-general_utility" title="Permalink to this heading">#</a></h2>
+<span class="target" id="module-general_utility.custom_eval"></span><dl class="py function">
+<dt class="sig sig-object py" id="general_utility.custom_eval.evaluate_formula">
+<span class="sig-prename descclassname"><span class="pre">general_utility.custom_eval.</span></span><span class="sig-name descname"><span class="pre">evaluate_formula</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">formula</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subscriptable_dict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="reference internal" href="_modules/general_utility/custom_eval.html#evaluate_formula"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#general_utility.custom_eval.evaluate_formula" title="Permalink to this definition">#</a></dt>
+<dd><p>Evaluates a python expression that is defined in a string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>formula</strong> (<em>str</em>) – The expression to be evaluated.</p></li>
+<li><p><strong>subscriptable_dict</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em><em>, </em><em>optional</em>) – A dictionary containing a mapping of strings (as used in the <cite>formula</cite>) to corresponding python objects.
+Example: For the formula “df[‘column’] * 2”, this dictionary needs to map the string “df” to a
+pd.DataFrame that includes the column to be used in this calculation.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The result of the evaluation.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Any</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ValueError</strong> – If the formula includes multiple comparisons (e.g. “1 &lt; a &lt; 2”).</p></li>
+<li><p><strong>ValueError</strong> – If the formula includes an unknown operation.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">evaluate_formula</span><span class="p">(</span><span class="s2">&quot;1+1&quot;</span><span class="p">)</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">evaluate_formula</span><span class="p">(</span><span class="s2">&quot;a[0]+1&quot;</span><span class="p">,</span> <span class="n">subscriptable_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="n">a</span><span class="p">})</span>
+<span class="go">2</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<span class="target" id="module-general_utility.extract_columns"></span><dl class="py function">
+<dt class="sig sig-object py" id="general_utility.extract_columns.get_columns_with_IFVs">
+<span class="sig-prename descclassname"><span class="pre">general_utility.extract_columns.</span></span><span class="sig-name descname"><span class="pre">get_columns_with_IFVs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/general_utility/extract_columns.html#get_columns_with_IFVs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#general_utility.extract_columns.get_columns_with_IFVs" title="Permalink to this definition">#</a></dt>
+<dd><p>Extracts all column names that include an IFV from a DataFrame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>df</strong> (<em>pd.DataFrame</em>) – The DataFrame whose columns should be extracted.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The list of column names that include an IFV.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="general_utility.extract_columns.get_columns_with_SPVs">
+<span class="sig-prename descclassname"><span class="pre">general_utility.extract_columns.</span></span><span class="sig-name descname"><span class="pre">get_columns_with_SPVs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/general_utility/extract_columns.html#get_columns_with_SPVs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#general_utility.extract_columns.get_columns_with_SPVs" title="Permalink to this definition">#</a></dt>
+<dd><p>Extracts all column names that include an SPV from a DataFrame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>df</strong> (<em>pd.DataFrame</em>) – The DataFrame whose columns should be extracted.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The list of column names that include an SPV.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<span class="target" id="module-general_utility.helpers"></span><dl class="py class">
+<dt class="sig sig-object py" id="general_utility.helpers.InputData">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">general_utility.helpers.</span></span><span class="sig-name descname"><span class="pre">InputData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp_input_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp_export</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_failure_info</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">TotalFailureInfo</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/general_utility/helpers.html#InputData"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#general_utility.helpers.InputData" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A wrapper containing information about a read csv file.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="general_utility.helpers.InputData.df">
+<span class="sig-name descname"><span class="pre">df</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">DataFrame</span></em><a class="headerlink" href="#general_utility.helpers.InputData.df" title="Permalink to this definition">#</a></dt>
+<dd><p>The content of the csv file.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="general_utility.helpers.InputData.timestamp_export">
+<span class="sig-name descname"><span class="pre">timestamp_export</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#general_utility.helpers.InputData.timestamp_export" title="Permalink to this definition">#</a></dt>
+<dd><p>The timestamp when the data was read.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="general_utility.helpers.InputData.timestamp_input_data">
+<span class="sig-name descname"><span class="pre">timestamp_input_data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#general_utility.helpers.InputData.timestamp_input_data" title="Permalink to this definition">#</a></dt>
+<dd><p>The timestamp when the csv file was created (if it is documented in the header).
+This timestamp will be present if the file was generated by IFAT.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="general_utility.helpers.InputData.total_failure_info">
+<span class="sig-name descname"><span class="pre">total_failure_info</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">TotalFailureInfo</span></em><a class="headerlink" href="#general_utility.helpers.InputData.total_failure_info" title="Permalink to this definition">#</a></dt>
+<dd><p>Information about total failures of a sensor in the input data.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="general_utility.helpers._detect_marginal_categorical_ifv_occurrences">
+<span class="sig-prename descclassname"><span class="pre">general_utility.helpers.</span></span><span class="sig-name descname"><span class="pre">_detect_marginal_categorical_ifv_occurrences</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_occurrences_threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">design_specification_filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/general_utility/helpers.html#_detect_marginal_categorical_ifv_occurrences"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#general_utility.helpers._detect_marginal_categorical_ifv_occurrences" title="Permalink to this definition">#</a></dt>
+<dd><p>Raises a warning whenever a categorical IFV has values that occur n_occurrences or less times in the dataframe df. There is the option to provide a design specification file which has to have the form of an IFAT decoder config file. The file should be located at &lt;cwd&gt;/design_specification/&lt;filename&gt;.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="general_utility.helpers.display_dataframe">
+<span class="sig-prename descclassname"><span class="pre">general_utility.helpers.</span></span><span class="sig-name descname"><span class="pre">display_dataframe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">display_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style_properties</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">table_styles</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/general_utility/helpers.html#display_dataframe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#general_utility.helpers.display_dataframe" title="Permalink to this definition">#</a></dt>
+<dd><p>Displays a dataframe in a jupyter notebook as a table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pd.DataFrame</em>) – The DataFrame to be displayed.</p></li>
+<li><p><strong>display_index</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether the index of the DataFrame should be displayed as well.</p></li>
+<li><p><strong>style_properties</strong> (<em>Dict</em><em>[</em><em>str</em><em>,</em><em>Any</em><em>]</em><em>, </em><em>optional</em>) – Additional properties to be passed to df.style.set_properties.</p></li>
+<li><p><strong>table_styles</strong> (<em>List</em><em>[</em><em>Dict</em><em>[</em><em>str</em><em>,</em><em>Any</em><em>]</em><em>]</em><em>, </em><em>optional</em>) – Additional styles to be passed to df.style.set_table_styles.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="general_utility.helpers.display_markdown">
+<span class="sig-prename descclassname"><span class="pre">general_utility.helpers.</span></span><span class="sig-name descname"><span class="pre">display_markdown</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">font_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/general_utility/helpers.html#display_markdown"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#general_utility.helpers.display_markdown" title="Permalink to this definition">#</a></dt>
+<dd><p>Displays a string in a jupyter notebook as a markdown.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>text</strong> (<em>str</em>) – The string to be displayed.</p></li>
+<li><p><strong>font_size</strong> (<em>int</em>) – The size in which the string should be displayed (in pt).</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="general_utility.helpers.format_data">
+<span class="sig-prename descclassname"><span class="pre">general_utility.helpers.</span></span><span class="sig-name descname"><span class="pre">format_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">srs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">SRSFormattingCategories</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clean_column_names</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="reference internal" href="_modules/general_utility/helpers.html#format_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#general_utility.helpers.format_data" title="Permalink to this definition">#</a></dt>
+<dd><p>Format a dataframe based one rules defined in a json file in the srs_dependent_formatting folder.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pd.DataFrame</em>) – The DataFrame to be formatted.</p></li>
+<li><p><strong>srs</strong> (<em>SRSFormattingCategories</em>) – The srs, whose formatting should be applied.</p></li>
+<li><p><strong>clean_column_names</strong> (<em>bool</em>) – <dl class="simple">
+<dt>Whether the following characters in the column names should be replaced:</dt><dd><ul>
+<li><p>blank spaces by underscores (_)</p></li>
+<li><p>dashes (-) and brackets  removed</p></li>
+</ul>
+</dd>
+</dl>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The formatted dataframe.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <cite>srs`is not a member of `SRSFormattingCategories</cite>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="general_utility.helpers.get_now_string">
+<span class="sig-prename descclassname"><span class="pre">general_utility.helpers.</span></span><span class="sig-name descname"><span class="pre">get_now_string</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/general_utility/helpers.html#get_now_string"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#general_utility.helpers.get_now_string" title="Permalink to this definition">#</a></dt>
+<dd><p>Generates the current timestamp in the format “dd/mm/YYYY HH:MM:SS”.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The current timestamp.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="general_utility.helpers.print_and_align">
+<span class="sig-prename descclassname"><span class="pre">general_utility.helpers.</span></span><span class="sig-name descname"><span class="pre">print_and_align</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dict_to_print</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/general_utility/helpers.html#print_and_align"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#general_utility.helpers.print_and_align" title="Permalink to this definition">#</a></dt>
+<dd><p>Prints strings in an aligned matter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dict_to_print</strong> (<em>Dict</em>) – The dictionary of values to be printed. The keys will be printed in a left column and the values in a right column.</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">print_and_align</span><span class="p">({</span><span class="s2">&quot;One thing to print&quot;</span><span class="p">:</span> <span class="s2">&quot;short&quot;</span><span class="p">,</span> <span class="s2">&quot;Another one&quot;</span><span class="p">:</span> <span class="s2">&quot;A long thing&quot;</span><span class="p">})</span>
+<span class="go">    One thing to print: short</span>
+<span class="go">    Another one       : A long thing</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="general_utility.helpers.provide_formula_with_all_entries">
+<span class="sig-prename descclassname"><span class="pre">general_utility.helpers.</span></span><span class="sig-name descname"><span class="pre">provide_formula_with_all_entries</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">list_of_SPV</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_SPV</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">list_of_IFV</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/general_utility/helpers.html#provide_formula_with_all_entries"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#general_utility.helpers.provide_formula_with_all_entries" title="Permalink to this definition">#</a></dt>
+<dd><p>Generates a <cite>patsy</cite> style formula to model an SPV as a linear combination of all IFVs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>list_of_SPV</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – A list of all possible SPVs.</p></li>
+<li><p><strong>index_SPV</strong> (<em>int</em>) – The index in <cite>list_of_SPV</cite> corresponding to the SPV that should be explained.</p></li>
+<li><p><strong>list_of_IFV</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – The list of all IFV to be used in the formula.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The formula to model the SPV as a linear combination of all IFVs according to the <cite>patsy</cite> style.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <cite>index_SPV</cite> does not exist in <cite>list_of_SPV</cite></p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">provide_formula_with_all_entries</span><span class="p">([</span><span class="s2">&quot;SPV_1&quot;</span><span class="p">,</span> <span class="s2">&quot;SPV_2&quot;</span><span class="p">],</span> <span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;IFV_1&quot;</span><span class="p">,</span> <span class="s2">&quot;IFV_2&quot;</span><span class="p">])</span>
+<span class="go">&quot;&#39;SPV_2 ~ &#39;\n&#39;IFV_1 + &#39; \n&#39;IFV_2&#39;&quot;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="general_utility.helpers.read_and_verify_csv_data">
+<span class="sig-prename descclassname"><span class="pre">general_utility.helpers.</span></span><span class="sig-name descname"><span class="pre">read_and_verify_csv_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">perform_ifv_coverage_check</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_occurrences_ifv_coverage_check</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">design_specification_filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invalid_sessions_spec</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">InvalidSessionsSpec</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header_lines</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#general_utility.helpers.InputData" title="general_utility.helpers.InputData"><span class="pre">InputData</span></a></span></span><a class="reference internal" href="_modules/general_utility/helpers.html#read_and_verify_csv_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#general_utility.helpers.read_and_verify_csv_data" title="Permalink to this definition">#</a></dt>
+<dd><p>Reads a csv file and outputs the timestamp when the file was generated (if it was generated by IFAT).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<em>str</em>) – The relative path to the file to be read.</p></li>
+<li><p><strong>perform_ifv_coverage_check</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether the function should check for values in IFVs that are only observed in a few sessions.</p></li>
+<li><p><strong>min_occurrences_ifv_coverage_check</strong> (<em>int</em><em>, </em><em>optional</em>) – The minimum number of sessions that each IFV value should be observed in. Any value that only exists
+in less or equal to this number of sessions will result in a warning if <cite>perform_ifv_coverage_check</cite> is True.</p></li>
+<li><p><strong>design_specification_filename</strong> (<em>str</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – The filename of a test design specification. This file can be used to find IFV values that are not observed
+in the data and raise a warning.</p></li>
+<li><p><strong>invalid_sessions_spec</strong> (<a class="reference internal" href="remove_invalid_sessions.html#remove_invalid_sessions.remove_invalid_sessions.InvalidSessionsSpec" title="remove_invalid_sessions.remove_invalid_sessions.InvalidSessionsSpec"><em>InvalidSessionsSpec</em></a><em> or </em><em>None</em><em>, </em><em>optional</em>) – An object containing specifications about the files that define which sessions need to be removed.</p></li>
+<li><p><strong>header_lines</strong> (<em>int</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – The number of header lines that need to be skipped when reading the file.
+If the file was generated by IFAT, this parameter does not need to be provided.</p></li>
+<li><p><strong>**kwargs</strong> (<em>dict</em><em>, </em><em>optional</em>) – Extra arguments to be passed to <cite>pd.read_csv</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A wrapper containing the read DataFrame, the timestamp when the input data was created and
+the timestamp when this function was executed.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#general_utility.helpers.InputData" title="general_utility.helpers.InputData">InputData</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="general_utility.helpers.round_output">
+<span class="sig-prename descclassname"><span class="pre">general_utility.helpers.</span></span><span class="sig-name descname"><span class="pre">round_output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value_before_rounding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nr_of_digits_after_comma</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">12</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="reference internal" href="_modules/general_utility/helpers.html#round_output"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#general_utility.helpers.round_output" title="Permalink to this definition">#</a></dt>
+<dd><p>Rounds a value to a desired number of digits after the comma.
+This function is used to ensure that the resulting models are the same on different operating systems.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value_before_rounding</strong> (<em>Any</em>) – The value to be rounded.</p></li>
+<li><p><strong>nr_of_digits_after_comma</strong> (<em>int</em><em> or </em><em>None</em>) – The desired number of digits after the comma after rounding. If <cite>None</cite> is provided, no rounding will be applied.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The rounded value.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Any</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">round_output</span><span class="p">(</span><span class="mf">1.11111</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">1.11</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">round_output</span><span class="p">([</span><span class="mf">1.11111</span><span class="p">,</span><span class="mf">2.22222</span><span class="p">],</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">[1.11,2.22]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">round_output</span><span class="p">(</span><span class="mf">1.11111</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="go">1.11111</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="general_utility.helpers.translate_categorical_intervals">
+<span class="sig-prename descclassname"><span class="pre">general_utility.helpers.</span></span><span class="sig-name descname"><span class="pre">translate_categorical_intervals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column_names</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="reference internal" href="_modules/general_utility/helpers.html#translate_categorical_intervals"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#general_utility.helpers.translate_categorical_intervals" title="Permalink to this definition">#</a></dt>
+<dd><p>Translates categorical intervals like (0.5, 1.0] to ‘from 0.5 to 1.0’, since the parenthesis
+would cause problems with <cite>patsy</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pd.DataFrame</em>) – The DataFrame whose values should be translated.</p></li>
+<li><p><strong>column_names</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – The names of the columns of <cite>df</cite>, whose values should be translated.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The formatted DataFrame.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="general_utility.helpers.validate_timestamp_format">
+<span class="sig-prename descclassname"><span class="pre">general_utility.helpers.</span></span><span class="sig-name descname"><span class="pre">validate_timestamp_format</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timestamp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expected_format</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'%d/%m/%Y</span> <span class="pre">%H:%M:%S'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/general_utility/helpers.html#validate_timestamp_format"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#general_utility.helpers.validate_timestamp_format" title="Permalink to this definition">#</a></dt>
+<dd><p>Checks if a timestamp satisfies a given format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>timestamp</strong> (<em>str</em><em> or </em><em>None</em>) – The timestamp to be checked.</p></li>
+<li><p><strong>expected_format</strong> (<em>str</em><em>, </em><em>optional</em>) – The format the timestamp should be checked against.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Whether the timestamp is in the desired format.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">validate_timestamp_format</span><span class="p">(</span><span class="s2">&quot;11/11/2011 11:11:11&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2">/%m/%Y %H:%M:%S&quot;</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<span class="target" id="module-general_utility.srs_dependent_formatting_schema"></span><dl class="py class">
+<dt class="sig sig-object py" id="general_utility.srs_dependent_formatting_schema.FormattingModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">general_utility.srs_dependent_formatting_schema.</span></span><span class="sig-name descname"><span class="pre">FormattingModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">extra_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/general_utility/srs_dependent_formatting_schema.html#FormattingModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#general_utility.srs_dependent_formatting_schema.FormattingModel" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="general_utility.srs_dependent_formatting_schema.FormattingModel.Config">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Config</span></span><a class="reference internal" href="_modules/general_utility/srs_dependent_formatting_schema.html#FormattingModel.Config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#general_utility.srs_dependent_formatting_schema.FormattingModel.Config" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="general_utility.srs_dependent_formatting_schema.FormattingModel.Config.extra">
+<span class="sig-name descname"><span class="pre">extra</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'allow'</span></em><a class="headerlink" href="#general_utility.srs_dependent_formatting_schema.FormattingModel.Config.extra" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="general_utility.srs_dependent_formatting_schema.FormattingModel.validate_json_structure">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">validate_json_structure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/general_utility/srs_dependent_formatting_schema.html#FormattingModel.validate_json_structure"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#general_utility.srs_dependent_formatting_schema.FormattingModel.validate_json_structure" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="general_utility.srs_dependent_formatting_schema.FormattingModel.validate_srs_names">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">validate_srs_names</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/general_utility/srs_dependent_formatting_schema.html#FormattingModel.validate_srs_names"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#general_utility.srs_dependent_formatting_schema.FormattingModel.validate_srs_names" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-general_utility">Module contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general_utility.custom_eval.evaluate_formula"><code class="docutils literal notranslate"><span class="pre">evaluate_formula()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general_utility.extract_columns.get_columns_with_IFVs"><code class="docutils literal notranslate"><span class="pre">get_columns_with_IFVs()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general_utility.extract_columns.get_columns_with_SPVs"><code class="docutils literal notranslate"><span class="pre">get_columns_with_SPVs()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general_utility.helpers.InputData"><code class="docutils literal notranslate"><span class="pre">InputData</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#general_utility.helpers.InputData.df"><code class="docutils literal notranslate"><span class="pre">InputData.df</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#general_utility.helpers.InputData.timestamp_export"><code class="docutils literal notranslate"><span class="pre">InputData.timestamp_export</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#general_utility.helpers.InputData.timestamp_input_data"><code class="docutils literal notranslate"><span class="pre">InputData.timestamp_input_data</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#general_utility.helpers.InputData.total_failure_info"><code class="docutils literal notranslate"><span class="pre">InputData.total_failure_info</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general_utility.helpers._detect_marginal_categorical_ifv_occurrences"><code class="docutils literal notranslate"><span class="pre">_detect_marginal_categorical_ifv_occurrences()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general_utility.helpers.display_dataframe"><code class="docutils literal notranslate"><span class="pre">display_dataframe()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general_utility.helpers.display_markdown"><code class="docutils literal notranslate"><span class="pre">display_markdown()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general_utility.helpers.format_data"><code class="docutils literal notranslate"><span class="pre">format_data()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general_utility.helpers.get_now_string"><code class="docutils literal notranslate"><span class="pre">get_now_string()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general_utility.helpers.print_and_align"><code class="docutils literal notranslate"><span class="pre">print_and_align()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general_utility.helpers.provide_formula_with_all_entries"><code class="docutils literal notranslate"><span class="pre">provide_formula_with_all_entries()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general_utility.helpers.read_and_verify_csv_data"><code class="docutils literal notranslate"><span class="pre">read_and_verify_csv_data()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general_utility.helpers.round_output"><code class="docutils literal notranslate"><span class="pre">round_output()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general_utility.helpers.translate_categorical_intervals"><code class="docutils literal notranslate"><span class="pre">translate_categorical_intervals()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general_utility.helpers.validate_timestamp_format"><code class="docutils literal notranslate"><span class="pre">validate_timestamp_format()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general_utility.srs_dependent_formatting_schema.FormattingModel"><code class="docutils literal notranslate"><span class="pre">FormattingModel</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#general_utility.srs_dependent_formatting_schema.FormattingModel.Config"><code class="docutils literal notranslate"><span class="pre">FormattingModel.Config</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#general_utility.srs_dependent_formatting_schema.FormattingModel.Config.extra"><code class="docutils literal notranslate"><span class="pre">FormattingModel.Config.extra</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#general_utility.srs_dependent_formatting_schema.FormattingModel.validate_json_structure"><code class="docutils literal notranslate"><span class="pre">FormattingModel.validate_json_structure()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#general_utility.srs_dependent_formatting_schema.FormattingModel.validate_srs_names"><code class="docutils literal notranslate"><span class="pre">FormattingModel.validate_srs_names()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Team Kepler
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, Bayerische Motoren Werke Aktiengesellschaft (BMW AG).
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

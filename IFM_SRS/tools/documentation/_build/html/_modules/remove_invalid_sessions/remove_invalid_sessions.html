@@ -1,0 +1,529 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>remove_invalid_sessions.remove_invalid_sessions &#8212; Model Fits Tools  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/remove_invalid_sessions/remove_invalid_sessions';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Model Fits Tools  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <h1>Source code for remove_invalid_sessions.remove_invalid_sessions</h1><div class="highlight"><pre>
+<span></span><span class="c1">#</span>
+<span class="c1"># Copyright (C) 2023-2024, Bayerische Motoren Werke Aktiengesellschaft (BMW AG)</span>
+<span class="c1">#</span>
+
+
+<span class="c1"># ------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="c1"># With this module, it should be possible to remove invalid sessions.</span>
+<span class="c1"># To do this, a SRS and the sensor names of interest have to be provided.</span>
+<span class="c1"># Each srs has its own jsons of invalid sessions from the individual sensors.</span>
+<span class="c1"># Optionally, you can specify the reasons_to_remove parameter to remove any of the session types &quot;degraded_sessions&quot;,</span>
+<span class="c1"># &quot;invalid_sessions&quot; or &quot;total_failure_sessions&quot; instead of removing all types (default).</span>
+<span class="c1"># ------------------------------------------------------------------------------------------------------------------------------------------------</span>
+
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+<span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span>
+<span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Markdown</span><span class="p">,</span> <span class="n">display</span>
+<span class="kn">from</span> <span class="nn">tools.remove_invalid_sessions.invalid_sessions_schema</span> <span class="kn">import</span> <span class="n">InvalidSession</span>
+
+
+<div class="viewcode-block" id="ReasonsToRemove"><a class="viewcode-back" href="../../remove_invalid_sessions.html#remove_invalid_sessions.remove_invalid_sessions.ReasonsToRemove">[docs]</a><span class="k">class</span> <span class="nc">ReasonsToRemove</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">Enum</span><span class="p">):</span>
+    <span class="n">DegradedSessions</span> <span class="o">=</span> <span class="s2">&quot;degraded_sessions&quot;</span>
+    <span class="n">InvalidSessions</span> <span class="o">=</span> <span class="s2">&quot;invalid_sessions&quot;</span>
+    <span class="n">TotalFailureSessions</span> <span class="o">=</span> <span class="s2">&quot;total_failure_sessions&quot;</span></div>
+
+
+<div class="viewcode-block" id="SRS"><a class="viewcode-back" href="../../remove_invalid_sessions.html#remove_invalid_sessions.remove_invalid_sessions.SRS">[docs]</a><span class="k">class</span> <span class="nc">SRS</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">Enum</span><span class="p">):</span>
+    <span class="n">SRS04</span> <span class="o">=</span> <span class="s2">&quot;SRS04&quot;</span>
+    <span class="n">SRS06</span> <span class="o">=</span> <span class="s2">&quot;SRS06&quot;</span>
+    <span class="n">SRS08</span> <span class="o">=</span> <span class="s2">&quot;SRS08&quot;</span>
+    <span class="n">SRS11_MV</span> <span class="o">=</span> <span class="s2">&quot;SRS11_MV&quot;</span>
+    <span class="n">SRS11_ST</span> <span class="o">=</span> <span class="s2">&quot;SRS11_ST&quot;</span>
+    <span class="n">SRS12</span> <span class="o">=</span> <span class="s2">&quot;SRS12&quot;</span>
+    <span class="n">SRS16</span> <span class="o">=</span> <span class="s2">&quot;SRS16&quot;</span></div>
+
+
+<div class="viewcode-block" id="InvalidSessionsSpec"><a class="viewcode-back" href="../../remove_invalid_sessions.html#remove_invalid_sessions.remove_invalid_sessions.InvalidSessionsSpec">[docs]</a><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">InvalidSessionsSpec</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A wrapper containing information about files that specify which sessions need to be removed from the input data.&quot;&quot;&quot;</span>
+
+    <span class="n">srs</span><span class="p">:</span> <span class="n">SRS</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The SRS that is analyzed.&quot;&quot;&quot;</span>
+    <span class="n">sensor_names</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;List of sensors whose invalid sessions should be removed.&quot;&quot;&quot;</span>
+    <span class="n">reasons_to_remove</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">ReasonsToRemove</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span>
+        <span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="p">[</span>
+            <span class="n">ReasonsToRemove</span><span class="o">.</span><span class="n">DegradedSessions</span><span class="p">,</span>
+            <span class="n">ReasonsToRemove</span><span class="o">.</span><span class="n">InvalidSessions</span><span class="p">,</span>
+            <span class="n">ReasonsToRemove</span><span class="o">.</span><span class="n">TotalFailureSessions</span><span class="p">,</span>
+        <span class="p">]</span>
+    <span class="p">)</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;List of reasons why certain sessions should be removed.&quot;&quot;&quot;</span>
+    <span class="n">file_prefix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;File prefix of invalid sessions jsons.&quot;&quot;&quot;</span></div>
+
+
+<div class="viewcode-block" id="TotalFailureInfo"><a class="viewcode-back" href="../../remove_invalid_sessions.html#remove_invalid_sessions.remove_invalid_sessions.TotalFailureInfo">[docs]</a><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">TotalFailureInfo</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A wrapper containing information about total failures of a sensor in the input data.&quot;&quot;&quot;</span>
+
+    <span class="n">posterior_total_failure_probability</span><span class="p">:</span> <span class="nb">float</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The posterior probability of a total failure of the sensor with a uniform prior.&quot;&quot;&quot;</span>
+    <span class="n">observed_total_failures</span><span class="p">:</span> <span class="nb">int</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The number of total failures of the sensor observed in the input data.&quot;&quot;&quot;</span></div>
+
+
+<span class="k">def</span> <span class="nf">_open_and_validate_file</span><span class="p">(</span>
+    <span class="n">srs</span><span class="p">:</span> <span class="n">SRS</span><span class="p">,</span> <span class="n">reason_to_remove</span><span class="p">:</span> <span class="n">ReasonsToRemove</span><span class="p">,</span> <span class="n">file_prefix</span><span class="p">:</span> <span class="nb">str</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]]:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="s2">&quot;sessions_to_exclude&quot;</span><span class="p">,</span> <span class="n">srs</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">file_prefix</span><span class="si">}{</span><span class="n">reason_to_remove</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">.json&quot;</span><span class="p">)</span>
+    <span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="n">InvalidSession</span><span class="p">(</span><span class="o">**</span><span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)))</span>
+
+
+<span class="k">def</span> <span class="nf">_check_for_duplicate_sessions</span><span class="p">(</span><span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">duplicates</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;session_id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()</span>
+    <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">duplicates</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Duplicates of the following session IDs exist in the dataframe: </span><span class="si">{</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">duplicates</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;session_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No duplicate sessions detected in the dataframe.&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_check_for_duplicate_ids_in_total_failure_sessions</span><span class="p">(</span><span class="n">srs</span><span class="p">:</span> <span class="n">SRS</span><span class="p">,</span> <span class="n">file_prefix</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">invalid_sessions</span> <span class="o">=</span> <span class="n">_open_and_validate_file</span><span class="p">(</span>
+        <span class="n">srs</span><span class="o">=</span><span class="n">srs</span><span class="p">,</span> <span class="n">reason_to_remove</span><span class="o">=</span><span class="n">ReasonsToRemove</span><span class="o">.</span><span class="n">TotalFailureSessions</span><span class="p">,</span> <span class="n">file_prefix</span><span class="o">=</span><span class="n">file_prefix</span>
+    <span class="p">)</span>
+    <span class="n">ids</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="nb">set</span><span class="p">([</span><span class="nb">id</span> <span class="k">for</span> <span class="n">category</span> <span class="ow">in</span> <span class="n">sensor</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">for</span> <span class="nb">id</span> <span class="ow">in</span> <span class="n">category</span><span class="p">[</span><span class="s2">&quot;value&quot;</span><span class="p">]])</span> <span class="k">for</span> <span class="n">sensor</span> <span class="ow">in</span> <span class="n">invalid_sessions</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+    <span class="p">]</span>
+    <span class="n">ids_count</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="nb">id</span> <span class="k">for</span> <span class="nb">set</span> <span class="ow">in</span> <span class="n">ids</span> <span class="k">for</span> <span class="nb">id</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">)</span>
+    <span class="n">common_ids</span> <span class="o">=</span> <span class="p">[</span><span class="nb">id</span> <span class="k">for</span> <span class="nb">id</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">ids_count</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">count</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">common_ids</span><span class="p">:</span>
+        <span class="n">ids_str</span> <span class="o">=</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">common_ids</span><span class="p">))</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Correlated Total Failures detected. Please urgently contact Stanislav Braun, Moritz Werling or Felix Modes for deeper investigation. Affected sessions:&lt;br&gt;</span><span class="si">{</span><span class="n">ids_str</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;**&lt;span style=&#39;background-color: red&#39;&gt;</span><span class="si">{</span><span class="n">text</span><span class="si">}</span><span class="s2">&lt;/span&gt;**&quot;</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No duplicate session ids detected in total failure sessions file.&quot;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="remove_invalid_sessions"><a class="viewcode-back" href="../../remove_invalid_sessions.html#remove_invalid_sessions.remove_invalid_sessions.remove_invalid_sessions">[docs]</a><span class="k">def</span> <span class="nf">remove_invalid_sessions</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+    <span class="n">spec</span><span class="p">:</span> <span class="n">InvalidSessionsSpec</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">TotalFailureInfo</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Removes invalid sessions (degraded, invalid, total failure) given by json files for the specified SRS and sensors and calculates the posterior total failure probability with a uniform prior and the number of observed total failures.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    df : pd.DataFrame</span>
+<span class="sd">        A dataframe containing IFVs and SPVs with their respective Codebeamer IDs.</span>
+<span class="sd">    spec : InvalidSessionsSpec</span>
+<span class="sd">        An object containing specifications about the files that define which sessions need to be removed.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    pd.DataFrame</span>
+<span class="sd">        The dataframe without the sessions that should be removed.</span>
+<span class="sd">    TotalFailureInfo</span>
+<span class="sd">        Information about the posterior total failure probability and the observed total failures.</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        If &#39;global&#39; is part of the sensor_names list.</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        If duplicates of session ids exist in the DataFrame.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    This function requires a json file per SRS for every ReasonsToRemove in `reasons_to_remove`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">spec</span><span class="o">.</span><span class="n">srs</span><span class="p">,</span> <span class="n">SRS</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;SRS </span><span class="si">{</span><span class="n">spec</span><span class="o">.</span><span class="n">srs</span><span class="si">}</span><span class="s2"> has to be a member of the SRS Enum.&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">reason</span><span class="p">,</span> <span class="n">ReasonsToRemove</span><span class="p">)</span> <span class="k">for</span> <span class="n">reason</span> <span class="ow">in</span> <span class="n">spec</span><span class="o">.</span><span class="n">reasons_to_remove</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Reasons to remove </span><span class="si">{</span><span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="n">reason</span><span class="p">:</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nb">isinstance</span><span class="p">(</span><span class="n">reason</span><span class="p">,</span><span class="n">ReasonsToRemove</span><span class="p">),</span><span class="n">spec</span><span class="o">.</span><span class="n">reasons_to_remove</span><span class="p">))</span><span class="si">}</span><span class="s2"> have to be a member of the ReasonsToRemove Enum.&quot;</span>
+        <span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">spec</span><span class="o">.</span><span class="n">sensor_names</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;sensor_names parameter </span><span class="si">{</span><span class="n">spec</span><span class="o">.</span><span class="n">sensor_names</span><span class="si">}</span><span class="s2"> is not a valid list&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;global&quot;</span> <span class="ow">in</span> <span class="n">spec</span><span class="o">.</span><span class="n">sensor_names</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;&#39;global&#39; invalid sessions get removed by default. Please only provide additional sensors whose invalid sessions should be removed.&quot;</span>
+        <span class="p">)</span>
+    <span class="n">_check_for_duplicate_sessions</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+    <span class="n">_check_for_duplicate_ids_in_total_failure_sessions</span><span class="p">(</span><span class="n">spec</span><span class="o">.</span><span class="n">srs</span><span class="p">,</span> <span class="n">file_prefix</span><span class="o">=</span><span class="n">spec</span><span class="o">.</span><span class="n">file_prefix</span><span class="p">)</span>
+
+    <span class="n">df_copy</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="n">removed_sessions</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">should_removed</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">total_removed</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">for</span> <span class="n">reason_to_remove</span> <span class="ow">in</span> <span class="n">spec</span><span class="o">.</span><span class="n">reasons_to_remove</span><span class="p">:</span>
+        <span class="n">should_removed_per_reason</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">total_removed_per_reason</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">removed_sessions</span><span class="p">[</span><span class="n">reason_to_remove</span><span class="o">.</span><span class="n">value</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="n">sessions_dict</span> <span class="o">=</span> <span class="n">_open_and_validate_file</span><span class="p">(</span>
+            <span class="n">srs</span><span class="o">=</span><span class="n">spec</span><span class="o">.</span><span class="n">srs</span><span class="p">,</span> <span class="n">reason_to_remove</span><span class="o">=</span><span class="n">reason_to_remove</span><span class="p">,</span> <span class="n">file_prefix</span><span class="o">=</span><span class="n">spec</span><span class="o">.</span><span class="n">file_prefix</span>
+        <span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">sensor</span> <span class="ow">in</span> <span class="p">[</span><span class="o">*</span><span class="n">spec</span><span class="o">.</span><span class="n">sensor_names</span><span class="p">,</span> <span class="s2">&quot;global&quot;</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="n">sensor</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">sessions_dict</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">sensor</span> <span class="o">==</span> <span class="s2">&quot;global&quot;</span><span class="p">:</span>
+                    <span class="k">continue</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No </span><span class="si">{</span><span class="n">reason_to_remove</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2"> for sensor </span><span class="si">{</span><span class="n">sensor</span><span class="si">}</span><span class="s2"> defined.&quot;</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">category</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">sessions_dict</span><span class="p">[</span><span class="n">sensor</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+                <span class="n">sessions_to_remove</span> <span class="o">=</span> <span class="n">sessions_dict</span><span class="p">[</span><span class="n">sensor</span><span class="p">][</span><span class="n">category</span><span class="p">][</span><span class="s2">&quot;value&quot;</span><span class="p">]</span>
+                <span class="n">removed_sessions</span><span class="p">[</span><span class="n">reason_to_remove</span><span class="o">.</span><span class="n">value</span><span class="p">][</span><span class="n">category</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span>
+                    <span class="n">df_copy</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_copy</span><span class="p">[</span><span class="s2">&quot;session_id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">sessions_to_remove</span><span class="p">)][</span><span class="s2">&quot;session_id&quot;</span><span class="p">]</span>
+                <span class="p">)</span>
+                <span class="n">df_copy</span> <span class="o">=</span> <span class="n">df_copy</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="n">df_copy</span><span class="p">[</span><span class="s2">&quot;session_id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">sessions_to_remove</span><span class="p">)]</span>
+                <span class="n">should_removed</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sessions_to_remove</span><span class="p">)</span>
+                <span class="n">total_removed</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">removed_sessions</span><span class="p">[</span><span class="n">reason_to_remove</span><span class="o">.</span><span class="n">value</span><span class="p">][</span><span class="n">category</span><span class="p">])</span>
+                <span class="n">should_removed_per_reason</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sessions_to_remove</span><span class="p">)</span>
+                <span class="n">total_removed_per_reason</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">removed_sessions</span><span class="p">[</span><span class="n">reason_to_remove</span><span class="o">.</span><span class="n">value</span><span class="p">][</span><span class="n">category</span><span class="p">])</span>
+
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Removed </span><span class="si">{</span><span class="n">total_removed_per_reason</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">should_removed_per_reason</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">reason_to_remove</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2"> successfully from df.&quot;</span>
+        <span class="p">)</span>
+
+    <span class="c1"># Total failure rate. See https://codebeamer.bmwgroup.net/cb/issue/14717910</span>
+    <span class="n">observed_total_failure_rate_values</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;removed_sessions&quot;</span><span class="p">:</span> <span class="nb">sum</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">l</span><span class="p">)</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">removed_sessions</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">ReasonsToRemove</span><span class="o">.</span><span class="n">TotalFailureSessions</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">()])</span>
+        <span class="k">if</span> <span class="n">removed_sessions</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">ReasonsToRemove</span><span class="o">.</span><span class="n">TotalFailureSessions</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+        <span class="k">else</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="n">observed_total_failure_rate_values</span><span class="p">[</span><span class="s2">&quot;all_sessions&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">df_copy</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">observed_total_failure_rate_values</span><span class="p">[</span><span class="s2">&quot;removed_sessions&quot;</span><span class="p">]</span>
+    <span class="p">)</span>
+    <span class="n">posterior_total_failure_rate_values</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;removed_sessions&quot;</span><span class="p">:</span> <span class="n">observed_total_failure_rate_values</span><span class="p">[</span><span class="s2">&quot;removed_sessions&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;all_sessions&quot;</span><span class="p">:</span> <span class="n">observed_total_failure_rate_values</span><span class="p">[</span><span class="s2">&quot;all_sessions&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="n">posterior_total_failure_rate_values</span><span class="p">[</span><span class="s2">&quot;total_failure_probability&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">posterior_total_failure_rate_values</span><span class="p">[</span><span class="s2">&quot;removed_sessions&quot;</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">posterior_total_failure_rate_values</span><span class="p">[</span><span class="s2">&quot;all_sessions&quot;</span><span class="p">])</span>
+
+    <span class="n">total_failure_info</span> <span class="o">=</span> <span class="n">TotalFailureInfo</span><span class="p">(</span>
+        <span class="n">posterior_total_failure_probability</span><span class="o">=</span><span class="n">posterior_total_failure_rate_values</span><span class="p">[</span><span class="s2">&quot;total_failure_probability&quot;</span><span class="p">],</span>
+        <span class="n">observed_total_failures</span><span class="o">=</span><span class="n">observed_total_failure_rate_values</span><span class="p">[</span><span class="s2">&quot;removed_sessions&quot;</span><span class="p">],</span>
+    <span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Removed a total of </span><span class="si">{</span><span class="n">total_removed</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">should_removed</span><span class="si">}</span><span class="s2"> sessions successfully from df.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dataframe now has </span><span class="si">{</span><span class="n">df_copy</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> entries, had </span><span class="si">{</span><span class="n">df_copy</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">total_removed</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;Following sessions are removed:</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">reason</span><span class="si">}</span><span class="s2"> : </span><span class="si">{</span><span class="n">removed_sessions</span><span class="p">[</span><span class="n">reason</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">reason</span> <span class="ow">in</span> <span class="n">removed_sessions</span><span class="o">.</span><span class="n">keys</span><span class="p">()])</span>
+    <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;Observed total failure rate: </span><span class="si">{</span><span class="n">observed_total_failure_rate_values</span><span class="p">[</span><span class="s1">&#39;removed_sessions&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> per </span><span class="si">{</span><span class="n">observed_total_failure_rate_values</span><span class="p">[</span><span class="s1">&#39;all_sessions&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> sessions.&quot;</span>
+    <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;Posterior total failure probability with uniform prior: </span><span class="si">{</span><span class="n">posterior_total_failure_rate_values</span><span class="p">[</span><span class="s1">&#39;removed_sessions&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> per </span><span class="si">{</span><span class="n">posterior_total_failure_rate_values</span><span class="p">[</span><span class="s1">&#39;all_sessions&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> sessions (</span><span class="si">{</span><span class="n">posterior_total_failure_rate_values</span><span class="p">[</span><span class="s1">&#39;total_failure_probability&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.3%</span><span class="si">}</span><span class="s2">).&quot;</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">df_copy</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;index&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">total_failure_info</span></div>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Team Kepler
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, Bayerische Motoren Werke Aktiengesellschaft (BMW AG).
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

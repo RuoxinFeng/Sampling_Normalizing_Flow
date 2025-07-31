@@ -1,0 +1,21 @@
+Script: Cutout
+"Changes: rerun with replacing tStartCutout with t50perc_overlap changed the filter from ""only neighbor stationary"" to ""target and neighbor stationary"""
+Creation Timestamp: 03072023 09:39:55
+Author: xyz
+Traffic Jam Hours Baseline: 188913
+
+driveId,year,month,day,label_start_time,label_end_time,speedms_ego_at_50perc_overlap,speedms_fveh_at_50perc_overlap,min_speedms_fveh,speedms_bveh_at_50perc_overlap,vdiffms_ego_to_fveh_at_50perc_overlap,vdiffms_fveh_to_bveh_at_50perc_overlap,mean_vEgo_lat_ms_window_at_50_perc_overlap,CutOut_Duration,dist_ego_to_fveh_bumper_m_at_50perc_overlap,accel_ego_ms2_at_50perc_overlap,accel_fveh_ms2_at_50perc_overlap,accel_bveh_ms2_at_50perc_overlap,most_common_front_type,most_common_back_type,Min_TTC_ego_to_fveh_s,min_fveh_dist_side_to_lane_at_startcutout,lat_dist_left_neighbor_at_50perc_overlap,lat_dist_right_neighbor_at_50perc_overlap,lon_speed_ms_left_neighbor_at_50perc_overlap,lon_speed_ms_right_neighbor_at_50perc_overlap,objId_left_neighbor_at_50perc_overlap,objId_right_neighbor_at_50perc_overlap,objType_left_neighbor_at_50perc_overlap,objType_right_neighbor_at_50perc_overlap,obj_length_left_neighbor_at_50perc_overlap,obj_length_right_neighbor_at_50perc_overlap,obj_width_left_neighbor_at_50perc_overlap,obj_width_right_neighbor_at_50perc_overlap,min_lat_dist_left_neighbor,min_lat_dist_right_neighbor,objId_min_lat_dist_left_neighbor,objId_min_lat_dist_right_neighbor,objType_min_lat_dist_left_neighbor,objType_min_lat_dist_right_neighbor
+06895321-e2fe-419a-bea7-107509156dcb_2,2021,8,6,1718891,1727691,,,18.0,,,,,8800,,,,,,,32.34,,,,,,,,,,,,,,1.8729999999999998,,6788,,4,
+25a5ba0e-ebe7-4a62-9015-f7e3f2fdf2d6_1,2023,2,4,8012331,8023731,16.291666666666664,14.938888888888888,13.129999999999999,,1.3527777777777779,,0.34,11400,21.67,-0.28,0.41,,3,,6.782,,,,,,,,,,,,,,4.599,,27095,,4,
+2dab130f-91ed-45bc-b03d-8eef8045aa04_1,2021,9,26,1795371,1799471,9.169444444444444,8.080555555555556,7.9399999999999995,7.8500000000000005,1.0888888888888888,-0.23055555555555554,0.7,4100,11.07,0.26,0.4,0.03,3,,9.488,,,2.94,,7.65,,9618,,3,,4.0,,1.5,2.896,2.9090000000000003,9755,9742,6,3
+3857613f-887e-4cd5-b079-1c8fee3849fe_1,2023,2,4,1132617,1139117,13.044444444444444,17.619444444444444,12.899999999999999,,-4.574999999999999,,0.6,6500,19.04,0.31,0.7,,3,,,,,,,,,,,,,,,,,,,,,
+9fc37f24-5b0f-46e6-baaf-48ed51d1d8bf_1,2021,12,13,848879,856879,4.169444444444444,4.669444444444444,4.1899999999999995,,-0.5,,-0.21,8000,16.38,-0.18,0.5,,3,,337.045,,,,,,,,,,,,,,2.267,,8067,,3,
+a05fc5b8-17b7-4fc5-a24f-f8a29364ab83_2,2022,3,9,947183,953883,,,4.39,,,,,6700,,,,,,,11.798,,,,,,,,,,,,,,,,,,,
+a554c805-75e7-406c-bb22-63373d44eea9_1,2021,10,7,1323194,1332594,17.194444444444443,22.711111111111112,20.0,15.219444444444443,-5.516666666666667,-7.488888888888889,0.22,9400,32.42,0.68,0.57,0.3,3,,,,,,,,,,,,,,,,,,,,,
+ba1b5293-4e8c-4e0c-a269-310f57c26190_1,2022,12,15,2858645,2871145,4.591666666666667,0.7694444444444444,0.0,,3.822222222222222,,-0.83,12500,9.89,0.53,0.0,,,,2.145,,,1.75,,1.0,,18537,,4,,10.78,,2.4,1.6070000000000002,1.065,18537,18638,4,4
+bba17ef9-36c3-42e5-abf9-3b3923a6d4bd_1,2022,7,25,909600,914200,10.89722222222222,8.261111111111111,8.09,,2.636111111111111,,-0.87,4600,11.02,0.34,-0.15,,3,,3.62,,,1.41,,7.47,,5737,,3,,3.78,,1.4,,1.2429999999999999,,5841,,4
+be240b75-2f49-4515-b80d-2be90826a35c_1,2021,8,3,1476258,1481258,,,16.65,,,,,5000,,,,,,3,,,,,,,,,,,,,,,,,,,,
+df685cb8-dfe4-4e61-bb80-d16e4486e5ae_3,2022,5,19,8010033,8031833,,,7.52,,,,,21800,,,,,,3,8.083,,,,,,,,,,,,,,1.8590000000000002,2.4440000000000004,24917,24934,3,4
+e11df7d4-44a2-459b-9d5f-f17defc776cf_1,2022,1,11,1166994,1187094,5.719444444444444,5.038888888888889,2.35,5.730555555555555,0.6805555555555556,0.6888888888888889,0.07,20100,7.25,-0.44,-0.3,0.4,3,,3.086,,,1.71,,2.0,,7146,,4,,7.84,,2.5,,1.4719999999999998,,7145,,4
+ec9c21b6-228c-4574-96c2-27ebd7dc9458_1,2022,9,14,1978051,1989851,5.063888888888889,3.75,2.4699999999999998,,1.3138888888888889,,-0.25,11800,17.01,1.04,0.45,,3,,7.711,,2.29,1.33,9.25,2.0,10242,10068,3,4,3.49,17.42,1.3,2.3,2.271,1.328,10248,10248,4,4
+ed0c934c-8a32-4cdc-930d-84fd029d570b_1,2022,7,3,2072815,2077415,6.944444444444445,4.988888888888889,4.74,,1.9555555555555555,,-0.93,4600,7.73,2.08,0.4,,3,,2.801,,,1.98,,2.97,,4756,,3,,4.2,,1.3,1.625,1.7139999999999995,4798,4798,3,3

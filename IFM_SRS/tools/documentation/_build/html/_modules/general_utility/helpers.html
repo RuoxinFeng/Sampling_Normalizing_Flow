@@ -1,0 +1,781 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>general_utility.helpers &#8212; Model Fits Tools  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/general_utility/helpers';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Model Fits Tools  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <h1>Source code for general_utility.helpers</h1><div class="highlight"><pre>
+<span></span><span class="c1">#</span>
+<span class="c1"># Copyright (C) 2023-2024, Bayerische Motoren Werke Aktiengesellschaft (BMW AG)</span>
+<span class="c1">#</span>
+
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
+<span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">join</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Markdown</span><span class="p">,</span> <span class="n">display</span>
+<span class="kn">from</span> <span class="nn">tools.general_utility.design_specification_model</span> <span class="kn">import</span> <span class="n">DesignSpecificationModel</span>
+<span class="kn">from</span> <span class="nn">tools.general_utility.extract_columns</span> <span class="kn">import</span> <span class="n">get_columns_with_IFVs</span>
+<span class="kn">from</span> <span class="nn">tools.general_utility.srs_dependent_formatting_schema</span> <span class="kn">import</span> <span class="n">FormattingModel</span>
+<span class="kn">from</span> <span class="nn">tools.general_utility.srs_formatting_categories</span> <span class="kn">import</span> <span class="n">SRSFormattingCategories</span>
+<span class="kn">from</span> <span class="nn">tools.remove_invalid_sessions.remove_invalid_sessions</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">InvalidSessionsSpec</span><span class="p">,</span>
+    <span class="n">TotalFailureInfo</span><span class="p">,</span>
+    <span class="n">remove_invalid_sessions</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">TIMESTAMP_FORMAT</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2">/%m/%Y %H:%M:%S&quot;</span>
+<span class="n">TIMESTAMP_IDENTIFIERS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Export timestamp&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2">/%m/%Y %H:%M:%S UTC+0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Creation Timestamp&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2">%m%Y %H:%M:%S&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">OUTPUT_TOLERANCE</span> <span class="o">=</span> <span class="mf">1e-12</span>
+<span class="n">NR_OF_DIGITS_AFTER_COMMA</span> <span class="o">=</span> <span class="o">-</span><span class="nb">int</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">OUTPUT_TOLERANCE</span><span class="p">))</span>
+
+
+<div class="viewcode-block" id="provide_formula_with_all_entries"><a class="viewcode-back" href="../../general_utility.html#general_utility.helpers.provide_formula_with_all_entries">[docs]</a><span class="k">def</span> <span class="nf">provide_formula_with_all_entries</span><span class="p">(</span><span class="n">list_of_SPV</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">index_SPV</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">list_of_IFV</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generates a `patsy` style formula to model an SPV as a linear combination of all IFVs.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    list_of_SPV : List[str]</span>
+<span class="sd">        A list of all possible SPVs.</span>
+<span class="sd">    index_SPV : int</span>
+<span class="sd">        The index in `list_of_SPV` corresponding to the SPV that should be explained.</span>
+<span class="sd">    list_of_IFV : List[str]</span>
+<span class="sd">        The list of all IFV to be used in the formula.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    str</span>
+<span class="sd">        The formula to model the SPV as a linear combination of all IFVs according to the `patsy` style.</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        If `index_SPV` does not exist in `list_of_SPV`</span>
+
+<span class="sd">    Example</span>
+<span class="sd">    -------</span>
+<span class="sd">    &gt;&gt;&gt; provide_formula_with_all_entries([&quot;SPV_1&quot;, &quot;SPV_2&quot;], 1, [&quot;IFV_1&quot;, &quot;IFV_2&quot;])</span>
+<span class="sd">    &quot;&#39;SPV_2 ~ &#39;\\n&#39;IFV_1 + &#39; \\n&#39;IFV_2&#39;&quot;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">index_SPV</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">list_of_SPV</span><span class="p">)</span> <span class="ow">or</span> <span class="n">index_SPV</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">index_SPV</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Incorrect index </span><span class="si">{</span><span class="n">index_SPV</span><span class="si">}</span><span class="s2"> given. Please provide an integer between 0 and </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">list_of_SPV</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+
+    <span class="n">IFV_entries</span> <span class="o">=</span> <span class="s2">&quot; + &#39; </span><span class="se">\n</span><span class="s2">&#39;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">list_of_IFV</span><span class="p">)</span>
+    <span class="n">relevant_SPV</span> <span class="o">=</span> <span class="n">list_of_SPV</span><span class="p">[</span><span class="n">index_SPV</span><span class="p">]</span>
+    <span class="n">formula</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="n">relevant_SPV</span><span class="si">}</span><span class="s2"> ~ &#39;</span><span class="se">\n</span><span class="s2">&#39;</span><span class="si">{</span><span class="n">IFV_entries</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
+    <span class="k">return</span> <span class="n">formula</span></div>
+
+
+<div class="viewcode-block" id="format_data"><a class="viewcode-back" href="../../general_utility.html#general_utility.helpers.format_data">[docs]</a><span class="k">def</span> <span class="nf">format_data</span><span class="p">(</span><span class="n">df_</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">srs</span><span class="p">:</span> <span class="n">SRSFormattingCategories</span><span class="p">,</span> <span class="n">clean_column_names</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Format a dataframe based one rules defined in a json file in the srs_dependent_formatting folder.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    df_ : pd.DataFrame</span>
+<span class="sd">        The DataFrame to be formatted.</span>
+<span class="sd">    srs : SRSFormattingCategories</span>
+<span class="sd">        The srs, whose formatting should be applied.</span>
+<span class="sd">    clean_column_names : bool</span>
+<span class="sd">        Whether the following characters in the column names should be replaced:</span>
+<span class="sd">            - blank spaces by underscores (_)</span>
+<span class="sd">            - dashes (-) and brackets  removed</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    pd.DataFrame</span>
+<span class="sd">        The formatted dataframe.</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        If `srs`is not a member of `SRSFormattingCategories`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">srs</span><span class="p">,</span> <span class="n">SRSFormattingCategories</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;SRS </span><span class="si">{</span><span class="n">srs</span><span class="si">}</span><span class="s2"> has to be a member of SRSFormattingCategories.&quot;</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df_</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="s2">&quot;srs_dependent_formatting&quot;</span><span class="p">,</span> <span class="s2">&quot;srs_dependent_formatting.json&quot;</span><span class="p">))</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">formatting_info</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">FormattingModel</span><span class="p">(</span><span class="o">**</span><span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)))[</span><span class="n">srs</span><span class="o">.</span><span class="n">value</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">clean_column_names</span><span class="p">:</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span>
+            <span class="n">columns</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;_&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;(&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;)&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span>
+            <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="n">missing_columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">column</span> <span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">formatting_info</span> <span class="k">if</span> <span class="n">column</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">missing_columns</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The following columns were not found in the dataframe: </span><span class="si">{</span><span class="n">missing_columns</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Format columns</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">formatting_info</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="c1"># Data transformation</span>
+    <span class="c1"># current working directory is added to system path to import data transformation function specific to the Notebook being run</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())</span>
+    <span class="kn">from</span> <span class="nn">srs_dependent_formatting.srs_dependent_transformations</span> <span class="kn">import</span> <span class="n">apply_data_transformation</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The following data transformations were applied:&quot;</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">apply_data_transformation</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">srs</span><span class="o">=</span><span class="n">srs</span><span class="p">)</span>
+
+    <span class="n">cols</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">formatting_info</span><span class="o">.</span><span class="n">items</span><span class="p">()])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Renamed columns:&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">cols</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">df</span></div>
+
+
+<div class="viewcode-block" id="InputData"><a class="viewcode-back" href="../../general_utility.html#general_utility.helpers.InputData">[docs]</a><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">InputData</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A wrapper containing information about a read csv file.&quot;&quot;&quot;</span>
+
+    <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The content of the csv file.&quot;&quot;&quot;</span>
+    <span class="n">timestamp_input_data</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The timestamp when the csv file was created (if it is documented in the header).</span>
+<span class="sd">    This timestamp will be present if the file was generated by IFAT.&quot;&quot;&quot;</span>
+    <span class="n">timestamp_export</span><span class="p">:</span> <span class="nb">str</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The timestamp when the data was read.&quot;&quot;&quot;</span>
+    <span class="n">total_failure_info</span><span class="p">:</span> <span class="n">TotalFailureInfo</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Information about total failures of a sensor in the input data.&quot;&quot;&quot;</span></div>
+
+
+<div class="viewcode-block" id="read_and_verify_csv_data"><a class="viewcode-back" href="../../general_utility.html#general_utility.helpers.read_and_verify_csv_data">[docs]</a><span class="k">def</span> <span class="nf">read_and_verify_csv_data</span><span class="p">(</span>
+    <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">perform_ifv_coverage_check</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">min_occurrences_ifv_coverage_check</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="n">design_specification_filename</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">invalid_sessions_spec</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">InvalidSessionsSpec</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">header_lines</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">InputData</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Reads a csv file and outputs the timestamp when the file was generated (if it was generated by IFAT).</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    path : str</span>
+<span class="sd">        The relative path to the file to be read.</span>
+<span class="sd">    perform_ifv_coverage_check : bool, optional</span>
+<span class="sd">        Whether the function should check for values in IFVs that are only observed in a few sessions.</span>
+<span class="sd">    min_occurrences_ifv_coverage_check : int, optional</span>
+<span class="sd">        The minimum number of sessions that each IFV value should be observed in. Any value that only exists</span>
+<span class="sd">        in less or equal to this number of sessions will result in a warning if `perform_ifv_coverage_check` is True.</span>
+<span class="sd">    design_specification_filename : str or None, optional</span>
+<span class="sd">        The filename of a test design specification. This file can be used to find IFV values that are not observed</span>
+<span class="sd">        in the data and raise a warning.</span>
+<span class="sd">    invalid_sessions_spec : InvalidSessionsSpec or None, optional</span>
+<span class="sd">        An object containing specifications about the files that define which sessions need to be removed.</span>
+<span class="sd">    header_lines : int or None, optional</span>
+<span class="sd">        The number of header lines that need to be skipped when reading the file.</span>
+<span class="sd">        If the file was generated by IFAT, this parameter does not need to be provided.</span>
+<span class="sd">    **kwargs : dict, optional</span>
+<span class="sd">        Extra arguments to be passed to `pd.read_csv`.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    InputData</span>
+<span class="sd">        A wrapper containing the read DataFrame, the timestamp when the input data was created and</span>
+<span class="sd">        the timestamp when this function was executed.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">header_lines</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">header_lines</span> <span class="o">=</span> <span class="n">_get_number_of_header_lines</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="n">header_lines</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">timestamp_export</span> <span class="o">=</span> <span class="n">get_now_string</span><span class="p">()</span>
+    <span class="n">timestamp_input_data</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">if</span> <span class="n">header_lines</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+            <span class="n">header</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">readlines</span><span class="p">()[:</span><span class="n">header_lines</span><span class="p">]</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Header lines of the read file:&quot;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">header</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+            <span class="n">timestamp_input_data</span> <span class="o">=</span> <span class="n">_get_timestamp_of_input_data</span><span class="p">(</span><span class="n">header</span><span class="p">)</span>
+    <span class="n">total_failure_info</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">invalid_sessions_spec</span><span class="p">:</span>
+        <span class="n">df</span><span class="p">,</span> <span class="n">total_failure_info</span> <span class="o">=</span> <span class="n">remove_invalid_sessions</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">spec</span><span class="o">=</span><span class="n">invalid_sessions_spec</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">perform_ifv_coverage_check</span><span class="p">:</span>
+        <span class="n">_detect_marginal_categorical_ifv_occurrences</span><span class="p">(</span>
+            <span class="n">df</span><span class="p">,</span>
+            <span class="n">n_occurrences_threshold</span><span class="o">=</span><span class="n">min_occurrences_ifv_coverage_check</span><span class="p">,</span>
+            <span class="n">design_specification_filename</span><span class="o">=</span><span class="n">design_specification_filename</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">InputData</span><span class="p">(</span>
+        <span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
+        <span class="n">timestamp_input_data</span><span class="o">=</span><span class="n">timestamp_input_data</span><span class="p">,</span>
+        <span class="n">timestamp_export</span><span class="o">=</span><span class="n">timestamp_export</span><span class="p">,</span>
+        <span class="n">total_failure_info</span><span class="o">=</span><span class="n">total_failure_info</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
+
+<span class="k">def</span> <span class="nf">_get_number_of_header_lines</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="n">nr_header_lines</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">nr_header_lines</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">clean_line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>  <span class="c1"># sometimes blank lines contain many commas due to csv format</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">clean_line</span><span class="p">:</span>
+                <span class="k">break</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">nr_header_lines</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()):</span>
+            <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">return</span> <span class="n">nr_header_lines</span>
+
+
+<div class="viewcode-block" id="get_now_string"><a class="viewcode-back" href="../../general_utility.html#general_utility.helpers.get_now_string">[docs]</a><span class="k">def</span> <span class="nf">get_now_string</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generates the current timestamp in the format &quot;dd/mm/YYYY HH:MM:SS&quot;.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    str</span>
+<span class="sd">        The current timestamp.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="n">TIMESTAMP_FORMAT</span><span class="p">)</span></div>
+
+
+<span class="k">def</span> <span class="nf">_get_timestamp_of_input_data</span><span class="p">(</span><span class="n">header</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="k">def</span> <span class="nf">parse_timestamp</span><span class="p">(</span><span class="n">line</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">line_identifier</span><span class="p">,</span> <span class="n">line_value</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;: &quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">line_value</span><span class="p">,</span> <span class="n">TIMESTAMP_IDENTIFIERS</span><span class="p">[</span><span class="n">line_identifier</span><span class="p">])</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="n">TIMESTAMP_FORMAT</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">header</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">identifier</span> <span class="ow">in</span> <span class="n">line</span> <span class="k">for</span> <span class="n">identifier</span> <span class="ow">in</span> <span class="n">TIMESTAMP_IDENTIFIERS</span><span class="p">):</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">parse_timestamp</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Exception (</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">) thrown while parsing timestamp on line &#39;</span><span class="si">{</span><span class="n">line</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Warning: No timestamp found!&quot;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="validate_timestamp_format"><a class="viewcode-back" href="../../general_utility.html#general_utility.helpers.validate_timestamp_format">[docs]</a><span class="k">def</span> <span class="nf">validate_timestamp_format</span><span class="p">(</span><span class="n">timestamp</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">expected_format</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">TIMESTAMP_FORMAT</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Checks if a timestamp satisfies a given format.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    timestamp : str or None</span>
+<span class="sd">        The timestamp to be checked.</span>
+<span class="sd">    expected_format : str, optional</span>
+<span class="sd">        The format the timestamp should be checked against.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    bool</span>
+<span class="sd">        Whether the timestamp is in the desired format.</span>
+
+<span class="sd">    Example</span>
+<span class="sd">    -------</span>
+<span class="sd">    &gt;&gt;&gt; validate_timestamp_format(&quot;11/11/2011 11:11:11&quot;, &quot;%d/%m/%Y %H:%M:%S&quot;)</span>
+<span class="sd">    True</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">timestamp</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">timestamp</span><span class="p">,</span> <span class="n">expected_format</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">return</span> <span class="kc">True</span></div>
+
+
+<span class="k">def</span> <span class="nf">_translate_categorical_interval</span><span class="p">(</span><span class="n">interval</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">interval</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;(&quot;</span><span class="p">,</span> <span class="s2">&quot;from &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;, &quot;</span><span class="p">,</span> <span class="s2">&quot; to &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="s2">&quot; to &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;]&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="translate_categorical_intervals"><a class="viewcode-back" href="../../general_utility.html#general_utility.helpers.translate_categorical_intervals">[docs]</a><span class="k">def</span> <span class="nf">translate_categorical_intervals</span><span class="p">(</span><span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">column_names</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Translates categorical intervals like (0.5, 1.0] to &#39;from 0.5 to 1.0&#39;, since the parenthesis</span>
+<span class="sd">    would cause problems with `patsy`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    df : pd.DataFrame</span>
+<span class="sd">        The DataFrame whose values should be translated.</span>
+<span class="sd">    column_names : List[str]</span>
+<span class="sd">        The names of the columns of `df`, whose values should be translated.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    pd.DataFrame</span>
+<span class="sd">        The formatted DataFrame.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">df_copy</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">column_names</span><span class="p">:</span>
+        <span class="n">df_copy</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_copy</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">_translate_categorical_interval</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">df_copy</span></div>
+
+
+<div class="viewcode-block" id="round_output"><a class="viewcode-back" href="../../general_utility.html#general_utility.helpers.round_output">[docs]</a><span class="k">def</span> <span class="nf">round_output</span><span class="p">(</span>
+    <span class="n">value_before_rounding</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
+    <span class="n">nr_of_digits_after_comma</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">NR_OF_DIGITS_AFTER_COMMA</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Rounds a value to a desired number of digits after the comma.</span>
+<span class="sd">    This function is used to ensure that the resulting models are the same on different operating systems.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    value_before_rounding : Any</span>
+<span class="sd">        The value to be rounded.</span>
+<span class="sd">    nr_of_digits_after_comma : int or None</span>
+<span class="sd">        The desired number of digits after the comma after rounding. If `None` is provided, no rounding will be applied.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    Any</span>
+<span class="sd">        The rounded value.</span>
+
+<span class="sd">    Example</span>
+<span class="sd">    -------</span>
+<span class="sd">    &gt;&gt;&gt; round_output(1.11111, 2)</span>
+<span class="sd">    1.11</span>
+<span class="sd">    &gt;&gt;&gt; round_output([1.11111,2.22222], 2)</span>
+<span class="sd">    [1.11,2.22]</span>
+<span class="sd">    &gt;&gt;&gt; round_output(1.11111, None)</span>
+<span class="sd">    1.11111</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">nr_of_digits_after_comma</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">value_before_rounding</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value_before_rounding</span><span class="p">,</span> <span class="nb">int</span><span class="p">))</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span>
+            <span class="n">value_before_rounding</span><span class="p">,</span> <span class="nb">bool</span>
+        <span class="p">):</span>
+            <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="n">value_before_rounding</span><span class="p">,</span> <span class="n">nr_of_digits_after_comma</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value_before_rounding</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="k">return</span> <span class="p">[</span><span class="n">round_output</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">nr_of_digits_after_comma</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">value_before_rounding</span><span class="p">]</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value_before_rounding</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="k">return</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="n">round_output</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">nr_of_digits_after_comma</span><span class="p">)</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">value_before_rounding</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value_before_rounding</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
+            <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">round_output</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">nr_of_digits_after_comma</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">value_before_rounding</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value_before_rounding</span><span class="p">,</span> <span class="nb">set</span><span class="p">):</span>
+            <span class="k">return</span> <span class="p">{</span><span class="n">round_output</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">nr_of_digits_after_comma</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">value_before_rounding</span><span class="p">}</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value_before_rounding</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">value_before_rounding</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">nr_of_digits_after_comma</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">value_before_rounding</span></div>
+
+
+<div class="viewcode-block" id="print_and_align"><a class="viewcode-back" href="../../general_utility.html#general_utility.helpers.print_and_align">[docs]</a><span class="k">def</span> <span class="nf">print_and_align</span><span class="p">(</span><span class="n">dict_to_print</span><span class="p">:</span> <span class="n">Dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Prints strings in an aligned matter.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    dict_to_print : Dict</span>
+<span class="sd">        The dictionary of values to be printed. The keys will be printed in a left column and the values in a right column.</span>
+
+<span class="sd">    Example</span>
+<span class="sd">    -------</span>
+<span class="sd">    &gt;&gt;&gt; print_and_align({&quot;One thing to print&quot;: &quot;short&quot;, &quot;Another one&quot;: &quot;A long thing&quot;})</span>
+<span class="sd">        One thing to print: short</span>
+<span class="sd">        Another one       : A long thing</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">key_len</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">dict_to_print</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+    <span class="n">val_len</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">dict_to_print</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">dict_to_print</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">.</span><span class="n">ljust</span><span class="p">(</span><span class="n">key_len</span><span class="p">)</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">.</span><span class="n">ljust</span><span class="p">(</span><span class="n">val_len</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="display_markdown"><a class="viewcode-back" href="../../general_utility.html#general_utility.helpers.display_markdown">[docs]</a><span class="k">def</span> <span class="nf">display_markdown</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">font_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Displays a string in a jupyter notebook as a markdown.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    text : str</span>
+<span class="sd">        The string to be displayed.</span>
+<span class="sd">    font_size : int</span>
+<span class="sd">        The size in which the string should be displayed (in pt).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;**&lt;span style=&#39;font-size: </span><span class="si">{</span><span class="n">font_size</span><span class="si">}</span><span class="s2">pt&#39;&gt;</span><span class="si">{</span><span class="n">text</span><span class="si">}</span><span class="s2">&lt;/span&gt;**&quot;</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="display_dataframe"><a class="viewcode-back" href="../../general_utility.html#general_utility.helpers.display_dataframe">[docs]</a><span class="k">def</span> <span class="nf">display_dataframe</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">display_index</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">style_properties</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span>
+    <span class="n">table_styles</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[],</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Displays a dataframe in a jupyter notebook as a table.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    df : pd.DataFrame</span>
+<span class="sd">        The DataFrame to be displayed.</span>
+<span class="sd">    display_index : bool, optional</span>
+<span class="sd">        Whether the index of the DataFrame should be displayed as well.</span>
+<span class="sd">    style_properties : Dict[str,Any], optional</span>
+<span class="sd">        Additional properties to be passed to df.style.set_properties.</span>
+<span class="sd">    table_styles : List[Dict[str,Any]], optional</span>
+<span class="sd">        Additional styles to be passed to df.style.set_table_styles.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">display_index</span><span class="p">:</span>
+        <span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">set_properties</span><span class="p">(</span><span class="o">**</span><span class="n">style_properties</span><span class="p">)</span><span class="o">.</span><span class="n">set_table_styles</span><span class="p">(</span><span class="n">table_styles</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">set_properties</span><span class="p">(</span><span class="o">**</span><span class="n">style_properties</span><span class="p">)</span><span class="o">.</span><span class="n">set_table_styles</span><span class="p">(</span><span class="n">table_styles</span><span class="p">)</span><span class="o">.</span><span class="n">hide</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;index&quot;</span><span class="p">))</span></div>
+
+
+<span class="k">def</span> <span class="nf">_get_cb_ids_from_IFV_columns</span><span class="p">(</span><span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+    <span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;([0-9]{7,})$&quot;</span>
+    <span class="k">return</span> <span class="p">{</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">):</span> <span class="n">colname</span> <span class="k">for</span> <span class="n">colname</span> <span class="ow">in</span> <span class="n">get_columns_with_IFVs</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="k">if</span> <span class="p">(</span><span class="n">match</span> <span class="o">:=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">colname</span><span class="p">))}</span>
+
+
+<span class="k">def</span> <span class="nf">_get_categories</span><span class="p">(</span><span class="n">ifv</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">categories</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">while</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="ow">in</span> <span class="n">ifv</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">ifv</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)):</span>
+            <span class="n">categories</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ifv</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)])</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">categories</span>
+
+
+<span class="k">def</span> <span class="nf">_get_ifvs_with_categories_from_design_specification</span><span class="p">(</span>
+    <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">id_names_mapping</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="s2">&quot;design_specification&quot;</span><span class="p">,</span> <span class="n">filename</span><span class="p">))</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">design_spec</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">DesignSpecificationModel</span><span class="p">(</span><span class="o">**</span><span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)))</span>
+        <span class="k">return</span> <span class="p">{</span><span class="n">colname</span><span class="p">:</span> <span class="n">_get_categories</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">design_spec</span><span class="p">[</span><span class="s2">&quot;ifv&quot;</span><span class="p">][</span><span class="nb">id</span><span class="p">]))</span> <span class="k">for</span> <span class="nb">id</span><span class="p">,</span> <span class="n">colname</span> <span class="ow">in</span> <span class="n">id_names_mapping</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+
+
+<div class="viewcode-block" id="_detect_marginal_categorical_ifv_occurrences"><a class="viewcode-back" href="../../general_utility.html#general_utility.helpers._detect_marginal_categorical_ifv_occurrences">[docs]</a><span class="k">def</span> <span class="nf">_detect_marginal_categorical_ifv_occurrences</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">n_occurrences_threshold</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">design_specification_filename</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Raises a warning whenever a categorical IFV has values that occur n_occurrences or less times in the dataframe df. There is the option to provide a design specification file which has to have the form of an IFAT decoder config file. The file should be located at &lt;cwd&gt;/design_specification/&lt;filename&gt;.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">further_analysis_string</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">&quot;To analyze this further, you can plot the histograms using tools.plot_tools.plot_tools.ifv_histograms.&quot;</span>
+    <span class="p">)</span>
+
+    <span class="n">id_names_mapping</span> <span class="o">=</span> <span class="n">_get_cb_ids_from_IFV_columns</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+    <span class="n">occurrence_counts</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="n">colname</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="n">colname</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="k">for</span> <span class="n">colname</span> <span class="ow">in</span> <span class="n">id_names_mapping</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+    <span class="p">}</span>
+    <span class="k">for</span> <span class="n">colname</span><span class="p">,</span> <span class="n">n_occurrences</span> <span class="ow">in</span> <span class="n">occurrence_counts</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">ifv_coverage_check</span> <span class="o">=</span> <span class="n">n_occurrences</span> <span class="o">&lt;=</span> <span class="n">n_occurrences_threshold</span>
+        <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">ifv_coverage_check</span><span class="p">):</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;The categories </span><span class="si">{</span><span class="nb">set</span><span class="p">(</span><span class="n">ifv_coverage_check</span><span class="p">[</span><span class="n">ifv_coverage_check</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">)</span><span class="si">}</span><span class="s2"> of the IFV </span><span class="si">{</span><span class="n">colname</span><span class="si">}</span><span class="s2">, have a small number of occurrences(</span><span class="si">{</span><span class="nb">set</span><span class="p">(</span><span class="n">occurrence_counts</span><span class="p">[</span><span class="n">colname</span><span class="p">][</span><span class="nb">list</span><span class="p">(</span><span class="n">ifv_coverage_check</span><span class="p">)])</span><span class="si">}</span><span class="s2">). </span><span class="si">{</span><span class="n">further_analysis_string</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">design_specification_filename</span><span class="p">:</span>
+        <span class="n">categories</span> <span class="o">=</span> <span class="n">_get_ifvs_with_categories_from_design_specification</span><span class="p">(</span>
+            <span class="n">filename</span><span class="o">=</span><span class="n">design_specification_filename</span><span class="p">,</span>
+            <span class="n">id_names_mapping</span><span class="o">=</span><span class="n">id_names_mapping</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">for</span> <span class="n">category</span><span class="p">,</span> <span class="n">n_occurrences</span> <span class="ow">in</span> <span class="n">occurrence_counts</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">categories_diff</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">categories</span><span class="p">[</span><span class="n">category</span><span class="p">])</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">n_occurrences</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">categories_diff</span><span class="p">:</span>
+                <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;The categories </span><span class="si">{</span><span class="n">categories_diff</span><span class="si">}</span><span class="s2"> of the IFV </span><span class="si">{</span><span class="n">category</span><span class="si">}</span><span class="s2"> are specified in the design specification file </span><span class="si">{</span><span class="n">design_specification_filename</span><span class="si">}</span><span class="s2">, but have not been found in the dataframe. </span><span class="si">{</span><span class="n">further_analysis_string</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="p">)</span>
+            <span class="n">unexpected_categories</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">n_occurrences</span><span class="o">.</span><span class="n">index</span><span class="p">)</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">categories</span><span class="p">[</span><span class="n">category</span><span class="p">])</span>
+            <span class="k">if</span> <span class="n">unexpected_categories</span><span class="p">:</span>
+                <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;The categories </span><span class="si">{</span><span class="n">unexpected_categories</span><span class="si">}</span><span class="s2"> of the IFV </span><span class="si">{</span><span class="n">category</span><span class="si">}</span><span class="s2"> are not specified in the design specification file </span><span class="si">{</span><span class="n">design_specification_filename</span><span class="si">}</span><span class="s2"> but have been found in the dataframe. </span><span class="si">{</span><span class="n">further_analysis_string</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="p">)</span></div>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Team Kepler
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, Bayerische Motoren Werke Aktiengesellschaft (BMW AG).
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

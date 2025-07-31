@@ -1,0 +1,481 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>models_export.residual_distribution_model &#8212; Model Fits Tools  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/models_export/residual_distribution_model';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Model Fits Tools  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <h1>Source code for models_export.residual_distribution_model</h1><div class="highlight"><pre>
+<span></span><span class="c1">#</span>
+<span class="c1"># Copyright (C) 2023-2024, Bayerische Motoren Werke Aktiengesellschaft (BMW AG)</span>
+<span class="c1">#</span>
+
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">Extra</span><span class="p">,</span> <span class="n">confloat</span><span class="p">,</span> <span class="n">conlist</span><span class="p">,</span> <span class="n">constr</span><span class="p">,</span> <span class="n">root_validator</span><span class="p">,</span> <span class="n">validator</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<span class="kn">from</span> <span class="nn">scipy.stats._distn_infrastructure</span> <span class="kn">import</span> <span class="n">rv_continuous_frozen</span>
+<span class="kn">from</span> <span class="nn">tools.regression_models.advanced_residual_distributions</span> <span class="kn">import</span> <span class="n">piecewise_distribution</span><span class="p">,</span> <span class="n">truncated_distribution</span>
+
+
+<span class="k">def</span> <span class="nf">_get_distribution_from_name</span><span class="p">(</span><span class="n">distribution_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">stats</span><span class="o">.</span><span class="n">rv_continuous</span><span class="p">:</span>
+    <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">stats</span><span class="p">,</span> <span class="n">distribution_name</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="NoiseDistributionType"><a class="viewcode-back" href="../../models_export.html#models_export.residual_distribution_model.NoiseDistributionType">[docs]</a><span class="k">class</span> <span class="nc">NoiseDistributionType</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">Enum</span><span class="p">):</span>
+    <span class="n">STANDARD</span> <span class="o">=</span> <span class="s2">&quot;standard&quot;</span>
+    <span class="n">TRUNCATED</span> <span class="o">=</span> <span class="s2">&quot;truncated&quot;</span>
+    <span class="n">PIECEWISE</span> <span class="o">=</span> <span class="s2">&quot;piecewise&quot;</span></div>
+
+
+<div class="viewcode-block" id="SingleDistribution"><a class="viewcode-back" href="../../models_export.html#models_export.residual_distribution_model.SingleDistribution">[docs]</a><span class="k">class</span> <span class="nc">SingleDistribution</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="n">constr</span><span class="p">(</span><span class="n">strip_whitespace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">min_length</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">parameters</span><span class="p">:</span> <span class="n">conlist</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="n">min_items</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">lower_bound</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="o">-</span><span class="n">math</span><span class="o">.</span><span class="n">inf</span>
+    <span class="n">upper_bound</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">inf</span>
+    <span class="n">probability_mass</span><span class="p">:</span> <span class="n">confloat</span><span class="p">(</span><span class="n">gt</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">le</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span>
+
+<div class="viewcode-block" id="SingleDistribution.Config"><a class="viewcode-back" href="../../models_export.html#models_export.residual_distribution_model.SingleDistribution.Config">[docs]</a>    <span class="k">class</span> <span class="nc">Config</span><span class="p">:</span>
+        <span class="n">extra</span> <span class="o">=</span> <span class="n">Extra</span><span class="o">.</span><span class="n">forbid</span></div>
+
+<div class="viewcode-block" id="SingleDistribution.validate_truncation"><a class="viewcode-back" href="../../models_export.html#models_export.residual_distribution_model.SingleDistribution.validate_truncation">[docs]</a>    <span class="nd">@root_validator</span>
+    <span class="k">def</span> <span class="nf">validate_truncation</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">values</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+        <span class="n">lower_bound</span> <span class="o">=</span> <span class="n">values</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;lower_bound&quot;</span><span class="p">)</span>
+        <span class="n">upper_bound</span> <span class="o">=</span> <span class="n">values</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;upper_bound&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">lower_bound</span> <span class="o">&gt;=</span> <span class="n">upper_bound</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Lower bound </span><span class="si">{</span><span class="n">lower_bound</span><span class="si">}</span><span class="s2"> needs to be smaller than upper bound </span><span class="si">{</span><span class="n">upper_bound</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">values</span></div>
+
+<div class="viewcode-block" id="SingleDistribution.validate_truncated_if_probability_mass_given"><a class="viewcode-back" href="../../models_export.html#models_export.residual_distribution_model.SingleDistribution.validate_truncated_if_probability_mass_given">[docs]</a>    <span class="nd">@root_validator</span>
+    <span class="k">def</span> <span class="nf">validate_truncated_if_probability_mass_given</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">values</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+        <span class="n">lower_bound</span> <span class="o">=</span> <span class="n">values</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;lower_bound&quot;</span><span class="p">)</span>
+        <span class="n">upper_bound</span> <span class="o">=</span> <span class="n">values</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;upper_bound&quot;</span><span class="p">)</span>
+        <span class="n">probability_mass</span> <span class="o">=</span> <span class="n">values</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;probability_mass&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">probability_mass</span> <span class="o">&lt;</span> <span class="mf">1.0</span> <span class="ow">and</span> <span class="n">lower_bound</span> <span class="o">==</span> <span class="o">-</span><span class="n">math</span><span class="o">.</span><span class="n">inf</span> <span class="ow">and</span> <span class="n">upper_bound</span> <span class="o">==</span> <span class="n">math</span><span class="o">.</span><span class="n">inf</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Distribution needs to be truncated if probability mass is not equal to 1.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">values</span></div>
+
+<div class="viewcode-block" id="SingleDistribution.validate_base_distribution_known"><a class="viewcode-back" href="../../models_export.html#models_export.residual_distribution_model.SingleDistribution.validate_base_distribution_known">[docs]</a>    <span class="nd">@validator</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">validate_base_distribution_known</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">_get_distribution_from_name</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">AttributeError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Distribution </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> is not defined in scipy package.&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
+        <span class="k">return</span> <span class="n">name</span></div>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">is_truncated</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">lower_bound</span> <span class="o">&gt;</span> <span class="o">-</span><span class="n">math</span><span class="o">.</span><span class="n">inf</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">upper_bound</span> <span class="o">&lt;</span> <span class="n">math</span><span class="o">.</span><span class="n">inf</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">base_scipy_distribution</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">stats</span><span class="o">.</span><span class="n">rv_continuous</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">_get_distribution_from_name</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">frozen</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">rv_continuous_frozen</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_truncated</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">truncated_distribution</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_scipy_distribution</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">lower_bound</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">upper_bound</span><span class="p">)(</span>
+                <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_scipy_distribution</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="CompositeDistribution"><a class="viewcode-back" href="../../models_export.html#models_export.residual_distribution_model.CompositeDistribution">[docs]</a><span class="k">class</span> <span class="nc">CompositeDistribution</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">distributions</span><span class="p">:</span> <span class="n">conlist</span><span class="p">(</span><span class="n">SingleDistribution</span><span class="p">,</span> <span class="n">min_items</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_items</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<div class="viewcode-block" id="CompositeDistribution.Config"><a class="viewcode-back" href="../../models_export.html#models_export.residual_distribution_model.CompositeDistribution.Config">[docs]</a>    <span class="k">class</span> <span class="nc">Config</span><span class="p">:</span>
+        <span class="n">extra</span> <span class="o">=</span> <span class="n">Extra</span><span class="o">.</span><span class="n">forbid</span></div>
+
+<div class="viewcode-block" id="CompositeDistribution.validate_probability_mass"><a class="viewcode-back" href="../../models_export.html#models_export.residual_distribution_model.CompositeDistribution.validate_probability_mass">[docs]</a>    <span class="nd">@validator</span><span class="p">(</span><span class="s2">&quot;distributions&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">validate_probability_mass</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">distributions</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">SingleDistribution</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">SingleDistribution</span><span class="p">]:</span>
+        <span class="n">mass</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">d</span><span class="o">.</span><span class="n">probability_mass</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">distributions</span><span class="p">])</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">mass</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Probability masses don&#39;t sum up to 1.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">distributions</span></div>
+
+<div class="viewcode-block" id="CompositeDistribution.validate_bounds_matching"><a class="viewcode-back" href="../../models_export.html#models_export.residual_distribution_model.CompositeDistribution.validate_bounds_matching">[docs]</a>    <span class="nd">@validator</span><span class="p">(</span><span class="s2">&quot;distributions&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">validate_bounds_matching</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">distributions</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">SingleDistribution</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">SingleDistribution</span><span class="p">]:</span>
+        <span class="n">lower_bounds</span> <span class="o">=</span> <span class="p">[</span><span class="n">d</span><span class="o">.</span><span class="n">lower_bound</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">distributions</span><span class="p">]</span>
+        <span class="n">upper_bounds</span> <span class="o">=</span> <span class="p">[</span><span class="n">d</span><span class="o">.</span><span class="n">upper_bound</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">distributions</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">distributions</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span>
+            <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">ub</span><span class="p">,</span> <span class="n">lb</span><span class="p">)</span> <span class="k">for</span> <span class="n">ub</span><span class="p">,</span> <span class="n">lb</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">upper_bounds</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">lower_bounds</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+        <span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;The upper bound of the distributions need to coincide with the lower bound of the subsequent distribution.&quot;</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="n">distributions</span></div>
+
+<div class="viewcode-block" id="CompositeDistribution.validate_support_real_numbers_if_piecewise"><a class="viewcode-back" href="../../models_export.html#models_export.residual_distribution_model.CompositeDistribution.validate_support_real_numbers_if_piecewise">[docs]</a>    <span class="nd">@validator</span><span class="p">(</span><span class="s2">&quot;distributions&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">validate_support_real_numbers_if_piecewise</span><span class="p">(</span>
+        <span class="bp">cls</span><span class="p">,</span> <span class="n">distributions</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">SingleDistribution</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">SingleDistribution</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">distributions</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">distributions</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">lower_bound</span> <span class="o">&gt;</span> <span class="o">-</span><span class="n">math</span><span class="o">.</span><span class="n">inf</span> <span class="ow">or</span> <span class="n">distributions</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">upper_bound</span> <span class="o">&lt;</span> <span class="n">math</span><span class="o">.</span><span class="n">inf</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The support of a piecewise distribution needs to be all real numbers.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">distributions</span></div>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NoiseDistributionType</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">distributions</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">NoiseDistributionType</span><span class="o">.</span><span class="n">PIECEWISE</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">distributions</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">is_truncated</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">NoiseDistributionType</span><span class="o">.</span><span class="n">TRUNCATED</span>
+        <span class="k">return</span> <span class="n">NoiseDistributionType</span><span class="o">.</span><span class="n">STANDARD</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">thresholds</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">NoiseDistributionType</span><span class="o">.</span><span class="n">PIECEWISE</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[</span><span class="n">d</span><span class="o">.</span><span class="n">lower_bound</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">distributions</span><span class="p">[</span><span class="mi">1</span><span class="p">:]]</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">type</span><span class="si">}</span><span class="s2"> distribution does not have thresholds.&quot;</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
+        <span class="n">parameters</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">distributions</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">parameters</span><span class="p">]</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">NoiseDistributionType</span><span class="o">.</span><span class="n">PIECEWISE</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">parameters</span> <span class="o">+</span> <span class="p">[</span><span class="n">d</span><span class="o">.</span><span class="n">probability_mass</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">distributions</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
+        <span class="k">return</span> <span class="n">parameters</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">frozen</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">rv_continuous_frozen</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">NoiseDistributionType</span><span class="o">.</span><span class="n">PIECEWISE</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">piecewise_distribution</span><span class="p">(</span>
+                <span class="o">*</span><span class="p">[</span><span class="n">d</span><span class="o">.</span><span class="n">base_scipy_distribution</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">distributions</span><span class="p">],</span>
+                <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">thresholds</span><span class="p">,</span>
+            <span class="p">)(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">distributions</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">frozen</span>
+
+<div class="viewcode-block" id="CompositeDistribution.from_scipy_distribution"><a class="viewcode-back" href="../../models_export.html#models_export.residual_distribution_model.CompositeDistribution.from_scipy_distribution">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_scipy_distribution</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">distribution</span><span class="p">:</span> <span class="n">rv_continuous_frozen</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;CompositeDistribution&quot;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">distribution</span><span class="o">.</span><span class="n">dist</span><span class="p">,</span> <span class="n">piecewise_distribution</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">distributions</span><span class="o">=</span><span class="bp">cls</span><span class="o">.</span><span class="n">_get_piecewise_distribution</span><span class="p">(</span><span class="n">distribution</span><span class="p">))</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">distribution</span><span class="o">.</span><span class="n">dist</span><span class="p">,</span> <span class="n">truncated_distribution</span><span class="p">):</span>
+            <span class="n">bounds_args</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">if</span> <span class="n">distribution</span><span class="o">.</span><span class="n">dist</span><span class="o">.</span><span class="n">lower_bound</span> <span class="o">&gt;</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">:</span>
+                <span class="n">bounds_args</span><span class="p">[</span><span class="s2">&quot;lower_bound&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">distribution</span><span class="o">.</span><span class="n">dist</span><span class="o">.</span><span class="n">lower_bound</span>
+            <span class="k">if</span> <span class="n">distribution</span><span class="o">.</span><span class="n">dist</span><span class="o">.</span><span class="n">upper_bound</span> <span class="o">&lt;</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">:</span>
+                <span class="n">bounds_args</span><span class="p">[</span><span class="s2">&quot;upper_bound&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">distribution</span><span class="o">.</span><span class="n">dist</span><span class="o">.</span><span class="n">upper_bound</span>
+            <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
+                <span class="n">distributions</span><span class="o">=</span><span class="p">[</span>
+                    <span class="n">SingleDistribution</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">distribution</span><span class="o">.</span><span class="n">dist</span><span class="o">.</span><span class="n">dist</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">parameters</span><span class="o">=</span><span class="n">distribution</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">bounds_args</span><span class="p">)</span>
+                <span class="p">]</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">distributions</span><span class="o">=</span><span class="p">[</span><span class="n">SingleDistribution</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">distribution</span><span class="o">.</span><span class="n">dist</span><span class="o">.</span><span class="n">name</span><span class="p">),</span> <span class="n">parameters</span><span class="o">=</span><span class="n">distribution</span><span class="o">.</span><span class="n">args</span><span class="p">)])</span></div>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">_get_piecewise_distribution</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">distribution</span><span class="p">:</span> <span class="n">rv_continuous_frozen</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">SingleDistribution</span><span class="p">]:</span>
+        <span class="n">args</span> <span class="o">=</span> <span class="n">distribution</span><span class="o">.</span><span class="n">args</span>
+        <span class="n">d</span><span class="p">:</span> <span class="n">piecewise_distribution</span> <span class="o">=</span> <span class="n">distribution</span><span class="o">.</span><span class="n">dist</span>
+        <span class="n">nr_args_lower_dist</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">lower_dist</span><span class="o">.</span><span class="n">numargs</span> <span class="o">+</span> <span class="mi">2</span>
+        <span class="n">nr_args_upper_dist</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">upper_dist</span><span class="o">.</span><span class="n">numargs</span> <span class="o">+</span> <span class="mi">2</span>
+        <span class="n">lower_dist</span> <span class="o">=</span> <span class="n">SingleDistribution</span><span class="p">(</span>
+            <span class="n">name</span><span class="o">=</span><span class="n">d</span><span class="o">.</span><span class="n">lower_dist</span><span class="o">.</span><span class="n">dist</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+            <span class="n">parameters</span><span class="o">=</span><span class="n">args</span><span class="p">[:</span><span class="n">nr_args_lower_dist</span><span class="p">],</span>
+            <span class="n">upper_bound</span><span class="o">=</span><span class="n">d</span><span class="o">.</span><span class="n">threshold</span><span class="p">,</span>
+            <span class="n">probability_mass</span><span class="o">=</span><span class="n">args</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+        <span class="p">)</span>
+        <span class="n">upper_dist</span> <span class="o">=</span> <span class="n">SingleDistribution</span><span class="p">(</span>
+            <span class="n">name</span><span class="o">=</span><span class="n">d</span><span class="o">.</span><span class="n">upper_dist</span><span class="o">.</span><span class="n">dist</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+            <span class="n">parameters</span><span class="o">=</span><span class="n">args</span><span class="p">[</span><span class="n">nr_args_lower_dist</span> <span class="p">:</span> <span class="n">nr_args_lower_dist</span> <span class="o">+</span> <span class="n">nr_args_upper_dist</span><span class="p">],</span>
+            <span class="n">lower_bound</span><span class="o">=</span><span class="n">d</span><span class="o">.</span><span class="n">threshold</span><span class="p">,</span>
+            <span class="n">probability_mass</span><span class="o">=</span><span class="mi">1</span> <span class="o">-</span> <span class="n">args</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">lower_dist</span><span class="p">,</span> <span class="n">upper_dist</span><span class="p">]</span></div>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Team Kepler
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, Bayerische Motoren Werke Aktiengesellschaft (BMW AG).
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

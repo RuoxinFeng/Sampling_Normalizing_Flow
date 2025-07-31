@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>comparison_tools.dataset_comparison &mdash; Model Fits Tools  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=b3ba4146"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Model Fits Tools
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Model Fits Tools</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">comparison_tools.dataset_comparison</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for comparison_tools.dataset_comparison</h1><div class="highlight"><pre>
+<span></span><span class="c1">#</span>
+<span class="c1"># Copyright (C) 2024, Bayerische Motoren Werke Aktiengesellschaft (BMW AG)</span>
+<span class="c1">#</span>
+
+
+<span class="kn">import</span> <span class="nn">contextlib</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Set</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
+<span class="kn">import</span> <span class="nn">plotly.graph_objects</span> <span class="k">as</span> <span class="nn">go</span>
+<span class="kn">from</span> <span class="nn">attr</span> <span class="kn">import</span> <span class="n">dataclass</span>
+<span class="kn">from</span> <span class="nn">tools.comparison_tools.divergence_metrics</span> <span class="kn">import</span> <span class="n">empirical_js_divergence</span><span class="p">,</span> <span class="n">ks_test_statistic</span>
+<span class="kn">from</span> <span class="nn">tools.general_utility.helpers</span> <span class="kn">import</span> <span class="n">display_dataframe</span><span class="p">,</span> <span class="n">display_markdown</span><span class="p">,</span> <span class="n">print_and_align</span><span class="p">,</span> <span class="n">read_and_verify_csv_data</span>
+<span class="kn">from</span> <span class="nn">tools.remove_invalid_sessions.remove_invalid_sessions</span> <span class="kn">import</span> <span class="n">SRS</span><span class="p">,</span> <span class="n">TotalFailureInfo</span><span class="p">,</span> <span class="n">remove_invalid_sessions</span>
+
+
+<div class="viewcode-block" id="Whiskers"><a class="viewcode-back" href="../../comparison_tools.html#comparison_tools.dataset_comparison.Whiskers">[docs]</a><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">Whiskers</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A wrapper containing information about the whisker ends of a box plots.&quot;&quot;&quot;</span>
+
+    <span class="n">lower_whisker</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">upper_whisker</span><span class="p">:</span> <span class="nb">float</span></div>
+
+
+<div class="viewcode-block" id="DatasetComparison"><a class="viewcode-back" href="../../comparison_tools.html#comparison_tools.dataset_comparison.DatasetComparison">[docs]</a><span class="k">class</span> <span class="nc">DatasetComparison</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compare two iterations of a dataset to decide whether a model update is necessary.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    path_new_data : str</span>
+<span class="sd">        The relative path to the new dataset.</span>
+<span class="sd">    path_old_data : str</span>
+<span class="sd">        The relative path to the old dataset.</span>
+<span class="sd">    srs : SRS</span>
+<span class="sd">        The SRS to be used to remove invalid sessions from the datasets.</span>
+<span class="sd">    sensor_names : List[str]</span>
+<span class="sd">        The sensor names to be used to remove invalid sessions from the datasets.</span>
+<span class="sd">    header_lines_new_data : int or None, optional</span>
+<span class="sd">        The number of header lines that need to be skipped when reading the new data file.</span>
+<span class="sd">        If the file was generated by IFAT, this parameter does not need to be provided.</span>
+<span class="sd">    header_lines_old_data : int or None, optional</span>
+<span class="sd">        The number of header lines that need to be skipped when reading the old data file.</span>
+<span class="sd">        If the file was generated by IFAT, this parameter does not need to be provided.</span>
+<span class="sd">    name_new_data : str, optional</span>
+<span class="sd">        A name for the new data. The tool will use this name to refer to the new data in plots.</span>
+<span class="sd">    name_old_data : str, optional</span>
+<span class="sd">        A name for the old data. The tool will use this name to refer to the old data in plots.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">_session_id_column_name</span> <span class="o">=</span> <span class="s2">&quot;session_id&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">path_new_data</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">path_old_data</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">srs</span><span class="p">:</span> <span class="n">SRS</span><span class="p">,</span>
+        <span class="n">sensor_names</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">header_lines_new_data</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">header_lines_old_data</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">name_new_data</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;New data&quot;</span><span class="p">,</span>
+        <span class="n">name_old_data</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Old data&quot;</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">with</span> <span class="n">contextlib</span><span class="o">.</span><span class="n">redirect_stdout</span><span class="p">(</span><span class="kc">None</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_new_data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_total_failure_info_new</span> <span class="o">=</span> <span class="n">remove_invalid_sessions</span><span class="p">(</span>
+                <span class="n">df</span><span class="o">=</span><span class="n">read_and_verify_csv_data</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">path_new_data</span><span class="p">,</span> <span class="n">header_lines</span><span class="o">=</span><span class="n">header_lines_new_data</span><span class="p">)</span><span class="o">.</span><span class="n">df</span><span class="p">,</span>
+                <span class="n">srs</span><span class="o">=</span><span class="n">srs</span><span class="p">,</span>
+                <span class="n">sensor_names</span><span class="o">=</span><span class="n">sensor_names</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_old_data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_total_failure_info_old</span> <span class="o">=</span> <span class="n">remove_invalid_sessions</span><span class="p">(</span>
+                <span class="n">df</span><span class="o">=</span><span class="n">read_and_verify_csv_data</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">path_old_data</span><span class="p">,</span> <span class="n">header_lines</span><span class="o">=</span><span class="n">header_lines_old_data</span><span class="p">)</span><span class="o">.</span><span class="n">df</span><span class="p">,</span>
+                <span class="n">srs</span><span class="o">=</span><span class="n">srs</span><span class="p">,</span>
+                <span class="n">sensor_names</span><span class="o">=</span><span class="n">sensor_names</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_name_new_data</span> <span class="o">=</span> <span class="n">name_new_data</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_name_old_data</span> <span class="o">=</span> <span class="n">name_old_data</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">columns_new_data</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;List[str] : The names of the columns in the new data set.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_new_data</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">columns_old_data</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;List[str] : The names of the columns in the old data set.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_old_data</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+
+<div class="viewcode-block" id="DatasetComparison.full_analysis"><a class="viewcode-back" href="../../comparison_tools.html#comparison_tools.dataset_comparison.DatasetComparison.full_analysis">[docs]</a>    <span class="k">def</span> <span class="nf">full_analysis</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">column_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">plot_width</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">500</span><span class="p">,</span>
+        <span class="n">plot_height</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">500</span><span class="p">,</span>
+        <span class="n">nbins_for_histograms</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
+        <span class="n">threshold_for_changes</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Displays all analysis information and plots of a specified column (i.e. runs all methods of DatasetComparison).</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        column_name : str</span>
+<span class="sd">            The name of the column to be analyzed.</span>
+<span class="sd">        plot_width : int, optional</span>
+<span class="sd">            The desired width of the generated box plot.</span>
+<span class="sd">        plot_height : int, optional</span>
+<span class="sd">            The desired height of the generated box plot.</span>
+<span class="sd">        n_bins_for_histograms : int, optional</span>
+<span class="sd">            The number of bins to be used to plot the histograms and calculate the Jensen-Shannon divergence.</span>
+<span class="sd">        threshold_for_changes : float, optional</span>
+<span class="sd">            The threshold value for changes so that a session will be considered as having a significant change.</span>
+<span class="sd">            All sessions whose value has changed more than that will be printed.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If the `column_name` is missing in one of the data sets.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">summarize</span><span class="p">(</span><span class="n">column_name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">compare_box_plots</span><span class="p">(</span><span class="n">column_name</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">plot_width</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="n">plot_height</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">compare_histograms</span><span class="p">(</span><span class="n">column_name</span><span class="p">,</span> <span class="n">nbins</span><span class="o">=</span><span class="n">nbins_for_histograms</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">compare_outliers</span><span class="p">(</span><span class="n">column_name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sessions_with_changes</span><span class="p">(</span><span class="n">column_name</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="n">threshold_for_changes</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="DatasetComparison.summarize"><a class="viewcode-back" href="../../comparison_tools.html#comparison_tools.dataset_comparison.DatasetComparison.summarize">[docs]</a>    <span class="k">def</span> <span class="nf">summarize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">column_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Displays key statistics of a specified column.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        column_name : str</span>
+<span class="sd">            The name of the column to be analyzed.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If the `column_name` is missing in one of the data sets.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_verify_column_exists</span><span class="p">(</span><span class="n">column_name</span><span class="p">)</span>
+        <span class="n">display_markdown</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Summary of column </span><span class="si">{</span><span class="n">column_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+        <span class="n">display_dataframe</span><span class="p">(</span>
+            <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+                <span class="p">{</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_name_new_data</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_single_summary</span><span class="p">(</span>
+                        <span class="n">column</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_new_data</span><span class="p">[</span><span class="n">column_name</span><span class="p">],</span>
+                        <span class="n">session_id_column</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_new_data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_session_id_column_name</span><span class="p">],</span>
+                        <span class="n">total_failure_info</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_total_failure_info_new</span><span class="p">,</span>
+                    <span class="p">),</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_name_old_data</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_single_summary</span><span class="p">(</span>
+                        <span class="n">column</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_old_data</span><span class="p">[</span><span class="n">column_name</span><span class="p">],</span>
+                        <span class="n">session_id_column</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_old_data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_session_id_column_name</span><span class="p">],</span>
+                        <span class="n">total_failure_info</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_total_failure_info_old</span><span class="p">,</span>
+                    <span class="p">),</span>
+                <span class="p">}</span>
+            <span class="p">),</span>
+            <span class="n">display_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">_get_single_summary</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">column</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">,</span> <span class="n">session_id_column</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">,</span> <span class="n">total_failure_info</span><span class="p">:</span> <span class="n">TotalFailureInfo</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+        <span class="n">mean</span> <span class="o">=</span> <span class="n">column</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+        <span class="n">std</span> <span class="o">=</span> <span class="n">column</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+        <span class="n">nr_outside_std</span> <span class="o">=</span> <span class="n">column</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">column</span> <span class="o">-</span> <span class="n">mean</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">std</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">&quot;Total number of sessions&quot;</span><span class="p">:</span> <span class="n">column</span><span class="o">.</span><span class="n">size</span><span class="p">,</span>
+            <span class="s2">&quot;Total failure sessions&quot;</span><span class="p">:</span> <span class="n">total_failure_info</span><span class="o">.</span><span class="n">observed_total_failures</span><span class="p">,</span>
+            <span class="s2">&quot;Posterior total failure probability&quot;</span><span class="p">:</span> <span class="n">total_failure_info</span><span class="o">.</span><span class="n">posterior_total_failure_probability</span><span class="p">,</span>
+            <span class="s2">&quot;Mean&quot;</span><span class="p">:</span> <span class="n">mean</span><span class="p">,</span>
+            <span class="s2">&quot;Std&quot;</span><span class="p">:</span> <span class="n">std</span><span class="p">,</span>
+            <span class="s2">&quot;Min&quot;</span><span class="p">:</span> <span class="n">column</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span>
+            <span class="s2">&quot;Max&quot;</span><span class="p">:</span> <span class="n">column</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span>
+            <span class="s2">&quot;Values outside std&quot;</span><span class="p">:</span> <span class="n">nr_outside_std</span><span class="p">,</span>
+            <span class="s2">&quot;Outliers (outside whisker)&quot;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_outliers</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">session_id_column</span><span class="p">)),</span>
+        <span class="p">}</span>
+
+    <span class="k">def</span> <span class="nf">_get_outliers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">column</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">,</span> <span class="n">session_id_column</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Set</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+        <span class="n">whisker_ends</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_whisker_ends</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">set</span><span class="p">(</span><span class="n">session_id_column</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">column</span> <span class="o">&lt;</span> <span class="n">whisker_ends</span><span class="o">.</span><span class="n">lower_whisker</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">())</span> <span class="o">|</span> <span class="nb">set</span><span class="p">(</span>
+            <span class="n">session_id_column</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">column</span> <span class="o">&gt;</span> <span class="n">whisker_ends</span><span class="o">.</span><span class="n">upper_whisker</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_get_whisker_ends</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">column</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Whiskers</span><span class="p">:</span>
+        <span class="n">q1</span> <span class="o">=</span> <span class="n">column</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span>
+        <span class="n">q3</span> <span class="o">=</span> <span class="n">column</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.75</span><span class="p">)</span>
+        <span class="n">iqr</span> <span class="o">=</span> <span class="n">q3</span> <span class="o">-</span> <span class="n">q1</span>
+        <span class="k">return</span> <span class="n">Whiskers</span><span class="p">(</span>
+            <span class="n">lower_whisker</span><span class="o">=</span><span class="n">column</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">column</span> <span class="o">&gt;</span> <span class="n">q1</span> <span class="o">-</span> <span class="mf">1.5</span> <span class="o">*</span> <span class="n">iqr</span><span class="p">)</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span>
+            <span class="n">upper_whisker</span><span class="o">=</span><span class="n">column</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">column</span> <span class="o">&lt;</span> <span class="n">q3</span> <span class="o">+</span> <span class="mf">1.5</span> <span class="o">*</span> <span class="n">iqr</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span>
+        <span class="p">)</span>
+
+<div class="viewcode-block" id="DatasetComparison.compare_box_plots"><a class="viewcode-back" href="../../comparison_tools.html#comparison_tools.dataset_comparison.DatasetComparison.compare_box_plots">[docs]</a>    <span class="k">def</span> <span class="nf">compare_box_plots</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">column_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">width</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">500</span><span class="p">,</span> <span class="n">height</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">500</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Displays box plots of a specified column.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        column_name : str</span>
+<span class="sd">            The name of the column to be analyzed.</span>
+<span class="sd">        width : int, optional</span>
+<span class="sd">            The desired width of the generated plot.</span>
+<span class="sd">        height : int, optional</span>
+<span class="sd">            The desired height of the generated plot.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If the `column_name` is missing in one of the data sets.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_verify_column_exists</span><span class="p">(</span><span class="n">column_name</span><span class="p">)</span>
+        <span class="n">display_markdown</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Box plots of </span><span class="si">{</span><span class="n">column_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+        <span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
+            <span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">,</span>
+            <span class="n">height</span><span class="o">=</span><span class="n">height</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span>
+            <span class="n">go</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span>
+                <span class="n">y</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_old_data</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">(),</span>
+                <span class="n">marker_color</span><span class="o">=</span><span class="s2">&quot;royalblue&quot;</span><span class="p">,</span>
+                <span class="n">boxmean</span><span class="o">=</span><span class="s2">&quot;sd&quot;</span><span class="p">,</span>
+                <span class="n">name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_name_old_data</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span>
+            <span class="n">go</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_new_data</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">(),</span> <span class="n">marker_color</span><span class="o">=</span><span class="s2">&quot;teal&quot;</span><span class="p">,</span> <span class="n">boxmean</span><span class="o">=</span><span class="s2">&quot;sd&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_name_new_data</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="DatasetComparison.compare_histograms"><a class="viewcode-back" href="../../comparison_tools.html#comparison_tools.dataset_comparison.DatasetComparison.compare_histograms">[docs]</a>    <span class="k">def</span> <span class="nf">compare_histograms</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">column_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">nbins</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">500</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Displays divergence metrics and histogram of a specified column.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        column_name : str</span>
+<span class="sd">            The name of the column to be analyzed.</span>
+<span class="sd">        nbins : int, optional</span>
+<span class="sd">            The number of bins to be used to plot the histograms and calculate the Jensen-Shannon divergence.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If the `column_name` is missing in one of the data sets.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_verify_column_exists</span><span class="p">(</span><span class="n">column_name</span><span class="p">)</span>
+        <span class="n">display_markdown</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Divergence metrics and histograms of </span><span class="si">{</span><span class="n">column_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+        <span class="n">new_column</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_new_data</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span>
+        <span class="n">old_column</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_old_data</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Divergence metrics for </span><span class="si">{</span><span class="n">column_name</span><span class="si">}</span><span class="s2">:&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Jensen-Shannon Divergence: </span><span class="si">{</span><span class="n">empirical_js_divergence</span><span class="p">(</span><span class="n">new_column</span><span class="p">,</span><span class="n">old_column</span><span class="p">,</span><span class="w"> </span><span class="n">nbins</span><span class="o">=</span><span class="n">nbins</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Kullback-Leibler Divergence: </span><span class="si">{</span><span class="n">ks_test_statistic</span><span class="p">(</span><span class="n">new_column</span><span class="p">,</span><span class="n">old_column</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span>
+            <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="bp">self</span><span class="o">.</span><span class="n">_name_new_data</span><span class="p">:</span> <span class="n">new_column</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name_old_data</span><span class="p">:</span> <span class="n">old_column</span><span class="p">}),</span>
+            <span class="n">nbins</span><span class="o">=</span><span class="n">nbins</span><span class="p">,</span>
+            <span class="n">barmode</span><span class="o">=</span><span class="s2">&quot;overlay&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">update_xaxes</span><span class="p">(</span><span class="n">title_text</span><span class="o">=</span><span class="n">column_name</span><span class="p">)</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Histograms of </span><span class="si">{</span><span class="n">column_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s2">&quot;xanchor&quot;</span><span class="p">:</span> <span class="s2">&quot;center&quot;</span><span class="p">})</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="DatasetComparison.compare_outliers"><a class="viewcode-back" href="../../comparison_tools.html#comparison_tools.dataset_comparison.DatasetComparison.compare_outliers">[docs]</a>    <span class="k">def</span> <span class="nf">compare_outliers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">column_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Displays an outlier comparison (outliers are sessions with values outside the whiskers of the box plot)</span>
+<span class="sd">        of a specified column.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        column_name : str</span>
+<span class="sd">            The name of the column to be analyzed.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If the `column_name` is missing in one of the data sets.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_verify_column_exists</span><span class="p">(</span><span class="n">column_name</span><span class="p">)</span>
+        <span class="n">display_markdown</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Outlier comparison of </span><span class="si">{</span><span class="n">column_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+        <span class="n">new_column</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_new_data</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span>
+        <span class="n">old_column</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_old_data</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span>
+
+        <span class="n">new_outliers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_outliers</span><span class="p">(</span><span class="n">new_column</span><span class="p">,</span> <span class="n">session_id_column</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_new_data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_session_id_column_name</span><span class="p">])</span>
+        <span class="n">old_outliers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_outliers</span><span class="p">(</span><span class="n">old_column</span><span class="p">,</span> <span class="n">session_id_column</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_old_data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_session_id_column_name</span><span class="p">])</span>
+        <span class="n">outliers_both</span> <span class="o">=</span> <span class="n">new_outliers</span> <span class="o">&amp;</span> <span class="n">old_outliers</span>
+        <span class="n">outliers_only_new</span> <span class="o">=</span> <span class="n">new_outliers</span> <span class="o">-</span> <span class="n">old_outliers</span>
+        <span class="n">outliers_only_old</span> <span class="o">=</span> <span class="n">old_outliers</span> <span class="o">-</span> <span class="n">new_outliers</span>
+
+        <span class="n">lines_to_print</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;Outliers in both datasets&quot;</span><span class="p">:</span> <span class="n">outliers_both</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot;Outliers only in </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_name_new_data</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">:</span> <span class="n">outliers_only_new</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot;Outliers only in </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_name_old_data</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">:</span> <span class="n">outliers_only_old</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="n">print_and_align</span><span class="p">(</span><span class="n">lines_to_print</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="DatasetComparison.sessions_with_changes"><a class="viewcode-back" href="../../comparison_tools.html#comparison_tools.dataset_comparison.DatasetComparison.sessions_with_changes">[docs]</a>    <span class="k">def</span> <span class="nf">sessions_with_changes</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">column_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">threshold</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">exclude_missing_sessions</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Displays all sessions that have changes bigger than a threshold in a specified column.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        column_name : str</span>
+<span class="sd">            The name of the column to be analyzed.</span>
+<span class="sd">        threshold : float, optional</span>
+<span class="sd">            The threshold value for changes so that a session will be considered as having a significant change.</span>
+<span class="sd">            All sessions whose value has changed more than that will be printed.</span>
+<span class="sd">        exclude_missing_sessions : bool, optional</span>
+<span class="sd">            Whether sessions that are missing in one dataset should not be displayed.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If the `column_name` is missing in one of the data sets.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_verify_column_exists</span><span class="p">(</span><span class="n">column_name</span><span class="p">)</span>
+        <span class="n">display_markdown</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Sessions with changes bigger than </span><span class="si">{</span><span class="n">threshold</span><span class="si">}</span><span class="s2"> in </span><span class="si">{</span><span class="n">column_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+
+        <span class="n">comparison_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_new_data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_old_data</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_session_id_column_name</span><span class="p">,</span> <span class="n">suffixes</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;_new&quot;</span><span class="p">,</span> <span class="s2">&quot;_old&quot;</span><span class="p">],</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;outer&quot;</span>
+        <span class="p">)</span>
+        <span class="n">column_name_new_data</span> <span class="o">=</span> <span class="n">column_name</span> <span class="o">+</span> <span class="s2">&quot;_new&quot;</span>
+        <span class="n">column_name_old_data</span> <span class="o">=</span> <span class="n">column_name</span> <span class="o">+</span> <span class="s2">&quot;_old&quot;</span>
+        <span class="n">comparison_df</span><span class="p">[</span><span class="s2">&quot;difference&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">comparison_df</span><span class="p">[</span><span class="n">column_name_new_data</span><span class="p">]</span> <span class="o">-</span> <span class="n">comparison_df</span><span class="p">[</span><span class="n">column_name_old_data</span><span class="p">])</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span>
+        <span class="n">changed_sessions</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">comparison_df</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_session_id_column_name</span><span class="p">]</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">comparison_df</span><span class="p">[</span><span class="s2">&quot;difference&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">threshold</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">exclude_missing_sessions</span><span class="p">:</span>
+            <span class="n">changed_sessions</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span>
+                <span class="p">[</span>
+                    <span class="n">changed_sessions</span><span class="p">,</span>
+                    <span class="n">comparison_df</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_session_id_column_name</span><span class="p">]</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">comparison_df</span><span class="p">[</span><span class="s2">&quot;difference&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">())</span><span class="o">.</span><span class="n">dropna</span><span class="p">(),</span>
+                <span class="p">]</span>
+            <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_print_changed_sessions</span><span class="p">(</span>
+            <span class="n">changed_sessions</span><span class="p">,</span> <span class="n">comparison_df</span><span class="p">,</span> <span class="n">column_name_old_data</span><span class="p">,</span> <span class="n">column_name_new_data</span><span class="p">,</span> <span class="n">threshold</span>
+        <span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">_print_changed_sessions</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">changed_sessions</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">comparison_df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+        <span class="n">column_name_old_data</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">column_name_new_data</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">threshold</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">lines_to_print</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">session_id</span> <span class="ow">in</span> <span class="n">changed_sessions</span><span class="p">:</span>
+            <span class="n">old_value</span> <span class="o">=</span> <span class="n">comparison_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
+                <span class="n">comparison_df</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_session_id_column_name</span><span class="p">]</span> <span class="o">==</span> <span class="n">session_id</span><span class="p">,</span> <span class="n">column_name_old_data</span>
+            <span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">new_value</span> <span class="o">=</span> <span class="n">comparison_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
+                <span class="n">comparison_df</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_session_id_column_name</span><span class="p">]</span> <span class="o">==</span> <span class="n">session_id</span><span class="p">,</span> <span class="n">column_name_new_data</span>
+            <span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">lines_to_print</span><span class="p">[</span><span class="n">session_id</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Changed from </span><span class="si">{</span><span class="n">old_value</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">new_value</span><span class="si">}</span><span class="s2">&quot;</span>
+
+        <span class="k">if</span> <span class="n">lines_to_print</span><span class="p">:</span>
+            <span class="n">print_and_align</span><span class="p">(</span><span class="n">lines_to_print</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There were no sessions whose values have changed by more than </span><span class="si">{</span><span class="n">threshold</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_verify_column_exists</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">column_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">column_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_new_data</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Column </span><span class="si">{</span><span class="n">column_name</span><span class="si">}</span><span class="s2"> does not exist in </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_name_new_data</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">column_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_old_data</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Column </span><span class="si">{</span><span class="n">column_name</span><span class="si">}</span><span class="s2"> does not exist in </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_name_old_data</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Bayerische Motoren Werke Aktiengesellschaft (BMW AG).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

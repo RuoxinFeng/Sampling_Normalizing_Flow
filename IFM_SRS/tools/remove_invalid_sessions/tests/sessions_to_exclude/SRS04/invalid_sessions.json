@@ -1,0 +1,41 @@
+{
+    "global": {
+        "rt_range_issues_automatic": {
+            "__comment": "Do not make any manual changes, the field is created automatically! RT range issue. Sessions are marked with \u201cRT_RANGE_CHECK_\u201c or marked \u201cEM_SCENECAT_DEFECT_RTRANGE_START.\u201d ",
+            "value": [
+                "33c50008-0741-43b4-a0fc-018534d26d27",
+                "7ccf4c46-b336-45a8-aa23-01835ab6504f",
+                "3b7a7922-f6d6-444c-a9c3-018534c41de1",
+                "1f9c0674-34ad-4727-aa5b-018534cf5c6f",
+                "8e0de455-e68e-4b5c-a5ae-018534d84e53",
+                "c24890a5-ed22-4c1e-aea2-018636395c3d",
+                "a1ca9c1d-a241-4bfd-a3b7-01860d0b9ee0",
+                "f1596523-5bed-496f-a341-0186070f3d26",
+                "5ccebfa1-a291-4132-a3fa-0186070f343d",
+                "b1ae9576-aa1d-4556-a2cd-01860701cfba",
+                "1f7b1a9b-2d24-45ac-a6da-018539277e57",
+                "5dffd50e-56fa-4a53-a3f3-01853923fc89",
+                "b7a8171a-4f2c-4cac-a743-0182a61665f6",
+                "fa9a3eb5-3e9d-41e6-ae2e-0183e55945bb"
+            ]
+        }
+    },
+    "adcam": {},
+    "lidar": {
+        "list_of_suspected": {
+            "__comment": "taken from inital SPM notebook on 16.10. by FM",
+            "value": [
+                "1f9c0674-34ad-4727-aa5b-018534cf5c6f",
+                "3b7a7922-f6d6-444c-a9c3-018534c41de1",
+                "33c50008-0741-43b4-a0fc-018534d26d27",
+                "8e0de455-e68e-4b5c-a5ae-018534d84e53"
+            ]
+        }
+    },
+    "frr": {
+        "plp_issues": {
+            "__comment": "taken from inital SPM notebook on 16.10. by FM. Vigem logger loses PLP-packages during data collection. Can lead to algo resets during reprocessing and to non plausible KPI-calculations",
+            "value": []
+        }
+    }
+}

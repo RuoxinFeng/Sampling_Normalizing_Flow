@@ -1,0 +1,30 @@
+{
+    "timestamp_input_data": "06/07/2023 14:20:26",
+    "timestamp_export": "04/04/2024 11:10:03",
+    "name": "spv_1234567a",
+    "model_class": "<class 'statsmodels.regression.linear_model.OLS'>",
+    "params": {
+        "Intercept": 1,
+        "categorical_ifv_12345678[T.category 1]": 2,
+        "np.power(categorical_ifv_12345678[T.category 1], 2)": 0.1,
+        "ifv_23456789": 3,
+        "ifv_23456789:np.power(ifv_23456789, 3):categorical_ifv_12345678[T.category_2]": 4,
+        "np.exp(ifv_23456789)": 0.1,
+        "np.log(ifv_23456789)": 0.1,
+        "np.power(ifv_23456789, 5)": 0.1
+    },
+    "dependent_variable": "spv_1234567a",
+    "mse_residuals": 0.009346573988,
+    "custom_noise_distribution": {
+        "distributions": [
+            {
+                "name": "norm",
+                "parameters": [
+                    1.0,
+                    1.0
+                ]
+            }
+        ]
+    },
+    "total_failure_rate": 0.00269541779
+}

@@ -1,0 +1,724 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>remove_invalid_sessions package &#8212; Model Fits Tools  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'remove_invalid_sessions';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Model Fits Tools  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/remove_invalid_sessions.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>remove_invalid_sessions package</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-remove_invalid_sessions">Module contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.invalid_sessions_schema.CategoryModel"><code class="docutils literal notranslate"><span class="pre">CategoryModel</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.invalid_sessions_schema.CategoryModel.Config"><code class="docutils literal notranslate"><span class="pre">CategoryModel.Config</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.invalid_sessions_schema.CategoryModel.Config.extra"><code class="docutils literal notranslate"><span class="pre">CategoryModel.Config.extra</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.invalid_sessions_schema.CategoryModel.value"><code class="docutils literal notranslate"><span class="pre">CategoryModel.value</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.invalid_sessions_schema.InvalidSession"><code class="docutils literal notranslate"><span class="pre">InvalidSession</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.invalid_sessions_schema.InvalidSession.Config"><code class="docutils literal notranslate"><span class="pre">InvalidSession.Config</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.invalid_sessions_schema.InvalidSession.Config.extra"><code class="docutils literal notranslate"><span class="pre">InvalidSession.Config.extra</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.invalid_sessions_schema.InvalidSession.sensors_have_valid_json_schema"><code class="docutils literal notranslate"><span class="pre">InvalidSession.sensors_have_valid_json_schema()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.invalid_sessions_schema.SensorModel"><code class="docutils literal notranslate"><span class="pre">SensorModel</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.invalid_sessions_schema.SensorModel.Config"><code class="docutils literal notranslate"><span class="pre">SensorModel.Config</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.invalid_sessions_schema.SensorModel.Config.extra"><code class="docutils literal notranslate"><span class="pre">SensorModel.Config.extra</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.invalid_sessions_schema.SensorModel.categories_have_valid_json_schema"><code class="docutils literal notranslate"><span class="pre">SensorModel.categories_have_valid_json_schema()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.remove_invalid_sessions.InvalidSessionsSpec"><code class="docutils literal notranslate"><span class="pre">InvalidSessionsSpec</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.remove_invalid_sessions.InvalidSessionsSpec.file_prefix"><code class="docutils literal notranslate"><span class="pre">InvalidSessionsSpec.file_prefix</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.remove_invalid_sessions.InvalidSessionsSpec.reasons_to_remove"><code class="docutils literal notranslate"><span class="pre">InvalidSessionsSpec.reasons_to_remove</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.remove_invalid_sessions.InvalidSessionsSpec.sensor_names"><code class="docutils literal notranslate"><span class="pre">InvalidSessionsSpec.sensor_names</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.remove_invalid_sessions.InvalidSessionsSpec.srs"><code class="docutils literal notranslate"><span class="pre">InvalidSessionsSpec.srs</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.remove_invalid_sessions.ReasonsToRemove"><code class="docutils literal notranslate"><span class="pre">ReasonsToRemove</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.remove_invalid_sessions.ReasonsToRemove.DegradedSessions"><code class="docutils literal notranslate"><span class="pre">ReasonsToRemove.DegradedSessions</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.remove_invalid_sessions.ReasonsToRemove.InvalidSessions"><code class="docutils literal notranslate"><span class="pre">ReasonsToRemove.InvalidSessions</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.remove_invalid_sessions.ReasonsToRemove.TotalFailureSessions"><code class="docutils literal notranslate"><span class="pre">ReasonsToRemove.TotalFailureSessions</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.remove_invalid_sessions.ReasonsToRemove._generate_next_value_"><code class="docutils literal notranslate"><span class="pre">ReasonsToRemove._generate_next_value_()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.remove_invalid_sessions.SRS"><code class="docutils literal notranslate"><span class="pre">SRS</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.remove_invalid_sessions.SRS.SRS04"><code class="docutils literal notranslate"><span class="pre">SRS.SRS04</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.remove_invalid_sessions.SRS.SRS06"><code class="docutils literal notranslate"><span class="pre">SRS.SRS06</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.remove_invalid_sessions.SRS.SRS08"><code class="docutils literal notranslate"><span class="pre">SRS.SRS08</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.remove_invalid_sessions.SRS.SRS11_MV"><code class="docutils literal notranslate"><span class="pre">SRS.SRS11_MV</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.remove_invalid_sessions.SRS.SRS11_ST"><code class="docutils literal notranslate"><span class="pre">SRS.SRS11_ST</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.remove_invalid_sessions.SRS.SRS12"><code class="docutils literal notranslate"><span class="pre">SRS.SRS12</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.remove_invalid_sessions.SRS.SRS16"><code class="docutils literal notranslate"><span class="pre">SRS.SRS16</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.remove_invalid_sessions.SRS._generate_next_value_"><code class="docutils literal notranslate"><span class="pre">SRS._generate_next_value_()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.remove_invalid_sessions.TotalFailureInfo"><code class="docutils literal notranslate"><span class="pre">TotalFailureInfo</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.remove_invalid_sessions.TotalFailureInfo.observed_total_failures"><code class="docutils literal notranslate"><span class="pre">TotalFailureInfo.observed_total_failures</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.remove_invalid_sessions.TotalFailureInfo.posterior_total_failure_probability"><code class="docutils literal notranslate"><span class="pre">TotalFailureInfo.posterior_total_failure_probability</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.remove_invalid_sessions.remove_invalid_sessions"><code class="docutils literal notranslate"><span class="pre">remove_invalid_sessions()</span></code></a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="remove-invalid-sessions-package">
+<h1>remove_invalid_sessions package<a class="headerlink" href="#remove-invalid-sessions-package" title="Permalink to this heading">#</a></h1>
+<section id="module-remove_invalid_sessions">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-remove_invalid_sessions" title="Permalink to this heading">#</a></h2>
+<span class="target" id="module-remove_invalid_sessions.invalid_sessions_schema"></span><dl class="py class">
+<dt class="sig sig-object py" id="remove_invalid_sessions.invalid_sessions_schema.CategoryModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">remove_invalid_sessions.invalid_sessions_schema.</span></span><span class="sig-name descname"><span class="pre">CategoryModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">extra_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/remove_invalid_sessions/invalid_sessions_schema.html#CategoryModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#remove_invalid_sessions.invalid_sessions_schema.CategoryModel" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="remove_invalid_sessions.invalid_sessions_schema.CategoryModel.Config">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Config</span></span><a class="reference internal" href="_modules/remove_invalid_sessions/invalid_sessions_schema.html#CategoryModel.Config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#remove_invalid_sessions.invalid_sessions_schema.CategoryModel.Config" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="remove_invalid_sessions.invalid_sessions_schema.CategoryModel.Config.extra">
+<span class="sig-name descname"><span class="pre">extra</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'allow'</span></em><a class="headerlink" href="#remove_invalid_sessions.invalid_sessions_schema.CategoryModel.Config.extra" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="remove_invalid_sessions.invalid_sessions_schema.CategoryModel.value">
+<span class="sig-name descname"><span class="pre">value</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#remove_invalid_sessions.invalid_sessions_schema.CategoryModel.value" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="remove_invalid_sessions.invalid_sessions_schema.InvalidSession">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">remove_invalid_sessions.invalid_sessions_schema.</span></span><span class="sig-name descname"><span class="pre">InvalidSession</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">extra_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/remove_invalid_sessions/invalid_sessions_schema.html#InvalidSession"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#remove_invalid_sessions.invalid_sessions_schema.InvalidSession" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="remove_invalid_sessions.invalid_sessions_schema.InvalidSession.Config">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Config</span></span><a class="reference internal" href="_modules/remove_invalid_sessions/invalid_sessions_schema.html#InvalidSession.Config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#remove_invalid_sessions.invalid_sessions_schema.InvalidSession.Config" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="remove_invalid_sessions.invalid_sessions_schema.InvalidSession.Config.extra">
+<span class="sig-name descname"><span class="pre">extra</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'allow'</span></em><a class="headerlink" href="#remove_invalid_sessions.invalid_sessions_schema.InvalidSession.Config.extra" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="remove_invalid_sessions.invalid_sessions_schema.InvalidSession.sensors_have_valid_json_schema">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sensors_have_valid_json_schema</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/remove_invalid_sessions/invalid_sessions_schema.html#InvalidSession.sensors_have_valid_json_schema"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#remove_invalid_sessions.invalid_sessions_schema.InvalidSession.sensors_have_valid_json_schema" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="remove_invalid_sessions.invalid_sessions_schema.SensorModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">remove_invalid_sessions.invalid_sessions_schema.</span></span><span class="sig-name descname"><span class="pre">SensorModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">extra_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/remove_invalid_sessions/invalid_sessions_schema.html#SensorModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#remove_invalid_sessions.invalid_sessions_schema.SensorModel" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="remove_invalid_sessions.invalid_sessions_schema.SensorModel.Config">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Config</span></span><a class="reference internal" href="_modules/remove_invalid_sessions/invalid_sessions_schema.html#SensorModel.Config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#remove_invalid_sessions.invalid_sessions_schema.SensorModel.Config" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="remove_invalid_sessions.invalid_sessions_schema.SensorModel.Config.extra">
+<span class="sig-name descname"><span class="pre">extra</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'allow'</span></em><a class="headerlink" href="#remove_invalid_sessions.invalid_sessions_schema.SensorModel.Config.extra" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="remove_invalid_sessions.invalid_sessions_schema.SensorModel.categories_have_valid_json_schema">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">categories_have_valid_json_schema</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/remove_invalid_sessions/invalid_sessions_schema.html#SensorModel.categories_have_valid_json_schema"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#remove_invalid_sessions.invalid_sessions_schema.SensorModel.categories_have_valid_json_schema" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-remove_invalid_sessions.remove_invalid_sessions"></span><dl class="py class">
+<dt class="sig sig-object py" id="remove_invalid_sessions.remove_invalid_sessions.InvalidSessionsSpec">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">remove_invalid_sessions.remove_invalid_sessions.</span></span><span class="sig-name descname"><span class="pre">InvalidSessionsSpec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">srs:</span> <span class="pre">~remove_invalid_sessions.remove_invalid_sessions.SRS,</span> <span class="pre">sensor_names:</span> <span class="pre">~typing.List[str],</span> <span class="pre">reasons_to_remove:</span> <span class="pre">~typing.List[~remove_invalid_sessions.remove_invalid_sessions.ReasonsToRemove]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;,</span> <span class="pre">file_prefix:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">''</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/remove_invalid_sessions/remove_invalid_sessions.html#InvalidSessionsSpec"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#remove_invalid_sessions.remove_invalid_sessions.InvalidSessionsSpec" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A wrapper containing information about files that specify which sessions need to be removed from the input data.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="remove_invalid_sessions.remove_invalid_sessions.InvalidSessionsSpec.file_prefix">
+<span class="sig-name descname"><span class="pre">file_prefix</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">''</span></em><a class="headerlink" href="#remove_invalid_sessions.remove_invalid_sessions.InvalidSessionsSpec.file_prefix" title="Permalink to this definition">#</a></dt>
+<dd><p>File prefix of invalid sessions jsons.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="remove_invalid_sessions.remove_invalid_sessions.InvalidSessionsSpec.reasons_to_remove">
+<span class="sig-name descname"><span class="pre">reasons_to_remove</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#remove_invalid_sessions.remove_invalid_sessions.ReasonsToRemove" title="remove_invalid_sessions.remove_invalid_sessions.ReasonsToRemove"><span class="pre">ReasonsToRemove</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#remove_invalid_sessions.remove_invalid_sessions.InvalidSessionsSpec.reasons_to_remove" title="Permalink to this definition">#</a></dt>
+<dd><p>List of reasons why certain sessions should be removed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="remove_invalid_sessions.remove_invalid_sessions.InvalidSessionsSpec.sensor_names">
+<span class="sig-name descname"><span class="pre">sensor_names</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#remove_invalid_sessions.remove_invalid_sessions.InvalidSessionsSpec.sensor_names" title="Permalink to this definition">#</a></dt>
+<dd><p>List of sensors whose invalid sessions should be removed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="remove_invalid_sessions.remove_invalid_sessions.InvalidSessionsSpec.srs">
+<span class="sig-name descname"><span class="pre">srs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#remove_invalid_sessions.remove_invalid_sessions.SRS" title="remove_invalid_sessions.remove_invalid_sessions.SRS"><span class="pre">SRS</span></a></em><a class="headerlink" href="#remove_invalid_sessions.remove_invalid_sessions.InvalidSessionsSpec.srs" title="Permalink to this definition">#</a></dt>
+<dd><p>The SRS that is analyzed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="remove_invalid_sessions.remove_invalid_sessions.ReasonsToRemove">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">remove_invalid_sessions.remove_invalid_sessions.</span></span><span class="sig-name descname"><span class="pre">ReasonsToRemove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/remove_invalid_sessions/remove_invalid_sessions.html#ReasonsToRemove"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#remove_invalid_sessions.remove_invalid_sessions.ReasonsToRemove" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>An enumeration.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="remove_invalid_sessions.remove_invalid_sessions.ReasonsToRemove.DegradedSessions">
+<span class="sig-name descname"><span class="pre">DegradedSessions</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'degraded_sessions'</span></em><a class="headerlink" href="#remove_invalid_sessions.remove_invalid_sessions.ReasonsToRemove.DegradedSessions" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="remove_invalid_sessions.remove_invalid_sessions.ReasonsToRemove.InvalidSessions">
+<span class="sig-name descname"><span class="pre">InvalidSessions</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'invalid_sessions'</span></em><a class="headerlink" href="#remove_invalid_sessions.remove_invalid_sessions.ReasonsToRemove.InvalidSessions" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="remove_invalid_sessions.remove_invalid_sessions.ReasonsToRemove.TotalFailureSessions">
+<span class="sig-name descname"><span class="pre">TotalFailureSessions</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'total_failure_sessions'</span></em><a class="headerlink" href="#remove_invalid_sessions.remove_invalid_sessions.ReasonsToRemove.TotalFailureSessions" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="remove_invalid_sessions.remove_invalid_sessions.ReasonsToRemove._generate_next_value_">
+<span class="sig-name descname"><span class="pre">_generate_next_value_</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">count</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last_values</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#remove_invalid_sessions.remove_invalid_sessions.ReasonsToRemove._generate_next_value_" title="Permalink to this definition">#</a></dt>
+<dd><p>Generate the next value when not given.</p>
+<p>name: the name of the member
+start: the initial start value or None
+count: the number of existing members
+last_value: the last value assigned or None</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="remove_invalid_sessions.remove_invalid_sessions.SRS">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">remove_invalid_sessions.remove_invalid_sessions.</span></span><span class="sig-name descname"><span class="pre">SRS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/remove_invalid_sessions/remove_invalid_sessions.html#SRS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#remove_invalid_sessions.remove_invalid_sessions.SRS" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>An enumeration.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="remove_invalid_sessions.remove_invalid_sessions.SRS.SRS04">
+<span class="sig-name descname"><span class="pre">SRS04</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'SRS04'</span></em><a class="headerlink" href="#remove_invalid_sessions.remove_invalid_sessions.SRS.SRS04" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="remove_invalid_sessions.remove_invalid_sessions.SRS.SRS06">
+<span class="sig-name descname"><span class="pre">SRS06</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'SRS06'</span></em><a class="headerlink" href="#remove_invalid_sessions.remove_invalid_sessions.SRS.SRS06" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="remove_invalid_sessions.remove_invalid_sessions.SRS.SRS08">
+<span class="sig-name descname"><span class="pre">SRS08</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'SRS08'</span></em><a class="headerlink" href="#remove_invalid_sessions.remove_invalid_sessions.SRS.SRS08" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="remove_invalid_sessions.remove_invalid_sessions.SRS.SRS11_MV">
+<span class="sig-name descname"><span class="pre">SRS11_MV</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'SRS11_MV'</span></em><a class="headerlink" href="#remove_invalid_sessions.remove_invalid_sessions.SRS.SRS11_MV" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="remove_invalid_sessions.remove_invalid_sessions.SRS.SRS11_ST">
+<span class="sig-name descname"><span class="pre">SRS11_ST</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'SRS11_ST'</span></em><a class="headerlink" href="#remove_invalid_sessions.remove_invalid_sessions.SRS.SRS11_ST" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="remove_invalid_sessions.remove_invalid_sessions.SRS.SRS12">
+<span class="sig-name descname"><span class="pre">SRS12</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'SRS12'</span></em><a class="headerlink" href="#remove_invalid_sessions.remove_invalid_sessions.SRS.SRS12" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="remove_invalid_sessions.remove_invalid_sessions.SRS.SRS16">
+<span class="sig-name descname"><span class="pre">SRS16</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'SRS16'</span></em><a class="headerlink" href="#remove_invalid_sessions.remove_invalid_sessions.SRS.SRS16" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="remove_invalid_sessions.remove_invalid_sessions.SRS._generate_next_value_">
+<span class="sig-name descname"><span class="pre">_generate_next_value_</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">count</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last_values</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#remove_invalid_sessions.remove_invalid_sessions.SRS._generate_next_value_" title="Permalink to this definition">#</a></dt>
+<dd><p>Generate the next value when not given.</p>
+<p>name: the name of the member
+start: the initial start value or None
+count: the number of existing members
+last_value: the last value assigned or None</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="remove_invalid_sessions.remove_invalid_sessions.TotalFailureInfo">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">remove_invalid_sessions.remove_invalid_sessions.</span></span><span class="sig-name descname"><span class="pre">TotalFailureInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">posterior_total_failure_probability</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">observed_total_failures</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/remove_invalid_sessions/remove_invalid_sessions.html#TotalFailureInfo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#remove_invalid_sessions.remove_invalid_sessions.TotalFailureInfo" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A wrapper containing information about total failures of a sensor in the input data.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="remove_invalid_sessions.remove_invalid_sessions.TotalFailureInfo.observed_total_failures">
+<span class="sig-name descname"><span class="pre">observed_total_failures</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#remove_invalid_sessions.remove_invalid_sessions.TotalFailureInfo.observed_total_failures" title="Permalink to this definition">#</a></dt>
+<dd><p>The number of total failures of the sensor observed in the input data.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="remove_invalid_sessions.remove_invalid_sessions.TotalFailureInfo.posterior_total_failure_probability">
+<span class="sig-name descname"><span class="pre">posterior_total_failure_probability</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#remove_invalid_sessions.remove_invalid_sessions.TotalFailureInfo.posterior_total_failure_probability" title="Permalink to this definition">#</a></dt>
+<dd><p>The posterior probability of a total failure of the sensor with a uniform prior.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="remove_invalid_sessions.remove_invalid_sessions.remove_invalid_sessions">
+<span class="sig-prename descclassname"><span class="pre">remove_invalid_sessions.remove_invalid_sessions.</span></span><span class="sig-name descname"><span class="pre">remove_invalid_sessions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spec</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#remove_invalid_sessions.remove_invalid_sessions.InvalidSessionsSpec" title="remove_invalid_sessions.remove_invalid_sessions.InvalidSessionsSpec"><span class="pre">InvalidSessionsSpec</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">DataFrame</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#remove_invalid_sessions.remove_invalid_sessions.TotalFailureInfo" title="remove_invalid_sessions.remove_invalid_sessions.TotalFailureInfo"><span class="pre">TotalFailureInfo</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/remove_invalid_sessions/remove_invalid_sessions.html#remove_invalid_sessions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#remove_invalid_sessions.remove_invalid_sessions.remove_invalid_sessions" title="Permalink to this definition">#</a></dt>
+<dd><p>Removes invalid sessions (degraded, invalid, total failure) given by json files for the specified SRS and sensors and calculates the posterior total failure probability with a uniform prior and the number of observed total failures.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pd.DataFrame</em>) – A dataframe containing IFVs and SPVs with their respective Codebeamer IDs.</p></li>
+<li><p><strong>spec</strong> (<a class="reference internal" href="#remove_invalid_sessions.remove_invalid_sessions.InvalidSessionsSpec" title="remove_invalid_sessions.remove_invalid_sessions.InvalidSessionsSpec"><em>InvalidSessionsSpec</em></a>) – An object containing specifications about the files that define which sessions need to be removed.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>pd.DataFrame</em> – The dataframe without the sessions that should be removed.</p></li>
+<li><p><em>TotalFailureInfo</em> – Information about the posterior total failure probability and the observed total failures.</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ValueError</strong> – If ‘global’ is part of the sensor_names list.</p></li>
+<li><p><strong>ValueError</strong> – If duplicates of session ids exist in the DataFrame.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>This function requires a json file per SRS for every ReasonsToRemove in <cite>reasons_to_remove</cite>.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-remove_invalid_sessions">Module contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.invalid_sessions_schema.CategoryModel"><code class="docutils literal notranslate"><span class="pre">CategoryModel</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.invalid_sessions_schema.CategoryModel.Config"><code class="docutils literal notranslate"><span class="pre">CategoryModel.Config</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.invalid_sessions_schema.CategoryModel.Config.extra"><code class="docutils literal notranslate"><span class="pre">CategoryModel.Config.extra</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.invalid_sessions_schema.CategoryModel.value"><code class="docutils literal notranslate"><span class="pre">CategoryModel.value</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.invalid_sessions_schema.InvalidSession"><code class="docutils literal notranslate"><span class="pre">InvalidSession</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.invalid_sessions_schema.InvalidSession.Config"><code class="docutils literal notranslate"><span class="pre">InvalidSession.Config</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.invalid_sessions_schema.InvalidSession.Config.extra"><code class="docutils literal notranslate"><span class="pre">InvalidSession.Config.extra</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.invalid_sessions_schema.InvalidSession.sensors_have_valid_json_schema"><code class="docutils literal notranslate"><span class="pre">InvalidSession.sensors_have_valid_json_schema()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.invalid_sessions_schema.SensorModel"><code class="docutils literal notranslate"><span class="pre">SensorModel</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.invalid_sessions_schema.SensorModel.Config"><code class="docutils literal notranslate"><span class="pre">SensorModel.Config</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.invalid_sessions_schema.SensorModel.Config.extra"><code class="docutils literal notranslate"><span class="pre">SensorModel.Config.extra</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.invalid_sessions_schema.SensorModel.categories_have_valid_json_schema"><code class="docutils literal notranslate"><span class="pre">SensorModel.categories_have_valid_json_schema()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.remove_invalid_sessions.InvalidSessionsSpec"><code class="docutils literal notranslate"><span class="pre">InvalidSessionsSpec</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.remove_invalid_sessions.InvalidSessionsSpec.file_prefix"><code class="docutils literal notranslate"><span class="pre">InvalidSessionsSpec.file_prefix</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.remove_invalid_sessions.InvalidSessionsSpec.reasons_to_remove"><code class="docutils literal notranslate"><span class="pre">InvalidSessionsSpec.reasons_to_remove</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.remove_invalid_sessions.InvalidSessionsSpec.sensor_names"><code class="docutils literal notranslate"><span class="pre">InvalidSessionsSpec.sensor_names</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.remove_invalid_sessions.InvalidSessionsSpec.srs"><code class="docutils literal notranslate"><span class="pre">InvalidSessionsSpec.srs</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.remove_invalid_sessions.ReasonsToRemove"><code class="docutils literal notranslate"><span class="pre">ReasonsToRemove</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.remove_invalid_sessions.ReasonsToRemove.DegradedSessions"><code class="docutils literal notranslate"><span class="pre">ReasonsToRemove.DegradedSessions</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.remove_invalid_sessions.ReasonsToRemove.InvalidSessions"><code class="docutils literal notranslate"><span class="pre">ReasonsToRemove.InvalidSessions</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.remove_invalid_sessions.ReasonsToRemove.TotalFailureSessions"><code class="docutils literal notranslate"><span class="pre">ReasonsToRemove.TotalFailureSessions</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.remove_invalid_sessions.ReasonsToRemove._generate_next_value_"><code class="docutils literal notranslate"><span class="pre">ReasonsToRemove._generate_next_value_()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.remove_invalid_sessions.SRS"><code class="docutils literal notranslate"><span class="pre">SRS</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.remove_invalid_sessions.SRS.SRS04"><code class="docutils literal notranslate"><span class="pre">SRS.SRS04</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.remove_invalid_sessions.SRS.SRS06"><code class="docutils literal notranslate"><span class="pre">SRS.SRS06</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.remove_invalid_sessions.SRS.SRS08"><code class="docutils literal notranslate"><span class="pre">SRS.SRS08</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.remove_invalid_sessions.SRS.SRS11_MV"><code class="docutils literal notranslate"><span class="pre">SRS.SRS11_MV</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.remove_invalid_sessions.SRS.SRS11_ST"><code class="docutils literal notranslate"><span class="pre">SRS.SRS11_ST</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.remove_invalid_sessions.SRS.SRS12"><code class="docutils literal notranslate"><span class="pre">SRS.SRS12</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.remove_invalid_sessions.SRS.SRS16"><code class="docutils literal notranslate"><span class="pre">SRS.SRS16</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.remove_invalid_sessions.SRS._generate_next_value_"><code class="docutils literal notranslate"><span class="pre">SRS._generate_next_value_()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.remove_invalid_sessions.TotalFailureInfo"><code class="docutils literal notranslate"><span class="pre">TotalFailureInfo</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.remove_invalid_sessions.TotalFailureInfo.observed_total_failures"><code class="docutils literal notranslate"><span class="pre">TotalFailureInfo.observed_total_failures</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.remove_invalid_sessions.TotalFailureInfo.posterior_total_failure_probability"><code class="docutils literal notranslate"><span class="pre">TotalFailureInfo.posterior_total_failure_probability</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remove_invalid_sessions.remove_invalid_sessions.remove_invalid_sessions"><code class="docutils literal notranslate"><span class="pre">remove_invalid_sessions()</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Team Kepler
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, Bayerische Motoren Werke Aktiengesellschaft (BMW AG).
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

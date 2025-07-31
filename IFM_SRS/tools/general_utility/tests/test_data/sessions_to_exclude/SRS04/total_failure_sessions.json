@@ -1,0 +1,12 @@
+{
+    "adcam": {},
+    "lidar": {},
+    "frr": {
+        "another_issue": {
+            "__comment": "Mismatch between kpis from IFA Tool and Ground Truth values, cannot be used due to inconsistent statistics",
+            "value": [
+                "invalid4"
+            ]
+        }
+    }
+}

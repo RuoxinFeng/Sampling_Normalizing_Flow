@@ -1,0 +1,820 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>tools &#8212; Model Fits Tools  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'modules';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Model Fits Tools  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/modules.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>tools</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="tools">
+<h1>tools<a class="headerlink" href="#tools" title="Permalink to this heading">#</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="clean_data.html">clean_data package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="clean_data.html#module-clean_data">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="clean_data.html#clean_data.clean_data.extract_and_rename_columns"><code class="docutils literal notranslate"><span class="pre">extract_and_rename_columns()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="comparison_tools.html">comparison_tools package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="comparison_tools.html#module-comparison_tools">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="comparison_tools.html#comparison_tools.dataset_comparison.DatasetComparison"><code class="docutils literal notranslate"><span class="pre">DatasetComparison</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="comparison_tools.html#comparison_tools.dataset_comparison.DatasetComparison.columns_new_data"><code class="docutils literal notranslate"><span class="pre">DatasetComparison.columns_new_data</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="comparison_tools.html#comparison_tools.dataset_comparison.DatasetComparison.columns_old_data"><code class="docutils literal notranslate"><span class="pre">DatasetComparison.columns_old_data</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="comparison_tools.html#comparison_tools.dataset_comparison.DatasetComparison.compare_box_plots"><code class="docutils literal notranslate"><span class="pre">DatasetComparison.compare_box_plots()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="comparison_tools.html#comparison_tools.dataset_comparison.DatasetComparison.compare_divergence_metrics"><code class="docutils literal notranslate"><span class="pre">DatasetComparison.compare_divergence_metrics()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="comparison_tools.html#comparison_tools.dataset_comparison.DatasetComparison.compare_outliers"><code class="docutils literal notranslate"><span class="pre">DatasetComparison.compare_outliers()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="comparison_tools.html#comparison_tools.dataset_comparison.DatasetComparison.full_analysis"><code class="docutils literal notranslate"><span class="pre">DatasetComparison.full_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="comparison_tools.html#comparison_tools.dataset_comparison.DatasetComparison.sessions_with_changes"><code class="docutils literal notranslate"><span class="pre">DatasetComparison.sessions_with_changes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="comparison_tools.html#comparison_tools.dataset_comparison.DatasetComparison.summarize"><code class="docutils literal notranslate"><span class="pre">DatasetComparison.summarize()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="comparison_tools.html#comparison_tools.dataset_comparison.Whiskers"><code class="docutils literal notranslate"><span class="pre">Whiskers</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="comparison_tools.html#comparison_tools.dataset_comparison.Whiskers.lower_whisker"><code class="docutils literal notranslate"><span class="pre">Whiskers.lower_whisker</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="comparison_tools.html#comparison_tools.dataset_comparison.Whiskers.upper_whisker"><code class="docutils literal notranslate"><span class="pre">Whiskers.upper_whisker</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="comparison_tools.html#comparison_tools.divergence_metrics.emd"><code class="docutils literal notranslate"><span class="pre">emd()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="comparison_tools.html#comparison_tools.divergence_metrics.empirical_js_divergence"><code class="docutils literal notranslate"><span class="pre">empirical_js_divergence()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="comparison_tools.html#comparison_tools.divergence_metrics.ks_test"><code class="docutils literal notranslate"><span class="pre">ks_test()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="comparison_tools.html#comparison_tools.divergence_metrics.mse"><code class="docutils literal notranslate"><span class="pre">mse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="comparison_tools.html#comparison_tools.model_comparison.ComparisonInformation"><code class="docutils literal notranslate"><span class="pre">ComparisonInformation</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="comparison_tools.html#comparison_tools.model_comparison.ComparisonInformation.data"><code class="docutils literal notranslate"><span class="pre">ComparisonInformation.data</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="comparison_tools.html#comparison_tools.model_comparison.ComparisonInformation.model_names"><code class="docutils literal notranslate"><span class="pre">ComparisonInformation.model_names</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="comparison_tools.html#comparison_tools.model_comparison.ComparisonInformation.title"><code class="docutils literal notranslate"><span class="pre">ComparisonInformation.title</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="comparison_tools.html#comparison_tools.model_comparison.ModelComparison"><code class="docutils literal notranslate"><span class="pre">ModelComparison</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="comparison_tools.html#comparison_tools.model_comparison.ModelComparison.new_model"><code class="docutils literal notranslate"><span class="pre">ModelComparison.new_model</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="comparison_tools.html#comparison_tools.model_comparison.ModelComparison.old_model"><code class="docutils literal notranslate"><span class="pre">ModelComparison.old_model</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="comparison_tools.html#comparison_tools.model_comparison.ModelComparison.df"><code class="docutils literal notranslate"><span class="pre">ModelComparison.df</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="comparison_tools.html#comparison_tools.model_comparison.ModelComparison.y_observed"><code class="docutils literal notranslate"><span class="pre">ModelComparison.y_observed</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="comparison_tools.html#comparison_tools.model_comparison.ModelComparison.compare_params"><code class="docutils literal notranslate"><span class="pre">ModelComparison.compare_params()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="comparison_tools.html#comparison_tools.model_comparison.ModelComparison.compare_predictions"><code class="docutils literal notranslate"><span class="pre">ModelComparison.compare_predictions()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="comparison_tools.html#comparison_tools.model_comparison.ModelComparison.dependent_variable"><code class="docutils literal notranslate"><span class="pre">ModelComparison.dependent_variable</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="comparison_tools.html#comparison_tools.model_comparison.ModelComparison.model_similarity_quantities"><code class="docutils literal notranslate"><span class="pre">ModelComparison.model_similarity_quantities()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="comparison_tools.html#comparison_tools.model_comparison.ModelComparison.new_model_result"><code class="docutils literal notranslate"><span class="pre">ModelComparison.new_model_result</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="comparison_tools.html#comparison_tools.model_comparison.ModelComparison.old_model_result"><code class="docutils literal notranslate"><span class="pre">ModelComparison.old_model_result</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="general_utility.html">general_utility package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="general_utility.html#module-general_utility">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="general_utility.html#general_utility.custom_eval.evaluate_formula"><code class="docutils literal notranslate"><span class="pre">evaluate_formula()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="general_utility.html#general_utility.extract_columns.get_columns_with_IFVs"><code class="docutils literal notranslate"><span class="pre">get_columns_with_IFVs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="general_utility.html#general_utility.extract_columns.get_columns_with_SPVs"><code class="docutils literal notranslate"><span class="pre">get_columns_with_SPVs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="general_utility.html#general_utility.helpers.InputData"><code class="docutils literal notranslate"><span class="pre">InputData</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="general_utility.html#general_utility.helpers.InputData.df"><code class="docutils literal notranslate"><span class="pre">InputData.df</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="general_utility.html#general_utility.helpers.InputData.timestamp_export"><code class="docutils literal notranslate"><span class="pre">InputData.timestamp_export</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="general_utility.html#general_utility.helpers.InputData.timestamp_input_data"><code class="docutils literal notranslate"><span class="pre">InputData.timestamp_input_data</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="general_utility.html#general_utility.helpers.InputData.total_failure_info"><code class="docutils literal notranslate"><span class="pre">InputData.total_failure_info</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="general_utility.html#general_utility.helpers._detect_marginal_categorical_ifv_occurrences"><code class="docutils literal notranslate"><span class="pre">_detect_marginal_categorical_ifv_occurrences()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="general_utility.html#general_utility.helpers.display_dataframe"><code class="docutils literal notranslate"><span class="pre">display_dataframe()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="general_utility.html#general_utility.helpers.display_markdown"><code class="docutils literal notranslate"><span class="pre">display_markdown()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="general_utility.html#general_utility.helpers.format_data"><code class="docutils literal notranslate"><span class="pre">format_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="general_utility.html#general_utility.helpers.get_now_string"><code class="docutils literal notranslate"><span class="pre">get_now_string()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="general_utility.html#general_utility.helpers.print_and_align"><code class="docutils literal notranslate"><span class="pre">print_and_align()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="general_utility.html#general_utility.helpers.provide_formula_with_all_entries"><code class="docutils literal notranslate"><span class="pre">provide_formula_with_all_entries()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="general_utility.html#general_utility.helpers.read_and_verify_csv_data"><code class="docutils literal notranslate"><span class="pre">read_and_verify_csv_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="general_utility.html#general_utility.helpers.round_output"><code class="docutils literal notranslate"><span class="pre">round_output()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="general_utility.html#general_utility.helpers.translate_categorical_intervals"><code class="docutils literal notranslate"><span class="pre">translate_categorical_intervals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="general_utility.html#general_utility.helpers.validate_timestamp_format"><code class="docutils literal notranslate"><span class="pre">validate_timestamp_format()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="general_utility.html#general_utility.srs_dependent_formatting_schema.FormattingModel"><code class="docutils literal notranslate"><span class="pre">FormattingModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="general_utility.html#general_utility.srs_dependent_formatting_schema.FormattingModel.Config"><code class="docutils literal notranslate"><span class="pre">FormattingModel.Config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="general_utility.html#general_utility.srs_dependent_formatting_schema.FormattingModel.validate_json_structure"><code class="docutils literal notranslate"><span class="pre">FormattingModel.validate_json_structure()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="general_utility.html#general_utility.srs_dependent_formatting_schema.FormattingModel.validate_srs_names"><code class="docutils literal notranslate"><span class="pre">FormattingModel.validate_srs_names()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="marginal_distributions.html">marginal_distributions package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="marginal_distributions.html#module-marginal_distributions">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFit</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.ds"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFit.ds</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.name"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFit.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.codebeamer_reference"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFit.codebeamer_reference</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.transformation_function"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFit.transformation_function</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.cdf"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFit.cdf()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.compare_fit_and_data"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFit.compare_fit_and_data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.icdf"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFit.icdf()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.u_space"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFit.u_space()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.x_u_z_space"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFit.x_u_z_space()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.z_space"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFit.z_space()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitKDEUnivariate</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate.ds"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitKDEUnivariate.ds</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate.name"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitKDEUnivariate.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate.codebeamer_reference"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitKDEUnivariate.codebeamer_reference</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate.transformation_function"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitKDEUnivariate.transformation_function</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate.kdensity"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitKDEUnivariate.kdensity</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate.dist"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitKDEUnivariate.dist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate.cdf"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitKDEUnivariate.cdf()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate.icdf"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitKDEUnivariate.icdf()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitSciPy</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy.dist"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitSciPy.dist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy.ds"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitSciPy.ds</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy.name"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitSciPy.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy.codebeamer_reference"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitSciPy.codebeamer_reference</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy.transformation_function"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitSciPy.transformation_function</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy.pars"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitSciPy.pars</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy.cdf"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitSciPy.cdf()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy.icdf"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitSciPy.icdf()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitSciPyFrozen</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen.dist"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitSciPyFrozen.dist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen.ds"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitSciPyFrozen.ds</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen.name"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitSciPyFrozen.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen.codebeamer_reference"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitSciPyFrozen.codebeamer_reference</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen.transformation_function"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitSciPyFrozen.transformation_function</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen.pars"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitSciPyFrozen.pars</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen.cdf"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitSciPyFrozen.cdf()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen.icdf"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitSciPyFrozen.icdf()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientNataf"><code class="docutils literal notranslate"><span class="pre">ConvenientNataf</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientNataf.filtering_function"><code class="docutils literal notranslate"><span class="pre">ConvenientNataf.filtering_function</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientNataf.timestamps"><code class="docutils literal notranslate"><span class="pre">ConvenientNataf.timestamps</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientNataf.check_correlations"><code class="docutils literal notranslate"><span class="pre">ConvenientNataf.check_correlations()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientNataf.corrcoef"><code class="docutils literal notranslate"><span class="pre">ConvenientNataf.corrcoef()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientNataf.correlation_matrix"><code class="docutils literal notranslate"><span class="pre">ConvenientNataf.correlation_matrix</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientNataf.correlation_matrix_without_timestamps"><code class="docutils literal notranslate"><span class="pre">ConvenientNataf.correlation_matrix_without_timestamps</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientNataf.dists"><code class="docutils literal notranslate"><span class="pre">ConvenientNataf.dists</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientNataf.name"><code class="docutils literal notranslate"><span class="pre">ConvenientNataf.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientNataf.plot_model_vs_original"><code class="docutils literal notranslate"><span class="pre">ConvenientNataf.plot_model_vs_original()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientNataf.plot_scatter_matrix"><code class="docutils literal notranslate"><span class="pre">ConvenientNataf.plot_scatter_matrix()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientNataf.plot_scatter_matrix_u"><code class="docutils literal notranslate"><span class="pre">ConvenientNataf.plot_scatter_matrix_u()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientNataf.plot_scatter_matrix_z"><code class="docutils literal notranslate"><span class="pre">ConvenientNataf.plot_scatter_matrix_z()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientNataf.sample"><code class="docutils literal notranslate"><span class="pre">ConvenientNataf.sample()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientNataf.save_correlation_matrix"><code class="docutils literal notranslate"><span class="pre">ConvenientNataf.save_correlation_matrix()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientNataf.save_model"><code class="docutils literal notranslate"><span class="pre">ConvenientNataf.save_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientNataf.to_situation_model"><code class="docutils literal notranslate"><span class="pre">ConvenientNataf.to_situation_model()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="marginal_distributions.html#marginal_distributions.marginal_distributions.SamplingInfo"><code class="docutils literal notranslate"><span class="pre">SamplingInfo</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="marginal_distributions.html#marginal_distributions.marginal_distributions.SamplingInfo.df"><code class="docutils literal notranslate"><span class="pre">SamplingInfo.df</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="marginal_distributions.html#marginal_distributions.marginal_distributions.SamplingInfo.warning_messages"><code class="docutils literal notranslate"><span class="pre">SamplingInfo.warning_messages</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="marginal_distributions.html#marginal_distributions.marginal_distributions.find_best_fit"><code class="docutils literal notranslate"><span class="pre">find_best_fit()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="models_export.html">models_export package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="models_export.html#module-models_export">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="models_export.html#models_export.residual_distribution_model.CompositeDistribution"><code class="docutils literal notranslate"><span class="pre">CompositeDistribution</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="models_export.html#models_export.residual_distribution_model.CompositeDistribution.Config"><code class="docutils literal notranslate"><span class="pre">CompositeDistribution.Config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="models_export.html#models_export.residual_distribution_model.CompositeDistribution.distributions"><code class="docutils literal notranslate"><span class="pre">CompositeDistribution.distributions</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="models_export.html#models_export.residual_distribution_model.CompositeDistribution.from_scipy_distribution"><code class="docutils literal notranslate"><span class="pre">CompositeDistribution.from_scipy_distribution()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="models_export.html#models_export.residual_distribution_model.CompositeDistribution.frozen"><code class="docutils literal notranslate"><span class="pre">CompositeDistribution.frozen</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="models_export.html#models_export.residual_distribution_model.CompositeDistribution.parameters"><code class="docutils literal notranslate"><span class="pre">CompositeDistribution.parameters</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="models_export.html#models_export.residual_distribution_model.CompositeDistribution.thresholds"><code class="docutils literal notranslate"><span class="pre">CompositeDistribution.thresholds</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="models_export.html#models_export.residual_distribution_model.CompositeDistribution.type"><code class="docutils literal notranslate"><span class="pre">CompositeDistribution.type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="models_export.html#models_export.residual_distribution_model.CompositeDistribution.validate_bounds_matching"><code class="docutils literal notranslate"><span class="pre">CompositeDistribution.validate_bounds_matching()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="models_export.html#models_export.residual_distribution_model.CompositeDistribution.validate_probability_mass"><code class="docutils literal notranslate"><span class="pre">CompositeDistribution.validate_probability_mass()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="models_export.html#models_export.residual_distribution_model.CompositeDistribution.validate_support_real_numbers_if_piecewise"><code class="docutils literal notranslate"><span class="pre">CompositeDistribution.validate_support_real_numbers_if_piecewise()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="models_export.html#models_export.residual_distribution_model.NoiseDistributionType"><code class="docutils literal notranslate"><span class="pre">NoiseDistributionType</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="models_export.html#models_export.residual_distribution_model.NoiseDistributionType.PIECEWISE"><code class="docutils literal notranslate"><span class="pre">NoiseDistributionType.PIECEWISE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="models_export.html#models_export.residual_distribution_model.NoiseDistributionType.STANDARD"><code class="docutils literal notranslate"><span class="pre">NoiseDistributionType.STANDARD</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="models_export.html#models_export.residual_distribution_model.NoiseDistributionType.TRUNCATED"><code class="docutils literal notranslate"><span class="pre">NoiseDistributionType.TRUNCATED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="models_export.html#models_export.residual_distribution_model.NoiseDistributionType._generate_next_value_"><code class="docutils literal notranslate"><span class="pre">NoiseDistributionType._generate_next_value_()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="models_export.html#models_export.residual_distribution_model.SingleDistribution"><code class="docutils literal notranslate"><span class="pre">SingleDistribution</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="models_export.html#models_export.residual_distribution_model.SingleDistribution.Config"><code class="docutils literal notranslate"><span class="pre">SingleDistribution.Config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="models_export.html#models_export.residual_distribution_model.SingleDistribution.base_scipy_distribution"><code class="docutils literal notranslate"><span class="pre">SingleDistribution.base_scipy_distribution</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="models_export.html#models_export.residual_distribution_model.SingleDistribution.frozen"><code class="docutils literal notranslate"><span class="pre">SingleDistribution.frozen</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="models_export.html#models_export.residual_distribution_model.SingleDistribution.is_truncated"><code class="docutils literal notranslate"><span class="pre">SingleDistribution.is_truncated</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="models_export.html#models_export.residual_distribution_model.SingleDistribution.lower_bound"><code class="docutils literal notranslate"><span class="pre">SingleDistribution.lower_bound</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="models_export.html#models_export.residual_distribution_model.SingleDistribution.name"><code class="docutils literal notranslate"><span class="pre">SingleDistribution.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="models_export.html#models_export.residual_distribution_model.SingleDistribution.parameters"><code class="docutils literal notranslate"><span class="pre">SingleDistribution.parameters</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="models_export.html#models_export.residual_distribution_model.SingleDistribution.probability_mass"><code class="docutils literal notranslate"><span class="pre">SingleDistribution.probability_mass</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="models_export.html#models_export.residual_distribution_model.SingleDistribution.upper_bound"><code class="docutils literal notranslate"><span class="pre">SingleDistribution.upper_bound</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="models_export.html#models_export.residual_distribution_model.SingleDistribution.validate_base_distribution_known"><code class="docutils literal notranslate"><span class="pre">SingleDistribution.validate_base_distribution_known()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="models_export.html#models_export.residual_distribution_model.SingleDistribution.validate_truncated_if_probability_mass_given"><code class="docutils literal notranslate"><span class="pre">SingleDistribution.validate_truncated_if_probability_mass_given()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="models_export.html#models_export.residual_distribution_model.SingleDistribution.validate_truncation"><code class="docutils literal notranslate"><span class="pre">SingleDistribution.validate_truncation()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="models_export.html#models_export.situation_model_export.export_composite_distribution_with_test_cases"><code class="docutils literal notranslate"><span class="pre">export_composite_distribution_with_test_cases()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models_export.html#models_export.situation_model_export.get_situation_model_parameter_from_distribution"><code class="docutils literal notranslate"><span class="pre">get_situation_model_parameter_from_distribution()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models_export.html#models_export.situation_model_export.save_model_as_json_file"><code class="docutils literal notranslate"><span class="pre">save_model_as_json_file()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models_export.html#models_export.statsmodels_exporter.SpmModel"><code class="docutils literal notranslate"><span class="pre">SpmModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="models_export.html#models_export.statsmodels_exporter.SpmModel.Config"><code class="docutils literal notranslate"><span class="pre">SpmModel.Config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="models_export.html#models_export.statsmodels_exporter.SpmModel.as_json"><code class="docutils literal notranslate"><span class="pre">SpmModel.as_json()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="models_export.html#models_export.statsmodels_exporter.SpmModel.as_json_str"><code class="docutils literal notranslate"><span class="pre">SpmModel.as_json_str()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="models_export.html#models_export.statsmodels_exporter.SpmModel.custom_noise_distribution"><code class="docutils literal notranslate"><span class="pre">SpmModel.custom_noise_distribution</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="models_export.html#models_export.statsmodels_exporter.SpmModel.dependent_variable"><code class="docutils literal notranslate"><span class="pre">SpmModel.dependent_variable</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="models_export.html#models_export.statsmodels_exporter.SpmModel.from_json"><code class="docutils literal notranslate"><span class="pre">SpmModel.from_json()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="models_export.html#models_export.statsmodels_exporter.SpmModel.from_linear_model_result"><code class="docutils literal notranslate"><span class="pre">SpmModel.from_linear_model_result()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="models_export.html#models_export.statsmodels_exporter.SpmModel.get_noise_distribution"><code class="docutils literal notranslate"><span class="pre">SpmModel.get_noise_distribution()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="models_export.html#models_export.statsmodels_exporter.SpmModel.model_class"><code class="docutils literal notranslate"><span class="pre">SpmModel.model_class</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="models_export.html#models_export.statsmodels_exporter.SpmModel.mse_residuals"><code class="docutils literal notranslate"><span class="pre">SpmModel.mse_residuals</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="models_export.html#models_export.statsmodels_exporter.SpmModel.name"><code class="docutils literal notranslate"><span class="pre">SpmModel.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="models_export.html#models_export.statsmodels_exporter.SpmModel.params"><code class="docutils literal notranslate"><span class="pre">SpmModel.params</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="models_export.html#models_export.statsmodels_exporter.SpmModel.raise_if_statsmodels_version_incorrect"><code class="docutils literal notranslate"><span class="pre">SpmModel.raise_if_statsmodels_version_incorrect()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="models_export.html#models_export.statsmodels_exporter.SpmModel.total_failure_rate"><code class="docutils literal notranslate"><span class="pre">SpmModel.total_failure_rate</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="models_export.html#models_export.statsmodels_exporter.get_actual_statsmodels_version"><code class="docutils literal notranslate"><span class="pre">get_actual_statsmodels_version()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="plot_tools.html">plot_tools package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="plot_tools.html#module-plot_tools">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="plot_tools.html#plot_tools.plot_tools.ifv_histograms"><code class="docutils literal notranslate"><span class="pre">ifv_histograms()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_tools.html#plot_tools.plot_tools.parallel_coordinates"><code class="docutils literal notranslate"><span class="pre">parallel_coordinates()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_tools.html#plot_tools.plot_tools.plot_hist_and_fit"><code class="docutils literal notranslate"><span class="pre">plot_hist_and_fit()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_tools.html#plot_tools.plot_tools.plot_ks_test_statistic"><code class="docutils literal notranslate"><span class="pre">plot_ks_test_statistic()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_tools.html#plot_tools.plot_tools.qqplot"><code class="docutils literal notranslate"><span class="pre">qqplot()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_tools.html#plot_tools.plot_tools.scatter_matrix"><code class="docutils literal notranslate"><span class="pre">scatter_matrix()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="regression_models.html">regression_models package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="regression_models.html#module-regression_models">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="regression_models.html#regression_models.advanced_residual_distributions.piecewise_distribution"><code class="docutils literal notranslate"><span class="pre">piecewise_distribution</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.advanced_residual_distributions.piecewise_distribution.lower_dist"><code class="docutils literal notranslate"><span class="pre">piecewise_distribution.lower_dist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.advanced_residual_distributions.piecewise_distribution.upper_dist"><code class="docutils literal notranslate"><span class="pre">piecewise_distribution.upper_dist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.advanced_residual_distributions.piecewise_distribution.threshold"><code class="docutils literal notranslate"><span class="pre">piecewise_distribution.threshold</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.advanced_residual_distributions.piecewise_distribution.numargs"><code class="docutils literal notranslate"><span class="pre">piecewise_distribution.numargs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.advanced_residual_distributions.piecewise_distribution.cdf"><code class="docutils literal notranslate"><span class="pre">piecewise_distribution.cdf()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.advanced_residual_distributions.piecewise_distribution.fit"><code class="docutils literal notranslate"><span class="pre">piecewise_distribution.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.advanced_residual_distributions.piecewise_distribution.pdf"><code class="docutils literal notranslate"><span class="pre">piecewise_distribution.pdf()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.advanced_residual_distributions.piecewise_distribution.ppf"><code class="docutils literal notranslate"><span class="pre">piecewise_distribution.ppf()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="regression_models.html#regression_models.advanced_residual_distributions.truncated_distribution"><code class="docutils literal notranslate"><span class="pre">truncated_distribution</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.advanced_residual_distributions.truncated_distribution.dist"><code class="docutils literal notranslate"><span class="pre">truncated_distribution.dist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.advanced_residual_distributions.truncated_distribution.cdf"><code class="docutils literal notranslate"><span class="pre">truncated_distribution.cdf()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.advanced_residual_distributions.truncated_distribution.fit"><code class="docutils literal notranslate"><span class="pre">truncated_distribution.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.advanced_residual_distributions.truncated_distribution.lower_bound"><code class="docutils literal notranslate"><span class="pre">truncated_distribution.lower_bound</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.advanced_residual_distributions.truncated_distribution.pdf"><code class="docutils literal notranslate"><span class="pre">truncated_distribution.pdf()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.advanced_residual_distributions.truncated_distribution.ppf"><code class="docutils literal notranslate"><span class="pre">truncated_distribution.ppf()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.advanced_residual_distributions.truncated_distribution.upper_bound"><code class="docutils literal notranslate"><span class="pre">truncated_distribution.upper_bound</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="regression_models.html#regression_models.regression_helpers.generate_test_data"><code class="docutils literal notranslate"><span class="pre">generate_test_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="regression_models.html#regression_models.regression_helpers.predict_statsmodels"><code class="docutils literal notranslate"><span class="pre">predict_statsmodels()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="regression_models.html#regression_models.regression_models.ConvenientGlmFit"><code class="docutils literal notranslate"><span class="pre">ConvenientGlmFit</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.regression_models.ConvenientGlmFit.noise_dist_family"><code class="docutils literal notranslate"><span class="pre">ConvenientGlmFit.noise_dist_family</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.regression_models.ConvenientGlmFit.noise_dist_name"><code class="docutils literal notranslate"><span class="pre">ConvenientGlmFit.noise_dist_name</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="regression_models.html#regression_models.regression_models.ConvenientMleFit"><code class="docutils literal notranslate"><span class="pre">ConvenientMleFit</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.regression_models.ConvenientMleFit.noise_dist_family"><code class="docutils literal notranslate"><span class="pre">ConvenientMleFit.noise_dist_family</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.regression_models.ConvenientMleFit.noise_dist_name"><code class="docutils literal notranslate"><span class="pre">ConvenientMleFit.noise_dist_name</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="regression_models.html#regression_models.regression_models.ConvenientOlsFit"><code class="docutils literal notranslate"><span class="pre">ConvenientOlsFit</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.regression_models.ConvenientOlsFit.noise_dist_family"><code class="docutils literal notranslate"><span class="pre">ConvenientOlsFit.noise_dist_family</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.regression_models.ConvenientOlsFit.noise_dist_name"><code class="docutils literal notranslate"><span class="pre">ConvenientOlsFit.noise_dist_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.regression_models.ConvenientOlsFit.nongaussian_resid_fit"><code class="docutils literal notranslate"><span class="pre">ConvenientOlsFit.nongaussian_resid_fit()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit"><code class="docutils literal notranslate"><span class="pre">ConvenientRegressionFit</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.df"><code class="docutils literal notranslate"><span class="pre">ConvenientRegressionFit.df</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.formula"><code class="docutils literal notranslate"><span class="pre">ConvenientRegressionFit.formula</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.inverse_output_trafo"><code class="docutils literal notranslate"><span class="pre">ConvenientRegressionFit.inverse_output_trafo</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.response_name"><code class="docutils literal notranslate"><span class="pre">ConvenientRegressionFit.response_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.model_name"><code class="docutils literal notranslate"><span class="pre">ConvenientRegressionFit.model_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.residual_write_file"><code class="docutils literal notranslate"><span class="pre">ConvenientRegressionFit.residual_write_file</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.model_write_file"><code class="docutils literal notranslate"><span class="pre">ConvenientRegressionFit.model_write_file</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.tests_write_file"><code class="docutils literal notranslate"><span class="pre">ConvenientRegressionFit.tests_write_file</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.timestamp_input_data"><code class="docutils literal notranslate"><span class="pre">ConvenientRegressionFit.timestamp_input_data</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.timestamp_export"><code class="docutils literal notranslate"><span class="pre">ConvenientRegressionFit.timestamp_export</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.posterior_total_failure_probability"><code class="docutils literal notranslate"><span class="pre">ConvenientRegressionFit.posterior_total_failure_probability</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.observed_total_failures"><code class="docutils literal notranslate"><span class="pre">ConvenientRegressionFit.observed_total_failures</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.backward_elimination"><code class="docutils literal notranslate"><span class="pre">ConvenientRegressionFit.backward_elimination()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.combine_categories"><code class="docutils literal notranslate"><span class="pre">ConvenientRegressionFit.combine_categories()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.drop_term"><code class="docutils literal notranslate"><span class="pre">ConvenientRegressionFit.drop_term()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.export_model"><code class="docutils literal notranslate"><span class="pre">ConvenientRegressionFit.export_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.export_tests"><code class="docutils literal notranslate"><span class="pre">ConvenientRegressionFit.export_tests()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.export_tests_from_input_data"><code class="docutils literal notranslate"><span class="pre">ConvenientRegressionFit.export_tests_from_input_data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.factor_names_from_formula"><code class="docutils literal notranslate"><span class="pre">ConvenientRegressionFit.factor_names_from_formula()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.is_predictor_hierarchically_dependent"><code class="docutils literal notranslate"><span class="pre">ConvenientRegressionFit.is_predictor_hierarchically_dependent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.least_significant"><code class="docutils literal notranslate"><span class="pre">ConvenientRegressionFit.least_significant()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.leverage"><code class="docutils literal notranslate"><span class="pre">ConvenientRegressionFit.leverage</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.loocv"><code class="docutils literal notranslate"><span class="pre">ConvenientRegressionFit.loocv</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.noise_dist_name"><code class="docutils literal notranslate"><span class="pre">ConvenientRegressionFit.noise_dist_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.plot_ccpr_grid"><code class="docutils literal notranslate"><span class="pre">ConvenientRegressionFit.plot_ccpr_grid()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.plot_model_vs_original"><code class="docutils literal notranslate"><span class="pre">ConvenientRegressionFit.plot_model_vs_original()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.plot_model_vs_original_histogram"><code class="docutils literal notranslate"><span class="pre">ConvenientRegressionFit.plot_model_vs_original_histogram()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.plot_partregress_grid"><code class="docutils literal notranslate"><span class="pre">ConvenientRegressionFit.plot_partregress_grid()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.plot_residuals"><code class="docutils literal notranslate"><span class="pre">ConvenientRegressionFit.plot_residuals()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.plot_residuals_dist_hist"><code class="docutils literal notranslate"><span class="pre">ConvenientRegressionFit.plot_residuals_dist_hist()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.plot_residuals_hist"><code class="docutils literal notranslate"><span class="pre">ConvenientRegressionFit.plot_residuals_hist()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.plot_standardized_coefficients"><code class="docutils literal notranslate"><span class="pre">ConvenientRegressionFit.plot_standardized_coefficients()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.predictors"><code class="docutils literal notranslate"><span class="pre">ConvenientRegressionFit.predictors</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.print_model_summary"><code class="docutils literal notranslate"><span class="pre">ConvenientRegressionFit.print_model_summary()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.print_outlier_session_ids"><code class="docutils literal notranslate"><span class="pre">ConvenientRegressionFit.print_outlier_session_ids()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.print_p_sorted_terms"><code class="docutils literal notranslate"><span class="pre">ConvenientRegressionFit.print_p_sorted_terms()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.print_summary"><code class="docutils literal notranslate"><span class="pre">ConvenientRegressionFit.print_summary()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.resid_qqplot"><code class="docutils literal notranslate"><span class="pre">ConvenientRegressionFit.resid_qqplot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.to_marginal_distribution"><code class="docutils literal notranslate"><span class="pre">ConvenientRegressionFit.to_marginal_distribution()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="regression_models.html#regression_models.regression_models.GenericLinearLikelihoodModel"><code class="docutils literal notranslate"><span class="pre">GenericLinearLikelihoodModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.regression_models.GenericLinearLikelihoodModel.fit"><code class="docutils literal notranslate"><span class="pre">GenericLinearLikelihoodModel.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.regression_models.GenericLinearLikelihoodModel.nloglikeobs"><code class="docutils literal notranslate"><span class="pre">GenericLinearLikelihoodModel.nloglikeobs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.regression_models.GenericLinearLikelihoodModel.noise_zero_mean"><code class="docutils literal notranslate"><span class="pre">GenericLinearLikelihoodModel.noise_zero_mean()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="regression_models.html#regression_models.regression_models.GenericLinearLikelihoodModel.predict"><code class="docutils literal notranslate"><span class="pre">GenericLinearLikelihoodModel.predict()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="regression_models.html#regression_models.regression_models.backward_stepwise_selection"><code class="docutils literal notranslate"><span class="pre">backward_stepwise_selection()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="regression_models.html#regression_models.regression_models.full_run"><code class="docutils literal notranslate"><span class="pre">full_run()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="regression_models.html#regression_models.regression_models.get_polynomial_of_parameters_and_order"><code class="docutils literal notranslate"><span class="pre">get_polynomial_of_parameters_and_order()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="remove_invalid_sessions.html">remove_invalid_sessions package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="remove_invalid_sessions.html#module-remove_invalid_sessions">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="remove_invalid_sessions.html#remove_invalid_sessions.invalid_sessions_schema.CategoryModel"><code class="docutils literal notranslate"><span class="pre">CategoryModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="remove_invalid_sessions.html#remove_invalid_sessions.invalid_sessions_schema.CategoryModel.Config"><code class="docutils literal notranslate"><span class="pre">CategoryModel.Config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="remove_invalid_sessions.html#remove_invalid_sessions.invalid_sessions_schema.CategoryModel.value"><code class="docutils literal notranslate"><span class="pre">CategoryModel.value</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="remove_invalid_sessions.html#remove_invalid_sessions.invalid_sessions_schema.InvalidSession"><code class="docutils literal notranslate"><span class="pre">InvalidSession</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="remove_invalid_sessions.html#remove_invalid_sessions.invalid_sessions_schema.InvalidSession.Config"><code class="docutils literal notranslate"><span class="pre">InvalidSession.Config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="remove_invalid_sessions.html#remove_invalid_sessions.invalid_sessions_schema.InvalidSession.sensors_have_valid_json_schema"><code class="docutils literal notranslate"><span class="pre">InvalidSession.sensors_have_valid_json_schema()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="remove_invalid_sessions.html#remove_invalid_sessions.invalid_sessions_schema.SensorModel"><code class="docutils literal notranslate"><span class="pre">SensorModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="remove_invalid_sessions.html#remove_invalid_sessions.invalid_sessions_schema.SensorModel.Config"><code class="docutils literal notranslate"><span class="pre">SensorModel.Config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="remove_invalid_sessions.html#remove_invalid_sessions.invalid_sessions_schema.SensorModel.categories_have_valid_json_schema"><code class="docutils literal notranslate"><span class="pre">SensorModel.categories_have_valid_json_schema()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="remove_invalid_sessions.html#remove_invalid_sessions.remove_invalid_sessions.InvalidSessionsSpec"><code class="docutils literal notranslate"><span class="pre">InvalidSessionsSpec</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="remove_invalid_sessions.html#remove_invalid_sessions.remove_invalid_sessions.InvalidSessionsSpec.file_prefix"><code class="docutils literal notranslate"><span class="pre">InvalidSessionsSpec.file_prefix</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="remove_invalid_sessions.html#remove_invalid_sessions.remove_invalid_sessions.InvalidSessionsSpec.reasons_to_remove"><code class="docutils literal notranslate"><span class="pre">InvalidSessionsSpec.reasons_to_remove</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="remove_invalid_sessions.html#remove_invalid_sessions.remove_invalid_sessions.InvalidSessionsSpec.sensor_names"><code class="docutils literal notranslate"><span class="pre">InvalidSessionsSpec.sensor_names</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="remove_invalid_sessions.html#remove_invalid_sessions.remove_invalid_sessions.InvalidSessionsSpec.srs"><code class="docutils literal notranslate"><span class="pre">InvalidSessionsSpec.srs</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="remove_invalid_sessions.html#remove_invalid_sessions.remove_invalid_sessions.ReasonsToRemove"><code class="docutils literal notranslate"><span class="pre">ReasonsToRemove</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="remove_invalid_sessions.html#remove_invalid_sessions.remove_invalid_sessions.ReasonsToRemove.DegradedSessions"><code class="docutils literal notranslate"><span class="pre">ReasonsToRemove.DegradedSessions</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="remove_invalid_sessions.html#remove_invalid_sessions.remove_invalid_sessions.ReasonsToRemove.InvalidSessions"><code class="docutils literal notranslate"><span class="pre">ReasonsToRemove.InvalidSessions</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="remove_invalid_sessions.html#remove_invalid_sessions.remove_invalid_sessions.ReasonsToRemove.TotalFailureSessions"><code class="docutils literal notranslate"><span class="pre">ReasonsToRemove.TotalFailureSessions</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="remove_invalid_sessions.html#remove_invalid_sessions.remove_invalid_sessions.ReasonsToRemove._generate_next_value_"><code class="docutils literal notranslate"><span class="pre">ReasonsToRemove._generate_next_value_()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="remove_invalid_sessions.html#remove_invalid_sessions.remove_invalid_sessions.SRS"><code class="docutils literal notranslate"><span class="pre">SRS</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="remove_invalid_sessions.html#remove_invalid_sessions.remove_invalid_sessions.SRS.SRS04"><code class="docutils literal notranslate"><span class="pre">SRS.SRS04</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="remove_invalid_sessions.html#remove_invalid_sessions.remove_invalid_sessions.SRS.SRS06"><code class="docutils literal notranslate"><span class="pre">SRS.SRS06</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="remove_invalid_sessions.html#remove_invalid_sessions.remove_invalid_sessions.SRS.SRS08"><code class="docutils literal notranslate"><span class="pre">SRS.SRS08</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="remove_invalid_sessions.html#remove_invalid_sessions.remove_invalid_sessions.SRS.SRS11_MV"><code class="docutils literal notranslate"><span class="pre">SRS.SRS11_MV</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="remove_invalid_sessions.html#remove_invalid_sessions.remove_invalid_sessions.SRS.SRS11_ST"><code class="docutils literal notranslate"><span class="pre">SRS.SRS11_ST</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="remove_invalid_sessions.html#remove_invalid_sessions.remove_invalid_sessions.SRS.SRS12"><code class="docutils literal notranslate"><span class="pre">SRS.SRS12</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="remove_invalid_sessions.html#remove_invalid_sessions.remove_invalid_sessions.SRS.SRS16"><code class="docutils literal notranslate"><span class="pre">SRS.SRS16</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="remove_invalid_sessions.html#remove_invalid_sessions.remove_invalid_sessions.SRS._generate_next_value_"><code class="docutils literal notranslate"><span class="pre">SRS._generate_next_value_()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="remove_invalid_sessions.html#remove_invalid_sessions.remove_invalid_sessions.TotalFailureInfo"><code class="docutils literal notranslate"><span class="pre">TotalFailureInfo</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="remove_invalid_sessions.html#remove_invalid_sessions.remove_invalid_sessions.TotalFailureInfo.observed_total_failures"><code class="docutils literal notranslate"><span class="pre">TotalFailureInfo.observed_total_failures</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="remove_invalid_sessions.html#remove_invalid_sessions.remove_invalid_sessions.TotalFailureInfo.posterior_total_failure_probability"><code class="docutils literal notranslate"><span class="pre">TotalFailureInfo.posterior_total_failure_probability</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="remove_invalid_sessions.html#remove_invalid_sessions.remove_invalid_sessions.remove_invalid_sessions"><code class="docutils literal notranslate"><span class="pre">remove_invalid_sessions()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sessions_to_manually_change.html">sessions_to_manually_change package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sessions_to_manually_change.html#module-sessions_to_manually_change">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sessions_to_manually_change.html#sessions_to_manually_change.manual_changes.manually_change_values"><code class="docutils literal notranslate"><span class="pre">manually_change_values()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sessions_to_manually_change.html#sessions_to_manually_change.sessions_to_manually_change_schema.CBIDToChange"><code class="docutils literal notranslate"><span class="pre">CBIDToChange</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sessions_to_manually_change.html#sessions_to_manually_change.sessions_to_manually_change_schema.CBIDToChange.Config"><code class="docutils literal notranslate"><span class="pre">CBIDToChange.Config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sessions_to_manually_change.html#sessions_to_manually_change.sessions_to_manually_change_schema.CBIDToChange.clusters_have_valid_schema"><code class="docutils literal notranslate"><span class="pre">CBIDToChange.clusters_have_valid_schema()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sessions_to_manually_change.html#sessions_to_manually_change.sessions_to_manually_change_schema.ReasonToChange"><code class="docutils literal notranslate"><span class="pre">ReasonToChange</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sessions_to_manually_change.html#sessions_to_manually_change.sessions_to_manually_change_schema.ReasonToChange.Config"><code class="docutils literal notranslate"><span class="pre">ReasonToChange.Config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sessions_to_manually_change.html#sessions_to_manually_change.sessions_to_manually_change_schema.ReasonToChange.lowest_hierarchy"><code class="docutils literal notranslate"><span class="pre">ReasonToChange.lowest_hierarchy()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sessions_to_manually_change.html#sessions_to_manually_change.sessions_to_manually_change_schema.SessionsToChange"><code class="docutils literal notranslate"><span class="pre">SessionsToChange</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sessions_to_manually_change.html#sessions_to_manually_change.sessions_to_manually_change_schema.SessionsToChange.Config"><code class="docutils literal notranslate"><span class="pre">SessionsToChange.Config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sessions_to_manually_change.html#sessions_to_manually_change.sessions_to_manually_change_schema.SessionsToChange.cb_id_dicts_have_valid_schema"><code class="docutils literal notranslate"><span class="pre">SessionsToChange.cb_id_dicts_have_valid_schema()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sessions_to_manually_change.html#sessions_to_manually_change.sessions_to_manually_change_schema.SessionsToChange.cb_ids_have_valid_schema"><code class="docutils literal notranslate"><span class="pre">SessionsToChange.cb_ids_have_valid_schema()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sessions_to_manually_change.html#sessions_to_manually_change.sessions_to_manually_change_schema.SessionsToChange.consistent_datatypes"><code class="docutils literal notranslate"><span class="pre">SessionsToChange.consistent_datatypes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sessions_to_manually_change.html#sessions_to_manually_change.sessions_to_manually_change_schema.SessionsToChange.mappings_by_cb_id"><code class="docutils literal notranslate"><span class="pre">SessionsToChange.mappings_by_cb_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sessions_to_manually_change.html#sessions_to_manually_change.sessions_to_manually_change_schema.SessionsToChange.sessions_are_unique_per_cb_id"><code class="docutils literal notranslate"><span class="pre">SessionsToChange.sessions_are_unique_per_cb_id()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="situation_model.html">situation_model package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="situation_model.html#module-situation_model">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="situation_model.html#situation_model.situation_model.ConditionalSituationModel"><code class="docutils literal notranslate"><span class="pre">ConditionalSituationModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="situation_model.html#situation_model.situation_model.ConditionalSituationModel.conditional_distribution"><code class="docutils literal notranslate"><span class="pre">ConditionalSituationModel.conditional_distribution</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="situation_model.html#situation_model.situation_model.ConditionalSituationModel.conditional_distribution_states"><code class="docutils literal notranslate"><span class="pre">ConditionalSituationModel.conditional_distribution_states</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="situation_model.html#situation_model.situation_model.ConditionalSituationModel.model_proportions"><code class="docutils literal notranslate"><span class="pre">ConditionalSituationModel.model_proportions</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="situation_model.html#situation_model.situation_model.ConditionalSituationModel.models"><code class="docutils literal notranslate"><span class="pre">ConditionalSituationModel.models</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="situation_model.html#situation_model.situation_model.CorrelationMatrix"><code class="docutils literal notranslate"><span class="pre">CorrelationMatrix</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="situation_model.html#situation_model.situation_model.CorrelationMatrix.matrix_must_be_non_empty"><code class="docutils literal notranslate"><span class="pre">CorrelationMatrix.matrix_must_be_non_empty()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="situation_model.html#situation_model.situation_model.CorrelationMatrix.matrix_rows"><code class="docutils literal notranslate"><span class="pre">CorrelationMatrix.matrix_rows</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="situation_model.html#situation_model.situation_model.CorrelationMatrix.parameter_order"><code class="docutils literal notranslate"><span class="pre">CorrelationMatrix.parameter_order</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="situation_model.html#situation_model.situation_model.CorrelationMatrix.parameter_order_length_must_fit_matrix"><code class="docutils literal notranslate"><span class="pre">CorrelationMatrix.parameter_order_length_must_fit_matrix()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="situation_model.html#situation_model.situation_model.CorrelationMatrix.size"><code class="docutils literal notranslate"><span class="pre">CorrelationMatrix.size</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="situation_model.html#situation_model.situation_model.MarginalDistributionTestCase"><code class="docutils literal notranslate"><span class="pre">MarginalDistributionTestCase</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="situation_model.html#situation_model.situation_model.MarginalDistributionTestCase.parameter_order_length_must_fit_matrix"><code class="docutils literal notranslate"><span class="pre">MarginalDistributionTestCase.parameter_order_length_must_fit_matrix()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="situation_model.html#situation_model.situation_model.MarginalDistributionTestCase.u_noise"><code class="docutils literal notranslate"><span class="pre">MarginalDistributionTestCase.u_noise</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="situation_model.html#situation_model.situation_model.MarginalDistributionTestCase.y_predict"><code class="docutils literal notranslate"><span class="pre">MarginalDistributionTestCase.y_predict</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="situation_model.html#situation_model.situation_model.ModelTimestamps"><code class="docutils literal notranslate"><span class="pre">ModelTimestamps</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="situation_model.html#situation_model.situation_model.ModelTimestamps.timestamp_export"><code class="docutils literal notranslate"><span class="pre">ModelTimestamps.timestamp_export</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="situation_model.html#situation_model.situation_model.ModelTimestamps.timestamp_input_data"><code class="docutils literal notranslate"><span class="pre">ModelTimestamps.timestamp_input_data</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="situation_model.html#situation_model.situation_model.ModelTimestamps.timestamps_in_correct_format"><code class="docutils literal notranslate"><span class="pre">ModelTimestamps.timestamps_in_correct_format()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="situation_model.html#situation_model.situation_model.SituationModel"><code class="docutils literal notranslate"><span class="pre">SituationModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="situation_model.html#situation_model.situation_model.SituationModel.correlation_matrix"><code class="docutils literal notranslate"><span class="pre">SituationModel.correlation_matrix</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="situation_model.html#situation_model.situation_model.SituationModel.filtering_function"><code class="docutils literal notranslate"><span class="pre">SituationModel.filtering_function</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="situation_model.html#situation_model.situation_model.SituationModel.number_of_parameters_must_fit_correlation_matrix_size"><code class="docutils literal notranslate"><span class="pre">SituationModel.number_of_parameters_must_fit_correlation_matrix_size()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="situation_model.html#situation_model.situation_model.SituationModel.parameters"><code class="docutils literal notranslate"><span class="pre">SituationModel.parameters</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="situation_model.html#situation_model.situation_model.SituationModel.scenario_occurrence_rate_per_hour"><code class="docutils literal notranslate"><span class="pre">SituationModel.scenario_occurrence_rate_per_hour</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="situation_model.html#situation_model.situation_model.SituationModel.two_parameters_must_not_have_equal_marginal_distribution_parameters"><code class="docutils literal notranslate"><span class="pre">SituationModel.two_parameters_must_not_have_equal_marginal_distribution_parameters()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="situation_model.html#situation_model.situation_model.SituationModelParameter"><code class="docutils literal notranslate"><span class="pre">SituationModelParameter</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="situation_model.html#situation_model.situation_model.SituationModelParameter.codebeamer_reference"><code class="docutils literal notranslate"><span class="pre">SituationModelParameter.codebeamer_reference</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="situation_model.html#situation_model.situation_model.SituationModelParameter.marginal_distribution"><code class="docutils literal notranslate"><span class="pre">SituationModelParameter.marginal_distribution</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="situation_model.html#situation_model.situation_model.SituationModelParameter.marginal_distribution_parameters"><code class="docutils literal notranslate"><span class="pre">SituationModelParameter.marginal_distribution_parameters</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="situation_model.html#situation_model.situation_model.SituationModelParameter.marginal_distribution_test_cases"><code class="docutils literal notranslate"><span class="pre">SituationModelParameter.marginal_distribution_test_cases</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="situation_model.html#situation_model.situation_model.SituationModelParameter.name"><code class="docutils literal notranslate"><span class="pre">SituationModelParameter.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="situation_model.html#situation_model.situation_model.SituationModelParameter.transformation_function"><code class="docutils literal notranslate"><span class="pre">SituationModelParameter.transformation_function</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Team Kepler
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, Bayerische Motoren Werke Aktiengesellschaft (BMW AG).
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

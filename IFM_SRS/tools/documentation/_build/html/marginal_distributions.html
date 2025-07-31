@@ -1,0 +1,1335 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>marginal_distributions package &#8212; Model Fits Tools  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'marginal_distributions';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Model Fits Tools  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/marginal_distributions.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>marginal_distributions package</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-marginal_distributions">Module contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFit</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.ds"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFit.ds</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.name"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFit.name</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.codebeamer_reference"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFit.codebeamer_reference</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.transformation_function"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFit.transformation_function</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.cdf"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFit.cdf()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.compare_fit_and_data"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFit.compare_fit_and_data()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.icdf"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFit.icdf()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.u_space"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFit.u_space()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.x_u_z_space"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFit.x_u_z_space()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.z_space"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFit.z_space()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitKDEUnivariate</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate.ds"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitKDEUnivariate.ds</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate.name"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitKDEUnivariate.name</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate.codebeamer_reference"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitKDEUnivariate.codebeamer_reference</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate.transformation_function"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitKDEUnivariate.transformation_function</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate.kdensity"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitKDEUnivariate.kdensity</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate.dist"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitKDEUnivariate.dist</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate.cdf"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitKDEUnivariate.cdf()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate.icdf"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitKDEUnivariate.icdf()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitSciPy</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy.dist"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitSciPy.dist</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy.ds"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitSciPy.ds</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy.name"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitSciPy.name</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy.codebeamer_reference"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitSciPy.codebeamer_reference</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy.transformation_function"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitSciPy.transformation_function</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy.pars"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitSciPy.pars</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy.cdf"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitSciPy.cdf()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy.icdf"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitSciPy.icdf()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitSciPyFrozen</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen.dist"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitSciPyFrozen.dist</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen.ds"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitSciPyFrozen.ds</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen.name"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitSciPyFrozen.name</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen.codebeamer_reference"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitSciPyFrozen.codebeamer_reference</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen.transformation_function"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitSciPyFrozen.transformation_function</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen.pars"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitSciPyFrozen.pars</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen.cdf"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitSciPyFrozen.cdf()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen.icdf"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitSciPyFrozen.icdf()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientNataf"><code class="docutils literal notranslate"><span class="pre">ConvenientNataf</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientNataf.filtering_function"><code class="docutils literal notranslate"><span class="pre">ConvenientNataf.filtering_function</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientNataf.timestamps"><code class="docutils literal notranslate"><span class="pre">ConvenientNataf.timestamps</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientNataf.check_correlations"><code class="docutils literal notranslate"><span class="pre">ConvenientNataf.check_correlations()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientNataf.corrcoef"><code class="docutils literal notranslate"><span class="pre">ConvenientNataf.corrcoef()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientNataf.correlation_matrix"><code class="docutils literal notranslate"><span class="pre">ConvenientNataf.correlation_matrix</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientNataf.correlation_matrix_without_timestamps"><code class="docutils literal notranslate"><span class="pre">ConvenientNataf.correlation_matrix_without_timestamps</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientNataf.dists"><code class="docutils literal notranslate"><span class="pre">ConvenientNataf.dists</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientNataf.name"><code class="docutils literal notranslate"><span class="pre">ConvenientNataf.name</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientNataf.plot_model_vs_original"><code class="docutils literal notranslate"><span class="pre">ConvenientNataf.plot_model_vs_original()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientNataf.plot_scatter_matrix"><code class="docutils literal notranslate"><span class="pre">ConvenientNataf.plot_scatter_matrix()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientNataf.plot_scatter_matrix_u"><code class="docutils literal notranslate"><span class="pre">ConvenientNataf.plot_scatter_matrix_u()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientNataf.plot_scatter_matrix_z"><code class="docutils literal notranslate"><span class="pre">ConvenientNataf.plot_scatter_matrix_z()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientNataf.sample"><code class="docutils literal notranslate"><span class="pre">ConvenientNataf.sample()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientNataf.save_correlation_matrix"><code class="docutils literal notranslate"><span class="pre">ConvenientNataf.save_correlation_matrix()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientNataf.save_model"><code class="docutils literal notranslate"><span class="pre">ConvenientNataf.save_model()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientNataf.to_situation_model"><code class="docutils literal notranslate"><span class="pre">ConvenientNataf.to_situation_model()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.SamplingInfo"><code class="docutils literal notranslate"><span class="pre">SamplingInfo</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.SamplingInfo.df"><code class="docutils literal notranslate"><span class="pre">SamplingInfo.df</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.SamplingInfo.warning_messages"><code class="docutils literal notranslate"><span class="pre">SamplingInfo.warning_messages</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.find_best_fit"><code class="docutils literal notranslate"><span class="pre">find_best_fit()</span></code></a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="marginal-distributions-package">
+<h1>marginal_distributions package<a class="headerlink" href="#marginal-distributions-package" title="Permalink to this heading">#</a></h1>
+<section id="module-marginal_distributions">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-marginal_distributions" title="Permalink to this heading">#</a></h2>
+<span class="target" id="module-marginal_distributions.marginal_distributions"></span><dl class="py class">
+<dt class="sig sig-object py" id="marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">marginal_distributions.marginal_distributions.</span></span><span class="sig-name descname"><span class="pre">ConvenientMarginalDistributionFit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Series</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">codebeamer_reference</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transformation_function</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/marginal_distributions/marginal_distributions.html#ConvenientMarginalDistributionFit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<p>Abstract class to fit a marginal distribution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ds</strong> (<em>pd.Series</em>) – The training data used for the fit.</p></li>
+<li><p><strong>name</strong> (<em>str</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – The name of the marginal distribution</p></li>
+<li><p><strong>codebeamer_reference</strong> (<em>str</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – A reference to a codebeamer item of the fitted model.</p></li>
+<li><p><strong>transformation_function</strong> (<em>str</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – A function to transform the data sampled from this model
+(not used in this class but will be passed during export to a SituationModel).</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.ds">
+<span class="sig-name descname"><span class="pre">ds</span></span><a class="headerlink" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.ds" title="Permalink to this definition">#</a></dt>
+<dd><p>The training data used for the fit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.Series</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.name" title="Permalink to this definition">#</a></dt>
+<dd><p>The name of the marginal distribution</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.codebeamer_reference">
+<span class="sig-name descname"><span class="pre">codebeamer_reference</span></span><a class="headerlink" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.codebeamer_reference" title="Permalink to this definition">#</a></dt>
+<dd><p>A reference to a codebeamer item of the fitted model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.transformation_function">
+<span class="sig-name descname"><span class="pre">transformation_function</span></span><a class="headerlink" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.transformation_function" title="Permalink to this definition">#</a></dt>
+<dd><p>A function to transform the data sampled from this model
+(not used in this class but will be passed during export to a SituationModel).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.cdf">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">cdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/marginal_distributions/marginal_distributions.html#ConvenientMarginalDistributionFit.cdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.cdf" title="Permalink to this definition">#</a></dt>
+<dd><p>Calculate the cumulative distribution function of the fitted distribution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> (<em>float</em>) – The value where to evaluate the cdf.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The probability that the variable takes a value less than or equal to x.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.compare_fit_and_data">
+<span class="sig-name descname"><span class="pre">compare_fit_and_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_lim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[-1,</span> <span class="pre">1]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bins</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">25</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'pdf'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'cdf'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'qq'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'pdf'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/marginal_distributions/marginal_distributions.html#ConvenientMarginalDistributionFit.compare_fit_and_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.compare_fit_and_data" title="Permalink to this definition">#</a></dt>
+<dd><p>Generates a plot of the empirical distribution of the data vs the fitted model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x_lim</strong> (<em>List</em><em>[</em><em>float</em><em>]</em><em>, </em><em>optional</em>) – The range of the x axis to be plotted.</p></li>
+<li><p><strong>bins</strong> (<em>int</em><em>, </em><em>optional</em>) – The nr of bins for discretization.</p></li>
+<li><p><strong>type</strong> (<em>Literal</em><em>[</em><em>&quot;pdf&quot;</em><em>, </em><em>&quot;cdf&quot;</em><em>, </em><em>&quot;qq&quot;</em><em>]</em>) – The type of plot to be generated (probability density function, cumulative distribution function or QQ-plot)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If an unknown type is passed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.icdf">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">icdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/marginal_distributions/marginal_distributions.html#ConvenientMarginalDistributionFit.icdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.icdf" title="Permalink to this definition">#</a></dt>
+<dd><p>Calculate the inverse of the cumulative distribution function (percent point function) of the fitted distribution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> (<em>float</em>) – The probability value where to evaluate the icdf.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A threshold value, so that the probability of the variable being less or equal than this threshold is x.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.u_space">
+<span class="sig-name descname"><span class="pre">u_space</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Series</span></span></span><a class="reference internal" href="_modules/marginal_distributions/marginal_distributions.html#ConvenientMarginalDistributionFit.u_space"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.u_space" title="Permalink to this definition">#</a></dt>
+<dd><p>Outputs the training data, transformed into uniform space (values between 0 and 1).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The transformed training data (in the range [0,1]).</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>pd.Series</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.x_u_z_space">
+<span class="sig-name descname"><span class="pre">x_u_z_space</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="reference internal" href="_modules/marginal_distributions/marginal_distributions.html#ConvenientMarginalDistributionFit.x_u_z_space"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.x_u_z_space" title="Permalink to this definition">#</a></dt>
+<dd><p>Outputs the training data, transformed into u and z space (normally distributed).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A Dataframe containing the untransformed and transformed training data (in u and z space) in its columns.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.z_space">
+<span class="sig-name descname"><span class="pre">z_space</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Series</span></span></span><a class="reference internal" href="_modules/marginal_distributions/marginal_distributions.html#ConvenientMarginalDistributionFit.z_space"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.z_space" title="Permalink to this definition">#</a></dt>
+<dd><p>Outputs the training data, transformed into z space (normally distributed).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The transformed training data (with mean 0 and std 1).</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>pd.Series</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">marginal_distributions.marginal_distributions.</span></span><span class="sig-name descname"><span class="pre">ConvenientMarginalDistributionFitKDEUnivariate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Series</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">codebeamer_reference</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transformation_function</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/marginal_distributions/marginal_distributions.html#ConvenientMarginalDistributionFitKDEUnivariate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit" title="marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFit</span></code></a></p>
+<p>Fit a kernel density as a marginal distribution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ds</strong> (<em>pd.Series</em>) – The training data used for the fit.</p></li>
+<li><p><strong>name</strong> (<em>str</em><em> or </em><em>None</em>) – The name of the marginal distribution</p></li>
+<li><p><strong>codebeamer_reference</strong> (<em>str</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – A reference to a codebeamer item of the fitted model.</p></li>
+<li><p><strong>transformation_function</strong> (<em>str</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – A function to transform the data sampled from this model
+(not used in this class but will be passed during export to a SituationModel).</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate.ds">
+<span class="sig-name descname"><span class="pre">ds</span></span><a class="headerlink" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate.ds" title="Permalink to this definition">#</a></dt>
+<dd><p>The training data used for the fit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.Series</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate.name" title="Permalink to this definition">#</a></dt>
+<dd><p>The name of the marginal distribution</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate.codebeamer_reference">
+<span class="sig-name descname"><span class="pre">codebeamer_reference</span></span><a class="headerlink" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate.codebeamer_reference" title="Permalink to this definition">#</a></dt>
+<dd><p>A reference to a codebeamer item of the fitted model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate.transformation_function">
+<span class="sig-name descname"><span class="pre">transformation_function</span></span><a class="headerlink" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate.transformation_function" title="Permalink to this definition">#</a></dt>
+<dd><p>A function to transform the data sampled from this model
+(not used in this class but will be passed during export to a SituationModel).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate.kdensity">
+<span class="sig-name descname"><span class="pre">kdensity</span></span><a class="headerlink" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate.kdensity" title="Permalink to this definition">#</a></dt>
+<dd><p>The kernel density estimator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>statsmodels.nonparametric.KDEUnivariate</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate.dist">
+<span class="sig-name descname"><span class="pre">dist</span></span><a class="headerlink" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate.dist" title="Permalink to this definition">#</a></dt>
+<dd><p>The fitted kernel density.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>statsmodels.nonparametric.KDEUnivariate</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate.cdf">
+<span class="sig-name descname"><span class="pre">cdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/marginal_distributions/marginal_distributions.html#ConvenientMarginalDistributionFitKDEUnivariate.cdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate.cdf" title="Permalink to this definition">#</a></dt>
+<dd><p>Calculate the cumulative distribution function of the fitted distribution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> (<em>float</em>) – The value where to evaluate the cdf.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The probability that the variable takes a value less than or equal to x.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate.icdf">
+<span class="sig-name descname"><span class="pre">icdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/marginal_distributions/marginal_distributions.html#ConvenientMarginalDistributionFitKDEUnivariate.icdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate.icdf" title="Permalink to this definition">#</a></dt>
+<dd><p>Calculate the inverse of the cumulative distribution function (percent point function) of the fitted distribution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> (<em>float</em>) – The probability value where to evaluate the icdf.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A threshold value, so that the probability of the variable being less or equal than this threshold is x.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">marginal_distributions.marginal_distributions.</span></span><span class="sig-name descname"><span class="pre">ConvenientMarginalDistributionFitSciPy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dist</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">rv_continuous</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Series</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">codebeamer_reference</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transformation_function</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/marginal_distributions/marginal_distributions.html#ConvenientMarginalDistributionFitSciPy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit" title="marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFit</span></code></a></p>
+<p>Fit a marginal distribution from scipy.stats.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dist</strong> (<em>scipy.stats.rv_continuous</em>) – The distribution family to be fitted.</p></li>
+<li><p><strong>ds</strong> (<em>pd.Series</em>) – The training data used for the fit.</p></li>
+<li><p><strong>name</strong> (<em>str</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – The name of the marginal distribution</p></li>
+<li><p><strong>codebeamer_reference</strong> (<em>str</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – A reference to a codebeamer item of the fitted model.</p></li>
+<li><p><strong>transformation_function</strong> (<em>str</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – A function to transform the data sampled from this model
+(not used in this class but will be passed during export to a SituationModel).</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy.dist">
+<span class="sig-name descname"><span class="pre">dist</span></span><a class="headerlink" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy.dist" title="Permalink to this definition">#</a></dt>
+<dd><p>The distribution family to be fitted.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>scipy.stats.rv_continuous</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy.ds">
+<span class="sig-name descname"><span class="pre">ds</span></span><a class="headerlink" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy.ds" title="Permalink to this definition">#</a></dt>
+<dd><p>The training data used for the fit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.Series</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy.name" title="Permalink to this definition">#</a></dt>
+<dd><p>The name of the marginal distribution</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy.codebeamer_reference">
+<span class="sig-name descname"><span class="pre">codebeamer_reference</span></span><a class="headerlink" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy.codebeamer_reference" title="Permalink to this definition">#</a></dt>
+<dd><p>A reference to a codebeamer item of the fitted model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy.transformation_function">
+<span class="sig-name descname"><span class="pre">transformation_function</span></span><a class="headerlink" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy.transformation_function" title="Permalink to this definition">#</a></dt>
+<dd><p>A function to transform the data sampled from this model
+(not used in this class but will be passed during export to a SituationModel).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy.pars">
+<span class="sig-name descname"><span class="pre">pars</span></span><a class="headerlink" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy.pars" title="Permalink to this definition">#</a></dt>
+<dd><p>The fitted parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tuple[float]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy.cdf">
+<span class="sig-name descname"><span class="pre">cdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/marginal_distributions/marginal_distributions.html#ConvenientMarginalDistributionFitSciPy.cdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy.cdf" title="Permalink to this definition">#</a></dt>
+<dd><p>Calculate the cumulative distribution function of the fitted distribution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> (<em>float</em>) – The value where to evaluate the cdf.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The probability that the variable takes a value less than or equal to x.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy.icdf">
+<span class="sig-name descname"><span class="pre">icdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/marginal_distributions/marginal_distributions.html#ConvenientMarginalDistributionFitSciPy.icdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy.icdf" title="Permalink to this definition">#</a></dt>
+<dd><p>Calculate the inverse of the cumulative distribution function (percent point function) of the fitted distribution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> (<em>float</em>) – The probability value where to evaluate the icdf.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A threshold value, so that the probability of the variable being less or equal than this threshold is x.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">marginal_distributions.marginal_distributions.</span></span><span class="sig-name descname"><span class="pre">ConvenientMarginalDistributionFitSciPyFrozen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dist</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">rv_frozen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Series</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">codebeamer_reference</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transformation_function</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/marginal_distributions/marginal_distributions.html#ConvenientMarginalDistributionFitSciPyFrozen"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit" title="marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFit</span></code></a></p>
+<p>Similar to ConvenientMarginalDistributionFitSciPy, but already takes a fitted distribution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dist</strong> (<em>scipy.stats.distributions.rv_frozen</em>) – The pre-fitted distribution.</p></li>
+<li><p><strong>ds</strong> (<em>pd.Series</em>) – The training data used for the fit.</p></li>
+<li><p><strong>name</strong> (<em>str</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – The name of the marginal distribution</p></li>
+<li><p><strong>codebeamer_reference</strong> (<em>str</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – A reference to a codebeamer item of the fitted model.</p></li>
+<li><p><strong>transformation_function</strong> (<em>str</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – A function to transform the data sampled from this model
+(not used in this class but will be passed during export to a SituationModel).</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen.dist">
+<span class="sig-name descname"><span class="pre">dist</span></span><a class="headerlink" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen.dist" title="Permalink to this definition">#</a></dt>
+<dd><p>The pre-fitted distribution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>scipy.stats.distributions.rv_frozen</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen.ds">
+<span class="sig-name descname"><span class="pre">ds</span></span><a class="headerlink" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen.ds" title="Permalink to this definition">#</a></dt>
+<dd><p>The training data used for the fit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.Series</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen.name" title="Permalink to this definition">#</a></dt>
+<dd><p>The name of the marginal distribution</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen.codebeamer_reference">
+<span class="sig-name descname"><span class="pre">codebeamer_reference</span></span><a class="headerlink" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen.codebeamer_reference" title="Permalink to this definition">#</a></dt>
+<dd><p>A reference to a codebeamer item of the fitted model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen.transformation_function">
+<span class="sig-name descname"><span class="pre">transformation_function</span></span><a class="headerlink" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen.transformation_function" title="Permalink to this definition">#</a></dt>
+<dd><p>A function to transform the data sampled from this model
+(not used in this class but will be passed during export to a SituationModel).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen.pars">
+<span class="sig-name descname"><span class="pre">pars</span></span><a class="headerlink" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen.pars" title="Permalink to this definition">#</a></dt>
+<dd><p>The fitted parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tuple[float]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen.cdf">
+<span class="sig-name descname"><span class="pre">cdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/marginal_distributions/marginal_distributions.html#ConvenientMarginalDistributionFitSciPyFrozen.cdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen.cdf" title="Permalink to this definition">#</a></dt>
+<dd><p>Calculate the cumulative distribution function of the fitted distribution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> (<em>float</em>) – The value where to evaluate the cdf.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The probability that the variable takes a value less than or equal to x.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen.icdf">
+<span class="sig-name descname"><span class="pre">icdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/marginal_distributions/marginal_distributions.html#ConvenientMarginalDistributionFitSciPyFrozen.icdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen.icdf" title="Permalink to this definition">#</a></dt>
+<dd><p>Calculate the inverse of the cumulative distribution function (percent point function) of the fitted distribution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> (<em>float</em>) – The probability value where to evaluate the icdf.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A threshold value, so that the probability of the variable being less or equal than this threshold is x.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="marginal_distributions.marginal_distributions.ConvenientNataf">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">marginal_distributions.marginal_distributions.</span></span><span class="sig-name descname"><span class="pre">ConvenientNataf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dists</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit" title="marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit"><span class="pre">ConvenientMarginalDistributionFit</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp_input_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp_export</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filtering_function</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/marginal_distributions/marginal_distributions.html#ConvenientNataf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#marginal_distributions.marginal_distributions.ConvenientNataf" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Fit the correlation structure of two or more pre-fitted distributions using a Nataf transformation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – The name of the multivariate distribution.</p></li>
+<li><p><strong>dists</strong> (<em>List</em><em>[</em><a class="reference internal" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit" title="marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit"><em>ConvenientMarginalDistributionFit</em></a><em>]</em>) – The pre-fitted marginal distributions.</p></li>
+<li><p><strong>timestamp_input_data</strong> (<em>str</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – The timestamp when the training data was generated.</p></li>
+<li><p><strong>timestamp_export</strong> (<em>str</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – The timestamp when the training data was read.</p></li>
+<li><p><strong>filtering_function</strong> (<em>str</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – A function to restrict the variables to a specific range; will be applied during sampling
+from the multivariate distribution.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the provided distributions were not fitted on training data of the same length.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="marginal_distributions.marginal_distributions.ConvenientNataf.filtering_function">
+<span class="sig-name descname"><span class="pre">filtering_function</span></span><a class="headerlink" href="#marginal_distributions.marginal_distributions.ConvenientNataf.filtering_function" title="Permalink to this definition">#</a></dt>
+<dd><p>A function to restrict the variables to a specific range; will be applied during sampling
+from the multivariate distribution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="marginal_distributions.marginal_distributions.ConvenientNataf.timestamps">
+<span class="sig-name descname"><span class="pre">timestamps</span></span><a class="headerlink" href="#marginal_distributions.marginal_distributions.ConvenientNataf.timestamps" title="Permalink to this definition">#</a></dt>
+<dd><p>A dictionary containing the timestamps when the training data was generated and read.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dict[str, str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="marginal_distributions.marginal_distributions.ConvenientNataf.check_correlations">
+<span class="sig-name descname"><span class="pre">check_correlations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">max_sampling_iterations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/marginal_distributions/marginal_distributions.html#ConvenientNataf.check_correlations"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#marginal_distributions.marginal_distributions.ConvenientNataf.check_correlations" title="Permalink to this definition">#</a></dt>
+<dd><p>Displays the absolute differences between the correlation matrix of the training data and samples from the fitted model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>max_sampling_iterations</strong> (<em>int</em><em>, </em><em>optional</em>) – The number of iterations to be performed trying to find the expected number of samples. A warning will be raised if the expected number of samples has not been found. Created samples will still be used for calculating the sample correlation matrix in that case.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="marginal_distributions.marginal_distributions.ConvenientNataf.corrcoef">
+<span class="sig-name descname"><span class="pre">corrcoef</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/marginal_distributions/marginal_distributions.html#ConvenientNataf.corrcoef"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#marginal_distributions.marginal_distributions.ConvenientNataf.corrcoef" title="Permalink to this definition">#</a></dt>
+<dd><p>Fits the correlation matrix of the training data in z space.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The calculated correlation matrix.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>np.ndarray</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.z_space" title="marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.z_space"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFit.z_space</span></code></a></dt><dd><p>Transforming the training data to z space.</p>
+</dd>
+</dl>
+</div>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="marginal_distributions.marginal_distributions.ConvenientNataf.correlation_matrix">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">correlation_matrix</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">CorrelationMatrix</span></em><a class="headerlink" href="#marginal_distributions.marginal_distributions.ConvenientNataf.correlation_matrix" title="Permalink to this definition">#</a></dt>
+<dd><p>The fitted correlation matrix.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="situation_model.html#situation_model.situation_model.CorrelationMatrix" title="situation_model.situation_model.CorrelationMatrix">CorrelationMatrix</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="marginal_distributions.marginal_distributions.ConvenientNataf.correlation_matrix_without_timestamps">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">correlation_matrix_without_timestamps</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">CorrelationMatrix</span></em><a class="headerlink" href="#marginal_distributions.marginal_distributions.ConvenientNataf.correlation_matrix_without_timestamps" title="Permalink to this definition">#</a></dt>
+<dd><p>The fitted correlation matrix, not including the timestamps of the training data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="situation_model.html#situation_model.situation_model.CorrelationMatrix" title="situation_model.situation_model.CorrelationMatrix">CorrelationMatrix</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="marginal_distributions.marginal_distributions.ConvenientNataf.dists">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dists</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit" title="marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit"><span class="pre">ConvenientMarginalDistributionFit</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#marginal_distributions.marginal_distributions.ConvenientNataf.dists" title="Permalink to this definition">#</a></dt>
+<dd><p>The pre-fitted marginal distributions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[<a class="reference internal" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit" title="marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit">ConvenientMarginalDistributionFit</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="marginal_distributions.marginal_distributions.ConvenientNataf.name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#marginal_distributions.marginal_distributions.ConvenientNataf.name" title="Permalink to this definition">#</a></dt>
+<dd><p>The name of the multivariate distribution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="marginal_distributions.marginal_distributions.ConvenientNataf.plot_model_vs_original">
+<span class="sig-name descname"><span class="pre">plot_model_vs_original</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dimensions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1234</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_sampling_iterations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Figure</span></span></span><a class="reference internal" href="_modules/marginal_distributions/marginal_distributions.html#ConvenientNataf.plot_model_vs_original"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#marginal_distributions.marginal_distributions.ConvenientNataf.plot_model_vs_original" title="Permalink to this definition">#</a></dt>
+<dd><p>Generates scatterplots of the training data and data sampled from the fitted distribution together
+with their marginal distributions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dimensions</strong> (<em>List</em><em>[</em><em>str</em><em>] or </em><em>None</em><em>, </em><em>optional</em>) – The variables to be plotted, defaults to all variables.</p></li>
+<li><p><strong>seed</strong> (<em>int</em><em>, </em><em>optional</em>) – A seed that is passed to statsmodels to generate random variates.</p></li>
+<li><p><strong>n</strong> (<em>int</em><em> or </em><em>None</em><em>, </em><em>optional.</em>) – The number of samples to be plotted, defaults to the number of samples in the training data.</p></li>
+<li><p><strong>max_sampling_iterations</strong> (<em>int</em><em>, </em><em>optional</em>) – The number of iterations to be performed trying to find the expected number of samples. A warning will be raised if the expected number of samples has not been found. Created samples will still be plotted in that case.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The generated plots.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>plotly.graph_objects.Figure</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If n is higher than the number of samples in the training_data.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="marginal_distributions.marginal_distributions.ConvenientNataf.plot_scatter_matrix">
+<span class="sig-name descname"><span class="pre">plot_scatter_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/marginal_distributions/marginal_distributions.html#ConvenientNataf.plot_scatter_matrix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#marginal_distributions.marginal_distributions.ConvenientNataf.plot_scatter_matrix" title="Permalink to this definition">#</a></dt>
+<dd><p>Generates scatterplots of the training data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="marginal_distributions.marginal_distributions.ConvenientNataf.plot_scatter_matrix_u">
+<span class="sig-name descname"><span class="pre">plot_scatter_matrix_u</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/marginal_distributions/marginal_distributions.html#ConvenientNataf.plot_scatter_matrix_u"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#marginal_distributions.marginal_distributions.ConvenientNataf.plot_scatter_matrix_u" title="Permalink to this definition">#</a></dt>
+<dd><p>Generates scatterplots of the training data in u space.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.u_space" title="marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.u_space"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFit.u_space</span></code></a></dt><dd><p>Transforming the training data to u space.</p>
+</dd>
+</dl>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="marginal_distributions.marginal_distributions.ConvenientNataf.plot_scatter_matrix_z">
+<span class="sig-name descname"><span class="pre">plot_scatter_matrix_z</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/marginal_distributions/marginal_distributions.html#ConvenientNataf.plot_scatter_matrix_z"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#marginal_distributions.marginal_distributions.ConvenientNataf.plot_scatter_matrix_z" title="Permalink to this definition">#</a></dt>
+<dd><p>Generates scatterplots of the training data in z space.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.z_space" title="marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.z_space"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFit.z_space</span></code></a></dt><dd><p>Transforming the training data to z space.</p>
+</dd>
+</dl>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="marginal_distributions.marginal_distributions.ConvenientNataf.sample">
+<span class="sig-name descname"><span class="pre">sample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iterations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="reference internal" href="_modules/marginal_distributions/marginal_distributions.html#ConvenientNataf.sample"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#marginal_distributions.marginal_distributions.ConvenientNataf.sample" title="Permalink to this definition">#</a></dt>
+<dd><p>Generates samples from the fitted distribution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> (<em>int</em>) – The number of samples to be generated.</p></li>
+<li><p><strong>seed</strong> (<em>int</em>) – A seed that is passed to statsmodels to generate random variates.</p></li>
+<li><p><strong>max_iterations</strong> (<em>int</em><em>, </em><em>optional</em>) – The number of iterations to be performed trying to find the expected number of samples. A warning will be raised if the expected number of samples has not been found. Created samples will still be outputted in that case.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A DataFrame containing samples for each variable in its columns.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="marginal_distributions.marginal_distributions.ConvenientNataf.save_correlation_matrix">
+<span class="sig-name descname"><span class="pre">save_correlation_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/marginal_distributions/marginal_distributions.html#ConvenientNataf.save_correlation_matrix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#marginal_distributions.marginal_distributions.ConvenientNataf.save_correlation_matrix" title="Permalink to this definition">#</a></dt>
+<dd><p>Saves the correlation matrix to a json file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>folder</strong> (<em>str</em>) – The folder where the file should be saved.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="marginal_distributions.marginal_distributions.ConvenientNataf.save_model">
+<span class="sig-name descname"><span class="pre">save_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">codebeamer_reference</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario_occurrence_rate_per_hour</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1234</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_test_cases</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/marginal_distributions/marginal_distributions.html#ConvenientNataf.save_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#marginal_distributions.marginal_distributions.ConvenientNataf.save_model" title="Permalink to this definition">#</a></dt>
+<dd><p>Saves the model to a json file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>folder</strong> (<em>str</em>) – The folder where the file should be saved.</p></li>
+<li><p><strong>codebeamer_reference</strong> (<em>str</em>) – A reference to a codebeamer item of the fitted model.</p></li>
+<li><p><strong>scenario_occurrence_rate_per_hour</strong> (<em>float</em>) – How often such a scenario occurs in the real world per hour.</p></li>
+<li><p><strong>seed</strong> (<em>int</em><em>, </em><em>optional</em>) – The seed used to generate noise for the test cases.</p></li>
+<li><p><strong>n_test_cases</strong> (<em>int</em><em>, </em><em>optional</em>) – The number of test cases to be generated.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="marginal_distributions.marginal_distributions.ConvenientNataf.to_situation_model">
+<span class="sig-name descname"><span class="pre">to_situation_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_test_cases</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario_occurrence_rate_per_hour</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">codebeamer_reference</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transformation_function</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">SituationModel</span></span></span><a class="reference internal" href="_modules/marginal_distributions/marginal_distributions.html#ConvenientNataf.to_situation_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#marginal_distributions.marginal_distributions.ConvenientNataf.to_situation_model" title="Permalink to this definition">#</a></dt>
+<dd><p>Converts the ConvenientNataf to a SituationModel object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>seed</strong> (<em>int</em>) – The seed used to generate noise for the test cases.</p></li>
+<li><p><strong>n_test_cases</strong> (<em>int</em>) – The number of test cases to be generated.</p></li>
+<li><p><strong>scenario_occurrence_rate_per_hour</strong> (<em>float</em>) – How often such a scenario occurs in the real world per hour.</p></li>
+<li><p><strong>codebeamer_reference</strong> (<em>str</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – A reference to a codebeamer item of the fitted model.</p></li>
+<li><p><strong>transformation_function</strong> (<em>str</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – A function to transform the data sampled from this model.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The generated situation model.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="situation_model.html#situation_model.situation_model.SituationModel" title="situation_model.situation_model.SituationModel">SituationModel</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="marginal_distributions.marginal_distributions.SamplingInfo">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">marginal_distributions.marginal_distributions.</span></span><span class="sig-name descname"><span class="pre">SamplingInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pandas.core.frame.DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">warning_messages</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/marginal_distributions/marginal_distributions.html#SamplingInfo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#marginal_distributions.marginal_distributions.SamplingInfo" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="marginal_distributions.marginal_distributions.SamplingInfo.df">
+<span class="sig-name descname"><span class="pre">df</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">DataFrame</span></em><a class="headerlink" href="#marginal_distributions.marginal_distributions.SamplingInfo.df" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="marginal_distributions.marginal_distributions.SamplingInfo.warning_messages">
+<span class="sig-name descname"><span class="pre">warning_messages</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#marginal_distributions.marginal_distributions.SamplingInfo.warning_messages" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="marginal_distributions.marginal_distributions.find_best_fit">
+<span class="sig-prename descclassname"><span class="pre">marginal_distributions.marginal_distributions.</span></span><span class="sig-name descname"><span class="pre">find_best_fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Series</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bins</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">200</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude_dists</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">axes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="reference internal" href="_modules/marginal_distributions/marginal_distributions.html#find_best_fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#marginal_distributions.marginal_distributions.find_best_fit" title="Permalink to this definition">#</a></dt>
+<dd><p>Fits all distributions from scipy.stats._continuous_distns on the data and calculates the sum of squared errors (SSE)
+as a goodness-of-fit criterion. This function can be used to find a model that best explains 1-dimensional data.
+The following distributions are excluded from the evaluation by default and can not be included manually:
+levy_stable, studentized_range, kstwo, norminvgauss, genhyperbolic</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>pd.Series</em>) – The data to be fitted.</p></li>
+<li><p><strong>bins</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of bins to use for the calculation of SSE.</p></li>
+<li><p><strong>exclude_dists</strong> (<em>List</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – Additional distributions from scipy.stats to be excluded from the evaluation.</p></li>
+<li><p><strong>ax</strong> (<em>plt.axes</em><em> or </em><em>None</em><em>, </em><em>optional to plot the fitted pdfs.</em>) – A matplotlib.pyplot.axes object</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A Dataframe containing all fitted distributions together with their SSE.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-marginal_distributions">Module contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFit</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.ds"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFit.ds</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.name"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFit.name</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.codebeamer_reference"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFit.codebeamer_reference</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.transformation_function"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFit.transformation_function</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.cdf"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFit.cdf()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.compare_fit_and_data"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFit.compare_fit_and_data()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.icdf"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFit.icdf()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.u_space"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFit.u_space()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.x_u_z_space"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFit.x_u_z_space()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.z_space"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFit.z_space()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitKDEUnivariate</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate.ds"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitKDEUnivariate.ds</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate.name"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitKDEUnivariate.name</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate.codebeamer_reference"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitKDEUnivariate.codebeamer_reference</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate.transformation_function"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitKDEUnivariate.transformation_function</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate.kdensity"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitKDEUnivariate.kdensity</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate.dist"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitKDEUnivariate.dist</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate.cdf"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitKDEUnivariate.cdf()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate.icdf"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitKDEUnivariate.icdf()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitSciPy</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy.dist"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitSciPy.dist</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy.ds"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitSciPy.ds</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy.name"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitSciPy.name</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy.codebeamer_reference"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitSciPy.codebeamer_reference</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy.transformation_function"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitSciPy.transformation_function</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy.pars"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitSciPy.pars</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy.cdf"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitSciPy.cdf()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy.icdf"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitSciPy.icdf()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitSciPyFrozen</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen.dist"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitSciPyFrozen.dist</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen.ds"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitSciPyFrozen.ds</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen.name"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitSciPyFrozen.name</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen.codebeamer_reference"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitSciPyFrozen.codebeamer_reference</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen.transformation_function"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitSciPyFrozen.transformation_function</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen.pars"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitSciPyFrozen.pars</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen.cdf"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitSciPyFrozen.cdf()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen.icdf"><code class="docutils literal notranslate"><span class="pre">ConvenientMarginalDistributionFitSciPyFrozen.icdf()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientNataf"><code class="docutils literal notranslate"><span class="pre">ConvenientNataf</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientNataf.filtering_function"><code class="docutils literal notranslate"><span class="pre">ConvenientNataf.filtering_function</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientNataf.timestamps"><code class="docutils literal notranslate"><span class="pre">ConvenientNataf.timestamps</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientNataf.check_correlations"><code class="docutils literal notranslate"><span class="pre">ConvenientNataf.check_correlations()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientNataf.corrcoef"><code class="docutils literal notranslate"><span class="pre">ConvenientNataf.corrcoef()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientNataf.correlation_matrix"><code class="docutils literal notranslate"><span class="pre">ConvenientNataf.correlation_matrix</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientNataf.correlation_matrix_without_timestamps"><code class="docutils literal notranslate"><span class="pre">ConvenientNataf.correlation_matrix_without_timestamps</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientNataf.dists"><code class="docutils literal notranslate"><span class="pre">ConvenientNataf.dists</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientNataf.name"><code class="docutils literal notranslate"><span class="pre">ConvenientNataf.name</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientNataf.plot_model_vs_original"><code class="docutils literal notranslate"><span class="pre">ConvenientNataf.plot_model_vs_original()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientNataf.plot_scatter_matrix"><code class="docutils literal notranslate"><span class="pre">ConvenientNataf.plot_scatter_matrix()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientNataf.plot_scatter_matrix_u"><code class="docutils literal notranslate"><span class="pre">ConvenientNataf.plot_scatter_matrix_u()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientNataf.plot_scatter_matrix_z"><code class="docutils literal notranslate"><span class="pre">ConvenientNataf.plot_scatter_matrix_z()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientNataf.sample"><code class="docutils literal notranslate"><span class="pre">ConvenientNataf.sample()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientNataf.save_correlation_matrix"><code class="docutils literal notranslate"><span class="pre">ConvenientNataf.save_correlation_matrix()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientNataf.save_model"><code class="docutils literal notranslate"><span class="pre">ConvenientNataf.save_model()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.ConvenientNataf.to_situation_model"><code class="docutils literal notranslate"><span class="pre">ConvenientNataf.to_situation_model()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.SamplingInfo"><code class="docutils literal notranslate"><span class="pre">SamplingInfo</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.SamplingInfo.df"><code class="docutils literal notranslate"><span class="pre">SamplingInfo.df</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.SamplingInfo.warning_messages"><code class="docutils literal notranslate"><span class="pre">SamplingInfo.warning_messages</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal_distributions.marginal_distributions.find_best_fit"><code class="docutils literal notranslate"><span class="pre">find_best_fit()</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Team Kepler
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, Bayerische Motoren Werke Aktiengesellschaft (BMW AG).
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

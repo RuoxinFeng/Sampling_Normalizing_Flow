@@ -1,0 +1,29 @@
+remove\_invalid\_sessions.tests package
+=======================================
+
+Submodules
+----------
+
+remove\_invalid\_sessions.tests.test\_invalid\_sessions\_schema module
+----------------------------------------------------------------------
+
+.. automodule:: remove_invalid_sessions.tests.test_invalid_sessions_schema
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+remove\_invalid\_sessions.tests.test\_remove\_invalid\_sessions module
+----------------------------------------------------------------------
+
+.. automodule:: remove_invalid_sessions.tests.test_remove_invalid_sessions
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: remove_invalid_sessions.tests
+   :members:
+   :undoc-members:
+   :show-inheritance:

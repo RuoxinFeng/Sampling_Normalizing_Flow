@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>remove_invalid_sessions.tests.test_remove_invalid_sessions &mdash; Model Fits Tools  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=b3ba4146"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Model Fits Tools
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Model Fits Tools</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">remove_invalid_sessions.tests.test_remove_invalid_sessions</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for remove_invalid_sessions.tests.test_remove_invalid_sessions</h1><div class="highlight"><pre>
+<span></span><span class="c1">#</span>
+<span class="c1"># Copyright (C) 2023-2024, Bayerische Motoren Werke Aktiengesellschaft (BMW AG)</span>
+<span class="c1">#</span>
+
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">dirname</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span>
+<span class="kn">from</span> <span class="nn">unittest.mock</span> <span class="kn">import</span> <span class="n">MagicMock</span><span class="p">,</span> <span class="n">patch</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">pytest</span>
+<span class="kn">from</span> <span class="nn">tools.remove_invalid_sessions.remove_invalid_sessions</span> <span class="kn">import</span> <span class="n">SRS</span><span class="p">,</span> <span class="n">ReasonsToRemove</span><span class="p">,</span> <span class="n">remove_invalid_sessions</span>
+
+<span class="n">cwd</span> <span class="o">=</span> <span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="test_remove_invalid_sessions_all_reasons"><a class="viewcode-back" href="../../../remove_invalid_sessions.tests.html#remove_invalid_sessions.tests.test_remove_invalid_sessions.test_remove_invalid_sessions_all_reasons">[docs]</a><span class="nd">@patch</span><span class="p">(</span><span class="s2">&quot;tools.remove_invalid_sessions.remove_invalid_sessions.os.getcwd&quot;</span><span class="p">,</span> <span class="n">return_value</span><span class="o">=</span><span class="n">cwd</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_remove_invalid_sessions_all_reasons</span><span class="p">(</span><span class="n">mock_getcwd</span><span class="p">,</span> <span class="n">capsys</span><span class="p">:</span> <span class="n">pytest</span><span class="o">.</span><span class="n">CaptureFixture</span><span class="p">):</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;session_id&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;93016ba4-3580-4479-a354-01879468971d&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;73df3533-c85e-443e-a95f-01880b21b826&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;0e39c16e-187a-47df-ae20-01879464707d&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;c3697164-8e18-4831-ae81-0185f36d0265&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;b6896bd6-6186-4b37-a9fa-0187c1b286d0&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;b6896bd6-6186-4b37-a9fa-0187c1b286d1&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;b6896bd6-6186-4b37-a9fa-0187c1b286d2&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;b6896bd6-6186-4b37-a9fa-0187c1b286d3&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;1f9c0674-34ad-4727-aa5b-018534cf5c6f&quot;</span><span class="p">,</span>
+            <span class="p">],</span>
+            <span class="s2">&quot;other_column&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span>
+        <span class="p">}</span>
+    <span class="p">)</span>
+    <span class="n">removed_df</span><span class="p">,</span> <span class="n">actual_total_failure_info</span> <span class="o">=</span> <span class="n">remove_invalid_sessions</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">srs</span><span class="o">=</span><span class="n">SRS</span><span class="o">.</span><span class="n">SRS04</span><span class="p">,</span> <span class="n">sensor_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;frr&quot;</span><span class="p">,</span> <span class="s2">&quot;lidar&quot;</span><span class="p">])</span>
+    <span class="n">prints</span> <span class="o">=</span> <span class="n">capsys</span><span class="o">.</span><span class="n">readouterr</span><span class="p">()</span><span class="o">.</span><span class="n">out</span>
+
+    <span class="n">expected_prints</span> <span class="o">=</span> <span class="s2">&quot;No duplicate sessions detected in the dataframe.</span><span class="se">\n</span><span class="s2">No duplicate session ids detected in total failure sessions file.</span><span class="se">\n</span><span class="s2">Removed 5/17 degraded_sessions successfully from df.</span><span class="se">\n</span><span class="s2">Removed 1/18 invalid_sessions successfully from df.</span><span class="se">\n</span><span class="s2">Removed 0/4 total_failure_sessions successfully from df.</span><span class="se">\n</span><span class="s2">Removed a total of 6/39 sessions successfully from df.</span><span class="se">\n</span><span class="s2">Dataframe now has 3 entries, had 9.</span><span class="se">\n</span><span class="s2">Following sessions are removed:</span><span class="se">\n</span><span class="s2">degraded_sessions : {&#39;Bad radome auto&#39;: [&#39;b6896bd6-6186-4b37-a9fa-0187c1b286d0&#39;], &#39;kpi_tool_issues&#39;: [&#39;73df3533-c85e-443e-a95f-01880b21b826&#39;], &#39;outside_SRS06_scope&#39;: [&#39;93016ba4-3580-4479-a354-01879468971d&#39;, &#39;0e39c16e-187a-47df-ae20-01879464707d&#39;], &#39;rt_range_issues_automatic&#39;: [&#39;c3697164-8e18-4831-ae81-0185f36d0265&#39;]}</span><span class="se">\n</span><span class="s2">invalid_sessions : {&#39;plp_issues&#39;: [], &#39;list_of_suspected&#39;: [&#39;1f9c0674-34ad-4727-aa5b-018534cf5c6f&#39;], &#39;rt_range_issues_automatic&#39;: []}</span><span class="se">\n</span><span class="s2">total_failure_sessions : {&#39;kpi_tool_issues&#39;: [], &#39;another_issue&#39;: []}</span><span class="se">\n</span><span class="s2">Observed total failure rate: 0 per 3 sessions.</span><span class="se">\n</span><span class="s2">Posterior total failure probability with uniform prior: 1 per 5 sessions (20.000%).</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="n">expected_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;session_id&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;b6896bd6-6186-4b37-a9fa-0187c1b286d1&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;b6896bd6-6186-4b37-a9fa-0187c1b286d2&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;b6896bd6-6186-4b37-a9fa-0187c1b286d3&quot;</span><span class="p">,</span>
+            <span class="p">],</span>
+            <span class="s2">&quot;other_column&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span>
+        <span class="p">}</span>
+    <span class="p">)</span>
+
+    <span class="n">pd</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_frame_equal</span><span class="p">(</span><span class="n">removed_df</span><span class="p">,</span> <span class="n">expected_df</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">expected_prints</span> <span class="o">==</span> <span class="n">prints</span>
+    <span class="k">assert</span> <span class="n">actual_total_failure_info</span><span class="o">.</span><span class="n">posterior_total_failure_probability</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="mi">5</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">actual_total_failure_info</span><span class="o">.</span><span class="n">observed_total_failures</span> <span class="o">==</span> <span class="mi">0</span></div>
+
+
+<div class="viewcode-block" id="test_remove_invalid_sessions_one_reason"><a class="viewcode-back" href="../../../remove_invalid_sessions.tests.html#remove_invalid_sessions.tests.test_remove_invalid_sessions.test_remove_invalid_sessions_one_reason">[docs]</a><span class="nd">@patch</span><span class="p">(</span><span class="s2">&quot;tools.remove_invalid_sessions.remove_invalid_sessions.os.getcwd&quot;</span><span class="p">,</span> <span class="n">return_value</span><span class="o">=</span><span class="n">cwd</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_remove_invalid_sessions_one_reason</span><span class="p">(</span><span class="n">mock_getcwd</span><span class="p">,</span> <span class="n">capsys</span><span class="p">:</span> <span class="n">pytest</span><span class="o">.</span><span class="n">CaptureFixture</span><span class="p">):</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;session_id&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;93016ba4-3580-4479-a354-01879468971d&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;73df3533-c85e-443e-a95f-01880b21b826&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;0e39c16e-187a-47df-ae20-01879464707d&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;c3697164-8e18-4831-ae81-0185f36d0265&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;b6896bd6-6186-4b37-a9fa-0187c1b286d0&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;b6896bd6-6186-4b37-a9fa-0187c1b286d1&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;b6896bd6-6186-4b37-a9fa-0187c1b286d2&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;b6896bd6-6186-4b37-a9fa-0187c1b286d3&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;1f9c0674-34ad-4727-aa5b-018534cf5c6f&quot;</span><span class="p">,</span>
+            <span class="p">],</span>
+            <span class="s2">&quot;other_column&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span>
+        <span class="p">}</span>
+    <span class="p">)</span>
+    <span class="n">removed_df</span><span class="p">,</span> <span class="n">actual_total_failure_info</span> <span class="o">=</span> <span class="n">remove_invalid_sessions</span><span class="p">(</span>
+        <span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
+        <span class="n">srs</span><span class="o">=</span><span class="n">SRS</span><span class="o">.</span><span class="n">SRS04</span><span class="p">,</span>
+        <span class="n">sensor_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;frr&quot;</span><span class="p">,</span> <span class="s2">&quot;lidar&quot;</span><span class="p">],</span>
+        <span class="n">reasons_to_remove</span><span class="o">=</span><span class="p">[</span><span class="n">ReasonsToRemove</span><span class="o">.</span><span class="n">DegradedSessions</span><span class="p">],</span>
+    <span class="p">)</span>
+
+    <span class="n">expected_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;session_id&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;b6896bd6-6186-4b37-a9fa-0187c1b286d1&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;b6896bd6-6186-4b37-a9fa-0187c1b286d2&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;b6896bd6-6186-4b37-a9fa-0187c1b286d3&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;1f9c0674-34ad-4727-aa5b-018534cf5c6f&quot;</span><span class="p">,</span>
+            <span class="p">],</span>
+            <span class="s2">&quot;other_column&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span>
+        <span class="p">}</span>
+    <span class="p">)</span>
+    <span class="n">prints</span> <span class="o">=</span> <span class="n">capsys</span><span class="o">.</span><span class="n">readouterr</span><span class="p">()</span><span class="o">.</span><span class="n">out</span>
+
+    <span class="n">expected_prints</span> <span class="o">=</span> <span class="s2">&quot;No duplicate sessions detected in the dataframe.</span><span class="se">\n</span><span class="s2">No duplicate session ids detected in total failure sessions file.</span><span class="se">\n</span><span class="s2">Removed 5/17 degraded_sessions successfully from df.</span><span class="se">\n</span><span class="s2">Removed a total of 5/17 sessions successfully from df.</span><span class="se">\n</span><span class="s2">Dataframe now has 4 entries, had 9.</span><span class="se">\n</span><span class="s2">Following sessions are removed:</span><span class="se">\n</span><span class="s2">degraded_sessions : {&#39;Bad radome auto&#39;: [&#39;b6896bd6-6186-4b37-a9fa-0187c1b286d0&#39;], &#39;kpi_tool_issues&#39;: [&#39;73df3533-c85e-443e-a95f-01880b21b826&#39;], &#39;outside_SRS06_scope&#39;: [&#39;93016ba4-3580-4479-a354-01879468971d&#39;, &#39;0e39c16e-187a-47df-ae20-01879464707d&#39;], &#39;rt_range_issues_automatic&#39;: [&#39;c3697164-8e18-4831-ae81-0185f36d0265&#39;]}</span><span class="se">\n</span><span class="s2">Observed total failure rate: 0 per 4 sessions.</span><span class="se">\n</span><span class="s2">Posterior total failure probability with uniform prior: 1 per 6 sessions (16.667%).</span><span class="se">\n</span><span class="s2">&quot;</span>
+
+    <span class="n">pd</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_frame_equal</span><span class="p">(</span><span class="n">removed_df</span><span class="p">,</span> <span class="n">expected_df</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">expected_prints</span> <span class="o">==</span> <span class="n">prints</span>
+    <span class="k">assert</span> <span class="n">actual_total_failure_info</span><span class="o">.</span><span class="n">posterior_total_failure_probability</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="mi">6</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">actual_total_failure_info</span><span class="o">.</span><span class="n">observed_total_failures</span> <span class="o">==</span> <span class="mi">0</span></div>
+
+
+<div class="viewcode-block" id="test_total_failure_info"><a class="viewcode-back" href="../../../remove_invalid_sessions.tests.html#remove_invalid_sessions.tests.test_remove_invalid_sessions.test_total_failure_info">[docs]</a><span class="nd">@patch</span><span class="p">(</span><span class="s2">&quot;tools.remove_invalid_sessions.remove_invalid_sessions.os.getcwd&quot;</span><span class="p">,</span> <span class="n">return_value</span><span class="o">=</span><span class="n">cwd</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_total_failure_info</span><span class="p">(</span><span class="n">mock_getcwd</span><span class="p">):</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;session_id&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;a&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;b&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;c&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;d&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;e&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;f&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;g&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;h&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;i&quot;</span><span class="p">,</span>
+            <span class="p">],</span>
+            <span class="s2">&quot;other_column&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span>
+        <span class="p">}</span>
+    <span class="p">)</span>
+    <span class="n">removed_df</span><span class="p">,</span> <span class="n">actual_total_failure_info</span> <span class="o">=</span> <span class="n">remove_invalid_sessions</span><span class="p">(</span>
+        <span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
+        <span class="n">srs</span><span class="o">=</span><span class="n">SRS</span><span class="o">.</span><span class="n">SRS04</span><span class="p">,</span>
+        <span class="n">sensor_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;frr&quot;</span><span class="p">,</span> <span class="s2">&quot;lidar&quot;</span><span class="p">],</span>
+        <span class="n">reasons_to_remove</span><span class="o">=</span><span class="p">[</span><span class="n">ReasonsToRemove</span><span class="o">.</span><span class="n">TotalFailureSessions</span><span class="p">],</span>
+    <span class="p">)</span>
+
+    <span class="n">expected_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;session_id&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;e&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;f&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;g&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;h&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;i&quot;</span><span class="p">,</span>
+            <span class="p">],</span>
+            <span class="s2">&quot;other_column&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span>
+        <span class="p">}</span>
+    <span class="p">)</span>
+
+    <span class="n">pd</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_frame_equal</span><span class="p">(</span><span class="n">removed_df</span><span class="p">,</span> <span class="n">expected_df</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">actual_total_failure_info</span><span class="o">.</span><span class="n">posterior_total_failure_probability</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="mi">5</span> <span class="o">/</span> <span class="mi">11</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">actual_total_failure_info</span><span class="o">.</span><span class="n">observed_total_failures</span> <span class="o">==</span> <span class="mi">4</span></div>
+
+
+<div class="viewcode-block" id="test_raises_when_filter_function_called_without_srs_enum"><a class="viewcode-back" href="../../../remove_invalid_sessions.tests.html#remove_invalid_sessions.tests.test_remove_invalid_sessions.test_raises_when_filter_function_called_without_srs_enum">[docs]</a><span class="k">def</span> <span class="nf">test_raises_when_filter_function_called_without_srs_enum</span><span class="p">():</span>
+    <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="n">match</span><span class="o">=</span><span class="s2">&quot;SRS SRS-04 has to be a member of the SRS Enum.&quot;</span><span class="p">):</span>
+        <span class="n">remove_invalid_sessions</span><span class="p">(</span>
+            <span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;session_id&quot;</span><span class="p">:</span> <span class="p">[]}),</span>
+            <span class="n">srs</span><span class="o">=</span><span class="s2">&quot;SRS-04&quot;</span><span class="p">,</span>
+            <span class="n">sensor_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;frr&quot;</span><span class="p">,</span> <span class="s2">&quot;lidar&quot;</span><span class="p">],</span>
+            <span class="n">reasons_to_remove</span><span class="o">=</span><span class="p">[</span><span class="n">ReasonsToRemove</span><span class="o">.</span><span class="n">DegradedSessions</span><span class="p">],</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="test_raises_when_filter_function_called_without_reasons_to_remove_enum"><a class="viewcode-back" href="../../../remove_invalid_sessions.tests.html#remove_invalid_sessions.tests.test_remove_invalid_sessions.test_raises_when_filter_function_called_without_reasons_to_remove_enum">[docs]</a><span class="k">def</span> <span class="nf">test_raises_when_filter_function_called_without_reasons_to_remove_enum</span><span class="p">():</span>
+    <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span>
+        <span class="ne">ValueError</span><span class="p">,</span>
+        <span class="n">match</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="s2">&quot;Reasons to remove [&#39;degraded_sessions&#39;] have to be a member of the ReasonsToRemove Enum.&quot;</span><span class="p">),</span>
+    <span class="p">):</span>
+        <span class="n">remove_invalid_sessions</span><span class="p">(</span>
+            <span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;session_id&quot;</span><span class="p">:</span> <span class="p">[]}),</span>
+            <span class="n">srs</span><span class="o">=</span><span class="n">SRS</span><span class="o">.</span><span class="n">SRS04</span><span class="p">,</span>
+            <span class="n">sensor_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;frr&quot;</span><span class="p">,</span> <span class="s2">&quot;lidar&quot;</span><span class="p">],</span>
+            <span class="n">reasons_to_remove</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;degraded_sessions&quot;</span><span class="p">,</span> <span class="n">ReasonsToRemove</span><span class="o">.</span><span class="n">InvalidSessions</span><span class="p">],</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="test_raises_when_filter_function_called_with_invalid_sensor_names_parameter"><a class="viewcode-back" href="../../../remove_invalid_sessions.tests.html#remove_invalid_sessions.tests.test_remove_invalid_sessions.test_raises_when_filter_function_called_with_invalid_sensor_names_parameter">[docs]</a><span class="k">def</span> <span class="nf">test_raises_when_filter_function_called_with_invalid_sensor_names_parameter</span><span class="p">():</span>
+    <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="n">match</span><span class="o">=</span><span class="s2">&quot;sensor_names parameter not_a_list is not a valid list&quot;</span><span class="p">):</span>
+        <span class="n">remove_invalid_sessions</span><span class="p">(</span>
+            <span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;session_id&quot;</span><span class="p">:</span> <span class="p">[]}),</span>
+            <span class="n">srs</span><span class="o">=</span><span class="n">SRS</span><span class="o">.</span><span class="n">SRS04</span><span class="p">,</span>
+            <span class="n">sensor_names</span><span class="o">=</span><span class="s2">&quot;not_a_list&quot;</span><span class="p">,</span>
+            <span class="n">reasons_to_remove</span><span class="o">=</span><span class="p">[</span><span class="n">ReasonsToRemove</span><span class="o">.</span><span class="n">InvalidSessions</span><span class="p">],</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="test_raises_when_duplicates_are_in_dataframe"><a class="viewcode-back" href="../../../remove_invalid_sessions.tests.html#remove_invalid_sessions.tests.test_remove_invalid_sessions.test_raises_when_duplicates_are_in_dataframe">[docs]</a><span class="k">def</span> <span class="nf">test_raises_when_duplicates_are_in_dataframe</span><span class="p">():</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;session_id&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;other_column&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+        <span class="p">}</span>
+    <span class="p">)</span>
+    <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span>
+        <span class="ne">ValueError</span><span class="p">,</span> <span class="n">match</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="s2">&quot;Duplicates of the following session IDs exist in the dataframe: [&#39;a&#39;]&quot;</span><span class="p">)</span>
+    <span class="p">):</span>
+        <span class="n">remove_invalid_sessions</span><span class="p">(</span>
+            <span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
+            <span class="n">srs</span><span class="o">=</span><span class="n">SRS</span><span class="o">.</span><span class="n">SRS04</span><span class="p">,</span>
+            <span class="n">sensor_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;frr&quot;</span><span class="p">,</span> <span class="s2">&quot;lidar&quot;</span><span class="p">],</span>
+            <span class="n">reasons_to_remove</span><span class="o">=</span><span class="p">[</span><span class="n">ReasonsToRemove</span><span class="o">.</span><span class="n">TotalFailureSessions</span><span class="p">],</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="test_raises_when_called_with_global"><a class="viewcode-back" href="../../../remove_invalid_sessions.tests.html#remove_invalid_sessions.tests.test_remove_invalid_sessions.test_raises_when_called_with_global">[docs]</a><span class="nd">@patch</span><span class="p">(</span><span class="s2">&quot;tools.remove_invalid_sessions.remove_invalid_sessions.os.getcwd&quot;</span><span class="p">,</span> <span class="n">return_value</span><span class="o">=</span><span class="n">cwd</span><span class="p">)</span>
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span><span class="s2">&quot;sensor_names&quot;</span><span class="p">,</span> <span class="p">[[</span><span class="s2">&quot;global&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;global&quot;</span><span class="p">,</span> <span class="s2">&quot;frr&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;frr&quot;</span><span class="p">,</span> <span class="s2">&quot;global&quot;</span><span class="p">]])</span>
+<span class="k">def</span> <span class="nf">test_raises_when_called_with_global</span><span class="p">(</span><span class="n">mock_getcwd</span><span class="p">,</span> <span class="n">sensor_names</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]):</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;session_id&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;other_column&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+        <span class="p">}</span>
+    <span class="p">)</span>
+    <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span>
+        <span class="ne">ValueError</span><span class="p">,</span>
+        <span class="n">match</span><span class="o">=</span><span class="s2">&quot;&#39;global&#39; invalid sessions get removed by default. Please only provide additional sensors whose invalid sessions should be removed.&quot;</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="n">remove_invalid_sessions</span><span class="p">(</span>
+            <span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
+            <span class="n">srs</span><span class="o">=</span><span class="n">SRS</span><span class="o">.</span><span class="n">SRS04</span><span class="p">,</span>
+            <span class="n">sensor_names</span><span class="o">=</span><span class="n">sensor_names</span><span class="p">,</span>
+            <span class="n">reasons_to_remove</span><span class="o">=</span><span class="p">[</span><span class="n">ReasonsToRemove</span><span class="o">.</span><span class="n">TotalFailureSessions</span><span class="p">],</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="test_duplicate_sessions_in_total_failure_sessions_detected_across_multiple_sensors"><a class="viewcode-back" href="../../../remove_invalid_sessions.tests.html#remove_invalid_sessions.tests.test_remove_invalid_sessions.test_duplicate_sessions_in_total_failure_sessions_detected_across_multiple_sensors">[docs]</a><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span>
+    <span class="p">[</span><span class="s2">&quot;file_input&quot;</span><span class="p">,</span> <span class="s2">&quot;detected_sessions&quot;</span><span class="p">],</span>
+    <span class="p">[</span>
+        <span class="p">(</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;sensor1&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;category1&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;id_1&quot;</span><span class="p">,</span> <span class="s2">&quot;id_2&quot;</span><span class="p">,</span> <span class="s2">&quot;id_3&quot;</span><span class="p">]}},</span>
+                <span class="s2">&quot;sensor2&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;category2&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;id_1&quot;</span><span class="p">,</span> <span class="s2">&quot;id_5&quot;</span><span class="p">,</span> <span class="s2">&quot;id_6&quot;</span><span class="p">]},</span>
+                    <span class="s2">&quot;category3&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;__comment&quot;</span><span class="p">:</span> <span class="s2">&quot;some comment&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;id_7&quot;</span><span class="p">,</span> <span class="s2">&quot;id_8&quot;</span><span class="p">,</span> <span class="s2">&quot;id_9&quot;</span><span class="p">]},</span>
+                <span class="p">},</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;id_1&quot;</span><span class="p">,</span>
+        <span class="p">),</span>
+        <span class="p">(</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;sensor1&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;category1&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;id_1&quot;</span><span class="p">,</span> <span class="s2">&quot;id_2&quot;</span><span class="p">,</span> <span class="s2">&quot;id_3&quot;</span><span class="p">]}},</span>
+                <span class="s2">&quot;sensor2&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;category2&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;id_1&quot;</span><span class="p">,</span> <span class="s2">&quot;id_1&quot;</span><span class="p">,</span> <span class="s2">&quot;id_4&quot;</span><span class="p">]},</span>
+                    <span class="s2">&quot;category3&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;__comment&quot;</span><span class="p">:</span> <span class="s2">&quot;some comment&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;id_2&quot;</span><span class="p">,</span> <span class="s2">&quot;id_4&quot;</span><span class="p">,</span> <span class="s2">&quot;id_9&quot;</span><span class="p">]},</span>
+                <span class="p">},</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;id_1&lt;br&gt;id_2&quot;</span><span class="p">,</span>
+        <span class="p">),</span>
+    <span class="p">],</span>
+<span class="p">)</span>
+<span class="nd">@patch</span><span class="p">(</span><span class="s2">&quot;tools.remove_invalid_sessions.remove_invalid_sessions._open_and_validate_file&quot;</span><span class="p">)</span>
+<span class="nd">@patch</span><span class="p">(</span><span class="s2">&quot;tools.remove_invalid_sessions.remove_invalid_sessions.Markdown&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_duplicate_sessions_in_total_failure_sessions_detected_across_multiple_sensors</span><span class="p">(</span>
+    <span class="n">md_mock</span><span class="p">:</span> <span class="n">MagicMock</span><span class="p">,</span> <span class="n">file_mock</span><span class="p">:</span> <span class="n">MagicMock</span><span class="p">,</span> <span class="n">file_input</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]],</span> <span class="n">detected_sessions</span><span class="p">:</span> <span class="nb">str</span>
+<span class="p">):</span>
+    <span class="n">file_mock</span><span class="o">.</span><span class="n">return_value</span> <span class="o">=</span> <span class="n">file_input</span>
+    <span class="n">remove_invalid_sessions</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;session_id&quot;</span><span class="p">:</span> <span class="p">[]}),</span> <span class="n">srs</span><span class="o">=</span><span class="n">SRS</span><span class="o">.</span><span class="n">SRS04</span><span class="p">,</span> <span class="n">sensor_names</span><span class="o">=</span><span class="p">[],</span> <span class="n">reasons_to_remove</span><span class="o">=</span><span class="p">[])</span>
+    <span class="n">md_mock</span><span class="o">.</span><span class="n">assert_called_once_with</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;**&lt;span style=&#39;background-color: red&#39;&gt;Correlated Total Failures detected. Please urgently contact Stanislav Braun, Moritz Werling or Felix Modes for deeper investigation. Affected sessions:&lt;br&gt;</span><span class="si">{</span><span class="n">detected_sessions</span><span class="si">}</span><span class="s2">&lt;/span&gt;**&quot;</span>
+    <span class="p">)</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Bayerische Motoren Werke Aktiengesellschaft (BMW AG).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

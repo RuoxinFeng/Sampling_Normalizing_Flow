@@ -1,0 +1,13 @@
+Header starts here
+Non-empty line
+Non-empty line
+Non-empty line
+Non-empty line
+Non-empty line
+
+session_id,column_1,old_column
+session_5,5,1
+session_1,6,2
+session_2,7,3
+session_3,-60,4
+session_4,200,5

@@ -1,0 +1,1535 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Index &#8212; Model Fits Tools  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'genindex';</script>
+    <link rel="index" title="Index" href="#" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Model Fits Tools  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+
+<h1 id="index">Index</h1>
+
+<div class="genindex-jumpbox">
+ <a href="#_"><strong>_</strong></a>
+ | <a href="#A"><strong>A</strong></a>
+ | <a href="#B"><strong>B</strong></a>
+ | <a href="#C"><strong>C</strong></a>
+ | <a href="#D"><strong>D</strong></a>
+ | <a href="#E"><strong>E</strong></a>
+ | <a href="#F"><strong>F</strong></a>
+ | <a href="#G"><strong>G</strong></a>
+ | <a href="#I"><strong>I</strong></a>
+ | <a href="#K"><strong>K</strong></a>
+ | <a href="#L"><strong>L</strong></a>
+ | <a href="#M"><strong>M</strong></a>
+ | <a href="#N"><strong>N</strong></a>
+ | <a href="#O"><strong>O</strong></a>
+ | <a href="#P"><strong>P</strong></a>
+ | <a href="#Q"><strong>Q</strong></a>
+ | <a href="#R"><strong>R</strong></a>
+ | <a href="#S"><strong>S</strong></a>
+ | <a href="#T"><strong>T</strong></a>
+ | <a href="#U"><strong>U</strong></a>
+ | <a href="#V"><strong>V</strong></a>
+ | <a href="#W"><strong>W</strong></a>
+ | <a href="#X"><strong>X</strong></a>
+ | <a href="#Y"><strong>Y</strong></a>
+ | <a href="#Z"><strong>Z</strong></a>
+ 
+</div>
+<h2 id="_">_</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="general_utility.html#general_utility.helpers._detect_marginal_categorical_ifv_occurrences">_detect_marginal_categorical_ifv_occurrences() (in module general_utility.helpers)</a>
+</li>
+      <li><a href="models_export.html#models_export.residual_distribution_model.NoiseDistributionType._generate_next_value_">_generate_next_value_() (models_export.residual_distribution_model.NoiseDistributionType method)</a>
+
+      <ul>
+        <li><a href="remove_invalid_sessions.html#remove_invalid_sessions.remove_invalid_sessions.ReasonsToRemove._generate_next_value_">(remove_invalid_sessions.remove_invalid_sessions.ReasonsToRemove method)</a>
+</li>
+        <li><a href="remove_invalid_sessions.html#remove_invalid_sessions.remove_invalid_sessions.SRS._generate_next_value_">(remove_invalid_sessions.remove_invalid_sessions.SRS method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="A">A</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="models_export.html#models_export.statsmodels_exporter.SpmModel.as_json">as_json() (models_export.statsmodels_exporter.SpmModel method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="models_export.html#models_export.statsmodels_exporter.SpmModel.as_json_str">as_json_str() (models_export.statsmodels_exporter.SpmModel method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="B">B</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.backward_elimination">backward_elimination() (regression_models.regression_models.ConvenientRegressionFit method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="regression_models.html#regression_models.regression_models.backward_stepwise_selection">backward_stepwise_selection() (in module regression_models.regression_models)</a>
+</li>
+      <li><a href="models_export.html#models_export.residual_distribution_model.SingleDistribution.base_scipy_distribution">base_scipy_distribution (models_export.residual_distribution_model.SingleDistribution property)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="C">C</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="remove_invalid_sessions.html#remove_invalid_sessions.invalid_sessions_schema.SensorModel.categories_have_valid_json_schema">categories_have_valid_json_schema() (remove_invalid_sessions.invalid_sessions_schema.SensorModel class method)</a>
+</li>
+      <li><a href="remove_invalid_sessions.html#remove_invalid_sessions.invalid_sessions_schema.CategoryModel">CategoryModel (class in remove_invalid_sessions.invalid_sessions_schema)</a>
+</li>
+      <li><a href="remove_invalid_sessions.html#remove_invalid_sessions.invalid_sessions_schema.CategoryModel.Config">CategoryModel.Config (class in remove_invalid_sessions.invalid_sessions_schema)</a>
+</li>
+      <li><a href="sessions_to_manually_change.html#sessions_to_manually_change.sessions_to_manually_change_schema.SessionsToChange.cb_id_dicts_have_valid_schema">cb_id_dicts_have_valid_schema() (sessions_to_manually_change.sessions_to_manually_change_schema.SessionsToChange class method)</a>
+</li>
+      <li><a href="sessions_to_manually_change.html#sessions_to_manually_change.sessions_to_manually_change_schema.SessionsToChange.cb_ids_have_valid_schema">cb_ids_have_valid_schema() (sessions_to_manually_change.sessions_to_manually_change_schema.SessionsToChange class method)</a>
+</li>
+      <li><a href="sessions_to_manually_change.html#sessions_to_manually_change.sessions_to_manually_change_schema.CBIDToChange">CBIDToChange (class in sessions_to_manually_change.sessions_to_manually_change_schema)</a>
+</li>
+      <li><a href="sessions_to_manually_change.html#sessions_to_manually_change.sessions_to_manually_change_schema.CBIDToChange.Config">CBIDToChange.Config (class in sessions_to_manually_change.sessions_to_manually_change_schema)</a>
+</li>
+      <li><a href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.cdf">cdf() (marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit method)</a>
+
+      <ul>
+        <li><a href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate.cdf">(marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate method)</a>
+</li>
+        <li><a href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy.cdf">(marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy method)</a>
+</li>
+        <li><a href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen.cdf">(marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen method)</a>
+</li>
+        <li><a href="regression_models.html#regression_models.advanced_residual_distributions.piecewise_distribution.cdf">(regression_models.advanced_residual_distributions.piecewise_distribution method)</a>
+</li>
+        <li><a href="regression_models.html#regression_models.advanced_residual_distributions.truncated_distribution.cdf">(regression_models.advanced_residual_distributions.truncated_distribution method)</a>
+</li>
+      </ul></li>
+      <li><a href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientNataf.check_correlations">check_correlations() (marginal_distributions.marginal_distributions.ConvenientNataf method)</a>
+</li>
+      <li>
+    clean_data
+
+      <ul>
+        <li><a href="clean_data.html#module-clean_data">module</a>
+</li>
+      </ul></li>
+      <li>
+    clean_data.clean_data
+
+      <ul>
+        <li><a href="clean_data.html#module-clean_data.clean_data">module</a>
+</li>
+      </ul></li>
+      <li><a href="sessions_to_manually_change.html#sessions_to_manually_change.sessions_to_manually_change_schema.CBIDToChange.clusters_have_valid_schema">clusters_have_valid_schema() (sessions_to_manually_change.sessions_to_manually_change_schema.CBIDToChange class method)</a>
+</li>
+      <li><a href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.codebeamer_reference">codebeamer_reference (marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit attribute)</a>
+
+      <ul>
+        <li><a href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate.codebeamer_reference">(marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate attribute)</a>
+</li>
+        <li><a href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy.codebeamer_reference">(marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy attribute)</a>
+</li>
+        <li><a href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen.codebeamer_reference">(marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen attribute)</a>
+</li>
+        <li><a href="situation_model.html#situation_model.situation_model.SituationModelParameter.codebeamer_reference">(situation_model.situation_model.SituationModelParameter attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="comparison_tools.html#comparison_tools.dataset_comparison.DatasetComparison.columns_new_data">columns_new_data (comparison_tools.dataset_comparison.DatasetComparison property)</a>
+</li>
+      <li><a href="comparison_tools.html#comparison_tools.dataset_comparison.DatasetComparison.columns_old_data">columns_old_data (comparison_tools.dataset_comparison.DatasetComparison property)</a>
+</li>
+      <li><a href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.combine_categories">combine_categories() (regression_models.regression_models.ConvenientRegressionFit method)</a>
+</li>
+      <li><a href="comparison_tools.html#comparison_tools.dataset_comparison.DatasetComparison.compare_box_plots">compare_box_plots() (comparison_tools.dataset_comparison.DatasetComparison method)</a>
+</li>
+      <li><a href="comparison_tools.html#comparison_tools.dataset_comparison.DatasetComparison.compare_divergence_metrics">compare_divergence_metrics() (comparison_tools.dataset_comparison.DatasetComparison method)</a>
+</li>
+      <li><a href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.compare_fit_and_data">compare_fit_and_data() (marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit method)</a>
+</li>
+      <li><a href="comparison_tools.html#comparison_tools.dataset_comparison.DatasetComparison.compare_outliers">compare_outliers() (comparison_tools.dataset_comparison.DatasetComparison method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="comparison_tools.html#comparison_tools.model_comparison.ModelComparison.compare_params">compare_params() (comparison_tools.model_comparison.ModelComparison method)</a>
+</li>
+      <li><a href="comparison_tools.html#comparison_tools.model_comparison.ModelComparison.compare_predictions">compare_predictions() (comparison_tools.model_comparison.ModelComparison method)</a>
+</li>
+      <li>
+    comparison_tools
+
+      <ul>
+        <li><a href="comparison_tools.html#module-comparison_tools">module</a>
+</li>
+      </ul></li>
+      <li>
+    comparison_tools.dataset_comparison
+
+      <ul>
+        <li><a href="comparison_tools.html#module-comparison_tools.dataset_comparison">module</a>
+</li>
+      </ul></li>
+      <li>
+    comparison_tools.divergence_metrics
+
+      <ul>
+        <li><a href="comparison_tools.html#module-comparison_tools.divergence_metrics">module</a>
+</li>
+      </ul></li>
+      <li>
+    comparison_tools.model_comparison
+
+      <ul>
+        <li><a href="comparison_tools.html#module-comparison_tools.model_comparison">module</a>
+</li>
+      </ul></li>
+      <li><a href="comparison_tools.html#comparison_tools.model_comparison.ComparisonInformation">ComparisonInformation (class in comparison_tools.model_comparison)</a>
+</li>
+      <li><a href="models_export.html#models_export.residual_distribution_model.CompositeDistribution">CompositeDistribution (class in models_export.residual_distribution_model)</a>
+</li>
+      <li><a href="models_export.html#models_export.residual_distribution_model.CompositeDistribution.Config">CompositeDistribution.Config (class in models_export.residual_distribution_model)</a>
+</li>
+      <li><a href="situation_model.html#situation_model.situation_model.ConditionalSituationModel.conditional_distribution">conditional_distribution (situation_model.situation_model.ConditionalSituationModel attribute)</a>
+</li>
+      <li><a href="situation_model.html#situation_model.situation_model.ConditionalSituationModel.conditional_distribution_states">conditional_distribution_states (situation_model.situation_model.ConditionalSituationModel attribute)</a>
+</li>
+      <li><a href="situation_model.html#situation_model.situation_model.ConditionalSituationModel">ConditionalSituationModel (class in situation_model.situation_model)</a>
+</li>
+      <li><a href="sessions_to_manually_change.html#sessions_to_manually_change.sessions_to_manually_change_schema.SessionsToChange.consistent_datatypes">consistent_datatypes() (sessions_to_manually_change.sessions_to_manually_change_schema.SessionsToChange class method)</a>
+</li>
+      <li><a href="regression_models.html#regression_models.regression_models.ConvenientGlmFit">ConvenientGlmFit (class in regression_models.regression_models)</a>
+</li>
+      <li><a href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit">ConvenientMarginalDistributionFit (class in marginal_distributions.marginal_distributions)</a>
+</li>
+      <li><a href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate">ConvenientMarginalDistributionFitKDEUnivariate (class in marginal_distributions.marginal_distributions)</a>
+</li>
+      <li><a href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy">ConvenientMarginalDistributionFitSciPy (class in marginal_distributions.marginal_distributions)</a>
+</li>
+      <li><a href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen">ConvenientMarginalDistributionFitSciPyFrozen (class in marginal_distributions.marginal_distributions)</a>
+</li>
+      <li><a href="regression_models.html#regression_models.regression_models.ConvenientMleFit">ConvenientMleFit (class in regression_models.regression_models)</a>
+</li>
+      <li><a href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientNataf">ConvenientNataf (class in marginal_distributions.marginal_distributions)</a>
+</li>
+      <li><a href="regression_models.html#regression_models.regression_models.ConvenientOlsFit">ConvenientOlsFit (class in regression_models.regression_models)</a>
+</li>
+      <li><a href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit">ConvenientRegressionFit (class in regression_models.regression_models)</a>
+</li>
+      <li><a href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientNataf.corrcoef">corrcoef() (marginal_distributions.marginal_distributions.ConvenientNataf method)</a>
+</li>
+      <li><a href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientNataf.correlation_matrix">correlation_matrix (marginal_distributions.marginal_distributions.ConvenientNataf property)</a>
+
+      <ul>
+        <li><a href="situation_model.html#situation_model.situation_model.SituationModel.correlation_matrix">(situation_model.situation_model.SituationModel attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientNataf.correlation_matrix_without_timestamps">correlation_matrix_without_timestamps (marginal_distributions.marginal_distributions.ConvenientNataf property)</a>
+</li>
+      <li><a href="situation_model.html#situation_model.situation_model.CorrelationMatrix">CorrelationMatrix (class in situation_model.situation_model)</a>
+</li>
+      <li><a href="models_export.html#models_export.statsmodels_exporter.SpmModel.custom_noise_distribution">custom_noise_distribution (models_export.statsmodels_exporter.SpmModel attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="D">D</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="comparison_tools.html#comparison_tools.model_comparison.ComparisonInformation.data">data (comparison_tools.model_comparison.ComparisonInformation attribute)</a>
+</li>
+      <li><a href="comparison_tools.html#comparison_tools.dataset_comparison.DatasetComparison">DatasetComparison (class in comparison_tools.dataset_comparison)</a>
+</li>
+      <li><a href="remove_invalid_sessions.html#remove_invalid_sessions.remove_invalid_sessions.ReasonsToRemove.DegradedSessions">DegradedSessions (remove_invalid_sessions.remove_invalid_sessions.ReasonsToRemove attribute)</a>
+</li>
+      <li><a href="comparison_tools.html#comparison_tools.model_comparison.ModelComparison.dependent_variable">dependent_variable (comparison_tools.model_comparison.ModelComparison property)</a>
+
+      <ul>
+        <li><a href="models_export.html#models_export.statsmodels_exporter.SpmModel.dependent_variable">(models_export.statsmodels_exporter.SpmModel attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="comparison_tools.html#comparison_tools.model_comparison.ModelComparison.df">df (comparison_tools.model_comparison.ModelComparison attribute)</a>
+
+      <ul>
+        <li><a href="general_utility.html#general_utility.helpers.InputData.df">(general_utility.helpers.InputData attribute)</a>
+</li>
+        <li><a href="marginal_distributions.html#marginal_distributions.marginal_distributions.SamplingInfo.df">(marginal_distributions.marginal_distributions.SamplingInfo attribute)</a>
+</li>
+        <li><a href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.df">(regression_models.regression_models.ConvenientRegressionFit attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="general_utility.html#general_utility.helpers.display_dataframe">display_dataframe() (in module general_utility.helpers)</a>
+</li>
+      <li><a href="general_utility.html#general_utility.helpers.display_markdown">display_markdown() (in module general_utility.helpers)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate.dist">dist (marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate attribute)</a>
+
+      <ul>
+        <li><a href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy.dist">(marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy attribute)</a>
+</li>
+        <li><a href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen.dist">(marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen attribute)</a>
+</li>
+        <li><a href="regression_models.html#regression_models.advanced_residual_distributions.truncated_distribution.dist">(regression_models.advanced_residual_distributions.truncated_distribution attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="models_export.html#models_export.residual_distribution_model.CompositeDistribution.distributions">distributions (models_export.residual_distribution_model.CompositeDistribution attribute)</a>
+</li>
+      <li><a href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientNataf.dists">dists (marginal_distributions.marginal_distributions.ConvenientNataf property)</a>
+</li>
+      <li><a href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.drop_term">drop_term() (regression_models.regression_models.ConvenientRegressionFit method)</a>
+</li>
+      <li><a href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.ds">ds (marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit attribute)</a>
+
+      <ul>
+        <li><a href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate.ds">(marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate attribute)</a>
+</li>
+        <li><a href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy.ds">(marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy attribute)</a>
+</li>
+        <li><a href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen.ds">(marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="E">E</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="comparison_tools.html#comparison_tools.divergence_metrics.emd">emd() (in module comparison_tools.divergence_metrics)</a>
+</li>
+      <li><a href="comparison_tools.html#comparison_tools.divergence_metrics.empirical_js_divergence">empirical_js_divergence() (in module comparison_tools.divergence_metrics)</a>
+</li>
+      <li><a href="general_utility.html#general_utility.custom_eval.evaluate_formula">evaluate_formula() (in module general_utility.custom_eval)</a>
+</li>
+      <li><a href="models_export.html#models_export.situation_model_export.export_composite_distribution_with_test_cases">export_composite_distribution_with_test_cases() (in module models_export.situation_model_export)</a>
+</li>
+      <li><a href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.export_model">export_model() (regression_models.regression_models.ConvenientRegressionFit method)</a>
+</li>
+      <li><a href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.export_tests">export_tests() (regression_models.regression_models.ConvenientRegressionFit method)</a>
+</li>
+      <li><a href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.export_tests_from_input_data">export_tests_from_input_data() (regression_models.regression_models.ConvenientRegressionFit method)</a>
+</li>
+      <li><a href="general_utility.html#general_utility.srs_dependent_formatting_schema.FormattingModel.Config.extra">extra (general_utility.srs_dependent_formatting_schema.FormattingModel.Config attribute)</a>
+
+      <ul>
+        <li><a href="models_export.html#models_export.residual_distribution_model.CompositeDistribution.Config.extra">(models_export.residual_distribution_model.CompositeDistribution.Config attribute)</a>
+</li>
+        <li><a href="models_export.html#models_export.residual_distribution_model.SingleDistribution.Config.extra">(models_export.residual_distribution_model.SingleDistribution.Config attribute)</a>
+</li>
+        <li><a href="models_export.html#models_export.statsmodels_exporter.SpmModel.Config.extra">(models_export.statsmodels_exporter.SpmModel.Config attribute)</a>
+</li>
+        <li><a href="remove_invalid_sessions.html#remove_invalid_sessions.invalid_sessions_schema.CategoryModel.Config.extra">(remove_invalid_sessions.invalid_sessions_schema.CategoryModel.Config attribute)</a>
+</li>
+        <li><a href="remove_invalid_sessions.html#remove_invalid_sessions.invalid_sessions_schema.InvalidSession.Config.extra">(remove_invalid_sessions.invalid_sessions_schema.InvalidSession.Config attribute)</a>
+</li>
+        <li><a href="remove_invalid_sessions.html#remove_invalid_sessions.invalid_sessions_schema.SensorModel.Config.extra">(remove_invalid_sessions.invalid_sessions_schema.SensorModel.Config attribute)</a>
+</li>
+        <li><a href="sessions_to_manually_change.html#sessions_to_manually_change.sessions_to_manually_change_schema.CBIDToChange.Config.extra">(sessions_to_manually_change.sessions_to_manually_change_schema.CBIDToChange.Config attribute)</a>
+</li>
+        <li><a href="sessions_to_manually_change.html#sessions_to_manually_change.sessions_to_manually_change_schema.ReasonToChange.Config.extra">(sessions_to_manually_change.sessions_to_manually_change_schema.ReasonToChange.Config attribute)</a>
+</li>
+        <li><a href="sessions_to_manually_change.html#sessions_to_manually_change.sessions_to_manually_change_schema.SessionsToChange.Config.extra">(sessions_to_manually_change.sessions_to_manually_change_schema.SessionsToChange.Config attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="clean_data.html#clean_data.clean_data.extract_and_rename_columns">extract_and_rename_columns() (in module clean_data.clean_data)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="F">F</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.factor_names_from_formula">factor_names_from_formula() (regression_models.regression_models.ConvenientRegressionFit method)</a>
+</li>
+      <li><a href="remove_invalid_sessions.html#remove_invalid_sessions.remove_invalid_sessions.InvalidSessionsSpec.file_prefix">file_prefix (remove_invalid_sessions.remove_invalid_sessions.InvalidSessionsSpec attribute)</a>
+</li>
+      <li><a href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientNataf.filtering_function">filtering_function (marginal_distributions.marginal_distributions.ConvenientNataf attribute)</a>
+
+      <ul>
+        <li><a href="situation_model.html#situation_model.situation_model.SituationModel.filtering_function">(situation_model.situation_model.SituationModel attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="marginal_distributions.html#marginal_distributions.marginal_distributions.find_best_fit">find_best_fit() (in module marginal_distributions.marginal_distributions)</a>
+</li>
+      <li><a href="regression_models.html#regression_models.advanced_residual_distributions.piecewise_distribution.fit">fit() (regression_models.advanced_residual_distributions.piecewise_distribution method)</a>
+
+      <ul>
+        <li><a href="regression_models.html#regression_models.advanced_residual_distributions.truncated_distribution.fit">(regression_models.advanced_residual_distributions.truncated_distribution method)</a>
+</li>
+        <li><a href="regression_models.html#regression_models.regression_models.GenericLinearLikelihoodModel.fit">(regression_models.regression_models.GenericLinearLikelihoodModel method)</a>
+</li>
+      </ul></li>
+      <li><a href="general_utility.html#general_utility.helpers.format_data">format_data() (in module general_utility.helpers)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="general_utility.html#general_utility.srs_dependent_formatting_schema.FormattingModel">FormattingModel (class in general_utility.srs_dependent_formatting_schema)</a>
+</li>
+      <li><a href="general_utility.html#general_utility.srs_dependent_formatting_schema.FormattingModel.Config">FormattingModel.Config (class in general_utility.srs_dependent_formatting_schema)</a>
+</li>
+      <li><a href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.formula">formula (regression_models.regression_models.ConvenientRegressionFit attribute)</a>
+</li>
+      <li><a href="models_export.html#models_export.statsmodels_exporter.SpmModel.from_json">from_json() (models_export.statsmodels_exporter.SpmModel class method)</a>
+</li>
+      <li><a href="models_export.html#models_export.statsmodels_exporter.SpmModel.from_linear_model_result">from_linear_model_result() (models_export.statsmodels_exporter.SpmModel class method)</a>
+</li>
+      <li><a href="models_export.html#models_export.residual_distribution_model.CompositeDistribution.from_scipy_distribution">from_scipy_distribution() (models_export.residual_distribution_model.CompositeDistribution class method)</a>
+</li>
+      <li><a href="models_export.html#models_export.residual_distribution_model.CompositeDistribution.frozen">frozen (models_export.residual_distribution_model.CompositeDistribution property)</a>
+
+      <ul>
+        <li><a href="models_export.html#models_export.residual_distribution_model.SingleDistribution.frozen">(models_export.residual_distribution_model.SingleDistribution property)</a>
+</li>
+      </ul></li>
+      <li><a href="comparison_tools.html#comparison_tools.dataset_comparison.DatasetComparison.full_analysis">full_analysis() (comparison_tools.dataset_comparison.DatasetComparison method)</a>
+</li>
+      <li><a href="regression_models.html#regression_models.regression_models.full_run">full_run() (in module regression_models.regression_models)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="G">G</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    general_utility
+
+      <ul>
+        <li><a href="general_utility.html#module-general_utility">module</a>
+</li>
+      </ul></li>
+      <li>
+    general_utility.custom_eval
+
+      <ul>
+        <li><a href="general_utility.html#module-general_utility.custom_eval">module</a>
+</li>
+      </ul></li>
+      <li>
+    general_utility.extract_columns
+
+      <ul>
+        <li><a href="general_utility.html#module-general_utility.extract_columns">module</a>
+</li>
+      </ul></li>
+      <li>
+    general_utility.helpers
+
+      <ul>
+        <li><a href="general_utility.html#module-general_utility.helpers">module</a>
+</li>
+      </ul></li>
+      <li>
+    general_utility.srs_dependent_formatting_schema
+
+      <ul>
+        <li><a href="general_utility.html#module-general_utility.srs_dependent_formatting_schema">module</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="regression_models.html#regression_models.regression_helpers.generate_test_data">generate_test_data() (in module regression_models.regression_helpers)</a>
+</li>
+      <li><a href="regression_models.html#regression_models.regression_models.GenericLinearLikelihoodModel">GenericLinearLikelihoodModel (class in regression_models.regression_models)</a>
+</li>
+      <li><a href="models_export.html#models_export.statsmodels_exporter.get_actual_statsmodels_version">get_actual_statsmodels_version() (in module models_export.statsmodels_exporter)</a>
+</li>
+      <li><a href="general_utility.html#general_utility.extract_columns.get_columns_with_IFVs">get_columns_with_IFVs() (in module general_utility.extract_columns)</a>
+</li>
+      <li><a href="general_utility.html#general_utility.extract_columns.get_columns_with_SPVs">get_columns_with_SPVs() (in module general_utility.extract_columns)</a>
+</li>
+      <li><a href="models_export.html#models_export.statsmodels_exporter.SpmModel.get_noise_distribution">get_noise_distribution() (models_export.statsmodels_exporter.SpmModel method)</a>
+</li>
+      <li><a href="general_utility.html#general_utility.helpers.get_now_string">get_now_string() (in module general_utility.helpers)</a>
+</li>
+      <li><a href="regression_models.html#regression_models.regression_models.get_polynomial_of_parameters_and_order">get_polynomial_of_parameters_and_order() (in module regression_models.regression_models)</a>
+</li>
+      <li><a href="models_export.html#models_export.situation_model_export.get_situation_model_parameter_from_distribution">get_situation_model_parameter_from_distribution() (in module models_export.situation_model_export)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="I">I</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.icdf">icdf() (marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit method)</a>
+
+      <ul>
+        <li><a href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate.icdf">(marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate method)</a>
+</li>
+        <li><a href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy.icdf">(marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy method)</a>
+</li>
+        <li><a href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen.icdf">(marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen method)</a>
+</li>
+      </ul></li>
+      <li><a href="plot_tools.html#plot_tools.plot_tools.ifv_histograms">ifv_histograms() (in module plot_tools.plot_tools)</a>
+</li>
+      <li><a href="general_utility.html#general_utility.helpers.InputData">InputData (class in general_utility.helpers)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="remove_invalid_sessions.html#remove_invalid_sessions.invalid_sessions_schema.InvalidSession">InvalidSession (class in remove_invalid_sessions.invalid_sessions_schema)</a>
+</li>
+      <li><a href="remove_invalid_sessions.html#remove_invalid_sessions.invalid_sessions_schema.InvalidSession.Config">InvalidSession.Config (class in remove_invalid_sessions.invalid_sessions_schema)</a>
+</li>
+      <li><a href="remove_invalid_sessions.html#remove_invalid_sessions.remove_invalid_sessions.ReasonsToRemove.InvalidSessions">InvalidSessions (remove_invalid_sessions.remove_invalid_sessions.ReasonsToRemove attribute)</a>
+</li>
+      <li><a href="remove_invalid_sessions.html#remove_invalid_sessions.remove_invalid_sessions.InvalidSessionsSpec">InvalidSessionsSpec (class in remove_invalid_sessions.remove_invalid_sessions)</a>
+</li>
+      <li><a href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.inverse_output_trafo">inverse_output_trafo (regression_models.regression_models.ConvenientRegressionFit attribute)</a>
+</li>
+      <li><a href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.is_predictor_hierarchically_dependent">is_predictor_hierarchically_dependent() (regression_models.regression_models.ConvenientRegressionFit static method)</a>
+</li>
+      <li><a href="models_export.html#models_export.residual_distribution_model.SingleDistribution.is_truncated">is_truncated (models_export.residual_distribution_model.SingleDistribution property)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="K">K</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate.kdensity">kdensity (marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="comparison_tools.html#comparison_tools.divergence_metrics.ks_test">ks_test() (in module comparison_tools.divergence_metrics)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="L">L</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.least_significant">least_significant() (regression_models.regression_models.ConvenientRegressionFit static method)</a>
+</li>
+      <li><a href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.leverage">leverage (regression_models.regression_models.ConvenientRegressionFit property)</a>
+</li>
+      <li><a href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.loocv">loocv (regression_models.regression_models.ConvenientRegressionFit property)</a>
+</li>
+      <li><a href="models_export.html#models_export.residual_distribution_model.SingleDistribution.lower_bound">lower_bound (models_export.residual_distribution_model.SingleDistribution attribute)</a>
+
+      <ul>
+        <li><a href="regression_models.html#regression_models.advanced_residual_distributions.truncated_distribution.lower_bound">(regression_models.advanced_residual_distributions.truncated_distribution property)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="regression_models.html#regression_models.advanced_residual_distributions.piecewise_distribution.lower_dist">lower_dist (regression_models.advanced_residual_distributions.piecewise_distribution attribute)</a>
+</li>
+      <li><a href="comparison_tools.html#comparison_tools.dataset_comparison.Whiskers.lower_whisker">lower_whisker (comparison_tools.dataset_comparison.Whiskers attribute)</a>
+</li>
+      <li><a href="sessions_to_manually_change.html#sessions_to_manually_change.sessions_to_manually_change_schema.ReasonToChange.lowest_hierarchy">lowest_hierarchy() (sessions_to_manually_change.sessions_to_manually_change_schema.ReasonToChange class method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="M">M</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="sessions_to_manually_change.html#sessions_to_manually_change.manual_changes.manually_change_values">manually_change_values() (in module sessions_to_manually_change.manual_changes)</a>
+</li>
+      <li><a href="sessions_to_manually_change.html#sessions_to_manually_change.sessions_to_manually_change_schema.SessionsToChange.mappings_by_cb_id">mappings_by_cb_id (sessions_to_manually_change.sessions_to_manually_change_schema.SessionsToChange property)</a>
+</li>
+      <li><a href="situation_model.html#situation_model.situation_model.SituationModelParameter.marginal_distribution">marginal_distribution (situation_model.situation_model.SituationModelParameter attribute)</a>
+</li>
+      <li><a href="situation_model.html#situation_model.situation_model.SituationModelParameter.marginal_distribution_parameters">marginal_distribution_parameters (situation_model.situation_model.SituationModelParameter attribute)</a>
+</li>
+      <li><a href="situation_model.html#situation_model.situation_model.SituationModelParameter.marginal_distribution_test_cases">marginal_distribution_test_cases (situation_model.situation_model.SituationModelParameter attribute)</a>
+</li>
+      <li>
+    marginal_distributions
+
+      <ul>
+        <li><a href="marginal_distributions.html#module-marginal_distributions">module</a>
+</li>
+      </ul></li>
+      <li>
+    marginal_distributions.marginal_distributions
+
+      <ul>
+        <li><a href="marginal_distributions.html#module-marginal_distributions.marginal_distributions">module</a>
+</li>
+      </ul></li>
+      <li><a href="situation_model.html#situation_model.situation_model.MarginalDistributionTestCase">MarginalDistributionTestCase (class in situation_model.situation_model)</a>
+</li>
+      <li><a href="situation_model.html#situation_model.situation_model.CorrelationMatrix.matrix_must_be_non_empty">matrix_must_be_non_empty() (situation_model.situation_model.CorrelationMatrix class method)</a>
+</li>
+      <li><a href="situation_model.html#situation_model.situation_model.CorrelationMatrix.matrix_rows">matrix_rows (situation_model.situation_model.CorrelationMatrix attribute)</a>
+</li>
+      <li><a href="models_export.html#models_export.statsmodels_exporter.SpmModel.model_class">model_class (models_export.statsmodels_exporter.SpmModel attribute)</a>
+</li>
+      <li><a href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.model_name">model_name (regression_models.regression_models.ConvenientRegressionFit attribute)</a>
+</li>
+      <li><a href="comparison_tools.html#comparison_tools.model_comparison.ComparisonInformation.model_names">model_names (comparison_tools.model_comparison.ComparisonInformation attribute)</a>
+</li>
+      <li><a href="situation_model.html#situation_model.situation_model.ConditionalSituationModel.model_proportions">model_proportions (situation_model.situation_model.ConditionalSituationModel attribute)</a>
+</li>
+      <li><a href="comparison_tools.html#comparison_tools.model_comparison.ModelComparison.model_similarity_quantities">model_similarity_quantities() (comparison_tools.model_comparison.ModelComparison method)</a>
+</li>
+      <li><a href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.model_write_file">model_write_file (regression_models.regression_models.ConvenientRegressionFit attribute)</a>
+</li>
+      <li><a href="comparison_tools.html#comparison_tools.model_comparison.ModelComparison">ModelComparison (class in comparison_tools.model_comparison)</a>
+</li>
+      <li><a href="situation_model.html#situation_model.situation_model.ConditionalSituationModel.models">models (situation_model.situation_model.ConditionalSituationModel attribute)</a>
+</li>
+      <li>
+    models_export
+
+      <ul>
+        <li><a href="models_export.html#module-models_export">module</a>
+</li>
+      </ul></li>
+      <li>
+    models_export.residual_distribution_model
+
+      <ul>
+        <li><a href="models_export.html#module-models_export.residual_distribution_model">module</a>
+</li>
+      </ul></li>
+      <li>
+    models_export.situation_model_export
+
+      <ul>
+        <li><a href="models_export.html#module-models_export.situation_model_export">module</a>
+</li>
+      </ul></li>
+      <li>
+    models_export.statsmodels_exporter
+
+      <ul>
+        <li><a href="models_export.html#module-models_export.statsmodels_exporter">module</a>
+</li>
+      </ul></li>
+      <li><a href="situation_model.html#situation_model.situation_model.ModelTimestamps">ModelTimestamps (class in situation_model.situation_model)</a>
+</li>
+      <li>
+    module
+
+      <ul>
+        <li><a href="clean_data.html#module-clean_data">clean_data</a>
+</li>
+        <li><a href="clean_data.html#module-clean_data.clean_data">clean_data.clean_data</a>
+</li>
+        <li><a href="comparison_tools.html#module-comparison_tools">comparison_tools</a>
+</li>
+        <li><a href="comparison_tools.html#module-comparison_tools.dataset_comparison">comparison_tools.dataset_comparison</a>
+</li>
+        <li><a href="comparison_tools.html#module-comparison_tools.divergence_metrics">comparison_tools.divergence_metrics</a>
+</li>
+        <li><a href="comparison_tools.html#module-comparison_tools.model_comparison">comparison_tools.model_comparison</a>
+</li>
+        <li><a href="general_utility.html#module-general_utility">general_utility</a>
+</li>
+        <li><a href="general_utility.html#module-general_utility.custom_eval">general_utility.custom_eval</a>
+</li>
+        <li><a href="general_utility.html#module-general_utility.extract_columns">general_utility.extract_columns</a>
+</li>
+        <li><a href="general_utility.html#module-general_utility.helpers">general_utility.helpers</a>
+</li>
+        <li><a href="general_utility.html#module-general_utility.srs_dependent_formatting_schema">general_utility.srs_dependent_formatting_schema</a>
+</li>
+        <li><a href="marginal_distributions.html#module-marginal_distributions">marginal_distributions</a>
+</li>
+        <li><a href="marginal_distributions.html#module-marginal_distributions.marginal_distributions">marginal_distributions.marginal_distributions</a>
+</li>
+        <li><a href="models_export.html#module-models_export">models_export</a>
+</li>
+        <li><a href="models_export.html#module-models_export.residual_distribution_model">models_export.residual_distribution_model</a>
+</li>
+        <li><a href="models_export.html#module-models_export.situation_model_export">models_export.situation_model_export</a>
+</li>
+        <li><a href="models_export.html#module-models_export.statsmodels_exporter">models_export.statsmodels_exporter</a>
+</li>
+        <li><a href="plot_tools.html#module-plot_tools">plot_tools</a>
+</li>
+        <li><a href="plot_tools.html#module-plot_tools.plot_tools">plot_tools.plot_tools</a>
+</li>
+        <li><a href="regression_models.html#module-regression_models">regression_models</a>
+</li>
+        <li><a href="regression_models.html#module-regression_models.advanced_residual_distributions">regression_models.advanced_residual_distributions</a>
+</li>
+        <li><a href="regression_models.html#module-regression_models.regression_helpers">regression_models.regression_helpers</a>
+</li>
+        <li><a href="regression_models.html#module-regression_models.regression_models">regression_models.regression_models</a>
+</li>
+        <li><a href="remove_invalid_sessions.html#module-remove_invalid_sessions">remove_invalid_sessions</a>
+</li>
+        <li><a href="remove_invalid_sessions.html#module-remove_invalid_sessions.invalid_sessions_schema">remove_invalid_sessions.invalid_sessions_schema</a>
+</li>
+        <li><a href="remove_invalid_sessions.html#module-remove_invalid_sessions.remove_invalid_sessions">remove_invalid_sessions.remove_invalid_sessions</a>
+</li>
+        <li><a href="sessions_to_manually_change.html#module-sessions_to_manually_change">sessions_to_manually_change</a>
+</li>
+        <li><a href="sessions_to_manually_change.html#module-sessions_to_manually_change.manual_changes">sessions_to_manually_change.manual_changes</a>
+</li>
+        <li><a href="sessions_to_manually_change.html#module-sessions_to_manually_change.sessions_to_manually_change_schema">sessions_to_manually_change.sessions_to_manually_change_schema</a>
+</li>
+        <li><a href="situation_model.html#module-situation_model">situation_model</a>
+</li>
+        <li><a href="situation_model.html#module-situation_model.situation_model">situation_model.situation_model</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="comparison_tools.html#comparison_tools.divergence_metrics.mse">mse() (in module comparison_tools.divergence_metrics)</a>
+</li>
+      <li><a href="models_export.html#models_export.statsmodels_exporter.SpmModel.mse_residuals">mse_residuals (models_export.statsmodels_exporter.SpmModel attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="N">N</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.name">name (marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit attribute)</a>
+
+      <ul>
+        <li><a href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate.name">(marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate attribute)</a>
+</li>
+        <li><a href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy.name">(marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy attribute)</a>
+</li>
+        <li><a href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen.name">(marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen attribute)</a>
+</li>
+        <li><a href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientNataf.name">(marginal_distributions.marginal_distributions.ConvenientNataf property)</a>
+</li>
+        <li><a href="models_export.html#models_export.residual_distribution_model.SingleDistribution.name">(models_export.residual_distribution_model.SingleDistribution attribute)</a>
+</li>
+        <li><a href="models_export.html#models_export.statsmodels_exporter.SpmModel.name">(models_export.statsmodels_exporter.SpmModel attribute)</a>
+</li>
+        <li><a href="situation_model.html#situation_model.situation_model.SituationModelParameter.name">(situation_model.situation_model.SituationModelParameter attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="comparison_tools.html#comparison_tools.model_comparison.ModelComparison.new_model">new_model (comparison_tools.model_comparison.ModelComparison attribute)</a>
+</li>
+      <li><a href="comparison_tools.html#comparison_tools.model_comparison.ModelComparison.new_model_result">new_model_result (comparison_tools.model_comparison.ModelComparison property)</a>
+</li>
+      <li><a href="regression_models.html#regression_models.regression_models.GenericLinearLikelihoodModel.nloglikeobs">nloglikeobs() (regression_models.regression_models.GenericLinearLikelihoodModel method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="regression_models.html#regression_models.regression_models.ConvenientGlmFit.noise_dist_family">noise_dist_family (regression_models.regression_models.ConvenientGlmFit attribute)</a>
+
+      <ul>
+        <li><a href="regression_models.html#regression_models.regression_models.ConvenientMleFit.noise_dist_family">(regression_models.regression_models.ConvenientMleFit attribute)</a>
+</li>
+        <li><a href="regression_models.html#regression_models.regression_models.ConvenientOlsFit.noise_dist_family">(regression_models.regression_models.ConvenientOlsFit attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="regression_models.html#regression_models.regression_models.ConvenientGlmFit.noise_dist_name">noise_dist_name (regression_models.regression_models.ConvenientGlmFit property)</a>
+
+      <ul>
+        <li><a href="regression_models.html#regression_models.regression_models.ConvenientMleFit.noise_dist_name">(regression_models.regression_models.ConvenientMleFit property)</a>
+</li>
+        <li><a href="regression_models.html#regression_models.regression_models.ConvenientOlsFit.noise_dist_name">(regression_models.regression_models.ConvenientOlsFit property)</a>
+</li>
+        <li><a href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.noise_dist_name">(regression_models.regression_models.ConvenientRegressionFit property)</a>
+</li>
+      </ul></li>
+      <li><a href="regression_models.html#regression_models.regression_models.GenericLinearLikelihoodModel.noise_zero_mean">noise_zero_mean() (regression_models.regression_models.GenericLinearLikelihoodModel method)</a>
+</li>
+      <li><a href="models_export.html#models_export.residual_distribution_model.NoiseDistributionType">NoiseDistributionType (class in models_export.residual_distribution_model)</a>
+</li>
+      <li><a href="regression_models.html#regression_models.regression_models.ConvenientOlsFit.nongaussian_resid_fit">nongaussian_resid_fit() (regression_models.regression_models.ConvenientOlsFit method)</a>
+</li>
+      <li><a href="regression_models.html#regression_models.advanced_residual_distributions.piecewise_distribution.numargs">numargs (regression_models.advanced_residual_distributions.piecewise_distribution attribute)</a>
+</li>
+      <li><a href="situation_model.html#situation_model.situation_model.SituationModel.number_of_parameters_must_fit_correlation_matrix_size">number_of_parameters_must_fit_correlation_matrix_size() (situation_model.situation_model.SituationModel class method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="O">O</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.observed_total_failures">observed_total_failures (regression_models.regression_models.ConvenientRegressionFit attribute)</a>
+
+      <ul>
+        <li><a href="remove_invalid_sessions.html#remove_invalid_sessions.remove_invalid_sessions.TotalFailureInfo.observed_total_failures">(remove_invalid_sessions.remove_invalid_sessions.TotalFailureInfo attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="comparison_tools.html#comparison_tools.model_comparison.ModelComparison.old_model">old_model (comparison_tools.model_comparison.ModelComparison attribute)</a>
+</li>
+      <li><a href="comparison_tools.html#comparison_tools.model_comparison.ModelComparison.old_model_result">old_model_result (comparison_tools.model_comparison.ModelComparison property)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="P">P</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="plot_tools.html#plot_tools.plot_tools.parallel_coordinates">parallel_coordinates() (in module plot_tools.plot_tools)</a>
+</li>
+      <li><a href="situation_model.html#situation_model.situation_model.CorrelationMatrix.parameter_order">parameter_order (situation_model.situation_model.CorrelationMatrix attribute)</a>
+</li>
+      <li><a href="situation_model.html#situation_model.situation_model.CorrelationMatrix.parameter_order_length_must_fit_matrix">parameter_order_length_must_fit_matrix() (situation_model.situation_model.CorrelationMatrix class method)</a>
+
+      <ul>
+        <li><a href="situation_model.html#situation_model.situation_model.MarginalDistributionTestCase.parameter_order_length_must_fit_matrix">(situation_model.situation_model.MarginalDistributionTestCase class method)</a>
+</li>
+      </ul></li>
+      <li><a href="models_export.html#models_export.residual_distribution_model.CompositeDistribution.parameters">parameters (models_export.residual_distribution_model.CompositeDistribution property)</a>
+
+      <ul>
+        <li><a href="models_export.html#models_export.residual_distribution_model.SingleDistribution.parameters">(models_export.residual_distribution_model.SingleDistribution attribute)</a>
+</li>
+        <li><a href="situation_model.html#situation_model.situation_model.SituationModel.parameters">(situation_model.situation_model.SituationModel attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="models_export.html#models_export.statsmodels_exporter.SpmModel.params">params (models_export.statsmodels_exporter.SpmModel attribute)</a>
+</li>
+      <li><a href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy.pars">pars (marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy attribute)</a>
+
+      <ul>
+        <li><a href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen.pars">(marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="regression_models.html#regression_models.advanced_residual_distributions.piecewise_distribution.pdf">pdf() (regression_models.advanced_residual_distributions.piecewise_distribution method)</a>
+
+      <ul>
+        <li><a href="regression_models.html#regression_models.advanced_residual_distributions.truncated_distribution.pdf">(regression_models.advanced_residual_distributions.truncated_distribution method)</a>
+</li>
+      </ul></li>
+      <li><a href="models_export.html#models_export.residual_distribution_model.NoiseDistributionType.PIECEWISE">PIECEWISE (models_export.residual_distribution_model.NoiseDistributionType attribute)</a>
+</li>
+      <li><a href="regression_models.html#regression_models.advanced_residual_distributions.piecewise_distribution">piecewise_distribution (class in regression_models.advanced_residual_distributions)</a>
+</li>
+      <li><a href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.plot_ccpr_grid">plot_ccpr_grid() (regression_models.regression_models.ConvenientRegressionFit method)</a>
+</li>
+      <li><a href="plot_tools.html#plot_tools.plot_tools.plot_hist_and_fit">plot_hist_and_fit() (in module plot_tools.plot_tools)</a>
+</li>
+      <li><a href="plot_tools.html#plot_tools.plot_tools.plot_ks_test_statistic">plot_ks_test_statistic() (in module plot_tools.plot_tools)</a>
+</li>
+      <li><a href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientNataf.plot_model_vs_original">plot_model_vs_original() (marginal_distributions.marginal_distributions.ConvenientNataf method)</a>
+
+      <ul>
+        <li><a href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.plot_model_vs_original">(regression_models.regression_models.ConvenientRegressionFit method)</a>
+</li>
+      </ul></li>
+      <li><a href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.plot_model_vs_original_histogram">plot_model_vs_original_histogram() (regression_models.regression_models.ConvenientRegressionFit method)</a>
+</li>
+      <li><a href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.plot_partregress_grid">plot_partregress_grid() (regression_models.regression_models.ConvenientRegressionFit method)</a>
+</li>
+      <li><a href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.plot_residuals">plot_residuals() (regression_models.regression_models.ConvenientRegressionFit method)</a>
+</li>
+      <li><a href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.plot_residuals_dist_hist">plot_residuals_dist_hist() (regression_models.regression_models.ConvenientRegressionFit method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.plot_residuals_hist">plot_residuals_hist() (regression_models.regression_models.ConvenientRegressionFit method)</a>
+</li>
+      <li><a href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientNataf.plot_scatter_matrix">plot_scatter_matrix() (marginal_distributions.marginal_distributions.ConvenientNataf method)</a>
+</li>
+      <li><a href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientNataf.plot_scatter_matrix_u">plot_scatter_matrix_u() (marginal_distributions.marginal_distributions.ConvenientNataf method)</a>
+</li>
+      <li><a href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientNataf.plot_scatter_matrix_z">plot_scatter_matrix_z() (marginal_distributions.marginal_distributions.ConvenientNataf method)</a>
+</li>
+      <li><a href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.plot_standardized_coefficients">plot_standardized_coefficients() (regression_models.regression_models.ConvenientRegressionFit method)</a>
+</li>
+      <li>
+    plot_tools
+
+      <ul>
+        <li><a href="plot_tools.html#module-plot_tools">module</a>
+</li>
+      </ul></li>
+      <li>
+    plot_tools.plot_tools
+
+      <ul>
+        <li><a href="plot_tools.html#module-plot_tools.plot_tools">module</a>
+</li>
+      </ul></li>
+      <li><a href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.posterior_total_failure_probability">posterior_total_failure_probability (regression_models.regression_models.ConvenientRegressionFit attribute)</a>
+
+      <ul>
+        <li><a href="remove_invalid_sessions.html#remove_invalid_sessions.remove_invalid_sessions.TotalFailureInfo.posterior_total_failure_probability">(remove_invalid_sessions.remove_invalid_sessions.TotalFailureInfo attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="regression_models.html#regression_models.advanced_residual_distributions.piecewise_distribution.ppf">ppf() (regression_models.advanced_residual_distributions.piecewise_distribution method)</a>
+
+      <ul>
+        <li><a href="regression_models.html#regression_models.advanced_residual_distributions.truncated_distribution.ppf">(regression_models.advanced_residual_distributions.truncated_distribution method)</a>
+</li>
+      </ul></li>
+      <li><a href="regression_models.html#regression_models.regression_models.GenericLinearLikelihoodModel.predict">predict() (regression_models.regression_models.GenericLinearLikelihoodModel method)</a>
+</li>
+      <li><a href="regression_models.html#regression_models.regression_helpers.predict_statsmodels">predict_statsmodels() (in module regression_models.regression_helpers)</a>
+</li>
+      <li><a href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.predictors">predictors (regression_models.regression_models.ConvenientRegressionFit property)</a>
+</li>
+      <li><a href="general_utility.html#general_utility.helpers.print_and_align">print_and_align() (in module general_utility.helpers)</a>
+</li>
+      <li><a href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.print_model_summary">print_model_summary() (regression_models.regression_models.ConvenientRegressionFit method)</a>
+</li>
+      <li><a href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.print_outlier_session_ids">print_outlier_session_ids() (regression_models.regression_models.ConvenientRegressionFit method)</a>
+</li>
+      <li><a href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.print_p_sorted_terms">print_p_sorted_terms() (regression_models.regression_models.ConvenientRegressionFit method)</a>
+</li>
+      <li><a href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.print_summary">print_summary() (regression_models.regression_models.ConvenientRegressionFit method)</a>
+</li>
+      <li><a href="models_export.html#models_export.residual_distribution_model.SingleDistribution.probability_mass">probability_mass (models_export.residual_distribution_model.SingleDistribution attribute)</a>
+</li>
+      <li><a href="general_utility.html#general_utility.helpers.provide_formula_with_all_entries">provide_formula_with_all_entries() (in module general_utility.helpers)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="Q">Q</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="plot_tools.html#plot_tools.plot_tools.qqplot">qqplot() (in module plot_tools.plot_tools)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="R">R</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="models_export.html#models_export.statsmodels_exporter.SpmModel.raise_if_statsmodels_version_incorrect">raise_if_statsmodels_version_incorrect() (models_export.statsmodels_exporter.SpmModel class method)</a>
+</li>
+      <li><a href="general_utility.html#general_utility.helpers.read_and_verify_csv_data">read_and_verify_csv_data() (in module general_utility.helpers)</a>
+</li>
+      <li><a href="remove_invalid_sessions.html#remove_invalid_sessions.remove_invalid_sessions.InvalidSessionsSpec.reasons_to_remove">reasons_to_remove (remove_invalid_sessions.remove_invalid_sessions.InvalidSessionsSpec attribute)</a>
+</li>
+      <li><a href="remove_invalid_sessions.html#remove_invalid_sessions.remove_invalid_sessions.ReasonsToRemove">ReasonsToRemove (class in remove_invalid_sessions.remove_invalid_sessions)</a>
+</li>
+      <li><a href="sessions_to_manually_change.html#sessions_to_manually_change.sessions_to_manually_change_schema.ReasonToChange">ReasonToChange (class in sessions_to_manually_change.sessions_to_manually_change_schema)</a>
+</li>
+      <li><a href="sessions_to_manually_change.html#sessions_to_manually_change.sessions_to_manually_change_schema.ReasonToChange.Config">ReasonToChange.Config (class in sessions_to_manually_change.sessions_to_manually_change_schema)</a>
+</li>
+      <li>
+    regression_models
+
+      <ul>
+        <li><a href="regression_models.html#module-regression_models">module</a>
+</li>
+      </ul></li>
+      <li>
+    regression_models.advanced_residual_distributions
+
+      <ul>
+        <li><a href="regression_models.html#module-regression_models.advanced_residual_distributions">module</a>
+</li>
+      </ul></li>
+      <li>
+    regression_models.regression_helpers
+
+      <ul>
+        <li><a href="regression_models.html#module-regression_models.regression_helpers">module</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    regression_models.regression_models
+
+      <ul>
+        <li><a href="regression_models.html#module-regression_models.regression_models">module</a>
+</li>
+      </ul></li>
+      <li>
+    remove_invalid_sessions
+
+      <ul>
+        <li><a href="remove_invalid_sessions.html#module-remove_invalid_sessions">module</a>
+</li>
+      </ul></li>
+      <li><a href="remove_invalid_sessions.html#remove_invalid_sessions.remove_invalid_sessions.remove_invalid_sessions">remove_invalid_sessions() (in module remove_invalid_sessions.remove_invalid_sessions)</a>
+</li>
+      <li>
+    remove_invalid_sessions.invalid_sessions_schema
+
+      <ul>
+        <li><a href="remove_invalid_sessions.html#module-remove_invalid_sessions.invalid_sessions_schema">module</a>
+</li>
+      </ul></li>
+      <li>
+    remove_invalid_sessions.remove_invalid_sessions
+
+      <ul>
+        <li><a href="remove_invalid_sessions.html#module-remove_invalid_sessions.remove_invalid_sessions">module</a>
+</li>
+      </ul></li>
+      <li><a href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.resid_qqplot">resid_qqplot() (regression_models.regression_models.ConvenientRegressionFit method)</a>
+</li>
+      <li><a href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.residual_write_file">residual_write_file (regression_models.regression_models.ConvenientRegressionFit attribute)</a>
+</li>
+      <li><a href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.response_name">response_name (regression_models.regression_models.ConvenientRegressionFit attribute)</a>
+</li>
+      <li><a href="general_utility.html#general_utility.helpers.round_output">round_output() (in module general_utility.helpers)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="S">S</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientNataf.sample">sample() (marginal_distributions.marginal_distributions.ConvenientNataf method)</a>
+</li>
+      <li><a href="marginal_distributions.html#marginal_distributions.marginal_distributions.SamplingInfo">SamplingInfo (class in marginal_distributions.marginal_distributions)</a>
+</li>
+      <li><a href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientNataf.save_correlation_matrix">save_correlation_matrix() (marginal_distributions.marginal_distributions.ConvenientNataf method)</a>
+</li>
+      <li><a href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientNataf.save_model">save_model() (marginal_distributions.marginal_distributions.ConvenientNataf method)</a>
+</li>
+      <li><a href="models_export.html#models_export.situation_model_export.save_model_as_json_file">save_model_as_json_file() (in module models_export.situation_model_export)</a>
+</li>
+      <li><a href="plot_tools.html#plot_tools.plot_tools.scatter_matrix">scatter_matrix() (in module plot_tools.plot_tools)</a>
+</li>
+      <li><a href="situation_model.html#situation_model.situation_model.SituationModel.scenario_occurrence_rate_per_hour">scenario_occurrence_rate_per_hour (situation_model.situation_model.SituationModel attribute)</a>
+</li>
+      <li><a href="remove_invalid_sessions.html#remove_invalid_sessions.remove_invalid_sessions.InvalidSessionsSpec.sensor_names">sensor_names (remove_invalid_sessions.remove_invalid_sessions.InvalidSessionsSpec attribute)</a>
+</li>
+      <li><a href="remove_invalid_sessions.html#remove_invalid_sessions.invalid_sessions_schema.SensorModel">SensorModel (class in remove_invalid_sessions.invalid_sessions_schema)</a>
+</li>
+      <li><a href="remove_invalid_sessions.html#remove_invalid_sessions.invalid_sessions_schema.SensorModel.Config">SensorModel.Config (class in remove_invalid_sessions.invalid_sessions_schema)</a>
+</li>
+      <li><a href="remove_invalid_sessions.html#remove_invalid_sessions.invalid_sessions_schema.InvalidSession.sensors_have_valid_json_schema">sensors_have_valid_json_schema() (remove_invalid_sessions.invalid_sessions_schema.InvalidSession class method)</a>
+</li>
+      <li><a href="sessions_to_manually_change.html#sessions_to_manually_change.sessions_to_manually_change_schema.SessionsToChange.sessions_are_unique_per_cb_id">sessions_are_unique_per_cb_id() (sessions_to_manually_change.sessions_to_manually_change_schema.SessionsToChange class method)</a>
+</li>
+      <li>
+    sessions_to_manually_change
+
+      <ul>
+        <li><a href="sessions_to_manually_change.html#module-sessions_to_manually_change">module</a>
+</li>
+      </ul></li>
+      <li>
+    sessions_to_manually_change.manual_changes
+
+      <ul>
+        <li><a href="sessions_to_manually_change.html#module-sessions_to_manually_change.manual_changes">module</a>
+</li>
+      </ul></li>
+      <li>
+    sessions_to_manually_change.sessions_to_manually_change_schema
+
+      <ul>
+        <li><a href="sessions_to_manually_change.html#module-sessions_to_manually_change.sessions_to_manually_change_schema">module</a>
+</li>
+      </ul></li>
+      <li><a href="comparison_tools.html#comparison_tools.dataset_comparison.DatasetComparison.sessions_with_changes">sessions_with_changes() (comparison_tools.dataset_comparison.DatasetComparison method)</a>
+</li>
+      <li><a href="sessions_to_manually_change.html#sessions_to_manually_change.sessions_to_manually_change_schema.SessionsToChange">SessionsToChange (class in sessions_to_manually_change.sessions_to_manually_change_schema)</a>
+</li>
+      <li><a href="sessions_to_manually_change.html#sessions_to_manually_change.sessions_to_manually_change_schema.SessionsToChange.Config">SessionsToChange.Config (class in sessions_to_manually_change.sessions_to_manually_change_schema)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="models_export.html#models_export.residual_distribution_model.SingleDistribution">SingleDistribution (class in models_export.residual_distribution_model)</a>
+</li>
+      <li><a href="models_export.html#models_export.residual_distribution_model.SingleDistribution.Config">SingleDistribution.Config (class in models_export.residual_distribution_model)</a>
+</li>
+      <li>
+    situation_model
+
+      <ul>
+        <li><a href="situation_model.html#module-situation_model">module</a>
+</li>
+      </ul></li>
+      <li>
+    situation_model.situation_model
+
+      <ul>
+        <li><a href="situation_model.html#module-situation_model.situation_model">module</a>
+</li>
+      </ul></li>
+      <li><a href="situation_model.html#situation_model.situation_model.SituationModel">SituationModel (class in situation_model.situation_model)</a>
+</li>
+      <li><a href="situation_model.html#situation_model.situation_model.SituationModelParameter">SituationModelParameter (class in situation_model.situation_model)</a>
+</li>
+      <li><a href="situation_model.html#situation_model.situation_model.CorrelationMatrix.size">size (situation_model.situation_model.CorrelationMatrix property)</a>
+</li>
+      <li><a href="models_export.html#models_export.statsmodels_exporter.SpmModel">SpmModel (class in models_export.statsmodels_exporter)</a>
+</li>
+      <li><a href="models_export.html#models_export.statsmodels_exporter.SpmModel.Config">SpmModel.Config (class in models_export.statsmodels_exporter)</a>
+</li>
+      <li><a href="remove_invalid_sessions.html#remove_invalid_sessions.remove_invalid_sessions.SRS">SRS (class in remove_invalid_sessions.remove_invalid_sessions)</a>
+</li>
+      <li><a href="remove_invalid_sessions.html#remove_invalid_sessions.remove_invalid_sessions.InvalidSessionsSpec.srs">srs (remove_invalid_sessions.remove_invalid_sessions.InvalidSessionsSpec attribute)</a>
+</li>
+      <li><a href="remove_invalid_sessions.html#remove_invalid_sessions.remove_invalid_sessions.SRS.SRS04">SRS04 (remove_invalid_sessions.remove_invalid_sessions.SRS attribute)</a>
+</li>
+      <li><a href="remove_invalid_sessions.html#remove_invalid_sessions.remove_invalid_sessions.SRS.SRS06">SRS06 (remove_invalid_sessions.remove_invalid_sessions.SRS attribute)</a>
+</li>
+      <li><a href="remove_invalid_sessions.html#remove_invalid_sessions.remove_invalid_sessions.SRS.SRS08">SRS08 (remove_invalid_sessions.remove_invalid_sessions.SRS attribute)</a>
+</li>
+      <li><a href="remove_invalid_sessions.html#remove_invalid_sessions.remove_invalid_sessions.SRS.SRS11_MV">SRS11_MV (remove_invalid_sessions.remove_invalid_sessions.SRS attribute)</a>
+</li>
+      <li><a href="remove_invalid_sessions.html#remove_invalid_sessions.remove_invalid_sessions.SRS.SRS11_ST">SRS11_ST (remove_invalid_sessions.remove_invalid_sessions.SRS attribute)</a>
+</li>
+      <li><a href="remove_invalid_sessions.html#remove_invalid_sessions.remove_invalid_sessions.SRS.SRS12">SRS12 (remove_invalid_sessions.remove_invalid_sessions.SRS attribute)</a>
+</li>
+      <li><a href="remove_invalid_sessions.html#remove_invalid_sessions.remove_invalid_sessions.SRS.SRS16">SRS16 (remove_invalid_sessions.remove_invalid_sessions.SRS attribute)</a>
+</li>
+      <li><a href="models_export.html#models_export.residual_distribution_model.NoiseDistributionType.STANDARD">STANDARD (models_export.residual_distribution_model.NoiseDistributionType attribute)</a>
+</li>
+      <li><a href="comparison_tools.html#comparison_tools.dataset_comparison.DatasetComparison.summarize">summarize() (comparison_tools.dataset_comparison.DatasetComparison method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="T">T</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.tests_write_file">tests_write_file (regression_models.regression_models.ConvenientRegressionFit attribute)</a>
+</li>
+      <li><a href="regression_models.html#regression_models.advanced_residual_distributions.piecewise_distribution.threshold">threshold (regression_models.advanced_residual_distributions.piecewise_distribution attribute)</a>
+</li>
+      <li><a href="models_export.html#models_export.residual_distribution_model.CompositeDistribution.thresholds">thresholds (models_export.residual_distribution_model.CompositeDistribution property)</a>
+</li>
+      <li><a href="general_utility.html#general_utility.helpers.InputData.timestamp_export">timestamp_export (general_utility.helpers.InputData attribute)</a>
+
+      <ul>
+        <li><a href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.timestamp_export">(regression_models.regression_models.ConvenientRegressionFit attribute)</a>
+</li>
+        <li><a href="situation_model.html#situation_model.situation_model.ModelTimestamps.timestamp_export">(situation_model.situation_model.ModelTimestamps attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="general_utility.html#general_utility.helpers.InputData.timestamp_input_data">timestamp_input_data (general_utility.helpers.InputData attribute)</a>
+
+      <ul>
+        <li><a href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.timestamp_input_data">(regression_models.regression_models.ConvenientRegressionFit attribute)</a>
+</li>
+        <li><a href="situation_model.html#situation_model.situation_model.ModelTimestamps.timestamp_input_data">(situation_model.situation_model.ModelTimestamps attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientNataf.timestamps">timestamps (marginal_distributions.marginal_distributions.ConvenientNataf attribute)</a>
+</li>
+      <li><a href="situation_model.html#situation_model.situation_model.ModelTimestamps.timestamps_in_correct_format">timestamps_in_correct_format() (situation_model.situation_model.ModelTimestamps class method)</a>
+</li>
+      <li><a href="comparison_tools.html#comparison_tools.model_comparison.ComparisonInformation.title">title (comparison_tools.model_comparison.ComparisonInformation attribute)</a>
+</li>
+      <li><a href="regression_models.html#regression_models.regression_models.ConvenientRegressionFit.to_marginal_distribution">to_marginal_distribution() (regression_models.regression_models.ConvenientRegressionFit method)</a>
+</li>
+      <li><a href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientNataf.to_situation_model">to_situation_model() (marginal_distributions.marginal_distributions.ConvenientNataf method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="general_utility.html#general_utility.helpers.InputData.total_failure_info">total_failure_info (general_utility.helpers.InputData attribute)</a>
+</li>
+      <li><a href="models_export.html#models_export.statsmodels_exporter.SpmModel.total_failure_rate">total_failure_rate (models_export.statsmodels_exporter.SpmModel attribute)</a>
+</li>
+      <li><a href="remove_invalid_sessions.html#remove_invalid_sessions.remove_invalid_sessions.TotalFailureInfo">TotalFailureInfo (class in remove_invalid_sessions.remove_invalid_sessions)</a>
+</li>
+      <li><a href="remove_invalid_sessions.html#remove_invalid_sessions.remove_invalid_sessions.ReasonsToRemove.TotalFailureSessions">TotalFailureSessions (remove_invalid_sessions.remove_invalid_sessions.ReasonsToRemove attribute)</a>
+</li>
+      <li><a href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.transformation_function">transformation_function (marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit attribute)</a>
+
+      <ul>
+        <li><a href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate.transformation_function">(marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate attribute)</a>
+</li>
+        <li><a href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy.transformation_function">(marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy attribute)</a>
+</li>
+        <li><a href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen.transformation_function">(marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen attribute)</a>
+</li>
+        <li><a href="situation_model.html#situation_model.situation_model.SituationModelParameter.transformation_function">(situation_model.situation_model.SituationModelParameter attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="general_utility.html#general_utility.helpers.translate_categorical_intervals">translate_categorical_intervals() (in module general_utility.helpers)</a>
+</li>
+      <li><a href="models_export.html#models_export.residual_distribution_model.NoiseDistributionType.TRUNCATED">TRUNCATED (models_export.residual_distribution_model.NoiseDistributionType attribute)</a>
+</li>
+      <li><a href="regression_models.html#regression_models.advanced_residual_distributions.truncated_distribution">truncated_distribution (class in regression_models.advanced_residual_distributions)</a>
+</li>
+      <li><a href="situation_model.html#situation_model.situation_model.SituationModel.two_parameters_must_not_have_equal_marginal_distribution_parameters">two_parameters_must_not_have_equal_marginal_distribution_parameters() (situation_model.situation_model.SituationModel class method)</a>
+</li>
+      <li><a href="models_export.html#models_export.residual_distribution_model.CompositeDistribution.type">type (models_export.residual_distribution_model.CompositeDistribution property)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="U">U</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="situation_model.html#situation_model.situation_model.MarginalDistributionTestCase.u_noise">u_noise (situation_model.situation_model.MarginalDistributionTestCase attribute)</a>
+</li>
+      <li><a href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.u_space">u_space() (marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit method)</a>
+</li>
+      <li><a href="models_export.html#models_export.residual_distribution_model.SingleDistribution.upper_bound">upper_bound (models_export.residual_distribution_model.SingleDistribution attribute)</a>
+
+      <ul>
+        <li><a href="regression_models.html#regression_models.advanced_residual_distributions.truncated_distribution.upper_bound">(regression_models.advanced_residual_distributions.truncated_distribution property)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="regression_models.html#regression_models.advanced_residual_distributions.piecewise_distribution.upper_dist">upper_dist (regression_models.advanced_residual_distributions.piecewise_distribution attribute)</a>
+</li>
+      <li><a href="comparison_tools.html#comparison_tools.dataset_comparison.Whiskers.upper_whisker">upper_whisker (comparison_tools.dataset_comparison.Whiskers attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="V">V</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="models_export.html#models_export.residual_distribution_model.SingleDistribution.validate_base_distribution_known">validate_base_distribution_known() (models_export.residual_distribution_model.SingleDistribution class method)</a>
+</li>
+      <li><a href="models_export.html#models_export.residual_distribution_model.CompositeDistribution.validate_bounds_matching">validate_bounds_matching() (models_export.residual_distribution_model.CompositeDistribution class method)</a>
+</li>
+      <li><a href="general_utility.html#general_utility.srs_dependent_formatting_schema.FormattingModel.validate_json_structure">validate_json_structure() (general_utility.srs_dependent_formatting_schema.FormattingModel class method)</a>
+</li>
+      <li><a href="models_export.html#models_export.residual_distribution_model.CompositeDistribution.validate_probability_mass">validate_probability_mass() (models_export.residual_distribution_model.CompositeDistribution class method)</a>
+</li>
+      <li><a href="general_utility.html#general_utility.srs_dependent_formatting_schema.FormattingModel.validate_srs_names">validate_srs_names() (general_utility.srs_dependent_formatting_schema.FormattingModel class method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="models_export.html#models_export.residual_distribution_model.CompositeDistribution.validate_support_real_numbers_if_piecewise">validate_support_real_numbers_if_piecewise() (models_export.residual_distribution_model.CompositeDistribution class method)</a>
+</li>
+      <li><a href="general_utility.html#general_utility.helpers.validate_timestamp_format">validate_timestamp_format() (in module general_utility.helpers)</a>
+</li>
+      <li><a href="models_export.html#models_export.residual_distribution_model.SingleDistribution.validate_truncated_if_probability_mass_given">validate_truncated_if_probability_mass_given() (models_export.residual_distribution_model.SingleDistribution class method)</a>
+</li>
+      <li><a href="models_export.html#models_export.residual_distribution_model.SingleDistribution.validate_truncation">validate_truncation() (models_export.residual_distribution_model.SingleDistribution class method)</a>
+</li>
+      <li><a href="remove_invalid_sessions.html#remove_invalid_sessions.invalid_sessions_schema.CategoryModel.value">value (remove_invalid_sessions.invalid_sessions_schema.CategoryModel attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="W">W</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="marginal_distributions.html#marginal_distributions.marginal_distributions.SamplingInfo.warning_messages">warning_messages (marginal_distributions.marginal_distributions.SamplingInfo attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="comparison_tools.html#comparison_tools.dataset_comparison.Whiskers">Whiskers (class in comparison_tools.dataset_comparison)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="X">X</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.x_u_z_space">x_u_z_space() (marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="Y">Y</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="comparison_tools.html#comparison_tools.model_comparison.ModelComparison.y_observed">y_observed (comparison_tools.model_comparison.ModelComparison attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="situation_model.html#situation_model.situation_model.MarginalDistributionTestCase.y_predict">y_predict (situation_model.situation_model.MarginalDistributionTestCase attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="Z">Z</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.z_space">z_space() (marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Team Kepler
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, Bayerische Motoren Werke Aktiengesellschaft (BMW AG).
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

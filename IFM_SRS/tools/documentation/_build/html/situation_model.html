@@ -1,0 +1,646 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>situation_model package &#8212; Model Fits Tools  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'situation_model';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Model Fits Tools  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/situation_model.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>situation_model package</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-situation_model">Module contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.ConditionalSituationModel"><code class="docutils literal notranslate"><span class="pre">ConditionalSituationModel</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.ConditionalSituationModel.conditional_distribution"><code class="docutils literal notranslate"><span class="pre">ConditionalSituationModel.conditional_distribution</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.ConditionalSituationModel.conditional_distribution_states"><code class="docutils literal notranslate"><span class="pre">ConditionalSituationModel.conditional_distribution_states</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.ConditionalSituationModel.model_proportions"><code class="docutils literal notranslate"><span class="pre">ConditionalSituationModel.model_proportions</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.ConditionalSituationModel.models"><code class="docutils literal notranslate"><span class="pre">ConditionalSituationModel.models</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.CorrelationMatrix"><code class="docutils literal notranslate"><span class="pre">CorrelationMatrix</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.CorrelationMatrix.matrix_must_be_non_empty"><code class="docutils literal notranslate"><span class="pre">CorrelationMatrix.matrix_must_be_non_empty()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.CorrelationMatrix.matrix_rows"><code class="docutils literal notranslate"><span class="pre">CorrelationMatrix.matrix_rows</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.CorrelationMatrix.parameter_order"><code class="docutils literal notranslate"><span class="pre">CorrelationMatrix.parameter_order</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.CorrelationMatrix.parameter_order_length_must_fit_matrix"><code class="docutils literal notranslate"><span class="pre">CorrelationMatrix.parameter_order_length_must_fit_matrix()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.CorrelationMatrix.size"><code class="docutils literal notranslate"><span class="pre">CorrelationMatrix.size</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.MarginalDistributionTestCase"><code class="docutils literal notranslate"><span class="pre">MarginalDistributionTestCase</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.MarginalDistributionTestCase.parameter_order_length_must_fit_matrix"><code class="docutils literal notranslate"><span class="pre">MarginalDistributionTestCase.parameter_order_length_must_fit_matrix()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.MarginalDistributionTestCase.u_noise"><code class="docutils literal notranslate"><span class="pre">MarginalDistributionTestCase.u_noise</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.MarginalDistributionTestCase.y_predict"><code class="docutils literal notranslate"><span class="pre">MarginalDistributionTestCase.y_predict</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.ModelTimestamps"><code class="docutils literal notranslate"><span class="pre">ModelTimestamps</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.ModelTimestamps.timestamp_export"><code class="docutils literal notranslate"><span class="pre">ModelTimestamps.timestamp_export</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.ModelTimestamps.timestamp_input_data"><code class="docutils literal notranslate"><span class="pre">ModelTimestamps.timestamp_input_data</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.ModelTimestamps.timestamps_in_correct_format"><code class="docutils literal notranslate"><span class="pre">ModelTimestamps.timestamps_in_correct_format()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.SituationModel"><code class="docutils literal notranslate"><span class="pre">SituationModel</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.SituationModel.correlation_matrix"><code class="docutils literal notranslate"><span class="pre">SituationModel.correlation_matrix</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.SituationModel.filtering_function"><code class="docutils literal notranslate"><span class="pre">SituationModel.filtering_function</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.SituationModel.number_of_parameters_must_fit_correlation_matrix_size"><code class="docutils literal notranslate"><span class="pre">SituationModel.number_of_parameters_must_fit_correlation_matrix_size()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.SituationModel.parameters"><code class="docutils literal notranslate"><span class="pre">SituationModel.parameters</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.SituationModel.scenario_occurrence_rate_per_hour"><code class="docutils literal notranslate"><span class="pre">SituationModel.scenario_occurrence_rate_per_hour</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.SituationModel.two_parameters_must_not_have_equal_marginal_distribution_parameters"><code class="docutils literal notranslate"><span class="pre">SituationModel.two_parameters_must_not_have_equal_marginal_distribution_parameters()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.SituationModelParameter"><code class="docutils literal notranslate"><span class="pre">SituationModelParameter</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.SituationModelParameter.codebeamer_reference"><code class="docutils literal notranslate"><span class="pre">SituationModelParameter.codebeamer_reference</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.SituationModelParameter.marginal_distribution"><code class="docutils literal notranslate"><span class="pre">SituationModelParameter.marginal_distribution</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.SituationModelParameter.marginal_distribution_parameters"><code class="docutils literal notranslate"><span class="pre">SituationModelParameter.marginal_distribution_parameters</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.SituationModelParameter.marginal_distribution_test_cases"><code class="docutils literal notranslate"><span class="pre">SituationModelParameter.marginal_distribution_test_cases</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.SituationModelParameter.name"><code class="docutils literal notranslate"><span class="pre">SituationModelParameter.name</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.SituationModelParameter.transformation_function"><code class="docutils literal notranslate"><span class="pre">SituationModelParameter.transformation_function</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="situation-model-package">
+<h1>situation_model package<a class="headerlink" href="#situation-model-package" title="Permalink to this heading">#</a></h1>
+<section id="module-situation_model">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-situation_model" title="Permalink to this heading">#</a></h2>
+<span class="target" id="module-situation_model.situation_model"></span><dl class="py class">
+<dt class="sig sig-object py" id="situation_model.situation_model.ConditionalSituationModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">situation_model.situation_model.</span></span><span class="sig-name descname"><span class="pre">ConditionalSituationModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp_input_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp_export</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditional_distribution</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">models</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#situation_model.situation_model.SituationModel" title="situation_model.situation_model.SituationModel"><span class="pre">SituationModel</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_proportions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ConstrainedListValue</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditional_distribution_states</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ConstrainedListValue</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/situation_model/situation_model.html#ConditionalSituationModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#situation_model.situation_model.ConditionalSituationModel" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#situation_model.situation_model.ModelTimestamps" title="situation_model.situation_model.ModelTimestamps"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModelTimestamps</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="situation_model.situation_model.ConditionalSituationModel.conditional_distribution">
+<span class="sig-name descname"><span class="pre">conditional_distribution</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#situation_model.situation_model.ConditionalSituationModel.conditional_distribution" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="situation_model.situation_model.ConditionalSituationModel.conditional_distribution_states">
+<span class="sig-name descname"><span class="pre">conditional_distribution_states</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ConstrainedListValue</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#situation_model.situation_model.ConditionalSituationModel.conditional_distribution_states" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="situation_model.situation_model.ConditionalSituationModel.model_proportions">
+<span class="sig-name descname"><span class="pre">model_proportions</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ConstrainedListValue</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#situation_model.situation_model.ConditionalSituationModel.model_proportions" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="situation_model.situation_model.ConditionalSituationModel.models">
+<span class="sig-name descname"><span class="pre">models</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#situation_model.situation_model.SituationModel" title="situation_model.situation_model.SituationModel"><span class="pre">SituationModel</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#situation_model.situation_model.ConditionalSituationModel.models" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="situation_model.situation_model.CorrelationMatrix">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">situation_model.situation_model.</span></span><span class="sig-name descname"><span class="pre">CorrelationMatrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp_input_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp_export</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameter_order</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ConstrainedListValue</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">matrix_rows</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/situation_model/situation_model.html#CorrelationMatrix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#situation_model.situation_model.CorrelationMatrix" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#situation_model.situation_model.ModelTimestamps" title="situation_model.situation_model.ModelTimestamps"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModelTimestamps</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="situation_model.situation_model.CorrelationMatrix.matrix_must_be_non_empty">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">matrix_must_be_non_empty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/situation_model/situation_model.html#CorrelationMatrix.matrix_must_be_non_empty"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#situation_model.situation_model.CorrelationMatrix.matrix_must_be_non_empty" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="situation_model.situation_model.CorrelationMatrix.matrix_rows">
+<span class="sig-name descname"><span class="pre">matrix_rows</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#situation_model.situation_model.CorrelationMatrix.matrix_rows" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="situation_model.situation_model.CorrelationMatrix.parameter_order">
+<span class="sig-name descname"><span class="pre">parameter_order</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ConstrainedListValue</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#situation_model.situation_model.CorrelationMatrix.parameter_order" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="situation_model.situation_model.CorrelationMatrix.parameter_order_length_must_fit_matrix">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">parameter_order_length_must_fit_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/situation_model/situation_model.html#CorrelationMatrix.parameter_order_length_must_fit_matrix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#situation_model.situation_model.CorrelationMatrix.parameter_order_length_must_fit_matrix" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="situation_model.situation_model.CorrelationMatrix.size">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#situation_model.situation_model.CorrelationMatrix.size" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="situation_model.situation_model.MarginalDistributionTestCase">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">situation_model.situation_model.</span></span><span class="sig-name descname"><span class="pre">MarginalDistributionTestCase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">u_noise</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ConstrainedListValue</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_predict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ConstrainedListValue</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/situation_model/situation_model.html#MarginalDistributionTestCase"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#situation_model.situation_model.MarginalDistributionTestCase" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="situation_model.situation_model.MarginalDistributionTestCase.parameter_order_length_must_fit_matrix">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">parameter_order_length_must_fit_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/situation_model/situation_model.html#MarginalDistributionTestCase.parameter_order_length_must_fit_matrix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#situation_model.situation_model.MarginalDistributionTestCase.parameter_order_length_must_fit_matrix" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="situation_model.situation_model.MarginalDistributionTestCase.u_noise">
+<span class="sig-name descname"><span class="pre">u_noise</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ConstrainedListValue</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#situation_model.situation_model.MarginalDistributionTestCase.u_noise" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="situation_model.situation_model.MarginalDistributionTestCase.y_predict">
+<span class="sig-name descname"><span class="pre">y_predict</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ConstrainedListValue</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#situation_model.situation_model.MarginalDistributionTestCase.y_predict" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="situation_model.situation_model.ModelTimestamps">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">situation_model.situation_model.</span></span><span class="sig-name descname"><span class="pre">ModelTimestamps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp_input_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp_export</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/situation_model/situation_model.html#ModelTimestamps"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#situation_model.situation_model.ModelTimestamps" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="situation_model.situation_model.ModelTimestamps.timestamp_export">
+<span class="sig-name descname"><span class="pre">timestamp_export</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#situation_model.situation_model.ModelTimestamps.timestamp_export" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="situation_model.situation_model.ModelTimestamps.timestamp_input_data">
+<span class="sig-name descname"><span class="pre">timestamp_input_data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#situation_model.situation_model.ModelTimestamps.timestamp_input_data" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="situation_model.situation_model.ModelTimestamps.timestamps_in_correct_format">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">timestamps_in_correct_format</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timestamp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ModelField</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/situation_model/situation_model.html#ModelTimestamps.timestamps_in_correct_format"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#situation_model.situation_model.ModelTimestamps.timestamps_in_correct_format" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="situation_model.situation_model.SituationModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">situation_model.situation_model.</span></span><span class="sig-name descname"><span class="pre">SituationModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp_input_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp_export</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#situation_model.situation_model.SituationModelParameter" title="situation_model.situation_model.SituationModelParameter"><span class="pre">SituationModelParameter</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">correlation_matrix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#situation_model.situation_model.CorrelationMatrix" title="situation_model.situation_model.CorrelationMatrix"><span class="pre">CorrelationMatrix</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario_occurrence_rate_per_hour</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filtering_function</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/situation_model/situation_model.html#SituationModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#situation_model.situation_model.SituationModel" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#situation_model.situation_model.ModelTimestamps" title="situation_model.situation_model.ModelTimestamps"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModelTimestamps</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="situation_model.situation_model.SituationModel.correlation_matrix">
+<span class="sig-name descname"><span class="pre">correlation_matrix</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#situation_model.situation_model.CorrelationMatrix" title="situation_model.situation_model.CorrelationMatrix"><span class="pre">CorrelationMatrix</span></a></em><a class="headerlink" href="#situation_model.situation_model.SituationModel.correlation_matrix" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="situation_model.situation_model.SituationModel.filtering_function">
+<span class="sig-name descname"><span class="pre">filtering_function</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#situation_model.situation_model.SituationModel.filtering_function" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="situation_model.situation_model.SituationModel.number_of_parameters_must_fit_correlation_matrix_size">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">number_of_parameters_must_fit_correlation_matrix_size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/situation_model/situation_model.html#SituationModel.number_of_parameters_must_fit_correlation_matrix_size"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#situation_model.situation_model.SituationModel.number_of_parameters_must_fit_correlation_matrix_size" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="situation_model.situation_model.SituationModel.parameters">
+<span class="sig-name descname"><span class="pre">parameters</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#situation_model.situation_model.SituationModelParameter" title="situation_model.situation_model.SituationModelParameter"><span class="pre">SituationModelParameter</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#situation_model.situation_model.SituationModel.parameters" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="situation_model.situation_model.SituationModel.scenario_occurrence_rate_per_hour">
+<span class="sig-name descname"><span class="pre">scenario_occurrence_rate_per_hour</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#situation_model.situation_model.SituationModel.scenario_occurrence_rate_per_hour" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="situation_model.situation_model.SituationModel.two_parameters_must_not_have_equal_marginal_distribution_parameters">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">two_parameters_must_not_have_equal_marginal_distribution_parameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#situation_model.situation_model.SituationModelParameter" title="situation_model.situation_model.SituationModelParameter"><span class="pre">SituationModelParameter</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#situation_model.situation_model.SituationModelParameter" title="situation_model.situation_model.SituationModelParameter"><span class="pre">SituationModelParameter</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/situation_model/situation_model.html#SituationModel.two_parameters_must_not_have_equal_marginal_distribution_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#situation_model.situation_model.SituationModel.two_parameters_must_not_have_equal_marginal_distribution_parameters" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="situation_model.situation_model.SituationModelParameter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">situation_model.situation_model.</span></span><span class="sig-name descname"><span class="pre">SituationModelParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transformation_function</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">marginal_distribution</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">marginal_distribution_parameters</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ConstrainedListValue</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">marginal_distribution_test_cases</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#situation_model.situation_model.MarginalDistributionTestCase" title="situation_model.situation_model.MarginalDistributionTestCase"><span class="pre">MarginalDistributionTestCase</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">codebeamer_reference</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/situation_model/situation_model.html#SituationModelParameter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#situation_model.situation_model.SituationModelParameter" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="situation_model.situation_model.SituationModelParameter.codebeamer_reference">
+<span class="sig-name descname"><span class="pre">codebeamer_reference</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#situation_model.situation_model.SituationModelParameter.codebeamer_reference" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="situation_model.situation_model.SituationModelParameter.marginal_distribution">
+<span class="sig-name descname"><span class="pre">marginal_distribution</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#situation_model.situation_model.SituationModelParameter.marginal_distribution" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="situation_model.situation_model.SituationModelParameter.marginal_distribution_parameters">
+<span class="sig-name descname"><span class="pre">marginal_distribution_parameters</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ConstrainedListValue</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#situation_model.situation_model.SituationModelParameter.marginal_distribution_parameters" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="situation_model.situation_model.SituationModelParameter.marginal_distribution_test_cases">
+<span class="sig-name descname"><span class="pre">marginal_distribution_test_cases</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#situation_model.situation_model.MarginalDistributionTestCase" title="situation_model.situation_model.MarginalDistributionTestCase"><span class="pre">MarginalDistributionTestCase</span></a></em><a class="headerlink" href="#situation_model.situation_model.SituationModelParameter.marginal_distribution_test_cases" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="situation_model.situation_model.SituationModelParameter.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#situation_model.situation_model.SituationModelParameter.name" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="situation_model.situation_model.SituationModelParameter.transformation_function">
+<span class="sig-name descname"><span class="pre">transformation_function</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#situation_model.situation_model.SituationModelParameter.transformation_function" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-situation_model">Module contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.ConditionalSituationModel"><code class="docutils literal notranslate"><span class="pre">ConditionalSituationModel</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.ConditionalSituationModel.conditional_distribution"><code class="docutils literal notranslate"><span class="pre">ConditionalSituationModel.conditional_distribution</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.ConditionalSituationModel.conditional_distribution_states"><code class="docutils literal notranslate"><span class="pre">ConditionalSituationModel.conditional_distribution_states</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.ConditionalSituationModel.model_proportions"><code class="docutils literal notranslate"><span class="pre">ConditionalSituationModel.model_proportions</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.ConditionalSituationModel.models"><code class="docutils literal notranslate"><span class="pre">ConditionalSituationModel.models</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.CorrelationMatrix"><code class="docutils literal notranslate"><span class="pre">CorrelationMatrix</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.CorrelationMatrix.matrix_must_be_non_empty"><code class="docutils literal notranslate"><span class="pre">CorrelationMatrix.matrix_must_be_non_empty()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.CorrelationMatrix.matrix_rows"><code class="docutils literal notranslate"><span class="pre">CorrelationMatrix.matrix_rows</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.CorrelationMatrix.parameter_order"><code class="docutils literal notranslate"><span class="pre">CorrelationMatrix.parameter_order</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.CorrelationMatrix.parameter_order_length_must_fit_matrix"><code class="docutils literal notranslate"><span class="pre">CorrelationMatrix.parameter_order_length_must_fit_matrix()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.CorrelationMatrix.size"><code class="docutils literal notranslate"><span class="pre">CorrelationMatrix.size</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.MarginalDistributionTestCase"><code class="docutils literal notranslate"><span class="pre">MarginalDistributionTestCase</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.MarginalDistributionTestCase.parameter_order_length_must_fit_matrix"><code class="docutils literal notranslate"><span class="pre">MarginalDistributionTestCase.parameter_order_length_must_fit_matrix()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.MarginalDistributionTestCase.u_noise"><code class="docutils literal notranslate"><span class="pre">MarginalDistributionTestCase.u_noise</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.MarginalDistributionTestCase.y_predict"><code class="docutils literal notranslate"><span class="pre">MarginalDistributionTestCase.y_predict</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.ModelTimestamps"><code class="docutils literal notranslate"><span class="pre">ModelTimestamps</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.ModelTimestamps.timestamp_export"><code class="docutils literal notranslate"><span class="pre">ModelTimestamps.timestamp_export</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.ModelTimestamps.timestamp_input_data"><code class="docutils literal notranslate"><span class="pre">ModelTimestamps.timestamp_input_data</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.ModelTimestamps.timestamps_in_correct_format"><code class="docutils literal notranslate"><span class="pre">ModelTimestamps.timestamps_in_correct_format()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.SituationModel"><code class="docutils literal notranslate"><span class="pre">SituationModel</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.SituationModel.correlation_matrix"><code class="docutils literal notranslate"><span class="pre">SituationModel.correlation_matrix</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.SituationModel.filtering_function"><code class="docutils literal notranslate"><span class="pre">SituationModel.filtering_function</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.SituationModel.number_of_parameters_must_fit_correlation_matrix_size"><code class="docutils literal notranslate"><span class="pre">SituationModel.number_of_parameters_must_fit_correlation_matrix_size()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.SituationModel.parameters"><code class="docutils literal notranslate"><span class="pre">SituationModel.parameters</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.SituationModel.scenario_occurrence_rate_per_hour"><code class="docutils literal notranslate"><span class="pre">SituationModel.scenario_occurrence_rate_per_hour</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.SituationModel.two_parameters_must_not_have_equal_marginal_distribution_parameters"><code class="docutils literal notranslate"><span class="pre">SituationModel.two_parameters_must_not_have_equal_marginal_distribution_parameters()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.SituationModelParameter"><code class="docutils literal notranslate"><span class="pre">SituationModelParameter</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.SituationModelParameter.codebeamer_reference"><code class="docutils literal notranslate"><span class="pre">SituationModelParameter.codebeamer_reference</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.SituationModelParameter.marginal_distribution"><code class="docutils literal notranslate"><span class="pre">SituationModelParameter.marginal_distribution</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.SituationModelParameter.marginal_distribution_parameters"><code class="docutils literal notranslate"><span class="pre">SituationModelParameter.marginal_distribution_parameters</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.SituationModelParameter.marginal_distribution_test_cases"><code class="docutils literal notranslate"><span class="pre">SituationModelParameter.marginal_distribution_test_cases</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.SituationModelParameter.name"><code class="docutils literal notranslate"><span class="pre">SituationModelParameter.name</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#situation_model.situation_model.SituationModelParameter.transformation_function"><code class="docutils literal notranslate"><span class="pre">SituationModelParameter.transformation_function</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Team Kepler
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, Bayerische Motoren Werke Aktiengesellschaft (BMW AG).
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

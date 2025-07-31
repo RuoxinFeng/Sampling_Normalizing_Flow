@@ -1,0 +1,584 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>sessions_to_manually_change package &#8212; Model Fits Tools  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'sessions_to_manually_change';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Model Fits Tools  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/sessions_to_manually_change.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>sessions_to_manually_change package</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-sessions_to_manually_change">Module contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sessions_to_manually_change.manual_changes.manually_change_values"><code class="docutils literal notranslate"><span class="pre">manually_change_values()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sessions_to_manually_change.sessions_to_manually_change_schema.CBIDToChange"><code class="docutils literal notranslate"><span class="pre">CBIDToChange</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sessions_to_manually_change.sessions_to_manually_change_schema.CBIDToChange.Config"><code class="docutils literal notranslate"><span class="pre">CBIDToChange.Config</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#sessions_to_manually_change.sessions_to_manually_change_schema.CBIDToChange.Config.extra"><code class="docutils literal notranslate"><span class="pre">CBIDToChange.Config.extra</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sessions_to_manually_change.sessions_to_manually_change_schema.CBIDToChange.clusters_have_valid_schema"><code class="docutils literal notranslate"><span class="pre">CBIDToChange.clusters_have_valid_schema()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sessions_to_manually_change.sessions_to_manually_change_schema.ReasonToChange"><code class="docutils literal notranslate"><span class="pre">ReasonToChange</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sessions_to_manually_change.sessions_to_manually_change_schema.ReasonToChange.Config"><code class="docutils literal notranslate"><span class="pre">ReasonToChange.Config</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#sessions_to_manually_change.sessions_to_manually_change_schema.ReasonToChange.Config.extra"><code class="docutils literal notranslate"><span class="pre">ReasonToChange.Config.extra</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sessions_to_manually_change.sessions_to_manually_change_schema.ReasonToChange.lowest_hierarchy"><code class="docutils literal notranslate"><span class="pre">ReasonToChange.lowest_hierarchy()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sessions_to_manually_change.sessions_to_manually_change_schema.SessionsToChange"><code class="docutils literal notranslate"><span class="pre">SessionsToChange</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sessions_to_manually_change.sessions_to_manually_change_schema.SessionsToChange.Config"><code class="docutils literal notranslate"><span class="pre">SessionsToChange.Config</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#sessions_to_manually_change.sessions_to_manually_change_schema.SessionsToChange.Config.extra"><code class="docutils literal notranslate"><span class="pre">SessionsToChange.Config.extra</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sessions_to_manually_change.sessions_to_manually_change_schema.SessionsToChange.cb_id_dicts_have_valid_schema"><code class="docutils literal notranslate"><span class="pre">SessionsToChange.cb_id_dicts_have_valid_schema()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sessions_to_manually_change.sessions_to_manually_change_schema.SessionsToChange.cb_ids_have_valid_schema"><code class="docutils literal notranslate"><span class="pre">SessionsToChange.cb_ids_have_valid_schema()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sessions_to_manually_change.sessions_to_manually_change_schema.SessionsToChange.consistent_datatypes"><code class="docutils literal notranslate"><span class="pre">SessionsToChange.consistent_datatypes()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sessions_to_manually_change.sessions_to_manually_change_schema.SessionsToChange.mappings_by_cb_id"><code class="docutils literal notranslate"><span class="pre">SessionsToChange.mappings_by_cb_id</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sessions_to_manually_change.sessions_to_manually_change_schema.SessionsToChange.sessions_are_unique_per_cb_id"><code class="docutils literal notranslate"><span class="pre">SessionsToChange.sessions_are_unique_per_cb_id()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="sessions-to-manually-change-package">
+<h1>sessions_to_manually_change package<a class="headerlink" href="#sessions-to-manually-change-package" title="Permalink to this heading">#</a></h1>
+<section id="module-sessions_to_manually_change">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-sessions_to_manually_change" title="Permalink to this heading">#</a></h2>
+<span class="target" id="module-sessions_to_manually_change.manual_changes"></span><dl class="py function">
+<dt class="sig sig-object py" id="sessions_to_manually_change.manual_changes.manually_change_values">
+<span class="sig-prename descclassname"><span class="pre">sessions_to_manually_change.manual_changes.</span></span><span class="sig-name descname"><span class="pre">manually_change_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">srs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">SRS</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="reference internal" href="_modules/sessions_to_manually_change/manual_changes.html#manually_change_values"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sessions_to_manually_change.manual_changes.manually_change_values" title="Permalink to this definition">#</a></dt>
+<dd><p>Changes the value of cells based on the <cite>manual_changes.json</cite> in the <cite>sessions_to_manually_change/SRS</cite> folder for the given SRS.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pd.DataFrame</em>) – A dataframe containing IFVs and SPVs with their respective Codebeamer IDs.</p></li>
+<li><p><strong>srs</strong> (<a class="reference internal" href="remove_invalid_sessions.html#remove_invalid_sessions.remove_invalid_sessions.SRS" title="remove_invalid_sessions.remove_invalid_sessions.SRS"><em>SRS</em></a>) – The SRS that is analyzed.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The provided dataframe with exchanged values per specified column.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If there are multiple columns with the same Codebeamer ID.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Let&#39;s look at an example for SRS04:</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># We need the file manual_changes.json in &lt;current working directory&gt;/sessions_to_manually_change/SRS04. This file looks like this:</span>
+<span class="go">{</span>
+<span class="go">    &quot;1234567A&quot;: {</span>
+<span class="go">        &quot;some_reason_CB_ID&quot;: {</span>
+<span class="go">            &quot;abc1&quot;: 0.4594</span>
+<span class="go">        }</span>
+<span class="go">    },</span>
+<span class="go">    &quot;76543210&quot;: {</span>
+<span class="go">        &quot;some_other_reason_CB_ID&quot;: {</span>
+<span class="go">            &quot;abc3&quot;: &quot;new_value&quot;&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;another_reason_CB_ID&quot;: {</span>
+<span class="go">            &quot;abc4&quot;: &quot;test&quot;</span>
+<span class="go">        }</span>
+<span class="go">    }</span>
+<span class="go">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;A_1234567A&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="s2">&quot;B_7654321B&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">],</span> <span class="s2">&quot;session_id&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;abc1&quot;</span><span class="p">,</span> <span class="s2">&quot;abc2&quot;</span><span class="p">,</span> <span class="s2">&quot;abc3&quot;</span><span class="p">,</span> <span class="s2">&quot;abc4&quot;</span><span class="p">]})</span>
+<span class="go">   A_1234567A B_76543210 session_id</span>
+<span class="go">0           1          a       abc1</span>
+<span class="go">1           2          b       abc2</span>
+<span class="go">2           3          c       abc3</span>
+<span class="go">3           4          d       abc4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result_df</span> <span class="o">=</span> <span class="n">manually_change_values</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">srs</span><span class="o">=</span><span class="n">SRS</span><span class="o">.</span><span class="n">SRS04</span><span class="p">)</span>
+<span class="go">   A_1234567A B_76543210 session_id</span>
+<span class="go">0      0.4594          a       abc1</span>
+<span class="go">1           2          b       abc2</span>
+<span class="go">2           3  new_value       abc3</span>
+<span class="go">3           4       test       abc4</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<span class="target" id="module-sessions_to_manually_change.sessions_to_manually_change_schema"></span><dl class="py class">
+<dt class="sig sig-object py" id="sessions_to_manually_change.sessions_to_manually_change_schema.CBIDToChange">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sessions_to_manually_change.sessions_to_manually_change_schema.</span></span><span class="sig-name descname"><span class="pre">CBIDToChange</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">extra_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sessions_to_manually_change/sessions_to_manually_change_schema.html#CBIDToChange"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sessions_to_manually_change.sessions_to_manually_change_schema.CBIDToChange" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="sessions_to_manually_change.sessions_to_manually_change_schema.CBIDToChange.Config">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Config</span></span><a class="reference internal" href="_modules/sessions_to_manually_change/sessions_to_manually_change_schema.html#CBIDToChange.Config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sessions_to_manually_change.sessions_to_manually_change_schema.CBIDToChange.Config" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sessions_to_manually_change.sessions_to_manually_change_schema.CBIDToChange.Config.extra">
+<span class="sig-name descname"><span class="pre">extra</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'allow'</span></em><a class="headerlink" href="#sessions_to_manually_change.sessions_to_manually_change_schema.CBIDToChange.Config.extra" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sessions_to_manually_change.sessions_to_manually_change_schema.CBIDToChange.clusters_have_valid_schema">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">clusters_have_valid_schema</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/sessions_to_manually_change/sessions_to_manually_change_schema.html#CBIDToChange.clusters_have_valid_schema"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sessions_to_manually_change.sessions_to_manually_change_schema.CBIDToChange.clusters_have_valid_schema" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sessions_to_manually_change.sessions_to_manually_change_schema.ReasonToChange">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sessions_to_manually_change.sessions_to_manually_change_schema.</span></span><span class="sig-name descname"><span class="pre">ReasonToChange</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">extra_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sessions_to_manually_change/sessions_to_manually_change_schema.html#ReasonToChange"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sessions_to_manually_change.sessions_to_manually_change_schema.ReasonToChange" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="sessions_to_manually_change.sessions_to_manually_change_schema.ReasonToChange.Config">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Config</span></span><a class="reference internal" href="_modules/sessions_to_manually_change/sessions_to_manually_change_schema.html#ReasonToChange.Config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sessions_to_manually_change.sessions_to_manually_change_schema.ReasonToChange.Config" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sessions_to_manually_change.sessions_to_manually_change_schema.ReasonToChange.Config.extra">
+<span class="sig-name descname"><span class="pre">extra</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'allow'</span></em><a class="headerlink" href="#sessions_to_manually_change.sessions_to_manually_change_schema.ReasonToChange.Config.extra" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sessions_to_manually_change.sessions_to_manually_change_schema.ReasonToChange.lowest_hierarchy">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">lowest_hierarchy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/sessions_to_manually_change/sessions_to_manually_change_schema.html#ReasonToChange.lowest_hierarchy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sessions_to_manually_change.sessions_to_manually_change_schema.ReasonToChange.lowest_hierarchy" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sessions_to_manually_change.sessions_to_manually_change_schema.SessionsToChange">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sessions_to_manually_change.sessions_to_manually_change_schema.</span></span><span class="sig-name descname"><span class="pre">SessionsToChange</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">extra_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sessions_to_manually_change/sessions_to_manually_change_schema.html#SessionsToChange"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sessions_to_manually_change.sessions_to_manually_change_schema.SessionsToChange" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="sessions_to_manually_change.sessions_to_manually_change_schema.SessionsToChange.Config">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Config</span></span><a class="reference internal" href="_modules/sessions_to_manually_change/sessions_to_manually_change_schema.html#SessionsToChange.Config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sessions_to_manually_change.sessions_to_manually_change_schema.SessionsToChange.Config" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sessions_to_manually_change.sessions_to_manually_change_schema.SessionsToChange.Config.extra">
+<span class="sig-name descname"><span class="pre">extra</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'allow'</span></em><a class="headerlink" href="#sessions_to_manually_change.sessions_to_manually_change_schema.SessionsToChange.Config.extra" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sessions_to_manually_change.sessions_to_manually_change_schema.SessionsToChange.cb_id_dicts_have_valid_schema">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">cb_id_dicts_have_valid_schema</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/sessions_to_manually_change/sessions_to_manually_change_schema.html#SessionsToChange.cb_id_dicts_have_valid_schema"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sessions_to_manually_change.sessions_to_manually_change_schema.SessionsToChange.cb_id_dicts_have_valid_schema" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sessions_to_manually_change.sessions_to_manually_change_schema.SessionsToChange.cb_ids_have_valid_schema">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">cb_ids_have_valid_schema</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/sessions_to_manually_change/sessions_to_manually_change_schema.html#SessionsToChange.cb_ids_have_valid_schema"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sessions_to_manually_change.sessions_to_manually_change_schema.SessionsToChange.cb_ids_have_valid_schema" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sessions_to_manually_change.sessions_to_manually_change_schema.SessionsToChange.consistent_datatypes">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">consistent_datatypes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/sessions_to_manually_change/sessions_to_manually_change_schema.html#SessionsToChange.consistent_datatypes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sessions_to_manually_change.sessions_to_manually_change_schema.SessionsToChange.consistent_datatypes" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sessions_to_manually_change.sessions_to_manually_change_schema.SessionsToChange.mappings_by_cb_id">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mappings_by_cb_id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sessions_to_manually_change.sessions_to_manually_change_schema.SessionsToChange.mappings_by_cb_id" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sessions_to_manually_change.sessions_to_manually_change_schema.SessionsToChange.sessions_are_unique_per_cb_id">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sessions_are_unique_per_cb_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/sessions_to_manually_change/sessions_to_manually_change_schema.html#SessionsToChange.sessions_are_unique_per_cb_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sessions_to_manually_change.sessions_to_manually_change_schema.SessionsToChange.sessions_are_unique_per_cb_id" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-sessions_to_manually_change">Module contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sessions_to_manually_change.manual_changes.manually_change_values"><code class="docutils literal notranslate"><span class="pre">manually_change_values()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sessions_to_manually_change.sessions_to_manually_change_schema.CBIDToChange"><code class="docutils literal notranslate"><span class="pre">CBIDToChange</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sessions_to_manually_change.sessions_to_manually_change_schema.CBIDToChange.Config"><code class="docutils literal notranslate"><span class="pre">CBIDToChange.Config</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#sessions_to_manually_change.sessions_to_manually_change_schema.CBIDToChange.Config.extra"><code class="docutils literal notranslate"><span class="pre">CBIDToChange.Config.extra</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sessions_to_manually_change.sessions_to_manually_change_schema.CBIDToChange.clusters_have_valid_schema"><code class="docutils literal notranslate"><span class="pre">CBIDToChange.clusters_have_valid_schema()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sessions_to_manually_change.sessions_to_manually_change_schema.ReasonToChange"><code class="docutils literal notranslate"><span class="pre">ReasonToChange</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sessions_to_manually_change.sessions_to_manually_change_schema.ReasonToChange.Config"><code class="docutils literal notranslate"><span class="pre">ReasonToChange.Config</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#sessions_to_manually_change.sessions_to_manually_change_schema.ReasonToChange.Config.extra"><code class="docutils literal notranslate"><span class="pre">ReasonToChange.Config.extra</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sessions_to_manually_change.sessions_to_manually_change_schema.ReasonToChange.lowest_hierarchy"><code class="docutils literal notranslate"><span class="pre">ReasonToChange.lowest_hierarchy()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sessions_to_manually_change.sessions_to_manually_change_schema.SessionsToChange"><code class="docutils literal notranslate"><span class="pre">SessionsToChange</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sessions_to_manually_change.sessions_to_manually_change_schema.SessionsToChange.Config"><code class="docutils literal notranslate"><span class="pre">SessionsToChange.Config</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#sessions_to_manually_change.sessions_to_manually_change_schema.SessionsToChange.Config.extra"><code class="docutils literal notranslate"><span class="pre">SessionsToChange.Config.extra</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sessions_to_manually_change.sessions_to_manually_change_schema.SessionsToChange.cb_id_dicts_have_valid_schema"><code class="docutils literal notranslate"><span class="pre">SessionsToChange.cb_id_dicts_have_valid_schema()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sessions_to_manually_change.sessions_to_manually_change_schema.SessionsToChange.cb_ids_have_valid_schema"><code class="docutils literal notranslate"><span class="pre">SessionsToChange.cb_ids_have_valid_schema()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sessions_to_manually_change.sessions_to_manually_change_schema.SessionsToChange.consistent_datatypes"><code class="docutils literal notranslate"><span class="pre">SessionsToChange.consistent_datatypes()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sessions_to_manually_change.sessions_to_manually_change_schema.SessionsToChange.mappings_by_cb_id"><code class="docutils literal notranslate"><span class="pre">SessionsToChange.mappings_by_cb_id</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sessions_to_manually_change.sessions_to_manually_change_schema.SessionsToChange.sessions_are_unique_per_cb_id"><code class="docutils literal notranslate"><span class="pre">SessionsToChange.sessions_are_unique_per_cb_id()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Team Kepler
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, Bayerische Motoren Werke Aktiengesellschaft (BMW AG).
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

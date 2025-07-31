@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>remove_invalid_sessions.tests package &mdash; Model Fits Tools  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=b3ba4146"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Model Fits Tools
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">remove_invalid_sessions.tests package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-remove_invalid_sessions.tests.test_invalid_sessions_schema">remove_invalid_sessions.tests.test_invalid_sessions_schema module</a><ul>
+<li><a class="reference internal" href="#remove_invalid_sessions.tests.test_invalid_sessions_schema.test__raises_when_no_value_in_invalid_sessions_dict"><code class="docutils literal notranslate"><span class="pre">test__raises_when_no_value_in_invalid_sessions_dict()</span></code></a></li>
+<li><a class="reference internal" href="#remove_invalid_sessions.tests.test_invalid_sessions_schema.test__raises_when_value_is_not_a_list"><code class="docutils literal notranslate"><span class="pre">test__raises_when_value_is_not_a_list()</span></code></a></li>
+<li><a class="reference internal" href="#remove_invalid_sessions.tests.test_invalid_sessions_schema.test__raises_when_value_is_not_a_list_of_strings"><code class="docutils literal notranslate"><span class="pre">test__raises_when_value_is_not_a_list_of_strings()</span></code></a></li>
+<li><a class="reference internal" href="#remove_invalid_sessions.tests.test_invalid_sessions_schema.test__valid_config"><code class="docutils literal notranslate"><span class="pre">test__valid_config()</span></code></a></li>
+<li><a class="reference internal" href="#remove_invalid_sessions.tests.test_invalid_sessions_schema.valid_config"><code class="docutils literal notranslate"><span class="pre">valid_config()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-remove_invalid_sessions.tests.test_remove_invalid_sessions">remove_invalid_sessions.tests.test_remove_invalid_sessions module</a><ul>
+<li><a class="reference internal" href="#remove_invalid_sessions.tests.test_remove_invalid_sessions.test_duplicate_sessions_in_total_failure_sessions_detected_across_multiple_sensors"><code class="docutils literal notranslate"><span class="pre">test_duplicate_sessions_in_total_failure_sessions_detected_across_multiple_sensors()</span></code></a></li>
+<li><a class="reference internal" href="#remove_invalid_sessions.tests.test_remove_invalid_sessions.test_raises_when_called_with_global"><code class="docutils literal notranslate"><span class="pre">test_raises_when_called_with_global()</span></code></a></li>
+<li><a class="reference internal" href="#remove_invalid_sessions.tests.test_remove_invalid_sessions.test_raises_when_duplicates_are_in_dataframe"><code class="docutils literal notranslate"><span class="pre">test_raises_when_duplicates_are_in_dataframe()</span></code></a></li>
+<li><a class="reference internal" href="#remove_invalid_sessions.tests.test_remove_invalid_sessions.test_raises_when_filter_function_called_with_invalid_sensor_names_parameter"><code class="docutils literal notranslate"><span class="pre">test_raises_when_filter_function_called_with_invalid_sensor_names_parameter()</span></code></a></li>
+<li><a class="reference internal" href="#remove_invalid_sessions.tests.test_remove_invalid_sessions.test_raises_when_filter_function_called_without_reasons_to_remove_enum"><code class="docutils literal notranslate"><span class="pre">test_raises_when_filter_function_called_without_reasons_to_remove_enum()</span></code></a></li>
+<li><a class="reference internal" href="#remove_invalid_sessions.tests.test_remove_invalid_sessions.test_raises_when_filter_function_called_without_srs_enum"><code class="docutils literal notranslate"><span class="pre">test_raises_when_filter_function_called_without_srs_enum()</span></code></a></li>
+<li><a class="reference internal" href="#remove_invalid_sessions.tests.test_remove_invalid_sessions.test_remove_invalid_sessions_all_reasons"><code class="docutils literal notranslate"><span class="pre">test_remove_invalid_sessions_all_reasons()</span></code></a></li>
+<li><a class="reference internal" href="#remove_invalid_sessions.tests.test_remove_invalid_sessions.test_remove_invalid_sessions_one_reason"><code class="docutils literal notranslate"><span class="pre">test_remove_invalid_sessions_one_reason()</span></code></a></li>
+<li><a class="reference internal" href="#remove_invalid_sessions.tests.test_remove_invalid_sessions.test_total_failure_info"><code class="docutils literal notranslate"><span class="pre">test_total_failure_info()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-remove_invalid_sessions.tests">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Model Fits Tools</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">remove_invalid_sessions.tests package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/remove_invalid_sessions.tests.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="remove-invalid-sessions-tests-package">
+<h1>remove_invalid_sessions.tests package<a class="headerlink" href="#remove-invalid-sessions-tests-package" title="Permalink to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-remove_invalid_sessions.tests.test_invalid_sessions_schema">
+<span id="remove-invalid-sessions-tests-test-invalid-sessions-schema-module"></span><h2>remove_invalid_sessions.tests.test_invalid_sessions_schema module<a class="headerlink" href="#module-remove_invalid_sessions.tests.test_invalid_sessions_schema" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="remove_invalid_sessions.tests.test_invalid_sessions_schema.test__raises_when_no_value_in_invalid_sessions_dict">
+<span class="sig-prename descclassname"><span class="pre">remove_invalid_sessions.tests.test_invalid_sessions_schema.</span></span><span class="sig-name descname"><span class="pre">test__raises_when_no_value_in_invalid_sessions_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">valid_config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/remove_invalid_sessions/tests/test_invalid_sessions_schema.html#test__raises_when_no_value_in_invalid_sessions_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#remove_invalid_sessions.tests.test_invalid_sessions_schema.test__raises_when_no_value_in_invalid_sessions_dict" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="remove_invalid_sessions.tests.test_invalid_sessions_schema.test__raises_when_value_is_not_a_list">
+<span class="sig-prename descclassname"><span class="pre">remove_invalid_sessions.tests.test_invalid_sessions_schema.</span></span><span class="sig-name descname"><span class="pre">test__raises_when_value_is_not_a_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">valid_config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/remove_invalid_sessions/tests/test_invalid_sessions_schema.html#test__raises_when_value_is_not_a_list"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#remove_invalid_sessions.tests.test_invalid_sessions_schema.test__raises_when_value_is_not_a_list" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="remove_invalid_sessions.tests.test_invalid_sessions_schema.test__raises_when_value_is_not_a_list_of_strings">
+<span class="sig-prename descclassname"><span class="pre">remove_invalid_sessions.tests.test_invalid_sessions_schema.</span></span><span class="sig-name descname"><span class="pre">test__raises_when_value_is_not_a_list_of_strings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">valid_config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/remove_invalid_sessions/tests/test_invalid_sessions_schema.html#test__raises_when_value_is_not_a_list_of_strings"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#remove_invalid_sessions.tests.test_invalid_sessions_schema.test__raises_when_value_is_not_a_list_of_strings" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="remove_invalid_sessions.tests.test_invalid_sessions_schema.test__valid_config">
+<span class="sig-prename descclassname"><span class="pre">remove_invalid_sessions.tests.test_invalid_sessions_schema.</span></span><span class="sig-name descname"><span class="pre">test__valid_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">valid_config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/remove_invalid_sessions/tests/test_invalid_sessions_schema.html#test__valid_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#remove_invalid_sessions.tests.test_invalid_sessions_schema.test__valid_config" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="remove_invalid_sessions.tests.test_invalid_sessions_schema.valid_config">
+<span class="sig-prename descclassname"><span class="pre">remove_invalid_sessions.tests.test_invalid_sessions_schema.</span></span><span class="sig-name descname"><span class="pre">valid_config</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/remove_invalid_sessions/tests/test_invalid_sessions_schema.html#valid_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#remove_invalid_sessions.tests.test_invalid_sessions_schema.valid_config" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-remove_invalid_sessions.tests.test_remove_invalid_sessions">
+<span id="remove-invalid-sessions-tests-test-remove-invalid-sessions-module"></span><h2>remove_invalid_sessions.tests.test_remove_invalid_sessions module<a class="headerlink" href="#module-remove_invalid_sessions.tests.test_remove_invalid_sessions" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="remove_invalid_sessions.tests.test_remove_invalid_sessions.test_duplicate_sessions_in_total_failure_sessions_detected_across_multiple_sensors">
+<span class="sig-prename descclassname"><span class="pre">remove_invalid_sessions.tests.test_remove_invalid_sessions.</span></span><span class="sig-name descname"><span class="pre">test_duplicate_sessions_in_total_failure_sessions_detected_across_multiple_sensors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">md_mock</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">MagicMock</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_mock</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">MagicMock</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_input</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">detected_sessions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/remove_invalid_sessions/tests/test_remove_invalid_sessions.html#test_duplicate_sessions_in_total_failure_sessions_detected_across_multiple_sensors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#remove_invalid_sessions.tests.test_remove_invalid_sessions.test_duplicate_sessions_in_total_failure_sessions_detected_across_multiple_sensors" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="remove_invalid_sessions.tests.test_remove_invalid_sessions.test_raises_when_called_with_global">
+<span class="sig-prename descclassname"><span class="pre">remove_invalid_sessions.tests.test_remove_invalid_sessions.</span></span><span class="sig-name descname"><span class="pre">test_raises_when_called_with_global</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mock_getcwd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sensor_names</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/remove_invalid_sessions/tests/test_remove_invalid_sessions.html#test_raises_when_called_with_global"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#remove_invalid_sessions.tests.test_remove_invalid_sessions.test_raises_when_called_with_global" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="remove_invalid_sessions.tests.test_remove_invalid_sessions.test_raises_when_duplicates_are_in_dataframe">
+<span class="sig-prename descclassname"><span class="pre">remove_invalid_sessions.tests.test_remove_invalid_sessions.</span></span><span class="sig-name descname"><span class="pre">test_raises_when_duplicates_are_in_dataframe</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/remove_invalid_sessions/tests/test_remove_invalid_sessions.html#test_raises_when_duplicates_are_in_dataframe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#remove_invalid_sessions.tests.test_remove_invalid_sessions.test_raises_when_duplicates_are_in_dataframe" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="remove_invalid_sessions.tests.test_remove_invalid_sessions.test_raises_when_filter_function_called_with_invalid_sensor_names_parameter">
+<span class="sig-prename descclassname"><span class="pre">remove_invalid_sessions.tests.test_remove_invalid_sessions.</span></span><span class="sig-name descname"><span class="pre">test_raises_when_filter_function_called_with_invalid_sensor_names_parameter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/remove_invalid_sessions/tests/test_remove_invalid_sessions.html#test_raises_when_filter_function_called_with_invalid_sensor_names_parameter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#remove_invalid_sessions.tests.test_remove_invalid_sessions.test_raises_when_filter_function_called_with_invalid_sensor_names_parameter" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="remove_invalid_sessions.tests.test_remove_invalid_sessions.test_raises_when_filter_function_called_without_reasons_to_remove_enum">
+<span class="sig-prename descclassname"><span class="pre">remove_invalid_sessions.tests.test_remove_invalid_sessions.</span></span><span class="sig-name descname"><span class="pre">test_raises_when_filter_function_called_without_reasons_to_remove_enum</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/remove_invalid_sessions/tests/test_remove_invalid_sessions.html#test_raises_when_filter_function_called_without_reasons_to_remove_enum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#remove_invalid_sessions.tests.test_remove_invalid_sessions.test_raises_when_filter_function_called_without_reasons_to_remove_enum" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="remove_invalid_sessions.tests.test_remove_invalid_sessions.test_raises_when_filter_function_called_without_srs_enum">
+<span class="sig-prename descclassname"><span class="pre">remove_invalid_sessions.tests.test_remove_invalid_sessions.</span></span><span class="sig-name descname"><span class="pre">test_raises_when_filter_function_called_without_srs_enum</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/remove_invalid_sessions/tests/test_remove_invalid_sessions.html#test_raises_when_filter_function_called_without_srs_enum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#remove_invalid_sessions.tests.test_remove_invalid_sessions.test_raises_when_filter_function_called_without_srs_enum" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="remove_invalid_sessions.tests.test_remove_invalid_sessions.test_remove_invalid_sessions_all_reasons">
+<span class="sig-prename descclassname"><span class="pre">remove_invalid_sessions.tests.test_remove_invalid_sessions.</span></span><span class="sig-name descname"><span class="pre">test_remove_invalid_sessions_all_reasons</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mock_getcwd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">capsys</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">CaptureFixture</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/remove_invalid_sessions/tests/test_remove_invalid_sessions.html#test_remove_invalid_sessions_all_reasons"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#remove_invalid_sessions.tests.test_remove_invalid_sessions.test_remove_invalid_sessions_all_reasons" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="remove_invalid_sessions.tests.test_remove_invalid_sessions.test_remove_invalid_sessions_one_reason">
+<span class="sig-prename descclassname"><span class="pre">remove_invalid_sessions.tests.test_remove_invalid_sessions.</span></span><span class="sig-name descname"><span class="pre">test_remove_invalid_sessions_one_reason</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mock_getcwd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">capsys</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">CaptureFixture</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/remove_invalid_sessions/tests/test_remove_invalid_sessions.html#test_remove_invalid_sessions_one_reason"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#remove_invalid_sessions.tests.test_remove_invalid_sessions.test_remove_invalid_sessions_one_reason" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="remove_invalid_sessions.tests.test_remove_invalid_sessions.test_total_failure_info">
+<span class="sig-prename descclassname"><span class="pre">remove_invalid_sessions.tests.test_remove_invalid_sessions.</span></span><span class="sig-name descname"><span class="pre">test_total_failure_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mock_getcwd</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/remove_invalid_sessions/tests/test_remove_invalid_sessions.html#test_total_failure_info"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#remove_invalid_sessions.tests.test_remove_invalid_sessions.test_total_failure_info" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-remove_invalid_sessions.tests">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-remove_invalid_sessions.tests" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Bayerische Motoren Werke Aktiengesellschaft (BMW AG).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,414 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>situation_model.situation_model &#8212; Model Fits Tools  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/situation_model/situation_model';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Model Fits Tools  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <h1>Source code for situation_model.situation_model</h1><div class="highlight"><pre>
+<span></span><span class="c1">#</span>
+<span class="c1"># Copyright (C) 2022-2024, Bayerische Motoren Werke Aktiengesellschaft (BMW AG)</span>
+<span class="c1">#</span>
+
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">combinations</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span>
+
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">conlist</span><span class="p">,</span> <span class="n">fields</span><span class="p">,</span> <span class="n">root_validator</span><span class="p">,</span> <span class="n">validator</span>
+<span class="kn">from</span> <span class="nn">tools.general_utility.helpers</span> <span class="kn">import</span> <span class="n">TIMESTAMP_FORMAT</span><span class="p">,</span> <span class="n">validate_timestamp_format</span>
+
+
+<div class="viewcode-block" id="ModelTimestamps"><a class="viewcode-back" href="../../situation_model.html#situation_model.situation_model.ModelTimestamps">[docs]</a><span class="k">class</span> <span class="nc">ModelTimestamps</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">timestamp_input_data</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">timestamp_export</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+
+<div class="viewcode-block" id="ModelTimestamps.timestamps_in_correct_format"><a class="viewcode-back" href="../../situation_model.html#situation_model.situation_model.ModelTimestamps.timestamps_in_correct_format">[docs]</a>    <span class="nd">@validator</span><span class="p">(</span><span class="s2">&quot;timestamp_input_data&quot;</span><span class="p">,</span> <span class="s2">&quot;timestamp_export&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">timestamps_in_correct_format</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">field</span><span class="p">:</span> <span class="n">fields</span><span class="o">.</span><span class="n">ModelField</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">validate_timestamp_format</span><span class="p">(</span><span class="n">timestamp</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">field</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">timestamp</span><span class="si">}</span><span class="s2"> is not in the format </span><span class="si">{</span><span class="n">TIMESTAMP_FORMAT</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">timestamp</span></div></div>
+
+
+<div class="viewcode-block" id="CorrelationMatrix"><a class="viewcode-back" href="../../situation_model.html#situation_model.situation_model.CorrelationMatrix">[docs]</a><span class="k">class</span> <span class="nc">CorrelationMatrix</span><span class="p">(</span><span class="n">ModelTimestamps</span><span class="p">):</span>
+    <span class="n">parameter_order</span><span class="p">:</span> <span class="n">conlist</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">min_items</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">unique_items</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">matrix_rows</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]]</span>
+
+<div class="viewcode-block" id="CorrelationMatrix.matrix_must_be_non_empty"><a class="viewcode-back" href="../../situation_model.html#situation_model.situation_model.CorrelationMatrix.matrix_must_be_non_empty">[docs]</a>    <span class="nd">@validator</span><span class="p">(</span><span class="s2">&quot;matrix_rows&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">matrix_must_be_non_empty</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]]:</span>
+        <span class="n">matrix_rows_lengths</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">len</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">matrix_rows_lengths</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">])):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;invalid correlation matrix&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">v</span></div>
+
+<div class="viewcode-block" id="CorrelationMatrix.parameter_order_length_must_fit_matrix"><a class="viewcode-back" href="../../situation_model.html#situation_model.situation_model.CorrelationMatrix.parameter_order_length_must_fit_matrix">[docs]</a>    <span class="nd">@root_validator</span>
+    <span class="k">def</span> <span class="nf">parameter_order_length_must_fit_matrix</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">values</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="s2">&quot;parameter_order&quot;</span> <span class="ow">in</span> <span class="n">values</span> <span class="ow">or</span> <span class="ow">not</span> <span class="s2">&quot;matrix_rows&quot;</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;subvalidators failed&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="s2">&quot;parameter_order&quot;</span><span class="p">])</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="s2">&quot;matrix_rows&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;invalid parameter order&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">values</span></div>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameter_order</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="MarginalDistributionTestCase"><a class="viewcode-back" href="../../situation_model.html#situation_model.situation_model.MarginalDistributionTestCase">[docs]</a><span class="k">class</span> <span class="nc">MarginalDistributionTestCase</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">u_noise</span><span class="p">:</span> <span class="n">conlist</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="n">min_items</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">y_predict</span><span class="p">:</span> <span class="n">conlist</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="n">min_items</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<div class="viewcode-block" id="MarginalDistributionTestCase.parameter_order_length_must_fit_matrix"><a class="viewcode-back" href="../../situation_model.html#situation_model.situation_model.MarginalDistributionTestCase.parameter_order_length_must_fit_matrix">[docs]</a>    <span class="nd">@root_validator</span>
+    <span class="k">def</span> <span class="nf">parameter_order_length_must_fit_matrix</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">values</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]]:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="s2">&quot;u_noise&quot;</span><span class="p">])</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="s2">&quot;y_predict&quot;</span><span class="p">]):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;invalid marginal distribution test case&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">values</span></div></div>
+
+
+<div class="viewcode-block" id="SituationModelParameter"><a class="viewcode-back" href="../../situation_model.html#situation_model.situation_model.SituationModelParameter">[docs]</a><span class="k">class</span> <span class="nc">SituationModelParameter</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">transformation_function</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">marginal_distribution</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">marginal_distribution_parameters</span><span class="p">:</span> <span class="n">conlist</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="n">min_items</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">marginal_distribution_test_cases</span><span class="p">:</span> <span class="n">MarginalDistributionTestCase</span>
+    <span class="n">codebeamer_reference</span><span class="p">:</span> <span class="nb">str</span></div>
+
+
+<div class="viewcode-block" id="SituationModel"><a class="viewcode-back" href="../../situation_model.html#situation_model.situation_model.SituationModel">[docs]</a><span class="k">class</span> <span class="nc">SituationModel</span><span class="p">(</span><span class="n">ModelTimestamps</span><span class="p">):</span>
+    <span class="n">parameters</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">SituationModelParameter</span><span class="p">]</span>
+    <span class="n">correlation_matrix</span><span class="p">:</span> <span class="n">CorrelationMatrix</span>
+    <span class="n">scenario_occurrence_rate_per_hour</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">filtering_function</span><span class="p">:</span> <span class="nb">str</span>
+
+<div class="viewcode-block" id="SituationModel.two_parameters_must_not_have_equal_marginal_distribution_parameters"><a class="viewcode-back" href="../../situation_model.html#situation_model.situation_model.SituationModel.two_parameters_must_not_have_equal_marginal_distribution_parameters">[docs]</a>    <span class="nd">@validator</span><span class="p">(</span><span class="s2">&quot;parameters&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">two_parameters_must_not_have_equal_marginal_distribution_parameters</span><span class="p">(</span>
+        <span class="bp">cls</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">SituationModelParameter</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">SituationModelParameter</span><span class="p">]:</span>
+        <span class="k">for</span> <span class="n">lhs</span><span class="p">,</span> <span class="n">rhs</span> <span class="ow">in</span> <span class="n">combinations</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">lhs</span><span class="o">.</span><span class="n">marginal_distribution</span> <span class="o">==</span> <span class="n">rhs</span><span class="o">.</span><span class="n">marginal_distribution</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">lhs</span><span class="o">.</span><span class="n">marginal_distribution_parameters</span> <span class="o">==</span> <span class="n">rhs</span><span class="o">.</span><span class="n">marginal_distribution_parameters</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                        <span class="sa">f</span><span class="s2">&quot;Parameters </span><span class="si">{</span><span class="n">lhs</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> and </span><span class="si">{</span><span class="n">rhs</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> must not have equal marginal distribution parameters&quot;</span>
+                    <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">v</span></div>
+
+<div class="viewcode-block" id="SituationModel.number_of_parameters_must_fit_correlation_matrix_size"><a class="viewcode-back" href="../../situation_model.html#situation_model.situation_model.SituationModel.number_of_parameters_must_fit_correlation_matrix_size">[docs]</a>    <span class="nd">@root_validator</span>
+    <span class="k">def</span> <span class="nf">number_of_parameters_must_fit_correlation_matrix_size</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">values</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="s2">&quot;parameters&quot;</span> <span class="ow">in</span> <span class="n">values</span> <span class="ow">or</span> <span class="ow">not</span> <span class="s2">&quot;correlation_matrix&quot;</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;subvalidators failed&quot;</span><span class="p">)</span>
+
+        <span class="n">number_of_parameters</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="s2">&quot;parameters&quot;</span><span class="p">])</span>
+        <span class="n">correlation_matrix_size</span> <span class="o">=</span> <span class="n">values</span><span class="p">[</span><span class="s2">&quot;correlation_matrix&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">size</span>
+        <span class="k">if</span> <span class="n">number_of_parameters</span> <span class="o">!=</span> <span class="n">correlation_matrix_size</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Number of parameters (</span><span class="si">{</span><span class="n">number_of_parameters</span><span class="si">}</span><span class="s2">) does not match correlation matrix size (</span><span class="si">{</span><span class="n">correlation_matrix_size</span><span class="si">}</span><span class="s2">)&quot;</span>
+            <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">values</span></div></div>
+
+
+<div class="viewcode-block" id="ConditionalSituationModel"><a class="viewcode-back" href="../../situation_model.html#situation_model.situation_model.ConditionalSituationModel">[docs]</a><span class="k">class</span> <span class="nc">ConditionalSituationModel</span><span class="p">(</span><span class="n">ModelTimestamps</span><span class="p">):</span>
+    <span class="n">conditional_distribution</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">models</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">SituationModel</span><span class="p">]</span>
+    <span class="n">model_proportions</span><span class="p">:</span> <span class="n">conlist</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="n">min_items</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">conditional_distribution_states</span><span class="p">:</span> <span class="n">conlist</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">min_items</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span></div>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">SituationModel</span><span class="o">.</span><span class="n">schema_json</span><span class="p">(</span><span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Team Kepler
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, Bayerische Motoren Werke Aktiengesellschaft (BMW AG).
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

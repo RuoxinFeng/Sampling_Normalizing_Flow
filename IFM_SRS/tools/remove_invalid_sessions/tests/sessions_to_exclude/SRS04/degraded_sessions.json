@@ -1,0 +1,46 @@
+{
+    "global": {
+        "kpi_tool_issues": {
+            "__comment": "Mismatch between kpis from IFA Tool and Ground Truth values, cannot be used due to inconsistent statistics",
+            "value": [
+                "73df3533-c85e-443e-a95f-01880b21b826",
+                "8846109a-efd3-41a4-a62f-0187b7d567b5",
+                "a1447904-34a8-4ecf-a7c6-0187b7ca25c3"
+            ]
+        },
+        "outside_SRS06_scope": {
+            "__comment": "Scenario is driven wrongly, where the occluded vehicle is visible before the cutout Event",
+            "value": [
+                "93016ba4-3580-4479-a354-01879468971d",
+                "498f0378-ed38-44c1-afe0-01879458eaf6",
+                "0e39c16e-187a-47df-ae20-01879464707d",
+                "a2f8c962-2431-4dc0-afb1-0187945bbc54"
+            ]
+        },
+        "rt_range_issues_automatic": {
+            "__comment": "Do not make any manual changes, the field is created automatically! AT range fault. Sessions are marked with \u201cRT_RANGE_CHECK_\u201c or marked \u201cEM_SCENECAT_DEFECT_RTRANGE_START.\u201d ",
+            "value": [
+                "f829a66a-97de-4317-a4ce-0184a54596bd",
+                "0854f833-08ab-4ec7-a92b-0184519780be",
+                "9e71901a-b3dd-4da2-ad17-01863b52ed5c",
+                "c3697164-8e18-4831-ae81-0185f36d0265"
+            ]
+        }
+    },
+    "adcam": {},
+    "lidar": {},
+    "srr": {},
+    "frr": {
+        "Bad radome auto": {
+            "__comment": "Sessions are rejected due to CK24932 auto (bad radome)",
+            "value": [
+                "b2750779-3202-4b9a-a498-0187c1ffdd307",
+                "4461ab84-57f9-4a72-a92b-0187c1fc3113",
+                "b6896bd6-6186-4b37-a9fa-0187c1b286d0",
+                "3e924c7c-d6f4-4f1d-a2c0-0187c1e365eb",
+                "3d67b83f-5ad8-4262-a5c0-0187c1e559c4",
+                "3c126d82-d177-4baa-a845-0187c1ce1cfa"
+            ]
+        }
+    }
+}

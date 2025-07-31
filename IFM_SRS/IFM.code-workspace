@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../../../../Weather data hourly"
+		},
+		{
+			"path": "../../../../../Cut_in_series"
+		}
+	],
+	"settings": {}
+}

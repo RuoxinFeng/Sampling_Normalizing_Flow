@@ -1,0 +1,74 @@
+{
+  "info": {
+    "date": "20230323",
+    "srs": "SRS04",
+    "doe": "DOE1",
+    "marker": "EM_SCENECAT_SRS04_DOE1_DEV_START",
+    "gt_target": 8474898
+  },
+  "spv": [
+    {
+      "spv_cb_id": "12345678",
+      "spv_name": "some spv",
+      "kpi_table": "some kpi table"
+    }
+  ],
+  "ifv": {
+    "1234567": {
+      "cb_name": "Column 1",
+      "legacy_name": "col 1",
+      "unit": "mps",
+      "tolerance": 0.5555555555555556,
+      "0": "a",
+      "1": "d",
+      "2": null,
+      "3": null,
+      "4": null,
+      "5": null,
+      "6": null,
+      "7": null,
+      "8": null,
+      "9": null,
+      "10": "e"
+    },
+    "23456789": {
+      "cb_name": "Column 2",
+      "legacy_name": "col 2",
+      "unit": "mpsq",
+      "tolerance": null,
+      "0": null,
+      "1": null,
+      "2": "b",
+      "3": null,
+      "4": null,
+      "5": null,
+      "6": null,
+      "7": null,
+      "8": null,
+      "9": null,
+      "10": null
+    }
+  },
+  "test_matrix": [
+    {
+      "scenario_id": {
+        "scenario_id": "0.0.0"
+      },
+      "marker": {
+        "A": 1,
+        "B": 0,
+        "C": 0,
+        "D": 0
+      },
+      "comments": {
+        "Comment": "Nominal Case"
+      },
+      "ind_factor": {
+        "1234567": "a",
+        "23456789": "b"
+      },
+      "number_of_measurements": 46,
+      "is_worst_case": 0
+    }
+  ]
+}

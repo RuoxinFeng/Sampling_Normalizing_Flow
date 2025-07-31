@@ -1,0 +1,1146 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>marginal_distributions.marginal_distributions &#8212; Model Fits Tools  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/marginal_distributions/marginal_distributions';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Model Fits Tools  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <h1>Source code for marginal_distributions.marginal_distributions</h1><div class="highlight"><pre>
+<span></span><span class="c1">#</span>
+<span class="c1"># Copyright (C) 2023-2024, Bayerische Motoren Werke Aktiengesellschaft (BMW AG)</span>
+<span class="c1">#</span>
+
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
+<span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+<span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">join</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Literal</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Set</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
+<span class="kn">import</span> <span class="nn">plotly.graph_objects</span> <span class="k">as</span> <span class="nn">go</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">st</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
+<span class="kn">from</span> <span class="nn">statsmodels.distributions.copula.api</span> <span class="kn">import</span> <span class="n">GaussianCopula</span>
+<span class="kn">from</span> <span class="nn">tools.general_utility.custom_eval</span> <span class="kn">import</span> <span class="n">evaluate_formula</span>
+<span class="kn">from</span> <span class="nn">tools.general_utility.helpers</span> <span class="kn">import</span> <span class="n">display_markdown</span>
+<span class="kn">from</span> <span class="nn">tools.models_export.situation_model_export</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">get_situation_model_parameter_from_distribution</span><span class="p">,</span>
+    <span class="n">save_model_as_json_file</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">tools.plot_tools.plot_tools</span> <span class="kn">import</span> <span class="n">qqplot</span>
+<span class="kn">from</span> <span class="nn">tools.situation_model.situation_model</span> <span class="kn">import</span> <span class="n">CorrelationMatrix</span><span class="p">,</span> <span class="n">SituationModel</span>
+
+
+<div class="viewcode-block" id="ConvenientMarginalDistributionFit"><a class="viewcode-back" href="../../marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit">[docs]</a><span class="k">class</span> <span class="nc">ConvenientMarginalDistributionFit</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Abstract class to fit a marginal distribution.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ds : pd.Series</span>
+<span class="sd">        The training data used for the fit.</span>
+<span class="sd">    name : str or None, optional</span>
+<span class="sd">        The name of the marginal distribution</span>
+<span class="sd">    codebeamer_reference : str or None, optional</span>
+<span class="sd">        A reference to a codebeamer item of the fitted model.</span>
+<span class="sd">    transformation_function : str or None, optional</span>
+<span class="sd">        A function to transform the data sampled from this model</span>
+<span class="sd">        (not used in this class but will be passed during export to a SituationModel).</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ds : pd.Series</span>
+<span class="sd">        The training data used for the fit.</span>
+<span class="sd">    name : str or None</span>
+<span class="sd">        The name of the marginal distribution</span>
+<span class="sd">    codebeamer_reference : str or None</span>
+<span class="sd">        A reference to a codebeamer item of the fitted model.</span>
+<span class="sd">    transformation_function : str or None</span>
+<span class="sd">        A function to transform the data sampled from this model</span>
+<span class="sd">        (not used in this class but will be passed during export to a SituationModel).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">ds</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">,</span>
+        <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">codebeamer_reference</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">transformation_function</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ds</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span> <span class="k">if</span> <span class="n">name</span> <span class="k">else</span> <span class="n">ds</span><span class="o">.</span><span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">codebeamer_reference</span> <span class="o">=</span> <span class="n">codebeamer_reference</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">transformation_function</span> <span class="o">=</span> <span class="n">transformation_function</span>
+
+<div class="viewcode-block" id="ConvenientMarginalDistributionFit.cdf"><a class="viewcode-back" href="../../marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.cdf">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">cdf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculate the cumulative distribution function of the fitted distribution.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        x : float</span>
+<span class="sd">            The value where to evaluate the cdf.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        float</span>
+<span class="sd">            The probability that the variable takes a value less than or equal to x.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="ConvenientMarginalDistributionFit.icdf"><a class="viewcode-back" href="../../marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.icdf">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">icdf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculate the inverse of the cumulative distribution function (percent point function) of the fitted distribution.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        x : float</span>
+<span class="sd">            The probability value where to evaluate the icdf.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        float</span>
+<span class="sd">            A threshold value, so that the probability of the variable being less or equal than this threshold is x.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="ConvenientMarginalDistributionFit.u_space"><a class="viewcode-back" href="../../marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.u_space">[docs]</a>    <span class="k">def</span> <span class="nf">u_space</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Outputs the training data, transformed into uniform space (values between 0 and 1).</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        pd.Series</span>
+<span class="sd">            The transformed training data (in the range [0,1]).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">ds</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cdf</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s2">&quot;u_&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ConvenientMarginalDistributionFit.z_space"><a class="viewcode-back" href="../../marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.z_space">[docs]</a>    <span class="k">def</span> <span class="nf">z_space</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Outputs the training data, transformed into z space (normally distributed).</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        pd.Series</span>
+<span class="sd">            The transformed training data (with mean 0 and std 1).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">u_space</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">st</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s2">&quot;z_&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ConvenientMarginalDistributionFit.x_u_z_space"><a class="viewcode-back" href="../../marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.x_u_z_space">[docs]</a>    <span class="k">def</span> <span class="nf">x_u_z_space</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Outputs the training data, transformed into u and z space (normally distributed).</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        pd.DataFrame</span>
+<span class="sd">            A Dataframe containing the untransformed and transformed training data (in u and z space) in its columns.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+            <span class="p">{</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">ds</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">u_space</span><span class="p">()</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">u_space</span><span class="p">(),</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">z_space</span><span class="p">()</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">z_space</span><span class="p">(),</span>
+            <span class="p">}</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="ConvenientMarginalDistributionFit.compare_fit_and_data"><a class="viewcode-back" href="../../marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFit.compare_fit_and_data">[docs]</a>    <span class="k">def</span> <span class="nf">compare_fit_and_data</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">x_lim</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">bins</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">25</span><span class="p">,</span> <span class="nb">type</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;pdf&quot;</span><span class="p">,</span> <span class="s2">&quot;cdf&quot;</span><span class="p">,</span> <span class="s2">&quot;qq&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;pdf&quot;</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Generates a plot of the empirical distribution of the data vs the fitted model.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        x_lim : List[float], optional</span>
+<span class="sd">            The range of the x axis to be plotted.</span>
+<span class="sd">        bins : int, optional</span>
+<span class="sd">            The nr of bins for discretization.</span>
+<span class="sd">        type : Literal[&quot;pdf&quot;, &quot;cdf&quot;, &quot;qq&quot;]</span>
+<span class="sd">            The type of plot to be generated (probability density function, cumulative distribution function or QQ-plot)</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If an unknown type is passed.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">xVal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">*</span><span class="n">x_lim</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">type</span> <span class="o">!=</span> <span class="s2">&quot;qq&quot;</span><span class="p">:</span>
+            <span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">type</span> <span class="o">==</span> <span class="s2">&quot;pdf&quot;</span><span class="p">:</span>
+                <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dist</span><span class="p">,</span> <span class="s2">&quot;pdf&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>  <span class="c1"># TODO: define abstract interface in base class</span>
+                    <span class="n">fun</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dist</span><span class="o">.</span><span class="n">pdf</span>
+                    <span class="n">y_label</span> <span class="o">=</span> <span class="s2">&quot;PDF&quot;</span>
+                <span class="k">else</span><span class="p">:</span>  <span class="c1"># KDF</span>
+                    <span class="n">fun</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dist</span><span class="o">.</span><span class="n">density</span>
+                    <span class="n">y_label</span> <span class="o">=</span> <span class="s2">&quot;Density&quot;</span>
+            <span class="k">elif</span> <span class="nb">type</span> <span class="o">==</span> <span class="s2">&quot;cdf&quot;</span><span class="p">:</span>
+                <span class="n">fun</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dist</span><span class="o">.</span><span class="n">cdf</span>
+                <span class="n">bins</span> <span class="o">=</span> <span class="mi">100</span>
+                <span class="n">y_label</span> <span class="o">=</span> <span class="s2">&quot;CDF&quot;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unknown type </span><span class="si">{</span><span class="nb">type</span><span class="si">}</span><span class="s2">. Possible types: &#39;pdf&#39;, &#39;cdf&#39; or &#39;qq&#39;&quot;</span><span class="p">)</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">y_label</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dist</span><span class="p">,</span> <span class="s2">&quot;pdf&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>  <span class="c1"># See above</span>
+                <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xVal</span><span class="p">,</span> <span class="n">fun</span><span class="p">(</span><span class="n">xVal</span><span class="p">),</span> <span class="s2">&quot;k-&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Fit&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dist</span><span class="o">.</span><span class="n">support</span><span class="p">,</span> <span class="n">fun</span><span class="p">,</span> <span class="s2">&quot;k-&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Fit&quot;</span><span class="p">)</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ds</span><span class="p">,</span>
+                <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">cumulative</span><span class="o">=</span><span class="p">(</span><span class="nb">type</span> <span class="o">==</span> <span class="s2">&quot;cdf&quot;</span><span class="p">),</span>
+                <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span>
+                <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Data&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">fig</span> <span class="o">=</span> <span class="n">qqplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ds</span><span class="p">,</span> <span class="n">dist</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dist</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;QQ-Plot&quot;</span><span class="p">)</span>
+            <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></div></div>
+
+
+<div class="viewcode-block" id="ConvenientMarginalDistributionFitSciPy"><a class="viewcode-back" href="../../marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy">[docs]</a><span class="k">class</span> <span class="nc">ConvenientMarginalDistributionFitSciPy</span><span class="p">(</span><span class="n">ConvenientMarginalDistributionFit</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Fit a marginal distribution from scipy.stats.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    dist : scipy.stats.rv_continuous</span>
+<span class="sd">        The distribution family to be fitted.</span>
+<span class="sd">    ds : pd.Series</span>
+<span class="sd">        The training data used for the fit.</span>
+<span class="sd">    name : str or None, optional</span>
+<span class="sd">        The name of the marginal distribution</span>
+<span class="sd">    codebeamer_reference : str or None, optional</span>
+<span class="sd">        A reference to a codebeamer item of the fitted model.</span>
+<span class="sd">    transformation_function : str or None, optional</span>
+<span class="sd">        A function to transform the data sampled from this model</span>
+<span class="sd">        (not used in this class but will be passed during export to a SituationModel).</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    dist : scipy.stats.rv_continuous</span>
+<span class="sd">        The distribution family to be fitted.</span>
+<span class="sd">    ds : pd.Series</span>
+<span class="sd">        The training data used for the fit.</span>
+<span class="sd">    name : str or None</span>
+<span class="sd">        The name of the marginal distribution</span>
+<span class="sd">    codebeamer_reference : str or None</span>
+<span class="sd">        A reference to a codebeamer item of the fitted model.</span>
+<span class="sd">    transformation_function : str or None</span>
+<span class="sd">        A function to transform the data sampled from this model</span>
+<span class="sd">        (not used in this class but will be passed during export to a SituationModel).</span>
+<span class="sd">    pars: Tuple[float]</span>
+<span class="sd">        The fitted parameters.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">dist</span><span class="p">:</span> <span class="n">st</span><span class="o">.</span><span class="n">rv_continuous</span><span class="p">,</span>
+        <span class="n">ds</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">,</span>
+        <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">codebeamer_reference</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">transformation_function</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">ds</span><span class="o">=</span><span class="n">ds</span><span class="p">,</span> <span class="n">codebeamer_reference</span><span class="o">=</span><span class="n">codebeamer_reference</span><span class="p">,</span> <span class="n">transformation_function</span><span class="o">=</span><span class="n">transformation_function</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pars</span> <span class="o">=</span> <span class="n">dist</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dist</span> <span class="o">=</span> <span class="n">dist</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">pars</span><span class="p">)</span>
+
+<div class="viewcode-block" id="ConvenientMarginalDistributionFitSciPy.cdf"><a class="viewcode-back" href="../../marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy.cdf">[docs]</a>    <span class="k">def</span> <span class="nf">cdf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">dist</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ConvenientMarginalDistributionFitSciPy.icdf"><a class="viewcode-back" href="../../marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPy.icdf">[docs]</a>    <span class="k">def</span> <span class="nf">icdf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">dist</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="n">u</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="ConvenientMarginalDistributionFitSciPyFrozen"><a class="viewcode-back" href="../../marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen">[docs]</a><span class="k">class</span> <span class="nc">ConvenientMarginalDistributionFitSciPyFrozen</span><span class="p">(</span><span class="n">ConvenientMarginalDistributionFit</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Similar to ConvenientMarginalDistributionFitSciPy, but already takes a fitted distribution.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    dist : scipy.stats.distributions.rv_frozen</span>
+<span class="sd">        The pre-fitted distribution.</span>
+<span class="sd">    ds : pd.Series</span>
+<span class="sd">        The training data used for the fit.</span>
+<span class="sd">    name : str or None, optional</span>
+<span class="sd">        The name of the marginal distribution</span>
+<span class="sd">    codebeamer_reference : str or None, optional</span>
+<span class="sd">        A reference to a codebeamer item of the fitted model.</span>
+<span class="sd">    transformation_function : str or None, optional</span>
+<span class="sd">        A function to transform the data sampled from this model</span>
+<span class="sd">        (not used in this class but will be passed during export to a SituationModel).</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    dist : scipy.stats.distributions.rv_frozen</span>
+<span class="sd">        The pre-fitted distribution.</span>
+<span class="sd">    ds : pd.Series</span>
+<span class="sd">        The training data used for the fit.</span>
+<span class="sd">    name : str or None</span>
+<span class="sd">        The name of the marginal distribution</span>
+<span class="sd">    codebeamer_reference : str or None</span>
+<span class="sd">        A reference to a codebeamer item of the fitted model.</span>
+<span class="sd">    transformation_function : str or None</span>
+<span class="sd">        A function to transform the data sampled from this model</span>
+<span class="sd">        (not used in this class but will be passed during export to a SituationModel).</span>
+<span class="sd">    pars : Tuple[float]</span>
+<span class="sd">        The fitted parameters.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">dist</span><span class="p">:</span> <span class="n">st</span><span class="o">.</span><span class="n">distributions</span><span class="o">.</span><span class="n">rv_frozen</span><span class="p">,</span>
+        <span class="n">ds</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">,</span>
+        <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">codebeamer_reference</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">transformation_function</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">ds</span><span class="o">=</span><span class="n">ds</span><span class="p">,</span> <span class="n">codebeamer_reference</span><span class="o">=</span><span class="n">codebeamer_reference</span><span class="p">,</span> <span class="n">transformation_function</span><span class="o">=</span><span class="n">transformation_function</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pars</span> <span class="o">=</span> <span class="n">dist</span><span class="o">.</span><span class="n">args</span>  <span class="c1"># No fit, use given distribution</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dist</span> <span class="o">=</span> <span class="n">dist</span>
+
+<div class="viewcode-block" id="ConvenientMarginalDistributionFitSciPyFrozen.cdf"><a class="viewcode-back" href="../../marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen.cdf">[docs]</a>    <span class="k">def</span> <span class="nf">cdf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">dist</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ConvenientMarginalDistributionFitSciPyFrozen.icdf"><a class="viewcode-back" href="../../marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitSciPyFrozen.icdf">[docs]</a>    <span class="k">def</span> <span class="nf">icdf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">dist</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="n">u</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="ConvenientMarginalDistributionFitKDEUnivariate"><a class="viewcode-back" href="../../marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate">[docs]</a><span class="k">class</span> <span class="nc">ConvenientMarginalDistributionFitKDEUnivariate</span><span class="p">(</span><span class="n">ConvenientMarginalDistributionFit</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Fit a kernel density as a marginal distribution.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ds : pd.Series</span>
+<span class="sd">        The training data used for the fit.</span>
+<span class="sd">    name : str or None</span>
+<span class="sd">        The name of the marginal distribution</span>
+<span class="sd">    codebeamer_reference : str or None, optional</span>
+<span class="sd">        A reference to a codebeamer item of the fitted model.</span>
+<span class="sd">    transformation_function : str or None, optional</span>
+<span class="sd">        A function to transform the data sampled from this model</span>
+<span class="sd">        (not used in this class but will be passed during export to a SituationModel).</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ds : pd.Series</span>
+<span class="sd">        The training data used for the fit.</span>
+<span class="sd">    name : str or None</span>
+<span class="sd">        The name of the marginal distribution</span>
+<span class="sd">    codebeamer_reference : str or None</span>
+<span class="sd">        A reference to a codebeamer item of the fitted model.</span>
+<span class="sd">    transformation_function : str or None</span>
+<span class="sd">        A function to transform the data sampled from this model</span>
+<span class="sd">        (not used in this class but will be passed during export to a SituationModel).</span>
+<span class="sd">    kdensity : statsmodels.nonparametric.KDEUnivariate</span>
+<span class="sd">        The kernel density estimator.</span>
+<span class="sd">    dist : statsmodels.nonparametric.KDEUnivariate</span>
+<span class="sd">        The fitted kernel density.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">ds</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">,</span>
+        <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">codebeamer_reference</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">transformation_function</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">ds</span><span class="o">=</span><span class="n">ds</span><span class="p">,</span> <span class="n">codebeamer_reference</span><span class="o">=</span><span class="n">codebeamer_reference</span><span class="p">,</span> <span class="n">transformation_function</span><span class="o">=</span><span class="n">transformation_function</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">kdensity</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">nonparametric</span><span class="o">.</span><span class="n">KDEUnivariate</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dist</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">kdensity</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+
+<div class="viewcode-block" id="ConvenientMarginalDistributionFitKDEUnivariate.cdf"><a class="viewcode-back" href="../../marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate.cdf">[docs]</a>    <span class="k">def</span> <span class="nf">cdf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dist</span><span class="o">.</span><span class="n">support</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dist</span><span class="o">.</span><span class="n">cdf</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ConvenientMarginalDistributionFitKDEUnivariate.icdf"><a class="viewcode-back" href="../../marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientMarginalDistributionFitKDEUnivariate.icdf">[docs]</a>    <span class="k">def</span> <span class="nf">icdf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dist</span><span class="o">.</span><span class="n">icdf</span><span class="o">.</span><span class="n">size</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">dist</span><span class="o">.</span><span class="n">icdf</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="SamplingInfo"><a class="viewcode-back" href="../../marginal_distributions.html#marginal_distributions.marginal_distributions.SamplingInfo">[docs]</a><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">SamplingInfo</span><span class="p">:</span>
+    <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span>
+    <span class="n">warning_messages</span><span class="p">:</span> <span class="n">Set</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="ConvenientNataf"><a class="viewcode-back" href="../../marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientNataf">[docs]</a><span class="k">class</span> <span class="nc">ConvenientNataf</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Fit the correlation structure of two or more pre-fitted distributions using a Nataf transformation.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    name : str</span>
+<span class="sd">        The name of the multivariate distribution.</span>
+<span class="sd">    dists : List[ConvenientMarginalDistributionFit]</span>
+<span class="sd">        The pre-fitted marginal distributions.</span>
+<span class="sd">    timestamp_input_data : str or None, optional</span>
+<span class="sd">        The timestamp when the training data was generated.</span>
+<span class="sd">    timestamp_export : str or None, optional</span>
+<span class="sd">        The timestamp when the training data was read.</span>
+<span class="sd">    filtering_function : str or None, optional</span>
+<span class="sd">        A function to restrict the variables to a specific range; will be applied during sampling</span>
+<span class="sd">        from the multivariate distribution.</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        If the provided distributions were not fitted on training data of the same length.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    filtering_function : str or None</span>
+<span class="sd">        A function to restrict the variables to a specific range; will be applied during sampling</span>
+<span class="sd">        from the multivariate distribution.</span>
+<span class="sd">    timestamps : Dict[str, str]</span>
+<span class="sd">        A dictionary containing the timestamps when the training data was generated and read.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">dists</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">ConvenientMarginalDistributionFit</span><span class="p">],</span>
+        <span class="n">timestamp_input_data</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">timestamp_export</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">filtering_function</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dists</span> <span class="o">=</span> <span class="n">dists</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">filtering_function</span> <span class="o">=</span> <span class="n">filtering_function</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_sample_size</span> <span class="o">=</span> <span class="n">dists</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">ds</span><span class="o">.</span><span class="n">size</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="n">dist</span><span class="o">.</span><span class="n">ds</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sample_size</span> <span class="k">for</span> <span class="n">dist</span> <span class="ow">in</span> <span class="n">dists</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">dist</span> <span class="ow">in</span> <span class="n">dists</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">dist</span><span class="o">.</span><span class="n">ds</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Not all fits have same length!&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">timestamps</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="p">{</span><span class="s2">&quot;timestamp_input_data&quot;</span><span class="p">:</span> <span class="n">timestamp_input_data</span><span class="p">,</span> <span class="s2">&quot;timestamp_export&quot;</span><span class="p">:</span> <span class="n">timestamp_export</span><span class="p">}</span>
+            <span class="k">if</span> <span class="n">timestamp_input_data</span> <span class="ow">or</span> <span class="n">timestamp_export</span>
+            <span class="k">else</span> <span class="p">{}</span>
+        <span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;str : The name of the multivariate distribution.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">dists</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">ConvenientMarginalDistributionFit</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;List[ConvenientMarginalDistributionFit] : The pre-fitted marginal distributions.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dists</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">correlation_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">CorrelationMatrix</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;CorrelationMatrix : The fitted correlation matrix.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">CorrelationMatrix</span><span class="p">(</span>
+            <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">timestamps</span><span class="p">,</span>
+            <span class="n">parameter_order</span><span class="o">=</span><span class="p">[</span><span class="n">d</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dists</span><span class="p">],</span>
+            <span class="n">matrix_rows</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+        <span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">correlation_matrix_without_timestamps</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">CorrelationMatrix</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;CorrelationMatrix : The fitted correlation matrix, not including the timestamps of the training data.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">CorrelationMatrix</span><span class="p">(</span>
+            <span class="n">parameter_order</span><span class="o">=</span><span class="p">[</span><span class="n">d</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dists</span><span class="p">],</span>
+            <span class="n">matrix_rows</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+        <span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">_sampling_filters</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">filtering_function</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">{}</span>
+        <span class="n">common_filtering_function</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">filtering_function</span>
+
+        <span class="c1"># Find all ifvs that need to be wrapped in df[&#39;&#39;]</span>
+        <span class="n">all_ifvs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;[^\d\W]+\d*&quot;</span><span class="p">,</span> <span class="n">common_filtering_function</span><span class="p">)))</span>
+        <span class="k">for</span> <span class="n">non_ifv_word</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;abs&quot;</span><span class="p">,</span> <span class="s2">&quot;np&quot;</span><span class="p">,</span> <span class="s2">&quot;log&quot;</span><span class="p">]:</span>
+            <span class="k">while</span> <span class="n">non_ifv_word</span> <span class="ow">in</span> <span class="n">all_ifvs</span><span class="p">:</span>
+                <span class="n">all_ifvs</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">non_ifv_word</span><span class="p">)</span>
+
+        <span class="c1"># Wrap all ifvs in df[&#39;&#39;]</span>
+        <span class="k">for</span> <span class="n">ifv</span> <span class="ow">in</span> <span class="n">all_ifvs</span><span class="p">:</span>
+            <span class="n">common_filtering_function</span> <span class="o">=</span> <span class="n">common_filtering_function</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">ifv</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;df[&#39;</span><span class="si">{</span><span class="n">ifv</span><span class="si">}</span><span class="s2">&#39;]&quot;</span><span class="p">)</span>
+
+        <span class="n">expressions</span> <span class="o">=</span> <span class="n">common_filtering_function</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+        <span class="n">expressions_before_replacement</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">filtering_function</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="n">new_expression</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span> <span class="n">old_expression</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">new_expression</span><span class="p">,</span> <span class="n">old_expression</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">expressions</span><span class="p">,</span> <span class="n">expressions_before_replacement</span><span class="p">)</span>
+            <span class="k">if</span> <span class="s2">&quot;df&quot;</span> <span class="ow">in</span> <span class="n">new_expression</span>
+        <span class="p">}</span>
+
+    <span class="k">def</span> <span class="nf">_calculate_correlations_diff</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">max_sampling_iterations</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+        <span class="n">number_of_samples</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_dists</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">ds</span><span class="p">)</span>
+        <span class="n">col_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">d</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dists</span><span class="p">]</span>
+        <span class="n">corr_model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">number_of_samples</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">1234</span><span class="p">,</span> <span class="n">max_iterations</span><span class="o">=</span><span class="n">max_sampling_iterations</span><span class="p">)</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+        <span class="n">corr_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="n">col</span><span class="p">:</span> <span class="n">dist</span><span class="o">.</span><span class="n">ds</span> <span class="k">for</span> <span class="n">dist</span><span class="p">,</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_dists</span><span class="p">,</span> <span class="n">col_names</span><span class="p">)})</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+        <span class="k">return</span> <span class="nb">abs</span><span class="p">(</span><span class="n">corr_model</span> <span class="o">-</span> <span class="n">corr_data</span><span class="p">)</span>
+
+<div class="viewcode-block" id="ConvenientNataf.check_correlations"><a class="viewcode-back" href="../../marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientNataf.check_correlations">[docs]</a>    <span class="k">def</span> <span class="nf">check_correlations</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">max_sampling_iterations</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Displays the absolute differences between the correlation matrix of the training data and samples from the fitted model.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        max_sampling_iterations: int, optional</span>
+<span class="sd">            The number of iterations to be performed trying to find the expected number of samples. A warning will be raised if the expected number of samples has not been found. Created samples will still be used for calculating the sample correlation matrix in that case.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">corr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_calculate_correlations_diff</span><span class="p">(</span><span class="n">max_sampling_iterations</span><span class="o">=</span><span class="n">max_sampling_iterations</span><span class="p">)</span>
+        <span class="n">display_markdown</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Absolute difference of data correlation matrix and model correlation matrix&quot;</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+        <span class="n">display</span><span class="p">(</span><span class="n">corr</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">background_gradient</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;coolwarm&quot;</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="ConvenientNataf.corrcoef"><a class="viewcode-back" href="../../marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientNataf.corrcoef">[docs]</a>    <span class="k">def</span> <span class="nf">corrcoef</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Fits the correlation matrix of the training data in z space.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        np.ndarray</span>
+<span class="sd">            The calculated correlation matrix.</span>
+
+<span class="sd">        See also</span>
+<span class="sd">        --------</span>
+<span class="sd">        ConvenientMarginalDistributionFit.z_space : Transforming the training data to z space.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="p">[</span><span class="n">d</span><span class="o">.</span><span class="n">z_space</span><span class="p">()</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dists</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">m</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">_sample_gaussian_copula</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">seed</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+        <span class="n">correlation_matrix</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">()</span>
+        <span class="n">dim</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">correlation_matrix</span><span class="p">)</span>
+        <span class="n">copula</span> <span class="o">=</span> <span class="n">GaussianCopula</span><span class="p">(</span><span class="n">corr</span><span class="o">=</span><span class="n">correlation_matrix</span><span class="p">,</span> <span class="n">k_dim</span><span class="o">=</span><span class="n">dim</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">copula</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">seed</span><span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_append_batch_sample_from_gaussian_copula</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SamplingInfo</span><span class="p">:</span>
+        <span class="n">warning_messages</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="n">U</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sample_gaussian_copula</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">iinfo</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint32</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">))</span>
+        <span class="n">new_samples_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="n">d</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">icdf</span><span class="p">(</span><span class="n">U</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_dists</span><span class="p">)})</span>
+        <span class="k">for</span> <span class="n">single_filter</span><span class="p">,</span> <span class="n">old_expression</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sampling_filters</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">new_samples_df</span> <span class="o">=</span> <span class="n">new_samples_df</span><span class="p">[</span>
+                    <span class="n">evaluate_formula</span><span class="p">(</span><span class="n">single_filter</span><span class="p">,</span> <span class="n">subscriptable_dict</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;df&quot;</span><span class="p">:</span> <span class="n">new_samples_df</span><span class="p">})</span>
+                <span class="p">]</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="n">warning_messages</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to apply filtering </span><span class="si">{</span><span class="n">old_expression</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="p">,</span> <span class="n">new_samples_df</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">SamplingInfo</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">warning_messages</span><span class="p">)</span>
+
+<div class="viewcode-block" id="ConvenientNataf.sample"><a class="viewcode-back" href="../../marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientNataf.sample">[docs]</a>    <span class="k">def</span> <span class="nf">sample</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">seed</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">max_iterations</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Generates samples from the fitted distribution.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        n : int</span>
+<span class="sd">            The number of samples to be generated.</span>
+<span class="sd">        seed : int</span>
+<span class="sd">            A seed that is passed to statsmodels to generate random variates.</span>
+<span class="sd">        max_iterations: int, optional</span>
+<span class="sd">            The number of iterations to be performed trying to find the expected number of samples. A warning will be raised if the expected number of samples has not been found. Created samples will still be outputted in that case.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        pd.DataFrame</span>
+<span class="sd">            A DataFrame containing samples for each variable in its columns.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="n">d</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dists</span><span class="p">])</span>
+        <span class="n">number_of_iterations</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">warning_messages</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
+            <span class="n">number_of_iterations</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">number_of_iterations</span> <span class="o">&gt;</span> <span class="n">max_iterations</span><span class="p">:</span>
+                <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Could not find valid number of samples in </span><span class="si">{</span><span class="n">max_iterations</span><span class="si">}</span><span class="s2"> iterations!&quot;</span><span class="p">)</span>
+                <span class="k">break</span>
+            <span class="n">df_len</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+            <span class="n">sample_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_append_batch_sample_from_gaussian_copula</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="n">df_len</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">sample_info</span><span class="o">.</span><span class="n">df</span>
+            <span class="n">warning_messages</span> <span class="o">=</span> <span class="n">warning_messages</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">sample_info</span><span class="o">.</span><span class="n">warning_messages</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">warning_messages</span><span class="p">:</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">df</span></div>
+
+<div class="viewcode-block" id="ConvenientNataf.plot_model_vs_original"><a class="viewcode-back" href="../../marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientNataf.plot_model_vs_original">[docs]</a>    <span class="k">def</span> <span class="nf">plot_model_vs_original</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">dimensions</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">seed</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1234</span><span class="p">,</span>
+        <span class="n">n</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">max_sampling_iterations</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Generates scatterplots of the training data and data sampled from the fitted distribution together</span>
+<span class="sd">        with their marginal distributions.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        dimensions : List[str] or None, optional</span>
+<span class="sd">            The variables to be plotted, defaults to all variables.</span>
+<span class="sd">        seed : int, optional</span>
+<span class="sd">            A seed that is passed to statsmodels to generate random variates.</span>
+<span class="sd">        n : int or None, optional.</span>
+<span class="sd">            The number of samples to be plotted, defaults to the number of samples in the training data.</span>
+<span class="sd">        max_sampling_iterations: int, optional</span>
+<span class="sd">            The number of iterations to be performed trying to find the expected number of samples. A warning will be raised if the expected number of samples has not been found. Created samples will still be plotted in that case.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        plotly.graph_objects.Figure</span>
+<span class="sd">            The generated plots.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If n is higher than the number of samples in the training_data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">n_points_to_plot</span> <span class="o">=</span> <span class="n">n</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sample_size</span>
+        <span class="k">if</span> <span class="n">n_points_to_plot</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sample_size</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Can only plot a maximum of </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_sample_size</span><span class="si">}</span><span class="s2"> points. Requested number of points: </span><span class="si">{</span><span class="n">n_points_to_plot</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+
+        <span class="n">df_model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n_points_to_plot</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="n">seed</span><span class="p">,</span> <span class="n">max_iterations</span><span class="o">=</span><span class="n">max_sampling_iterations</span><span class="p">)</span>
+        <span class="n">df_model</span><span class="p">[</span><span class="s2">&quot;source&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;model&quot;</span>
+
+        <span class="n">df_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="n">d</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">d</span><span class="o">.</span><span class="n">ds</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dists</span><span class="p">})</span>
+        <span class="n">df_data</span><span class="p">[</span><span class="s2">&quot;source&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;observations&quot;</span>
+        <span class="n">df_data</span> <span class="o">=</span> <span class="n">df_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[:</span> <span class="n">n_points_to_plot</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="p">:]</span>
+
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_model</span><span class="p">,</span> <span class="n">df_data</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="n">dims</span> <span class="o">=</span> <span class="n">dimensions</span> <span class="ow">or</span> <span class="p">[</span><span class="n">d</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dists</span><span class="p">]</span>
+
+        <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;observations vs model of &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">dims</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+                <span class="n">df</span><span class="p">,</span>
+                <span class="n">color</span><span class="o">=</span><span class="s2">&quot;source&quot;</span><span class="p">,</span>
+                <span class="n">x</span><span class="o">=</span><span class="n">dims</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                <span class="n">y</span><span class="o">=</span><span class="n">dims</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span>
+                <span class="n">marginal_x</span><span class="o">=</span><span class="s2">&quot;histogram&quot;</span><span class="p">,</span>
+                <span class="n">marginal_y</span><span class="o">=</span><span class="s2">&quot;histogram&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">scatter_matrix</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;source&quot;</span><span class="p">,</span> <span class="n">dimensions</span><span class="o">=</span><span class="n">dims</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">)</span>
+            <span class="n">marker</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+            <span class="n">fig</span><span class="o">.</span><span class="n">update_traces</span><span class="p">(</span><span class="n">marker</span><span class="o">=</span><span class="n">marker</span><span class="p">,</span> <span class="n">diagonal_visible</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+        <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">fig</span></div>
+
+<div class="viewcode-block" id="ConvenientNataf.plot_scatter_matrix"><a class="viewcode-back" href="../../marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientNataf.plot_scatter_matrix">[docs]</a>    <span class="k">def</span> <span class="nf">plot_scatter_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Generates scatterplots of the training data.&quot;&quot;&quot;</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="n">d</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">d</span><span class="o">.</span><span class="n">ds</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dists</span><span class="p">})</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_plot_scatter_matrix</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;P-Space of &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ConvenientNataf.plot_scatter_matrix_z"><a class="viewcode-back" href="../../marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientNataf.plot_scatter_matrix_z">[docs]</a>    <span class="k">def</span> <span class="nf">plot_scatter_matrix_z</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Generates scatterplots of the training data in z space.</span>
+
+<span class="sd">        See also</span>
+<span class="sd">        --------</span>
+<span class="sd">        ConvenientMarginalDistributionFit.z_space : Transforming the training data to z space.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="n">d</span><span class="o">.</span><span class="n">z_space</span><span class="p">()</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">d</span><span class="o">.</span><span class="n">z_space</span><span class="p">()</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dists</span><span class="p">})</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_plot_scatter_matrix</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Z-Space &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ConvenientNataf.plot_scatter_matrix_u"><a class="viewcode-back" href="../../marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientNataf.plot_scatter_matrix_u">[docs]</a>    <span class="k">def</span> <span class="nf">plot_scatter_matrix_u</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Generates scatterplots of the training data in u space.</span>
+
+<span class="sd">        See also</span>
+<span class="sd">        --------</span>
+<span class="sd">        ConvenientMarginalDistributionFit.u_space : Transforming the training data to u space.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="n">d</span><span class="o">.</span><span class="n">u_space</span><span class="p">()</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">d</span><span class="o">.</span><span class="n">u_space</span><span class="p">()</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dists</span><span class="p">})</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_plot_scatter_matrix</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;U-Space &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name</span><span class="p">)</span></div>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_plot_scatter_matrix</span><span class="p">(</span><span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">title</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">scatter_matrix</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">)</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">update_traces</span><span class="p">(</span><span class="n">diagonal_visible</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_check_timestamps_present</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">timestamps</span><span class="o">.</span><span class="n">values</span><span class="p">())</span> <span class="ow">or</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">timestamps</span><span class="p">:</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Either input data timestamp or export timestamp was not provided while exporting the model&quot;</span><span class="p">,</span>
+                <span class="ne">UserWarning</span><span class="p">,</span>
+            <span class="p">)</span>
+
+<div class="viewcode-block" id="ConvenientNataf.to_situation_model"><a class="viewcode-back" href="../../marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientNataf.to_situation_model">[docs]</a>    <span class="k">def</span> <span class="nf">to_situation_model</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">seed</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">n_test_cases</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">scenario_occurrence_rate_per_hour</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+        <span class="n">codebeamer_reference</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">transformation_function</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SituationModel</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Converts the ConvenientNataf to a SituationModel object.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        seed : int</span>
+<span class="sd">            The seed used to generate noise for the test cases.</span>
+<span class="sd">        n_test_cases : int</span>
+<span class="sd">            The number of test cases to be generated.</span>
+<span class="sd">        scenario_occurrence_rate_per_hour : float</span>
+<span class="sd">            How often such a scenario occurs in the real world per hour.</span>
+<span class="sd">        codebeamer_reference : str or None, optional</span>
+<span class="sd">            A reference to a codebeamer item of the fitted model.</span>
+<span class="sd">        transformation_function : str or None, optional</span>
+<span class="sd">            A function to transform the data sampled from this model.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        SituationModel</span>
+<span class="sd">            The generated situation model.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">parameters</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dists</span><span class="p">:</span>
+            <span class="n">parameters</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="n">get_situation_model_parameter_from_distribution</span><span class="p">(</span>
+                    <span class="n">distribution</span><span class="o">=</span><span class="n">d</span><span class="o">.</span><span class="n">dist</span><span class="p">,</span>
+                    <span class="n">name</span><span class="o">=</span><span class="n">d</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                    <span class="n">codebeamer_reference</span><span class="o">=</span><span class="n">codebeamer_reference</span> <span class="k">if</span> <span class="n">codebeamer_reference</span> <span class="k">else</span> <span class="n">d</span><span class="o">.</span><span class="n">codebeamer_reference</span><span class="p">,</span>
+                    <span class="n">transformation_function</span><span class="o">=</span><span class="n">transformation_function</span>
+                    <span class="k">if</span> <span class="n">transformation_function</span>
+                    <span class="k">else</span> <span class="n">d</span><span class="o">.</span><span class="n">transformation_function</span><span class="p">,</span>
+                    <span class="n">n_test_cases</span><span class="o">=</span><span class="n">n_test_cases</span><span class="p">,</span>
+                    <span class="n">seed</span><span class="o">=</span><span class="n">seed</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">SituationModel</span><span class="p">(</span>
+            <span class="n">correlation_matrix</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">correlation_matrix_without_timestamps</span><span class="p">,</span>
+            <span class="n">filtering_function</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">filtering_function</span> <span class="ow">or</span> <span class="s2">&quot;None&quot;</span><span class="p">,</span>
+            <span class="n">parameters</span><span class="o">=</span><span class="n">parameters</span><span class="p">,</span>
+            <span class="n">scenario_occurrence_rate_per_hour</span><span class="o">=</span><span class="n">scenario_occurrence_rate_per_hour</span><span class="p">,</span>
+            <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">timestamps</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="ConvenientNataf.save_correlation_matrix"><a class="viewcode-back" href="../../marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientNataf.save_correlation_matrix">[docs]</a>    <span class="k">def</span> <span class="nf">save_correlation_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">folder</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Saves the correlation matrix to a json file.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        folder : str</span>
+<span class="sd">            The folder where the file should be saved.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_check_timestamps_present</span><span class="p">()</span>
+        <span class="n">save_model_as_json_file</span><span class="p">(</span>
+            <span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">correlation_matrix</span><span class="p">,</span> <span class="n">file_path</span><span class="o">=</span><span class="n">join</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">+</span> <span class="s2">&quot;_correlation_matrix.json&quot;</span><span class="p">)</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="ConvenientNataf.save_model"><a class="viewcode-back" href="../../marginal_distributions.html#marginal_distributions.marginal_distributions.ConvenientNataf.save_model">[docs]</a>    <span class="k">def</span> <span class="nf">save_model</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">folder</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">codebeamer_reference</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">scenario_occurrence_rate_per_hour</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+        <span class="n">seed</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1234</span><span class="p">,</span>
+        <span class="n">n_test_cases</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Saves the model to a json file.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        folder : str</span>
+<span class="sd">            The folder where the file should be saved.</span>
+<span class="sd">        codebeamer_reference : str</span>
+<span class="sd">            A reference to a codebeamer item of the fitted model.</span>
+<span class="sd">        scenario_occurrence_rate_per_hour : float</span>
+<span class="sd">            How often such a scenario occurs in the real world per hour.</span>
+<span class="sd">        seed : int, optional</span>
+<span class="sd">            The seed used to generate noise for the test cases.</span>
+<span class="sd">        n_test_cases : int, optional</span>
+<span class="sd">            The number of test cases to be generated.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_check_timestamps_present</span><span class="p">()</span>
+        <span class="n">transformation_function</span> <span class="o">=</span> <span class="s2">&quot;x&quot;</span>  <span class="c1"># Not used yet</span>
+        <span class="n">situation_model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_situation_model</span><span class="p">(</span>
+            <span class="n">transformation_function</span><span class="o">=</span><span class="n">transformation_function</span><span class="p">,</span>
+            <span class="n">codebeamer_reference</span><span class="o">=</span><span class="n">codebeamer_reference</span><span class="p">,</span>
+            <span class="n">seed</span><span class="o">=</span><span class="n">seed</span><span class="p">,</span>
+            <span class="n">n_test_cases</span><span class="o">=</span><span class="n">n_test_cases</span><span class="p">,</span>
+            <span class="n">scenario_occurrence_rate_per_hour</span><span class="o">=</span><span class="n">scenario_occurrence_rate_per_hour</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="n">save_model_as_json_file</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">situation_model</span><span class="p">,</span> <span class="n">file_path</span><span class="o">=</span><span class="n">join</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">+</span> <span class="s2">&quot;.json&quot;</span><span class="p">))</span></div></div>
+
+
+<span class="c1"># From Nadine Berner, DE-301</span>
+<div class="viewcode-block" id="find_best_fit"><a class="viewcode-back" href="../../marginal_distributions.html#marginal_distributions.marginal_distributions.find_best_fit">[docs]</a><span class="k">def</span> <span class="nf">find_best_fit</span><span class="p">(</span>
+    <span class="n">data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">,</span> <span class="n">bins</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">200</span><span class="p">,</span> <span class="n">exclude_dists</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[],</span> <span class="n">ax</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Fits all distributions from scipy.stats._continuous_distns on the data and calculates the sum of squared errors (SSE)</span>
+<span class="sd">    as a goodness-of-fit criterion. This function can be used to find a model that best explains 1-dimensional data.</span>
+<span class="sd">    The following distributions are excluded from the evaluation by default and can not be included manually:</span>
+<span class="sd">    levy_stable, studentized_range, kstwo, norminvgauss, genhyperbolic</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    data : pd.Series</span>
+<span class="sd">        The data to be fitted.</span>
+<span class="sd">    bins : int, optional</span>
+<span class="sd">        Number of bins to use for the calculation of SSE.</span>
+<span class="sd">    exclude_dists : List[str], optional</span>
+<span class="sd">        Additional distributions from scipy.stats to be excluded from the evaluation.</span>
+<span class="sd">    ax : plt.axes or None, optional to plot the fitted pdfs.</span>
+<span class="sd">        A matplotlib.pyplot.axes object</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    pd.DataFrame</span>
+<span class="sd">        A Dataframe containing all fitted distributions together with their SSE.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># binning of data</span>
+    <span class="n">y</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="mf">2.0</span>
+
+    <span class="n">best_distributions</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># estimate distribution parameters from data</span>
+    <span class="k">for</span> <span class="n">ii</span><span class="p">,</span> <span class="n">distribution</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span>
+        <span class="p">[</span>
+            <span class="n">d</span>
+            <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">st</span><span class="o">.</span><span class="n">_continuous_distns</span><span class="o">.</span><span class="n">_distn_names</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">d</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;levy_stable&quot;</span><span class="p">,</span> <span class="s2">&quot;studentized_range&quot;</span><span class="p">,</span> <span class="s2">&quot;kstwo&quot;</span><span class="p">,</span> <span class="s2">&quot;norminvgauss&quot;</span><span class="p">,</span> <span class="s2">&quot;genhyperbolic&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">exclude_dists</span>
+        <span class="p">]</span>
+    <span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:&gt;3}</span><span class="s2"> / </span><span class="si">{:&lt;3}</span><span class="s2">: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ii</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">st</span><span class="o">.</span><span class="n">_continuous_distns</span><span class="o">.</span><span class="n">_distn_names</span><span class="p">),</span> <span class="n">distribution</span><span class="p">))</span>
+
+        <span class="n">distribution</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">st</span><span class="p">,</span> <span class="n">distribution</span><span class="p">)</span>
+
+        <span class="c1"># try to fit the distribution</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># ignore warnings from data that can&#39;t be fit</span>
+            <span class="k">with</span> <span class="n">warnings</span><span class="o">.</span><span class="n">catch_warnings</span><span class="p">():</span>
+                <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+
+                <span class="c1"># fit dist to data</span>
+                <span class="n">params</span> <span class="o">=</span> <span class="n">distribution</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+                <span class="c1"># separate parts of parameters</span>
+                <span class="n">arg</span> <span class="o">=</span> <span class="n">params</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+                <span class="n">loc</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+                <span class="n">scale</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+                <span class="c1"># calculate fitted pdf and error with fit in distribution</span>
+                <span class="n">pdf</span> <span class="o">=</span> <span class="n">distribution</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">loc</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">,</span> <span class="o">*</span><span class="n">arg</span><span class="p">)</span>
+                <span class="n">sse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">pdf</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">))</span>
+
+                <span class="c1"># if axis pass in add to plot</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">ax</span><span class="p">:</span>
+                        <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">pdf</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                    <span class="k">pass</span>
+
+                <span class="c1"># identify if this distribution is better</span>
+                <span class="n">best_distributions</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">distribution</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">sse</span><span class="p">))</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Do I really want to know 😶 -&gt; </span><span class="si">{</span><span class="n">distribution</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="se">\n\t</span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="n">best_distributions</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">best_distributions</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+        <span class="p">[[</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;_gen&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">),</span> <span class="n">i</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">best_distributions</span><span class="p">],</span>
+        <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;distribution&quot;</span><span class="p">,</span> <span class="s2">&quot;SSE&quot;</span><span class="p">],</span>
+    <span class="p">)</span></div>
+
+
+<span class="c1"># TODOs:</span>
+<span class="c1"># compare_correlations() # p space vs u space correlation</span>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Team Kepler
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, Bayerische Motoren Werke Aktiengesellschaft (BMW AG).
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

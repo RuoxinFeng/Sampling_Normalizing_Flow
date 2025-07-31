@@ -1,0 +1,13 @@
+{
+    "global": {},
+    "adcam": {},
+    "lidar": {
+        "some error": {
+            "__comment": "error explanation",
+            "value": [
+                "invalid3"
+            ]
+        }
+    },
+    "frr": {}
+}

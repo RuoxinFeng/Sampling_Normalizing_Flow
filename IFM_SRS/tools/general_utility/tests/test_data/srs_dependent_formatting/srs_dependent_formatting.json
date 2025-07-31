@@ -1,0 +1,19 @@
+{
+    "SRS-TEMPLATE": {
+        "initial_host_velocity_8533202": "initial_host_velocity_categorial",
+        "ego_velocity_start": "initial_host_velocity_8533202"
+    },
+    "SRS-TEMPLATE-IFM": {
+        "vEgo_StartCutIn_ms": "v_host",
+        "vObj_StartCutIn_ms": "v_cutin",
+        "TTC_at_SC": "TTC",
+        "lat_vobj_during_tstartcutin_window": "v_lat",
+        "mostCommonType": "vehicleType",
+        "cutin_duration": "duration"
+    },
+    "SRS-04-1": {
+        "column_1": "column_2",
+        "column_2": "column_3",
+        "some_other_column": "some_other_column_new"
+    }
+}

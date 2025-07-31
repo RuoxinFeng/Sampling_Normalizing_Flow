@@ -1,0 +1,478 @@
+#
+# Copyright (C) 2023-2024, Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
+#
+
+import json
+import math
+import os
+import re
+import sys
+import warnings
+from dataclasses import dataclass
+from datetime import datetime
+from enum import Enum
+from os.path import join
+from typing import Any, Dict, List, Optional
+
+import numpy as np
+import pandas as pd
+from IPython.display import Markdown, display
+from tools.general_utility.design_specification_model import DesignSpecificationModel
+from tools.general_utility.extract_columns import get_columns_with_IFVs
+from tools.general_utility.srs_dependent_formatting_schema import FormattingModel
+from tools.general_utility.srs_formatting_categories import SRSFormattingCategories
+from tools.remove_invalid_sessions.remove_invalid_sessions import (
+    InvalidSessionsSpec,
+    TotalFailureInfo,
+    remove_invalid_sessions,
+)
+
+TIMESTAMP_FORMAT = "%d/%m/%Y %H:%M:%S"
+TIMESTAMP_IDENTIFIERS = {
+    "Export timestamp": "%d/%m/%Y %H:%M:%S UTC+0",
+    "Creation Timestamp": "%d%m%Y %H:%M:%S",
+}
+
+OUTPUT_TOLERANCE = 1e-12
+NR_OF_DIGITS_AFTER_COMMA = -int(math.log10(OUTPUT_TOLERANCE))
+
+
+def provide_formula_with_all_entries(list_of_SPV: List[str], index_SPV: int, list_of_IFV: List[str]) -> str:
+    """Generates a `patsy` style formula to model an SPV as a linear combination of all IFVs.
+
+    Parameters
+    ----------
+    list_of_SPV : List[str]
+        A list of all possible SPVs.
+    index_SPV : int
+        The index in `list_of_SPV` corresponding to the SPV that should be explained.
+    list_of_IFV : List[str]
+        The list of all IFV to be used in the formula.
+
+    Returns
+    -------
+    str
+        The formula to model the SPV as a linear combination of all IFVs according to the `patsy` style.
+
+    Raises
+    ------
+    ValueError
+        If `index_SPV` does not exist in `list_of_SPV`
+
+    Example
+    -------
+    >>> provide_formula_with_all_entries(["SPV_1", "SPV_2"], 1, ["IFV_1", "IFV_2"])
+    "'SPV_2 ~ '\\n'IFV_1 + ' \\n'IFV_2'"
+    """
+    if index_SPV >= len(list_of_SPV) or index_SPV < 0 or not isinstance(index_SPV, int):
+        raise ValueError(
+            f"Incorrect index {index_SPV} given. Please provide an integer between 0 and {len(list_of_SPV)-1}"
+        )
+
+    IFV_entries = " + ' \n'".join(list_of_IFV)
+    relevant_SPV = list_of_SPV[index_SPV]
+    formula = f"'{relevant_SPV} ~ '\n'{IFV_entries}'"
+    return formula
+
+
+def format_data(df_: pd.DataFrame, srs: SRSFormattingCategories, clean_column_names: bool = False) -> pd.DataFrame:
+    """Format a dataframe based one rules defined in a json file in the srs_dependent_formatting folder.
+
+    Parameters
+    ----------
+    df_ : pd.DataFrame
+        The DataFrame to be formatted.
+    srs : SRSFormattingCategories
+        The srs, whose formatting should be applied.
+    clean_column_names : bool
+        Whether the following characters in the column names should be replaced:
+            - blank spaces by underscores (_)
+            - dashes (-) and brackets  removed
+
+    Returns
+    -------
+    pd.DataFrame
+        The formatted dataframe.
+
+    Raises
+    ------
+    ValueError
+        If `srs`is not a member of `SRSFormattingCategories`.
+    """
+    if not isinstance(srs, SRSFormattingCategories):
+        raise ValueError(f"SRS {srs} has to be a member of SRSFormattingCategories.")
+    df = df_.copy()
+    with open(join(os.getcwd(), "srs_dependent_formatting", "srs_dependent_formatting.json")) as f:
+        formatting_info = dict(FormattingModel(**json.load(f)))[srs.value]
+    if clean_column_names:
+        df.rename(
+            columns=lambda x: x.replace(" ", "_").replace("-", "").replace("(", "").replace(")", "").lower(),
+            inplace=True,
+        )
+
+    missing_columns = [column for column in formatting_info if column not in df.columns]
+    if missing_columns:
+        print(f"The following columns were not found in the dataframe: {missing_columns}")
+
+    # Format columns
+    df.rename(columns=formatting_info, inplace=True)
+    # Data transformation
+    # current working directory is added to system path to import data transformation function specific to the Notebook being run
+    sys.path.append(os.getcwd())
+    from srs_dependent_formatting.srs_dependent_transformations import apply_data_transformation
+
+    print("The following data transformations were applied:")
+    df = apply_data_transformation(df=df, srs=srs)
+
+    cols = "\n".join([f"{k}: {v}" for k, v in formatting_info.items()])
+    print("Renamed columns:")
+    print(cols)
+    return df
+
+
+@dataclass
+class InputData:
+    """A wrapper containing information about a read csv file."""
+
+    df: pd.DataFrame
+    """The content of the csv file."""
+    timestamp_input_data: Optional[str]
+    """The timestamp when the csv file was created (if it is documented in the header).
+    This timestamp will be present if the file was generated by IFAT."""
+    timestamp_export: str
+    """The timestamp when the data was read."""
+    total_failure_info: TotalFailureInfo
+    """Information about total failures of a sensor in the input data."""
+
+
+def read_and_verify_csv_data(
+    path: str,
+    *,
+    perform_ifv_coverage_check: bool = True,
+    min_occurrences_ifv_coverage_check: int = 3,
+    design_specification_filename: Optional[str] = None,
+    invalid_sessions_spec: Optional[InvalidSessionsSpec] = None,
+    header_lines: Optional[int] = None,
+    **kwargs,
+) -> InputData:
+    """Reads a csv file and outputs the timestamp when the file was generated (if it was generated by IFAT).
+
+    Parameters
+    ----------
+    path : str
+        The relative path to the file to be read.
+    perform_ifv_coverage_check : bool, optional
+        Whether the function should check for values in IFVs that are only observed in a few sessions.
+    min_occurrences_ifv_coverage_check : int, optional
+        The minimum number of sessions that each IFV value should be observed in. Any value that only exists
+        in less or equal to this number of sessions will result in a warning if `perform_ifv_coverage_check` is True.
+    design_specification_filename : str or None, optional
+        The filename of a test design specification. This file can be used to find IFV values that are not observed
+        in the data and raise a warning.
+    invalid_sessions_spec : InvalidSessionsSpec or None, optional
+        An object containing specifications about the files that define which sessions need to be removed.
+    header_lines : int or None, optional
+        The number of header lines that need to be skipped when reading the file.
+        If the file was generated by IFAT, this parameter does not need to be provided.
+    **kwargs : dict, optional
+        Extra arguments to be passed to `pd.read_csv`.
+
+    Returns
+    -------
+    InputData
+        A wrapper containing the read DataFrame, the timestamp when the input data was created and
+        the timestamp when this function was executed.
+    """
+    if header_lines is None:
+        header_lines = _get_number_of_header_lines(path)
+    df = pd.read_csv(path, skiprows=header_lines, **kwargs)
+    timestamp_export = get_now_string()
+    timestamp_input_data = None
+
+    if header_lines:
+        with open(path, "r") as file:
+            header = file.readlines()[:header_lines]
+            print("Header lines of the read file:")
+            for line in header:
+                print(line.strip())
+            timestamp_input_data = _get_timestamp_of_input_data(header)
+    total_failure_info = None
+    if invalid_sessions_spec:
+        df, total_failure_info = remove_invalid_sessions(df=df, spec=invalid_sessions_spec)
+
+    if perform_ifv_coverage_check:
+        _detect_marginal_categorical_ifv_occurrences(
+            df,
+            n_occurrences_threshold=min_occurrences_ifv_coverage_check,
+            design_specification_filename=design_specification_filename,
+        )
+
+    return InputData(
+        df=df,
+        timestamp_input_data=timestamp_input_data,
+        timestamp_export=timestamp_export,
+        total_failure_info=total_failure_info,
+    )
+
+
+def _get_number_of_header_lines(path: str) -> float:
+    nr_header_lines = 0
+
+    with open(path, "r") as f:
+        for line in f:
+            nr_header_lines += 1
+            clean_line = line.replace(",", "").strip()  # sometimes blank lines contain many commas due to csv format
+            if not clean_line:
+                break
+        f.seek(0)
+        if nr_header_lines == len(f.readlines()):
+            return 0
+    return nr_header_lines
+
+
+def get_now_string() -> str:
+    """Generates the current timestamp in the format "dd/mm/YYYY HH:MM:SS".
+
+    Returns
+    -------
+    str
+        The current timestamp.
+    """
+    return datetime.now().strftime(TIMESTAMP_FORMAT)
+
+
+def _get_timestamp_of_input_data(header: List[str]) -> Optional[str]:
+    def parse_timestamp(line: str) -> str:
+        line_identifier, line_value = line.strip().rstrip(",").split(": ")
+        return datetime.strptime(line_value, TIMESTAMP_IDENTIFIERS[line_identifier]).strftime(TIMESTAMP_FORMAT)
+
+    for line in header:
+        if any(identifier in line for identifier in TIMESTAMP_IDENTIFIERS):
+            try:
+                return parse_timestamp(line)
+            except Exception as e:
+                print(f"Exception ({str(e)}) thrown while parsing timestamp on line '{line}'")
+
+    print("Warning: No timestamp found!")
+
+
+def validate_timestamp_format(timestamp: Optional[str], expected_format: str = TIMESTAMP_FORMAT) -> bool:
+    """Checks if a timestamp satisfies a given format.
+
+    Parameters
+    ----------
+    timestamp : str or None
+        The timestamp to be checked.
+    expected_format : str, optional
+        The format the timestamp should be checked against.
+
+    Returns
+    -------
+    bool
+        Whether the timestamp is in the desired format.
+
+    Example
+    -------
+    >>> validate_timestamp_format("11/11/2011 11:11:11", "%d/%m/%Y %H:%M:%S")
+    True
+    """
+    if timestamp:
+        try:
+            datetime.strptime(timestamp, expected_format)
+        except ValueError:
+            return False
+    return True
+
+
+def _translate_categorical_interval(interval: str) -> str:
+    return interval.replace("(", "from ").replace(", ", " to ").replace(",", " to ").replace("]", "")
+
+
+def translate_categorical_intervals(df: pd.DataFrame, column_names: List[str]) -> pd.DataFrame:
+    """Translates categorical intervals like (0.5, 1.0] to 'from 0.5 to 1.0', since the parenthesis
+    would cause problems with `patsy`.
+
+    Parameters
+    ----------
+    df : pd.DataFrame
+        The DataFrame whose values should be translated.
+    column_names : List[str]
+        The names of the columns of `df`, whose values should be translated.
+
+    Returns
+    -------
+    pd.DataFrame
+        The formatted DataFrame.
+    """
+    df_copy = df.copy(deep=True)
+    for name in column_names:
+        df_copy[name] = df_copy[name].apply(_translate_categorical_interval)
+    return df_copy
+
+
+def round_output(
+    value_before_rounding: Any,
+    nr_of_digits_after_comma: Optional[int] = NR_OF_DIGITS_AFTER_COMMA,
+) -> Any:
+    """Rounds a value to a desired number of digits after the comma.
+    This function is used to ensure that the resulting models are the same on different operating systems.
+
+    Parameters
+    ----------
+    value_before_rounding : Any
+        The value to be rounded.
+    nr_of_digits_after_comma : int or None
+        The desired number of digits after the comma after rounding. If `None` is provided, no rounding will be applied.
+
+    Returns
+    -------
+    Any
+        The rounded value.
+
+    Example
+    -------
+    >>> round_output(1.11111, 2)
+    1.11
+    >>> round_output([1.11111,2.22222], 2)
+    [1.11,2.22]
+    >>> round_output(1.11111, None)
+    1.11111
+    """
+    if nr_of_digits_after_comma is not None:
+        if (isinstance(value_before_rounding, float) or isinstance(value_before_rounding, int)) and not isinstance(
+            value_before_rounding, bool
+        ):
+            return round(value_before_rounding, nr_of_digits_after_comma)
+        if isinstance(value_before_rounding, list):
+            return [round_output(item, nr_of_digits_after_comma) for item in value_before_rounding]
+        if isinstance(value_before_rounding, dict):
+            return {key: round_output(value, nr_of_digits_after_comma) for key, value in value_before_rounding.items()}
+        if isinstance(value_before_rounding, tuple):
+            return tuple(round_output(item, nr_of_digits_after_comma) for item in value_before_rounding)
+        if isinstance(value_before_rounding, set):
+            return {round_output(item, nr_of_digits_after_comma) for item in value_before_rounding}
+        if isinstance(value_before_rounding, np.ndarray):
+            return value_before_rounding.round(nr_of_digits_after_comma)
+    return value_before_rounding
+
+
+def print_and_align(dict_to_print: Dict) -> None:
+    """Prints strings in an aligned matter.
+
+    Parameters
+    ----------
+    dict_to_print : Dict
+        The dictionary of values to be printed. The keys will be printed in a left column and the values in a right column.
+
+    Example
+    -------
+    >>> print_and_align({"One thing to print": "short", "Another one": "A long thing"})
+        One thing to print: short
+        Another one       : A long thing
+    """
+    key_len = max(len(k) for k in dict_to_print.keys())
+    val_len = max(len(v) for v in dict_to_print.values())
+
+    for k, v in dict_to_print.items():
+        print(f"{str(k).ljust(key_len)}: {str(v).ljust(val_len)}")
+
+
+def display_markdown(text: str, font_size: int) -> None:
+    """Displays a string in a jupyter notebook as a markdown.
+
+    Parameters
+    ----------
+    text : str
+        The string to be displayed.
+    font_size : int
+        The size in which the string should be displayed (in pt).
+    """
+    display(Markdown(f"**<span style='font-size: {font_size}pt'>{text}</span>**"))
+
+
+def display_dataframe(
+    df: pd.DataFrame,
+    *,
+    display_index: bool = False,
+    style_properties: Dict[str, Any] = {},
+    table_styles: List[Dict[str, Any]] = [],
+) -> None:
+    """Displays a dataframe in a jupyter notebook as a table.
+
+    Parameters
+    ----------
+    df : pd.DataFrame
+        The DataFrame to be displayed.
+    display_index : bool, optional
+        Whether the index of the DataFrame should be displayed as well.
+    style_properties : Dict[str,Any], optional
+        Additional properties to be passed to df.style.set_properties.
+    table_styles : List[Dict[str,Any]], optional
+        Additional styles to be passed to df.style.set_table_styles.
+    """
+    if display_index:
+        display(df.style.set_properties(**style_properties).set_table_styles(table_styles))
+    else:
+        display(df.style.set_properties(**style_properties).set_table_styles(table_styles).hide(axis="index"))
+
+
+def _get_cb_ids_from_IFV_columns(df: pd.DataFrame) -> Dict[str, str]:
+    pattern = r"([0-9]{7,})$"
+    return {match.group(1): colname for colname in get_columns_with_IFVs(df) if (match := re.search(pattern, colname))}
+
+
+def _get_categories(ifv: Dict[str, Optional[str]]) -> List[str]:
+    i = 0
+    categories = []
+    while str(i) in ifv:
+        if ifv.get(str(i)):
+            categories.append(ifv[str(i)])
+        i += 1
+    return categories
+
+
+def _get_ifvs_with_categories_from_design_specification(
+    filename: str, id_names_mapping: Dict[str, str]
+) -> Dict[str, List[str]]:
+    with open(os.path.join(os.getcwd(), "design_specification", filename)) as f:
+        design_spec = dict(DesignSpecificationModel(**json.load(f)))
+        return {colname: _get_categories(dict(design_spec["ifv"][id])) for id, colname in id_names_mapping.items()}
+
+
+def _detect_marginal_categorical_ifv_occurrences(
+    df: pd.DataFrame, n_occurrences_threshold: int, design_specification_filename: Optional[str]
+) -> None:
+    """
+    Raises a warning whenever a categorical IFV has values that occur n_occurrences or less times in the dataframe df. There is the option to provide a design specification file which has to have the form of an IFAT decoder config file. The file should be located at <cwd>/design_specification/<filename>.
+    """
+    further_analysis_string = (
+        "To analyze this further, you can plot the histograms using tools.plot_tools.plot_tools.ifv_histograms."
+    )
+
+    id_names_mapping = _get_cb_ids_from_IFV_columns(df)
+    occurrence_counts: Dict[str, pd.Series] = {
+        colname: df[colname].value_counts(sort=False) for colname in id_names_mapping.values()
+    }
+    for colname, n_occurrences in occurrence_counts.items():
+        ifv_coverage_check = n_occurrences <= n_occurrences_threshold
+        if any(ifv_coverage_check):
+            warnings.warn(
+                f"The categories {set(ifv_coverage_check[ifv_coverage_check].index)} of the IFV {colname}, have a small number of occurrences({set(occurrence_counts[colname][list(ifv_coverage_check)])}). {further_analysis_string}"
+            )
+
+    if design_specification_filename:
+        categories = _get_ifvs_with_categories_from_design_specification(
+            filename=design_specification_filename,
+            id_names_mapping=id_names_mapping,
+        )
+        for category, n_occurrences in occurrence_counts.items():
+            categories_diff = set(categories[category]) - set(n_occurrences.index)
+            if categories_diff:
+                warnings.warn(
+                    f"The categories {categories_diff} of the IFV {category} are specified in the design specification file {design_specification_filename}, but have not been found in the dataframe. {further_analysis_string}"
+                )
+            unexpected_categories = set(n_occurrences.index) - set(categories[category])
+            if unexpected_categories:
+                warnings.warn(
+                    f"The categories {unexpected_categories} of the IFV {category} are not specified in the design specification file {design_specification_filename} but have been found in the dataframe. {further_analysis_string}"
+                )

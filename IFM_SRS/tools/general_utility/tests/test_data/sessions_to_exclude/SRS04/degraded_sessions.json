@@ -1,0 +1,21 @@
+{
+    "global": {
+        "some issue": {
+            "__comment": "some issue explanation",
+            "value": [
+                "invalid1"
+            ]
+        }
+    },
+    "adcam": {
+        "some other issue": {
+            "__comment": "some issue explanation",
+            "value": [
+                "invalid2"
+            ]
+        }
+    },
+    "lidar": {},
+    "srr": {},
+    "frr": {}
+}
